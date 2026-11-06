@@ -1,0 +1,1 @@
+export function backupPage(){return `<div class="notice">Bộ dữ liệu đang chọn: <strong id="backup-mode">Đang tải…</strong>. Chuyển trang không thay dữ liệu. Khôi phục/reset chỉ tác động bộ dữ liệu đang chọn.</div><div id="backup-search"></div><div id="backup-tools"></div>`;}

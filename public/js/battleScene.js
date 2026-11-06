@@ -1,41 +1,26 @@
 import * as THREE from 'three';
 import {mesh,material,label} from './primitives.js';
+import {enemyRig} from './proceduralCostumes.js';
 export const FIELD_COLORS=['#68717a','#3f91b9','#58a88b','#d7ad50','#a578cf','#81aacd','#6566ad','#c77799','#e96d47','#8290df','#dcbb68'];
 export class EnemyView{
   constructor(parent,type,boss=false){
-    this.root=new THREE.Group();parent.add(this.root);this.body=new THREE.Group();this.root.add(this.body);this.type=type;this.boss=boss;this.id=null;
-    const color=boss?['#262b3e','#ae3148','#64349e'][type]:['#333f52','#9b6bca','#757b85'][type];
-    this.arms=[];
-    if(type===1&&!boss){
-      mesh(this.body,'sphere',color,[0,1.2,0],[.5,.65,.4],true);mesh(this.body,'cone',color,[0,.6,0],[.45,1,.35],true);
-    }else{
-      mesh(this.body,type===2?'box':'cone',color,[0,.9,0],[type===2?.9:.65,1.25,.55]);
-      mesh(this.body,type===2?'box':'sphere',color,[0,1.7,0],[.4,.42,.35]);
-      for(const side of [-1,1]){
-        mesh(this.body,'cone',boss&&type===2?'#ee91ff':'#b5a6ae',[side*.32,2.15,0],[.13,.55,.14],boss&&type===2);
-        const arm=new THREE.Group();arm.position.set(side*.65,1.25,0);this.body.add(arm);mesh(arm,'box',color,[0,-.3,0],[type===2?.45:.25,.8,.3]);this.arms.push(arm);
-        mesh(this.body,'box',color,[side*.28,.15,0],[.3,.45,.4]);
-      }
-    }
-    for(const x of [-.14,.14])mesh(this.body,'sphere',boss&&type===2?'#d899ff':'#ff5a66',[x,1.75,.34],[.07,.07,.04],true);
-    if(boss){
-      if(type===0){mesh(this.arms[1],'cylinder','#a39488',[0,-.1,.6],[.06,2,.06]);mesh(this.arms[1],'box','#a4abb8',[0,.7,.6],[.9,.5,.15]);}
-      if(type===1){mesh(this.arms[1],'box','#ff5768',[0,-.2,.9],[.16,.15,2.1],true);mesh(this.body,'cone','#4d182a',[0,.9,-.4],[1,1.7,.18]);}
-      if(type===2){for(let i=0;i<5;i++)mesh(this.body,'cone','#bc8afa',[(i-2)*.18,2.3,0],[.1,.45+Math.abs(i-2)*.1,.1],true);this.halo=mesh(this.body,'ring','#b476ff',[0,1,-.3],[1.4,1.4,1.4],true);}
-    }
+    this.root=new THREE.Group();this.root.name=`${boss?'boss':'mob'}:${type}`;parent.add(this.root);this.body=new THREE.Group();this.root.add(this.body);this.type=type;this.boss=boss;this.id=null;
+    Object.assign(this,enemyRig(this.body,type,boss));
     this.baseScale=boss?2.25:1;this.root.scale.setScalar(this.baseScale);
-    mesh(this.root,'box','#302936',[0,2.65,0],[1.1,.1,.08]);this.hp=mesh(this.root,'box',boss?'#ee7481':'#9bd69c',[0,2.65,.05],[1.1,.1,.08]);
+    mesh(this.root,'box','#302936',[0,2.98,0],[1.1,.1,.08]);this.hp=mesh(this.root,'box',boss?'#ee7481':'#9bd69c',[0,2.98,.05],[1.1,.1,.08]);
     this.root.visible=false;
   }
   update(data,t,dt){
     if(this.id!==data.id){this.id=data.id;this.root.position.set(data.x,.2,data.z);}
-    this.root.visible=true;const alpha=1-Math.exp(-dt*10);this.root.position.x+=(data.x-this.root.position.x)*alpha;this.root.position.z+=(data.z-this.root.position.z)*alpha;
-    this.root.position.y=.2+(!this.boss&&this.type===1?Math.sin(t*3+data.spawnTime)*.3:0);this.body.rotation.y=data.facing??0;
-    this.body.rotation.z=data.animation==='hit'?Math.sin(t*30)*.13:0;
-    for(let i=0;i<this.arms.length;i++)this.arms[i].rotation.x=data.animation==='attack'?-1+Math.sin(t*10+i)*1.2:data.animation==='cast'?-2:Math.sin(t*5+i*3)*.15;
-    if(this.halo){this.halo.rotation.z=t*(data.enraged?3:1);this.halo.scale.setScalar(data.enraged?1.8:1.4);}
-    this.root.scale.setScalar(this.baseScale*(data.status==='dead'?Math.max(.01,1-(t*1000-data.deathAt)/800):data.enraged?1.12:1));
-    this.hp.scale.x=1.1*Math.max(0,data.hp/data.maxHp);this.hp.position.x=-(1.1-this.hp.scale.x)/2;
+    const age=Math.max(0,t*1000-(data.deathAt??0)),dead=data.status==='dead';
+    this.root.visible=!dead||age<800;const alpha=1-Math.exp(-dt*10);this.root.position.x+=(data.x-this.root.position.x)*alpha;this.root.position.z+=(data.z-this.root.position.z)*alpha;
+    this.root.position.y=.2+(!this.boss&&this.type===1?Math.sin(t*3+(data.spawnTime??0))*.15:0);this.body.rotation.y=data.facing??0;
+    this.body.rotation.x=data.animation==='walk'?.08:0;this.body.rotation.z=dead?Math.min(1,age/800)*.7:data.animation==='hit'?Math.sin(t*30)*.13:0;
+    for(let i=0;i<this.arms.length;i++){this.arms[i].rotation.x=data.animation==='attack'?-1+Math.sin(t*10+i)*1.2:data.animation==='cast'?-2:Math.sin(t*5+i*3)*.15;this.legs[i].rotation.x=data.animation==='walk'?Math.sin(t*6+i*Math.PI)*.4:0;}
+    this.hair.visible=this.boss||!this.low;this.cape.visible=this.boss&&!this.low;this.hair.rotation.x=Math.sin(t*1.9)*.12;this.cape.rotation.x=.1+Math.sin(t*1.6)*.12;
+    if(this.halo){this.halo.visible=!this.low;this.halo.rotation.z=t*(data.enraged?1.1:.45);this.halo.scale.setScalar(data.enraged?1.1:1);}
+    this.root.scale.setScalar(this.baseScale*(dead?Math.max(.01,1-age/800):data.enraged?1.12:1));
+    const fraction=data.maxHp>0?Math.max(0,Math.min(1,data.hp/data.maxHp)):0;this.hp.scale.x=1.1*fraction;this.hp.position.x=-(1.1-this.hp.scale.x)/2;
   }
 }
 export class BattleScene{
@@ -80,9 +65,9 @@ export class BattleScene{
     if(f){
       for(let type=0;type<3;type++){
         const mobs=f.mobs.filter(m=>m.type===type).slice(0,this.low?8:20),pool=this.pools[type];const used=new Set();
-        for(const m of mobs){let view=pool.find(v=>v.id===m.id&&!used.has(v));if(!view)view=pool.find(v=>!used.has(v)&&!mobs.some(m=>m.id===v.id));if(!view)continue;used.add(view);view.update(m,t,dt);}
+        for(const m of mobs){let view=pool.find(v=>v.id===m.id&&!used.has(v));if(!view)view=pool.find(v=>!used.has(v)&&!mobs.some(m=>m.id===v.id));if(!view)continue;used.add(view);view.low=this.low;view.update(m,t,dt);}
       }
-      if(f.activeBoss&&['alive','dead'].includes(f.activeBoss.status))this.bosses[f.activeBoss.type].update(f.activeBoss,t,dt);
+      if(f.activeBoss&&['alive','dead'].includes(f.activeBoss.status)){const boss=this.bosses[f.activeBoss.type];boss.low=this.low;boss.update(f.activeBoss,t,dt);}
     }
     this.portal.rotation.z=t*.15;this.rune.rotation.z=t*.02;
     for(const fx of this.fx){if(now>=fx.until){fx.group.visible=false;continue;}if(!fx.group.visible)continue;const age=(now-fx.start)/900;fx.ring.scale.setScalar((fx.area?2:1)+age*(fx.area?6:2));fx.slash.rotation.y=Math.atan2(fx.fromX,fx.fromZ);fx.slash.position.x=fx.fromX*(1-age);fx.slash.position.z=fx.fromZ*(1-age);fx.meteor.position.y=7-age*7;fx.text.position.y=2+age*2;}

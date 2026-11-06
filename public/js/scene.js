@@ -1,40 +1,155 @@
 import * as THREE from 'three';
-import { mesh, geometry, material, label } from './primitives.js';
-export function createWorld(host) {
-  const scene = new THREE.Scene(); scene.background = new THREE.Color('#263c58'); scene.fog = new THREE.Fog('#486580',45,115);
-  const renderer = new THREE.WebGLRenderer({antialias:true,alpha:false}); renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.outputColorSpace=THREE.SRGBColorSpace;host.append(renderer.domElement);
-  const camera = new THREE.PerspectiveCamera(45,9/16,.1,180);camera.position.set(25,29,43);
-  scene.add(new THREE.HemisphereLight('#b6e6ff','#58415c',2));
-  const sun = new THREE.DirectionalLight('#ffe3b2',3);sun.position.set(15,28,8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-20,right:20,top:20,bottom:-20,near:1,far:90});sun.shadow.bias=-.001;scene.add(sun);
-  const island = mesh(scene,'cone','#344254',[0,-5,0],[16,10,16]);island.rotation.z=Math.PI;
-  mesh(scene,'cylinder','#69788b',[0,-.45,0],[14,.9,14]);
-  const tile = new THREE.InstancedMesh(geometry('box'),material('#738698'),400), dummy = new THREE.Object3D();let n=0;
-  for(let x=-13;x<=13;x+=1.4)for(let z=-13;z<=13;z+=1.4)if(x*x+z*z<174){dummy.position.set(x,.02,z);dummy.scale.set(1.34,.09,1.34);dummy.updateMatrix();tile.setMatrixAt(n++,dummy.matrix);}tile.count=n;tile.receiveShadow=true;scene.add(tile);
-  const rings=[];
-  for(const r of [3.3,4,4.4]){const ring=mesh(scene,'ring','#57d9c4',[0,.16,1],[r,r,r],true);ring.rotation.x=-Math.PI/2;rings.push(ring);}
-  for(let i=0;i<12;i++){const a=i*Math.PI/6;mesh(scene,'box','#d7b977',[Math.cos(a)*4.1,.17,1+Math.sin(a)*4.1],[.12,.08,.5],true).rotation.y=-a;}
-  for(let i=0;i<30;i++)mesh(scene,'cylinder','#485e70',[(i%10-4.5)*1.75,.15,Math.floor(i/10)*3.8-4],[.65,.25,.65]);
-  function roof(x,y,z,w,d){
-    // Four rising strips on each side form a curved eave silhouette.
-    for(let side of [-1,1])for(let k=0;k<4;k++){const part=mesh(scene,'box',k%2?'#755177':'#634469',[x+side*(k+.5)*w/8,y-.2*k+.09*k*k,z],[w/4+.1,.22,d]);part.rotation.z=side*(-.18+.12*k);}
-    mesh(scene,'box','#cbaa74',[x,y+.18,z],[.15,.2,d+.4]);
+import {mesh,geometry,material,label} from './primitives.js';
+import {SECT_COURTYARD_CENTER as C,SECT_CAMERA_ANCHOR,SECT_SEATS,sectSeat} from './sectLayout.js';
+
+// Batch architecture once; animated objects stay separate. Shared primitives are
+// retained, never disposed on phase changes or allocated in the render loop.
+function batchArchitecture(group){
+  group.updateMatrixWorld(true);const batches=new Map();
+  for(const child of [...group.children]){
+    if(!child.isMesh)continue;
+    const key=child.geometry.uuid+child.material.uuid;
+    if(!batches.has(key))batches.set(key,[]);batches.get(key).push(child);
   }
-  mesh(scene,'box','#526174',[0,.55,-8.8],[10,1,4.5]);
-  for(let i=0;i<4;i++)mesh(scene,'box','#95a2ae',[0,.14+i*.14,-5.7-i*.45],[5,.28+i*.28,.55]);
-  mesh(scene,'box','#3c445b',[0,2.5,-9.7],[8,3.2,1]);
-  for(const x of [-4,-2,2,4])for(const z of [-7.2,-10.2]){mesh(scene,'cylinder','#b37368',[x,2.3,z],[.18,3.6,.18]);mesh(scene,'cylinder','#dec28c',[x,.75,z],[.3,.18,.3]);}
-  roof(0,4.5,-8.7,11,5.8);roof(0,5.7,-8.7,7,3.8);
-  for(const x of [-3.8,3.8])mesh(scene,'sphere','#efb762',[x,3.4,-6.7],[.32,.46,.32],true);
-  for(const x of [-3,3])mesh(scene,'cylinder','#885e69',[x,2.4,10],[.27,4.8,.27]);roof(0,4.9,10,7,1.5);
-  const sign=label('THANH VÂN MÔN');sign.position.set(0,4.1,10);sign.scale.set(3,.65,1);scene.add(sign);
-  for(let level=0;level<4;level++){mesh(scene,'cylinder','#8b8195',[-10,1+level*1.6,-5],[1.1,1.6,1.1]);roof(-10,2+level*1.6,-5,3.5,3.5);}
-  for(const [x,z] of [[10,-6],[-10,3]]){mesh(scene,'cylinder','#685465',[x,2,z],[.5,4,.5]);for(let i=0;i<7;i++)mesh(scene,'sphere',i%2?'#4e9b90':'#679f9c',[x+Math.sin(i*2)*1.5,4+i%3*.6,z+Math.cos(i*2)*1.3],[1.8,1.2,1.6]);}
-  for(let i=0;i<12;i++){const a=i*Math.PI/6;mesh(scene,'cone','#6fc9d0',[Math.cos(a)*12,.6,Math.sin(a)*12],[.3,1.1,.3],true);}
-  const swords=[];for(let i=0;i<5;i++){const g=new THREE.Group();g.position.set(-7+i*3.5,7,-4);mesh(g,'box','#c5e9ed',[0,0,0],[.12,1.8,.18]);mesh(g,'box','#d6b273',[0,-.65,0],[.7,.12,.2]);g.rotation.z=.5;scene.add(g);swords.push(g);}
-  const clouds=[];for(let i=0;i<24;i++){const a=i*2.4,g=mesh(scene,'sphere','#97b6c7',[Math.sin(a)*(18+i%4*6),-3-i%3*1.7,Math.cos(a)*(18+i%4*6)],[5+i%3,1,2.8]);clouds.push(g);}
-  for(let i=0;i<14;i++)mesh(scene,'cone','#465b78',[(i-7)*9,-8,-35-(i%3)*8],[5+i%3*2,13+i%4*5,5]);
-  const water=mesh(scene,'box','#77d4df',[11,-5,3],[.9,10,.25],true);
-  const resize = () => {const {width,height}=host.getBoundingClientRect();renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();};new ResizeObserver(resize).observe(host);resize();
-  const dawn=new THREE.Color('#263c58'), dusk=new THREE.Color('#65516b');
-  return {scene,camera,renderer,mood(finalBoss){sun.color.set(finalBoss?'#f5a9d5':'#ffe3b2');},quality(level,display={}){renderer.setPixelRatio(Math.min(devicePixelRatio,level==='low'?1:level==='high'?2:1.5));renderer.shadowMap.enabled=level!=='low';sun.castShadow=level!=='low'&&display.shadows!==false;renderer.shadowMap.enabled=sun.castShadow;sun.intensity=3*(display.lightIntensity??1);resize();},update(t){for(let i=0;i<clouds.length;i++)clouds[i].position.x+=Math.sin(t*.1+i)*.001;for(let i=0;i<swords.length;i++){swords[i].position.y=7+Math.sin(t+i)*.3;swords[i].rotation.y=t*.25;}for(const r of rings)r.rotation.z=t*.08;water.scale.x=.9+Math.sin(t*3)*.08;const blend=(Math.sin(t/90)+1)*.5;scene.background.copy(dawn).lerp(dusk,blend);sun.position.x=15+Math.sin(t/90)*10;}};
+  for(const parts of batches.values()){
+    const first=parts[0],batch=new THREE.InstancedMesh(first.geometry,first.material,parts.length);
+    parts.forEach((part,i)=>{batch.setMatrixAt(i,part.matrix);group.remove(part);});
+    batch.castShadow=first.castShadow;batch.receiveShadow=true;batch.computeBoundingSphere();group.add(batch);
+  }
+}
+
+export function createWorld(host){
+  const scene=new THREE.Scene();scene.background=new THREE.Color('#122039');scene.fog=new THREE.Fog('#243d5b',75,155);
+  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.outputColorSpace=THREE.SRGBColorSpace;host.appendChild(renderer.domElement);
+  const camera=new THREE.PerspectiveCamera(45,9/16,.1,200),anchor=SECT_CAMERA_ANCHOR;
+  camera.position.copy(anchor.position);camera.lookAt(anchor.target.x,anchor.target.y,anchor.target.z);
+  scene.add(new THREE.HemisphereLight('#b7d7ff','#26364b',1.8));
+  const sun=new THREE.DirectionalLight('#ffe2b6',2.6);sun.position.set(10,30,16);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-22,right:22,top:22,bottom:-22,near:1,far:95});sun.shadow.bias=-.001;scene.add(sun);
+  const architecture=new THREE.Group();architecture.name='sect-architecture';scene.add(architecture);
+  const stone='#526d85',edge='#93acba',roofColor='#334674',gold='#d8b56f',wood='#354358';
+  const build=(kind,color,p,s,glow=false)=>mesh(architecture,kind,color,p,s,glow);
+  // Continuous curved roof, generated once and instanced at different sizes.
+  const roofGeometry=new THREE.BufferGeometry(),roofVertices=[];
+  const roofHeight=(x,z)=>.4-.7*Math.abs(z*2)+.45*(z*2)**2+.09*(x*2)**4;
+  for(let ix=0;ix<8;ix++)for(let iz=0;iz<10;iz++){
+    const x=ix/8-.5,z=iz/10-.5,dx=1/8,dz=1/10;
+    for(const [px,pz]of [[x,z],[x,z+dz],[x+dx,z],[x+dx,z],[x,z+dz],[x+dx,z+dz]])roofVertices.push(px,roofHeight(px,pz),pz);
+  }
+  roofGeometry.setAttribute('position',new THREE.Float32BufferAttribute(roofVertices,3));roofGeometry.computeVertexNormals();
+  // A round, open courtyard. No gate, tree or wall crosses its foreground.
+  build('cone','#22384e',[C.x,-4.3,C.z],[8.5,8,8.5]).rotation.z=Math.PI;
+  for(let i=0;i<9;i++){const a=i*Math.PI*2/9;build('cone',i%2?'#2b455d':'#344f68',[C.x+Math.sin(a)*6,-2.5-i%3*.4,C.z+Math.cos(a)*6],[1.8,4+i%3,1.8]).rotation.z=Math.PI;}
+  build('cylinder',edge,[C.x,-.55,C.z],[8.3,.55,8.3]);
+  build('cylinder',stone,[C.x,-.2,C.z],[8.1,.3,8.1]);
+  for(let x=-7.5;x<=7.5;x+=1.1)for(let z=-7.5;z<=7.5;z+=1.1)if(x*x+z*z<58)build('box','#5f788e',[C.x+x,.015,C.z+z],[1.04,.05,1.04]);
+  for(let i=0;i<32;i++){
+    const a=i*Math.PI/16,x=C.x+Math.sin(a)*7.85,z=C.z+Math.cos(a)*7.85;
+    const rim=build('box',i%4===0?gold:edge,[x,.08,z],[.7,.12,.28]);rim.rotation.y=a;
+  }
+  const rings=[];
+  for(const [r,color]of [[2.7,'#74e6dc'],[3.15,'#c1a8ff'],[3.5,'#6de4ed']]){const ring=mesh(scene,'ring',color,[C.x,.13,C.z],[r,r,r],true);ring.rotation.x=-Math.PI/2;rings.push(ring);}
+  for(let i=0;i<12;i++){
+    const a=i*Math.PI/6;
+    const mark=build('box',gold,[C.x+Math.sin(a)*3.8,.12,C.z+Math.cos(a)*3.8],[.12,.06,.45],true);mark.rotation.y=a;
+  }
+  for(let i=0;i<SECT_SEATS;i++){
+    const p=sectSeat(i);build('cylinder','#2d4a62',[p.x,.12,p.z],[.68,.22,.68]);
+    build('cylinder','#9aaab5',[p.x,.24,p.z],[.59,.04,.59]);
+  }
+  function roof(x,y,z,w,d){
+    const surface=new THREE.Mesh(roofGeometry,material(roofColor));surface.position.set(x,y,z);surface.scale.set(w,d,d);surface.castShadow=true;architecture.add(surface);
+    for(const side of [-1,1])for(let i=0;i<10;i++){
+      const z1=i/10-.5,z2=(i+1)/10-.5,h1=roofHeight(side*.5,z1)*d,h2=roofHeight(side*.5,z2)*d;
+      const trim=build('box',gold,[x+side*w/2,y+(h1+h2)/2+.03,z+(z1+z2)*d/2],[.065,.07,Math.hypot(d/10,h2-h1)]);trim.rotation.x=-Math.atan2(h2-h1,d/10);
+    }
+    for(const side of [-1,1])for(let i=0;i<8;i++){
+      const x1=i/8-.5,x2=(i+1)/8-.5,h1=roofHeight(x1,side*.5)*d,h2=roofHeight(x2,side*.5)*d;
+      const trim=build('box',gold,[x+(x1+x2)*w/2,y+(h1+h2)/2+.03,z+side*d/2],[Math.hypot(w/8,h2-h1),.07,.065]);trim.rotation.z=Math.atan2(h2-h1,w/8);
+    }
+    build('box',gold,[x,y+.4*d+.04,z],[w+.15,.12,.12]);
+  }
+  function lantern(x,y,z){
+    build('box',gold,[x,y+.5,z],[.5,.08,.5]);build('sphere','#ffcf83',[x,y,z],[.23,.36,.23],true);build('box',gold,[x,y-.5,z],[.04,.3,.04]);
+  }
+  // Hall behind the left shoulder of the courtyard, with an open stairway.
+  const hx=-7.1,hz=-5.2;
+  build('box',edge,[hx,.25,hz],[7.7,.7,4.7]);
+  for(let i=0;i<4;i++)build('box',stone,[hx,.08+i*.13,hz+3.4-i*.38],[4.8,.17,.65]);
+  build('box',wood,[hx,2.05,hz-.85],[6.9,3,.3]);
+  for(const x of [-2.2,0,2.2]){
+    build('box','#c99b5b',[hx+x,2.2,hz-.63],[1.6,1.65,.08]);
+    build('box','#ffd78e',[hx+x,2.2,hz-.56],[1.35,1.4,.04],true);
+    for(const dx of [-.45,0,.45])build('box',wood,[hx+x+dx,2.2,hz-.52],[.06,1.5,.05]);
+    build('box',wood,[hx+x,2.2,hz-.5],[1.45,.07,.05]);
+  }
+  for(const x of [-3,-1,1,3]){
+    build('box','#56647b',[hx+x,2,hz+1.7],[.25,3.4,.25]);
+    build('box',gold,[hx+x,.8,hz+1.7],[.36,.18,.36]);
+    build('box',gold,[hx+x,3.45,hz+1.7],[.36,.18,.36]);
+  }
+  roof(hx,2.9,hz,8.7,5.4);roof(hx,4.8,hz-.2,5.5,3.4);
+  lantern(hx-2.8,2.8,hz+2);lantern(hx+2.8,2.8,hz+2);
+  build('box','#645281',[hx,2,hz+1.9],[1.1,2.5,.07]);
+  for(const dx of [-.52,.52])build('box',gold,[hx+dx,2,hz+1.96],[.04,2.5,.04]);
+  build('box',gold,[hx,2.15,hz+1.98],[.5,.5,.04]).rotation.z=Math.PI/4;
+  const hallSign=label('THANH VÂN MÔN');hallSign.position.set(hx,3.4,hz+2);hallSign.scale.set(3.5,.52,1);architecture.add(hallSign);
+  // A small entrance off to the left, and a stone bridge towards the upper isle.
+  for(const x of [-12,-9.6])build('box',wood,[x,1.35,1.1],[.3,2.9,.3]);
+  roof(-10.8,2.75,1.1,3.5,1.8);
+  for(let i=0;i<12;i++){
+    const x=-.6+i*.37,z=-2.8-i*.39,y=.28+i*.22;
+    const step=build('box',stone,[x,y,z],[1.9,.2,.58]);step.rotation.y=-.75;
+    for(const side of [-1,1])build('cylinder',edge,[x+side*.68,y+.45,z+side*.64],[.055,.9,.055]);
+  }
+  // Low railings only along the rear edge; front silhouettes stay unobstructed.
+  for(let i=0;i<10;i++){
+    const a=Math.PI*.6+i*Math.PI*.8/9,x=C.x+Math.sin(a)*8,z=C.z+Math.cos(a)*8;
+    build('cylinder',edge,[x,.55,z],[.09,1,.09]);const rail=build('box',edge,[x,.92,z],[1.7,.09,.09]);rail.rotation.y=a;
+  }
+  function floweringTree(x,y,z,size){
+    const trunk=build('cylinder','#4a465a',[x,y+size,z],[.15,size*2,.15]);trunk.rotation.z=-.15;
+    for(let i=0;i<9;i++){
+      const a=i*2.4,r=(i%3)*.36;
+      build('sphere',i%2?'#ba83ad':'#d5a1be',[x+Math.cos(a)*r*size,y+size*2+Math.sin(i*3)*.3,z+Math.sin(a)*r*size],[size*.75,size*.4,size*.6]);
+    }
+  }
+  floweringTree(-10.6,.3,-.7,1.5);floweringTree(-9.8,.7,-8.2,1.4);
+  for(let i=0;i<3;i++){build('cylinder',wood,[-11.3,1+i*1.5,-9.5],[.9,1.4,.9]);roof(-11.3,1.5+i*1.5,-9.5,2.8-i*.3,2.2);}
+  // Mountains, remote isles and a moon are all real procedural geometry.
+  const mountainGeometry=new THREE.CylinderGeometry(.3,1,1,5);
+  for(let i=0;i<16;i++){
+    const mountain=new THREE.Mesh(mountainGeometry,material(i%2?'#243b59':'#304e6c'));mountain.position.set((i-7)*7,-6,-32-i%3*8);mountain.scale.set(4+i%3,18+i%4*4,5);mountain.rotation.z=(i%3-1)*.08;architecture.add(mountain);
+    build('cylinder','#49656d',[(i-7)*7,3+i%4*2,-32-i%3*8],[1.1,.1,1.4]);
+  }
+  for(const [x,y,z,r]of [[-15,3,-18,2.4],[12,1,-21,2],[17,-2,-14,1.5]]){build('cone','#2d4860',[x,y-2,z],[r,4,r]).rotation.z=Math.PI;build('cylinder',stone,[x,y,z],[r,.25,r]);}
+  build('sphere','#d3dcda',[6,17,-38],[2.3,2.3,2.3],true);
+  // Small instanced stars rather than dozens of individual draw calls.
+  for(let i=0;i<45;i++)build('sphere','#94c7df',[-28+(i*13.3)%56,9+(i*7.7)%21,-42],[.025,.025,.025],true);
+  batchArchitecture(architecture);
+  const clouds=[];
+  for(let i=0;i<12;i++){
+    const a=i*Math.PI/6,r=15+i%3*2;
+    clouds.push(mesh(scene,'sphere','#536f8a',[Math.cos(a)*r,-6-i%3,Math.sin(a)*r-6],[3.5,.8,2.1]));
+  }
+  const waterfalls=[];
+  for(let i=0;i<3;i++)waterfalls.push(mesh(scene,'box',i%2?'#a8e1ed':'#508fae',[C.x-6.3+i*.3,-5,C.z+2],[.32,10+i*.5,.12],true));
+  const swords=[];
+  for(let i=0;i<3;i++){const sword=mesh(scene,'box','#a5dfec',[-5+i*2.1,4.7,-.6],[.07,.08,1.4],true);swords.push(sword);}
+  const petals=[];
+  for(let i=0;i<10;i++)petals.push(mesh(scene,'sphere','#edbad5',[-10+(i%4)*.65,1+i*.31,-1+i%3],[.05,.025,.09]));
+  const dawn=new THREE.Color('#122039'),dusk=new THREE.Color('#282442');
+  function resize(){const {width,height}=host.getBoundingClientRect();if(!width||!height)return;renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();}
+  new ResizeObserver(resize).observe(host);resize();
+  return {scene,camera,renderer,
+    mood(finalBoss){sun.color.set(finalBoss?'#f5a9d5':'#ffe2b6');},
+    quality(level,display={}){renderer.setPixelRatio(Math.min(devicePixelRatio,level==='low'?1:level==='high'?2:1.5));sun.castShadow=level!=='low'&&display.shadows!==false;renderer.shadowMap.enabled=sun.castShadow;sun.intensity=2.6*(display.lightIntensity??1);resize();},
+    update(t){
+      clouds.forEach((c,i)=>{c.position.x=Math.cos(i*Math.PI/6)*(15+i%3*2)+Math.sin(t*.07+i)*.6;});
+      swords.forEach((s,i)=>{s.position.y=4.7+Math.sin(t+i)*.22;s.rotation.y=t*.15;});
+      rings.forEach((r,i)=>{r.rotation.z=t*.06*(i%2?-1:1);});
+      waterfalls.forEach((w,i)=>{w.scale.x=.28+Math.sin(t*2+i)*.04;});
+      petals.forEach((p,i)=>{p.position.y=1+(i*.31+t*.13)%3;p.position.x=-10+i%4*.65+Math.sin(t*.4+i)*.35;});
+      scene.background.copy(dawn).lerp(dusk,(Math.sin(t/90)+1)/2);sun.position.x=10+Math.sin(t/90)*4;
+    }
+  };
 }

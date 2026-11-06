@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import {cameraSettings} from './settings.js';
+import {SECT_CAMERA_ANCHOR} from './sectLayout.js';
 export class CameraDirector {
-  constructor(camera){this.camera=camera;this.target=new THREE.Vector3(0,1,0);this.desired=new THREE.Vector3();this.look=new THREE.Vector3();this.queue=[];this.active=null;this.followed=null;this.seen=new Map();this.time=0;this.settings=cameraSettings();this.lastMode='';this.modeSince=0;}
+  constructor(camera){this.camera=camera;this.target=new THREE.Vector3().copy(SECT_CAMERA_ANCHOR.target);this.desired=new THREE.Vector3();this.look=new THREE.Vector3();this.queue=[];this.active=null;this.followed=null;this.seen=new Map();this.time=0;this.settings=cameraSettings();this.lastMode='';this.modeSince=0;}
   requestFocus(request,priority=1,duration=3000){
     const legacy=typeof request==='string',q=legacy?{userId:request,priority,duration,kind:'legacy',legacy:true}:{...request,duration:request.durationMs??3000};
     if(q.battlefieldId===null)delete q.battlefieldId;
@@ -22,12 +23,10 @@ export class CameraDirector {
     const seconds=t/1000;let player=this.active?players.find(p=>p.userId===this.active.userId):null;
     const follow=['follow','followPlayer'].includes(mode)||mode==='giftFocus'&&t-this.modeSince<3000;
     if(!player&&follow)player=players.find(p=>p.userId===options.userId)??players[0];
-    if(!player&&mode==='auto'&&Math.floor(seconds/12)%3===1)player=players[Math.floor(seconds/12)%Math.max(1,players.length)];
+    if(!player&&battle?.view&&mode==='auto'&&Math.floor(seconds/12)%3===1)player=players[Math.floor(seconds/12)%Math.max(1,players.length)];
     this.followed=player?.userId;
-    if(player){this.desired.set(player.x+5,7,player.z+9);this.look.set(player.x,1,player.z);}
-    else if(mode==='cultivationGroup'){this.desired.set(8,14,20);this.look.set(0,1,0);}
-    else if(mode==='orbit'||mode==='auto'&&Math.floor(seconds/12)%3===2){this.desired.set(Math.sin(seconds*.1)*18,23,33);this.look.set(0,0,0);}
-    else{this.desired.set(23+Math.sin(seconds*.05),28,40);this.look.set(0,0,0);}
+    if(player){const elevation=player.elevation??.3;this.desired.set(player.x+5,elevation+6.7,player.z+9);this.look.set(player.x,elevation+.7,player.z);}
+    else{this.desired.copy(SECT_CAMERA_ANCHOR.position);this.look.copy(SECT_CAMERA_ANCHOR.target);if(mode==='orbit')this.desired.x+=Math.sin(seconds*.1)*.7;}
     if(battle?.view){
       const f=battle.view,boss=f.activeBoss,age=battle.elapsedMs-(battle.focusAt??battle.viewSince),top=players.find(p=>p.userId===f.top?.[0]?.userId);
       if(battle.focusReason==='death'&&age<3000&&(!player||this.settings.priorities.result>=(this.active?.priority??0))){this.desired.set(12,18,24);this.look.set(0,1,0);this.followed=null;}
@@ -35,9 +34,9 @@ export class CameraDirector {
       else if(boss?.status==='alive'&&(mode==='followBoss'||boss.type===2||age<5000||!top)){this.desired.set(boss.x+9,boss.enraged?8:11,boss.z+15);this.look.set(boss.x,2.5,boss.z);this.followed=null;}
       else if(top){this.desired.set(top.x+6,8,top.z+11);this.look.set(top.x,1,top.z);this.followed=top.userId;}
       else{this.desired.set(15,20,25);this.look.set(0,1,0);}
-    }else if(ceremony&&(!this.active||this.settings.priorities.result>=this.active.priority)){player=players.find(p=>p.userId===ceremony.userId);this.desired.set(29,11,13);this.look.set(22,4.5,0);this.followed=player?.userId;}
-    else if(mode==='breakthrough'){this.desired.set(29,11,13);this.look.set(22,4.5,0);}
-    else if(result?.remainingMs>9000){this.desired.set(12,32,38);this.look.set(0,1,0);}
+    }else if(ceremony&&(!this.active||this.settings.priorities.result>=this.active.priority)){player=players.find(p=>p.userId===ceremony.userId);this.desired.copy(SECT_CAMERA_ANCHOR.position);this.look.copy(SECT_CAMERA_ANCHOR.target);this.followed=player?.userId;}
+    else if(mode==='breakthrough'){this.desired.copy(SECT_CAMERA_ANCHOR.position);this.look.copy(SECT_CAMERA_ANCHOR.target);}
+    else if(result?.remainingMs>9000){this.desired.copy(SECT_CAMERA_ANCHOR.position);this.look.copy(SECT_CAMERA_ANCHOR.target);}
     this.desired.y=Math.max(7,this.desired.y);this.desired.z=Math.max(6,this.desired.z);const alpha=1-Math.exp(-Math.max(0,Math.min(.1,dt))*1.5);this.camera.position.lerp(this.desired,alpha);this.target.lerp(this.look,alpha);this.camera.lookAt(this.target);
   }
 }

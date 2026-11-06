@@ -1,3 +1,196 @@
+# Trạng thái bàn giao lên Git — 06/11/2026
+
+Theo yêu cầu mới của người dùng, chuẩn bị commit/push toàn bộ mã nguồn, tài liệu và tài nguyên mới hiện có lên `https://github.com/hungdzx1/test_game_live.git`. Yêu cầu này thay cho giới hạn không commit/push ở các lượt triển khai trước. Không reset dữ liệu và không chuyển sang 06.3.
+
+## 06.2 — Đã có mã nguồn, CHƯA NGHIỆM THU HIỆU NĂNG
+
+- Đã đọc AGENTS.md, GAME_DESIGN.md, PROGRESS.md, 00_TONG_QUAN.md, 02_NHAN_VAT_BOSS.md và khảo sát code. Baseline trước sửa: **84 bài, 83 PASS / 0 FAIL / 1 SKIP**; có ảnh/telemetry browser trước sửa trong `test-results/phase06-2/baseline.json`.
+- Tạo `public/js/proceduralCostumes.js`: model 3D procedural, geometry màu đỉnh gộp theo khối cứng, cache hữu hạn theo biến thể; 6 tóc, 5 đạo bào, 4 pháp khí, 6 bảng màu, chọn ổn định từ seed. Không dùng ảnh làm sprite/model.
+- Sửa `public/js/characters.js`: tỉ lệ đầu/thân cân đối hơn, cổ/vai, áo nhiều lớp, tay áo rộng, đai, tà/lụa/tóc chuyển động, chân/knee để ngồi xếp bằng; giữ 12 animation. LOD theo khoảng cách/chất lượng/focus/độ kiếp; nhãn nhỏ, viền vàng, giảm opacity theo xa và tối đa khoảng 8 nhãn thường + người focus. Giữ lựa chọn 12 đại diện sân và giới hạn 40/60 của 06.1.
+- Sửa riêng `EnemyView` và nối cờ Low trong `public/js/battleScene.js`: ba boss giáp tối/rìu, áo đỏ/kiếm, vương miện/pháp luân tím; quái có hình dạng mới, động tác theo state cũ; HP nằm trên giới hạn model, chết/biến mất và pool cũ còn giữ.
+- Tạo `test/character-upgrade.test.js` (5 bài): hình học thực của các biến thể/seed/reload, 12 pose, 11 realm, LOD/nhãn/40–60, tài nguyên dùng chung và boss/HP/movement/death.
+- Tạo `scripts/characters-browser-smoke.js`: app/profile/dữ liệu tạm, ảnh thật /song 9:16, high/low, 10/60 người, reload seed, ba boss, giới hạn 60/40, quay về và kiểm tra cache ổn định. Điều chỉnh budget tài nguyên của `scripts/sect-browser-smoke.js` cho cache model mới; **chưa chạy lại script 06.1 sau thay đổi này**.
+- Không sửa thêm scene/layout/camera/main/realmAura/effects/primitives, API/WS/backend/quà/lưu trữ trong 06.2. Các diff của 06.1/UI trước đó được giữ để commit cùng theo yêu cầu.
+
+| Kiểm chứng | Kết quả |
+|---|---|
+| `npm.cmd test` trước push | **PASS: 89 bài — 88 PASS / 0 FAIL / 1 SKIP**; log local `test-results/push-node-test.txt` |
+| 5 test mới về model/pose/LOD/seed/boss; các test cũ và framing 06.1 | **PASS** |
+| Cú pháp module/test/script | **PASS**; cached diff có cảnh báo khoảng trắng Markdown xuống dòng trong tài liệu giai đoạn mới, giữ nguyên tài liệu người dùng |
+| Browser /song 720×1280, 1080×1920, 10/60 người, Low/High, cùng seed sau reload, tên thưa, ba boss và trở về | **PASS chức năng**; báo cáo local `test-results/phase06-2/browser-report.json`, 2026-11-06T11:19:42.762Z, 0 exception |
+| WebGL sau trở về trong lượt ngắn | **PASS có giới hạn**: hai mẫu cùng 282 geometry / 25 texture; không chứng minh chạy dài hạn |
+| Hiệu năng High với 60 nhân vật chi tiết trong battle | **CHƯA ĐẠT NGHIỆM THU**: đã có mẫu 9.6 FPS (boss 2) và 26.4 FPS (boss 3). Cần giới hạn thêm số model full-detail khi nhiều người đứng gần camera, đo lại trước khi tuyên bố xong 06.2 |
+| Smoke server LIVE/finishing chạy riêng sau 06.2; hồi quy browser 06.1 vừa sửa budget | **CHƯA KIỂM CHỨNG trong lượt 06.2**; các kết quả cũ ở phần lịch sử không thay cho lần chạy mới |
+| LIVE thật, OBS/LIVE Studio, âm thanh thực và nhiều giờ vận hành | **CHƯA KIỂM CHỨNG** |
+
+Số đo browser cuối (Chrome 156, cùng môi trường headless đã dùng ở 06.1): sân 10/high 48.4 FPS, 192 draw calls (baseline 46.9 / 278); sân 60/high, hiển thị 12 đại diện: 55.2 / 212 (baseline 55.8 / 317). Battle High 60: 41.4 / 773, 9.6 / 1475, 26.4 / 1461 theo ba boss; battle Low 40: 49.8 / 458. Đây là cửa sổ ngắn, trạng thái giao chiến khác nhau, không phải benchmark kiểm soát; không bỏ qua mẫu FPS thấp để tuyên bố tối ưu thành công. Cache geometry tăng do model gộp theo biến thể; đã kiểm tra không dispose nhầm tài nguyên dùng chung.
+
+Ảnh local trước/sau: `test-results/phase06-2/before-song-sect.png`, `song-sect.png`, `song-disciple-front.png`, `song-sect-1080.png`, `song-tribulation.png`, `song-boss-1.png`, `song-boss-2.png`, `song-boss-3.png`, `song-battle-low.png`, `song-return.png`. Các ảnh/log kiểm thử vẫn thuộc test-results được ignore. Model là low/medium-poly procedural, không chi tiết bằng concept 2D. HUD cũ che một phần đầu boss trong ảnh; chưa sửa HUD 06.5 hoặc bố cục battle 06.4.
+
+## Tài nguyên PNG mới được yêu cầu đưa lên Git
+
+Thư mục `public/assets/` có **26 PNG**: 6 Architecture layers, 4 Background layers, 7 tư thế Character_1, 5 FX layers và 4 UI. Đây là tài nguyên đang có sẵn trong workspace do người dùng yêu cầu push, không phải ảnh tải/generate trong triển khai model 06.2. Chưa nối chúng vào /song; trang game vẫn dựng bằng Three.js. Chỉ kiểm tra định dạng PNG, không tuyên bố đã nghiệm thu hình ảnh/nguồn gốc/quyền sử dụng các tệp đó. Không đưa node_modules, dữ liệu người chơi, .env, log hoặc backup vào commit.
+
+**Việc còn lại của 06.2:** tối ưu LOD cho nhóm đông ở gần camera, chạy lại browser/performance và các smoke chưa chạy, cập nhật trạng thái nghiệm thu. Dừng ở 06.2, không chuyển 06.3. Phần dưới là lịch sử theo thời điểm triển khai.
+
+---
+
+# 06.1 — Tông môn và đài độ kiếp trong cùng khung 9:16
+
+**06/11/2026 — Chỉ bước 06.1.** Đã triển khai và kiểm chứng bố cục bằng WebGL thực trong Chrome headless. Dừng tại đây; chưa triển khai 06.2–06.5, không commit/push.
+
+Đã đọc AGENTS.md, GAME_DESIGN.md, PROGRESS.md, 00_TONG_QUAN.md và 01_TONG_MON.md; khảo sát scene, presentation, camera, nhân vật, main, API/state và các smoke script trước khi dùng. Git đầu phiên có sẵn thay đổi UI quản trị, tài liệu, script/test và `caidat.json` (orbit → auto); giữ nguyên các thay đổi đó. Baseline **trước sửa code sản phẩm**: `npm.cmd test` **81 bài, 80 PASS / 0 FAIL / 1 SKIP**. Chrome cũng đã mở `/song` trước sửa: thấy sân nhưng đài ngoài khung; ảnh và telemetry baseline được lưu riêng.
+
+## Phạm vi và tệp thay đổi của 06.1
+
+| Tệp | Thay đổi |
+|---|---|
+| `public/js/sectLayout.js` (mới) | Nguồn tọa độ chung: SECT_COURTYARD_CENTER, TRIBULATION_PLATFORM_CENTER, SECT_CAMERA_ANCHOR; bounding volumes và 12 chỗ thiền |
+| `public/js/scene.js` | Sân tròn phía dưới, pháp trận cyan/tím, điện mái cong liền khối bên trái/phía sau, cửa sáng ấm, cờ hình học, bậc thang, cổng lệch trái, cầu đá, lan can phía sau, cây hoa/cánh hoa, kiếm bay, núi, đảo nhỏ, mây và thác. Gạch/kiến trúc lặp được gom InstancedMesh theo geometry/material |
+| `public/js/breakthroughScene.js` | Đảo đài nâng cao phía trên/phải, tâm bệ và vòng sáng, cột linh khí mờ, đèn, thác; TRIBULATION là alias của anchor chung. Giữ lịch sét, mây xoáy, flash, kết quả và Low giảm rung/flash |
+| `public/js/presentationState.js` | Chỉ đổi tọa độ trình diễn về các chỗ thiền; vẫn trả đủ mọi userId. Giữ độ lệch đi dạo demo theo tọa độ home, animation cũ và vị trí chiến đấu. Người độ kiếp dùng đúng anchor, không ghi ngược vào snapshot/server |
+| `public/js/characters.js` | Chỉ sửa lựa chọn đại diện: bình thường tối đa 12 ở sân; người được focus thay đại diện cùng chỗ, người độ kiếp vẫn hiện (tối đa 13). Battle giữ giới hạn 40/60 như cũ. Không sửa mesh/ngoại hình/animation nhân vật |
+| `public/js/camera.js` | Góc overview dùng anchor chung, khởi tạo ổn định; auto ở tông môn không tự chuyển sang shot cận ngẫu nhiên làm mất đài. Orbit cũ thu biên độ về góc overview. Giữ queue/ưu tiên/cooldown/manual focus và camera battle; shot nghi thức/kết quả dùng overview nhìn được hai khu |
+| `public/js/main.js` | Thêm đúng một điều kiện show/hide group đài theo effectivePhase, để vị trí mới không lọt vào chiến trường; không đổi connect, state/event hay vòng render |
+| `test/sect-layout.test.js` (mới) | Ba test framing 9:16, snapshot bất biến/tọa độ dùng chung/đi dạo, đại diện/focus/ceremony/battle/resource reuse |
+| `test/breakthrough-visual.test.js` | Cập nhật kỳ vọng tọa độ/góc nhìn sang anchor mới; vẫn kiểm tra 1–10 đợt sét, pose cast/hit, Low và pool item |
+| `scripts/sect-browser-smoke.js` (mới) | Kiểm thử `/song` bằng Chrome/CDP với server, profile và dữ liệu tạm; ảnh, probe chỉ đọc scene/camera, WS và telemetry thực |
+| `PROGRESS.md` | Ghi nhận bước này, bằng chứng và giới hạn; giữ lịch sử cũ bên dưới |
+
+Không tải ảnh/model/texture/font/âm thanh ngoài. Hai ảnh người dùng là hướng bố cục, không nhúng làm nền. Không sửa server, gameEngine/services, TikTok adapter, network/WS, quy tắc quà, schema hay tệp người chơi thật. Không sửa thêm `caidat.json`; lựa chọn camera cục bộ trước phiên vẫn giữ nguyên. HTML/CSS/HUD và chiến trường không được thiết kế lại trong bước này.
+
+## Kết quả kiểm thử
+
+| Trường hợp | Trạng thái | Bằng chứng |
+|---|---|---|
+| Hồi quy toàn bộ `npm.cmd test` | **PASS** | **84 bài: 83 PASS / 0 FAIL / 1 SKIP**, gồm cả 80 bài PASS baseline; [log](test-results/phase06-1/node-test.txt). SKIP LIVE thật giữ nguyên |
+| Cú pháp các module sản phẩm/script mới sửa; `git diff --check` | **PASS** | Các lệnh node --check và diff không báo lỗi |
+| 720×1280 và 1080×1920 | **PASS** | Camera thực + phép chiếu bounding volumes đều giữ sân và đài trong khung; đã mở ảnh để kiểm tra vị trí/độ rõ |
+| Demo 10 và 60 | **PASS** | 10 người hiện 10; 60 người hiện 12 đại diện thiền theo vòng cung, vẫn có 60 ở server. Tên thưa hơn, không overhaul nameplate |
+| Tâm đài / độ kiếp / reload | **PASS** | Nhân vật thực tới đúng x/z và cao độ anchor + .3; pause/reload/resume giữ nguyên ritual ID và kết quả do server quyết định. Sét model 1–10 đợt vẫn PASS |
+| Chuyển cultivation → độ kiếp → battle → kết quả → trở về | **PASS** | API/state/WebGL thực; sân và đài cùng ẩn/hiện; chiêu 1 chạy, EXP dừng trong battle. Không đổi thuật toán. Ảnh return có thể đang có nghi thức mới do thưởng cũ đưa người chơi vào queue |
+| Focus người ngoài 12 đại diện / Low | **PASS** | Focus demo-60 qua API cũ hiển thị đúng người; Low giữ framing, tắt bóng; tư thế/animation, fallback và audio gate cũ còn nguyên |
+| WebSocket / lỗi trình duyệt | **PASS** | Một WS đang mở; lần cuối nhận 328 snapshot và 365 game event; 0 Runtime exception; không ghi file LIVE trong dataRoot tạm |
+| Tài nguyên WebGL trong lượt thử ngắn | **PASS có giới hạn** | 9 geometry/15 texture trước nghi thức với 60 người → 10/16 sau nghi thức/battle/trở về → ổn định 10/16. Geometry thêm là đường sét đã tạo sẵn, lần đầu visible mới upload. Không chứng minh không leak khi chạy nhiều giờ |
+| `node scripts/live-smoke.js` | **PASS** | Combo final/replay chỉ tính một lần, battle giữ EXP/buff, reconnect demo, quà chờ được áp dụng khi về; [báo cáo](test-results/phase4-smoke.json) |
+| `node scripts/finishing-smoke.js` | **PASS khi chạy riêng lại** | 500 người/11 cảnh giới, 2 chu kỳ rút gọn ×10, đủ boss/thưởng idempotent và restart giữ dữ liệu. Lần cuối đo tối đa 80 effect/s, 8 snapshot/s; [báo cáo](test-results/phase5-smoke.json), [log](test-results/phase06-1/finishing-smoke.txt) |
+| LIVE TikTok thật, OBS/LIVE Studio, nghe âm thanh/TTS, chạy dài hạn | **CHƯA KIỂM CHỨNG** | Không suy ra PASS từ headless/demo/unit tests |
+
+Một lần chạy finishing-smoke trước đó **FAIL** ở assertion số effect nhận trong cửa sổ 1s ≤84. Chạy riêng lại script không sửa đổi đạt 80. Chưa xác định chắc nguyên nhân lần lệch ngưỡng; script này không chạy frontend. Ghi nhận độ nhạy timing của kiểm thử, không sửa WebSocket/backend ngoài phạm vi 06.1 và không tuyên bố đã khắc phục nguyên nhân đó.
+
+## Ảnh thực và số đo
+
+Chrome **156.0.8078.81**, Node **v24.13.1**, Windows; renderer thực: **ANGLE / Intel HD Graphics P530 / Direct3D11**. Browser có profile mới và app dùng thư mục tạm, không gắn vào tab/profile người dùng. [Báo cáo cuối](test-results/phase06-1/browser-report.json) lúc **2026-11-06T10:47:42.584Z**, [log](test-results/phase06-1/browser-test.txt).
+
+| Mẫu telemetry | FPS | Draw calls | Triangles | Geometry / texture | Nhân vật chi tiết |
+|---|---:|---:|---:|---:|---:|
+| Trước sửa: 10 người, 720×1280, medium | 52.0 | 396 | 30,970 | 7 / 12 | 10 |
+| Sau sửa: 10 người, 720×1280, medium | 46.0 | 278 | 48,016 | 9 / 13 | 10 |
+| Sau sửa: 60 người, 1080×1920, medium | 54.4 | 317 | 51,616 | 9 / 15 | 12 |
+| Sau trở về/hiệu ứng ổn định, medium | 59.8 | 340 | 54,946 | 10 / 16 | 13 |
+
+Draw calls với 10 người giảm 396 → 278 nhờ instancing, nhưng triangle tăng và mẫu FPS thấp hơn baseline. Đây là các cửa sổ đo ngắn từ frame thật, không phải benchmark lặp có kiểm soát hay cam kết FPS trong OBS. Low được thử đúng cài đặt, không so chi phí trực tiếp với medium vì lúc đo có thêm người/hiệu ứng nghi thức.
+
+Ảnh PNG đúng viewport 9:16, không dựng ảnh giả:
+
+- Trước/sau 720: [trước](test-results/phase06-1/before-720.png), [sau](test-results/phase06-1/song-sect-720.png); [telemetry baseline](test-results/phase06-1/baseline.json).
+- [Tông môn 1080×1920 / 10 người](test-results/phase06-1/song-sect.png).
+- [60 người / 1080×1920](test-results/phase06-1/song-sect-60.png), [60 người / 720×1280](test-results/phase06-1/song-sect-60-720.png).
+- [Độ kiếp 1080](test-results/phase06-1/song-tribulation.png), [độ kiếp 720](test-results/phase06-1/song-tribulation-720.png), [kết quả nghi thức](test-results/phase06-1/song-announcement.png).
+- [Battle cũ](test-results/phase06-1/song-battle.png), [kết quả battle cũ](test-results/phase06-1/song-battle-result.png), [trở về](test-results/phase06-1/song-return.png), [Low](test-results/phase06-1/song-low.png).
+
+Các ảnh/log trong `test-results/` là artifact local được Git ignore. Chạy lại bài browser bằng `node scripts/sect-browser-smoke.js` (cần Chrome ở đường dẫn driver hiện có, hoặc CHROME_PATH). Tham số `--baseline` chỉ dùng trước khi chỉnh sản phẩm; không chạy lại để ghi đè ảnh trước sửa.
+
+## Lỗi đã sửa và giới hạn
+
+Đã sửa lỗi trùng tên biến geometry khi khởi tạo đài mới, làm frontend rơi vào fallback ở lần chạy đầu. Cập nhật test hình ảnh cũ để kiểm tra anchor mới thay vì tọa độ/góc cận cũ. Trong harness, chọn telemetry mới nhất sau reload để tránh đọc báo cáo của client đã đóng; tách bài focus khỏi nghi thức có ưu tiên cao hơn; kiểm tra tài nguyên có tính lần upload sét/pool damage đầu tiên. Lần browser cuối PASS toàn bộ bốn nhóm, không có FAIL của 06.1 còn mở.
+
+Bản 3D procedural giữ bố cục sân dưới / điện trái / đài trên phải, bảng màu lam/tím/vàng và các chi tiết môi trường của ảnh tham chiếu; độ chi tiết/ánh sáng/sương không bằng tranh 2D. Nhân vật chibi, tư thế cast trên đài, tên, HUD/thẻ thông tin và thông cáo battle lớn vẫn là bản cũ. Chưa làm nhân vật 06.2, bay lên/ngồi thiền/camera drift và safe-frame cho mọi shot ở 06.3, đội hình battle 06.4 hoặc HUD/profile theo quà 06.5. Manual follow/focus sự kiện cũ vẫn có shot cận tạm rời overview; nghiệm thu giữ cả sân/đài ở bước này áp dụng góc overview. Không bổ sung cơ chế profile/quà mới.
+
+**Bước tiếp theo:** dừng sau 06.1, chờ yêu cầu mới. Có thể kiểm tra thủ công OBS/LIVE Studio theo các mục Chưa kiểm chứng; không tự triển khai bước tiếp.
+
+---
+
+# Cập nhật giao diện quản trị theo phases/UI.md
+
+**06/11/2026 — UI Dashboard sáng/tối, giữ phiên bản gameplay 0.5.0.** Đã đọc AGENTS.md, GAME_DESIGN.md, PROGRESS.md, README.md, phases/UI.md, frontend/API/cấu hình trước khi thay đổi. Bảng khảo sát và ánh xạ trước triển khai: [docs/UI_MAPPING.md](docs/UI_MAPPING.md).
+
+## Giao diện đã triển khai
+
+Dashboard có sidebar cố định/thu gọn, header chung, 5 trang theo hai ảnh mẫu. Navy/cyan/vàng ở theme tối; trắng/xanh nhạt ở theme sáng. Logo, núi, tông môn, trăng, nhánh hoa và biểu tượng được vẽ bằng SVG trong code; không tải ảnh/font/icon ngoài. Minh họa là bản SVG gợi phong cách ảnh mẫu, không phải sao chép ảnh raster. Dark/Light và trạng thái sidebar lưu riêng trong localStorage; theme áp dụng sớm khi tải trang, không ảnh hưởng `/song`.
+
+| Trang | Chức năng |
+|---|---|
+| Trang chủ | Chọn dữ liệu demo/LIVE, username/khóa ký che bằng password, kết nối/ngắt/trạng thái thật/lịch sử; 6 chỉ số phiên từ WS/telemetry; thông tin kỹ thuật mở rộng; 12 sự kiện gần đây có cuộn; start/resume/pause/end pha/copy URL/bật tắt âm thanh; bảng quà đang áp dụng; liên kết Cài đặt/Demo |
+| Cài đặt | Sáu nhóm: Âm thanh/Thiên Đạo; Hiển thị/camera; Tu luyện/độ kiếp và bảng chỉ số 11 cảnh giới; Chu kỳ/boss; Nhiệm vụ; TikTok/quà CRUD. Giữ toàn bộ các điều khiển đã có |
+| Demo | Tạo 10/30/60/100/500 người; chọn đạo hữu chung; pause/resume/stop/chuyển pha; 7 nút hoạt cảnh; tốc độ/đi dạo/Viên Mãn/nhiệm vụ/điểm danh; cấp/dùng/đổi item; bình luận; demo 11 cảnh giới, kỹ năng/camera/boss; tim/follow/member/quà/combo/replay/offline/drop/end |
+| Nhật ký | Sự kiện mới qua WS và nhật ký thao tác hiện có; giờ/loại/nội dung/trạng thái, lọc loại và khoảng thời gian; tối đa 200 dòng trong RAM của tab. Không lưu nội dung bình luận thô/khóa ký, không xóa log backend |
+| Sao lưu | Tra cứu tên/userId, theo camera, tải JSON, chọn file/khôi phục/reset; hiện rõ DEMO/LIVE, giữ nguyên hai bước xác nhận/nonce/backup tự động/đường dẫn/schema |
+
+Các trang dựng **một lần**, điều hướng bằng hash chỉ ẩn/hiện, không đăng ký lại handler, không dựng lại AudioRuntime, không nối lại WS/TikTok hoặc reset game. Form giữ bản nháp khi đổi trang/nhận snapshot; đồng bộ trường chưa sửa và lưu patch những trường đã sửa qua API cũ. Bảng quà vẫn gửi mảng như API đã quy định, lấy giá trị chưa sửa từ cấu hình mới nhất đã nhận. Boss và nhiệm vụ có nút lưu riêng, không vô tình ghi phần bên kia. Có feedback thật, trạng thái loading/disabled, focus bàn phím, menu mobile/Escape, hộp thoại HTML dialog theo theme và hai bước bảo vệ dữ liệu cũ.
+
+## Tệp và kiến trúc
+
+Tạo mới:
+
+- `public/css/admin.css`: stylesheet chỉ cho quản trị; responsive, 2 theme và trạng thái tương tác.
+- `public/js/ui/shell.js`, `state.js`, `theme-init.js`: sidebar/header/route/preferences.
+- `public/js/ui/pages/home.js`, `settings.js`, `demo.js`, `logs.js`, `backup.js`: 5 trang.
+- `public/js/ui/icons.js`, `art.js`, `dom.js`, `forms.js`, `logs.js`, `dialog.js`: SVG, mount, đồng bộ form, nhật ký và xác nhận dùng chung.
+- `scripts/browser-test-driver.js`, `ui-browser-smoke.js`: chạy Chrome headless riêng với profile và dữ liệu tạm; dùng CDP có sẵn, không thêm dependency.
+- `test/admin-ui.test.js`, `docs/UI_MAPPING.md`.
+
+Chỉnh sửa:
+
+- `public/index.html`: chỉ nạp shell/module và CSS quản trị riêng.
+- `public/js/admin.js`: khởi tạo một lần, phân phối WS, cập nhật chỉ số/log theo trạng thái thật.
+- `public/js/cultivationPanel.js`, `battlePanel.js`, `livePanel.js`, `streamerPanel.js`: giữ nghiệp vụ gửi API, chia markup thành các vùng trên 5 trang, đồng bộ draft/loading, dùng dialog theo theme.
+- `test/finishing-integration.test.js`: bộ quét import chỉ nhận câu lệnh import; tránh nhận nhầm thuộc tính HTML `log-from` là import. Vẫn kiểm tra dependency graph HTTP cùng nguồn và Three core.
+- `package.json`: thêm `test:ui`; không thêm framework/dependency; README.md, HUONGDAN.md và PROGRESS.md cập nhật thao tác mới.
+
+**Không thay backend, API, WS protocol, định dạng lưu hoặc thuật toán game.** Đối chiếu Git xác nhận `server.js`, engine/services/connector/storage và `public/song.html`, `public/css/style.css`, main/scene/audio/camera/characters/network của game không có diff. Hộp thoại/theme/form/log là logic UI. Các endpoint/control action cũ vẫn giữ nguyên. Trong worktree có thay đổi camera orbit → auto tại `caidat.json`; đã giữ nguyên lựa chọn cục bộ, không dùng Git restore/reset để đè cấu hình đó. Không commit/push; phases/UI.md của người dùng vẫn được giữ nguyên.
+
+## Kết quả kiểm thử thực tế
+
+- `npm.cmd test`: **81 bài — 80 PASS, 0 FAIL, 1 SKIP**. Cả 77 bài PASS trước refactor vẫn PASS; thêm 3 bài UI (route/theme/storage lỗi; draft/partial save/error/concurrent edit; log bounded/dedup). SKIP là LIVE thật như trước. Log: [ui-node-test.txt](test-results/ui-node-test.txt).
+- `node --check`: PASS 58 tệp frontend/script/test. Các module UI mới được load thật trong Chrome; lỗi runtime cuối **0**.
+- `npm.cmd run test:ui`: **PASS 6 nhóm end-to-end thực**, mọi game/config/file ghi vào thư mục tạm. Browser tích hợp báo host unavailable, nên dùng Chrome cài sẵn chạy headless với profile mới, không gắn vào tab/profile người dùng. Không cần cài thêm thư viện; lần thử tải Playwright bị network timeout, không thêm package vào dự án.
+
+Môi trường browser thực: **Chrome/156.0.8078.81**, Node **v24.13.1**; báo cáo tạo **2026-11-06T10:11:17.621Z**: [browser-report.json](test-results/ui/browser-report.json).
+
+| Nhóm | Kết quả quan sát |
+|---|---|
+| Shell/theme/điều hướng | 5 trang hoạt động; không ID trùng; Dark/Light giữ sau reload; thu gọn sidebar; engine session/đồng hồ tiếp tục, đúng một WS và không tạo TikTok connection khi đổi trang |
+| Cấu hình | Âm lượng, camera, particle, ưu tiên, giới hạn tu luyện, K boss, EXP nhiệm vụ, reconnect và số lượng quà lưu đúng qua UI; trường chưa sửa giữ nguyên; draft qua đổi trang và snapshot; reload/JSON giữ giá trị; nút bật audio tạo/resume AudioContext thật qua click trong Chrome headless |
+| Demo | Tạo 30 người, chọn người; thử đủ 7 nút hoạt cảnh; cấp/dùng Trà; bình luận nhập môn người thứ 31; combo final và replay không cấp trùng; đưa Viên Mãn/vào nghi thức; vào diệt ma có xác nhận, dùng cả kỹ năng 1/2, tạm dừng |
+| Sao lưu/log | Lọc chiến đấu, tra cứu có kết quả; tải backup thực qua nút và đọc tệp JSON đã tải; chọn file, hai bước khôi phục đúng; nhập sai reset giữ dữ liệu; nhập đúng RESET DEMO mới reset bộ dữ liệu tạm |
+| LIVE qua transport test | UI đổi mode, khóa demo, kết nối stub đúng một lần, trạng thái backend cập nhật; đổi 5 trang không reconnect/nhân WS; khóa ký được xóa khỏi input; ngắt và về demo. Không phải LIVE thật |
+| Responsive | Cả 5 trang ở 1920×1080, 1366×768, 900×1024, 390×844 không tràn ngang trang; bảng rộng cuộn bên trong; menu mobile mở/đóng sau điều hướng và Escape; sáng/tối chụp thực |
+
+Ảnh chụp Chrome thực, dùng dữ liệu demo thật của phiên kiểm thử (số liệu không hardcode theo ảnh mẫu):
+
+- [Trang chủ tối](test-results/ui/home-dark.png), [Trang chủ sáng](test-results/ui/home-light.png).
+- [Cài đặt](test-results/ui/settings.png), [Demo](test-results/ui/demo.png), [Nhật ký](test-results/ui/logs.png), [Sao lưu](test-results/ui/backup.png).
+- [Laptop 1366×768](test-results/ui/laptop.png), [Mobile tối](test-results/ui/mobile-dark.png), [Mobile sáng](test-results/ui/mobile-light.png).
+
+Ảnh chụp đúng viewport, không dùng ảnh tạo giả. Đã mở kiểm tra ảnh Trang chủ sáng/tối, Cài đặt, Demo và mobile. File ảnh/log là artifact local trong test-results, được tạo lại bằng test:ui.
+
+## Các lỗi đã phát hiện và sửa
+
+- Số đạo hữu WS mới từng bị bản dashboard poll 2s cũ ghi đè: chỉ số game dùng snapshot hiện tại, poll chỉ bổ sung tải/FPS.
+- Gift table và min-content của grid làm trang mobile tràn ngang: ép track minmax(0,1fr), phần bảng cuộn riêng; kiểm tra lại mọi trang/kích thước PASS.
+- Min/step K boss cũ .01/.05 làm giá trị chuẩn .65 không hợp lệ khi kiểm tra native validity: dùng step .01, giữ đúng công thức/giới hạn backend.
+- Request hoàn tất sau khi snapshot đổi trạng thái từng có thể bật lại nút không hợp lệ: tách busy và điều kiện khóa theo trạng thái.
+- Draft cấu hình và form gộp boss/nhiệm vụ dễ ghi giá trị chưa sửa: giữ dirty field, ACK chỉ giá trị đã gửi, lưu riêng patch và không xóa draft khi lỗi.
+- Import scanner cũ nhận nhầm chuỗi HTML; cập nhật bài quét đúng cú pháp import, không sửa game để né test.
+- Ảnh chụp beyond-viewport có thể sai bố cục fixed sidebar trong Chrome: chụp đúng viewport, đặt lại cả scroll X/Y; đối chiếu DOM mainLeft bằng chiều rộng sidebar và mở ảnh QA.
+
+**Chưa kiểm chứng:** nhận LIVE TikTok thật, âm thanh nghe trực tiếp/giọng Việt của hệ điều hành, OBS/LIVE Studio và FPS/GPU `/song`. Các phần này vẫn là giới hạn giai đoạn trước, không suy ra PASS từ UI/stub/headless. Không có FAIL đang mở trong các kiểm thử đã chạy. Không reset dữ liệu thật. Bước tiếp theo nếu cần là thử vận hành thủ công với OBS/LIVE thật; không thêm giai đoạn hay cơ chế mới.
+
+---
+
+# Lịch sử triển khai game trước refactor UI
+
 # Tiến độ Tu Tiên LIVE
 
 Cập nhật **06/11/2026 — phiên bản 0.5.0 — Giai đoạn 5**.

@@ -40,7 +40,7 @@ test('05-24 Corrupt JSON and invalid semantic state are preserved with exact-byt
 });
 test('05-25 Served frontend module graph and style links resolve locally without CDN/assets',async t=>{
   const {base}=await setup(t),visited=new Set();
-  async function visit(url){assert.equal(new URL(url).origin,base);if(visited.has(url))return;visited.add(url);const r=await fetch(url);assert.equal(r.status,200,url);const text=await r.text();if(url.endsWith('.js'))for(const match of text.matchAll(/(?:from\s*|import\s*)['"]([^'"]+)['"]/g)){const name=match[1];await visit(name==='three'?base+'/vendor/three/three.module.js':new URL(name,url).href);}}
+  async function visit(url){assert.equal(new URL(url).origin,base);if(visited.has(url))return;visited.add(url);const r=await fetch(url);assert.equal(r.status,200,url);const text=await r.text();if(url.endsWith('.js'))for(const match of text.matchAll(/(?:^|\n)\s*import\s+(?:[^;\n]*?\sfrom\s*)?['"]([^'"]+)['"]/g)){const name=match[1];await visit(name==='three'?base+'/vendor/three/three.module.js':new URL(name,url).href);}}
   for(const page of ['/','/song']){const r=await fetch(base+page);assert.equal(r.status,200);const text=await r.text();for(const m of text.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))"/g))await visit(new URL(m[1],base).href);}
   assert.ok(visited.has(base+'/js/audio.js'));assert.ok(visited.has(base+'/vendor/three/three.core.js'));assert.ok(visited.size>20);
 });

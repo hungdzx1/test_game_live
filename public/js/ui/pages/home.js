@@ -1,0 +1,23 @@
+import {setDisabled} from '../forms.js';
+import {icon} from '../icons.js';
+import {$,text,clock} from '../dom.js';
+import {landscape} from '../art.js';
+const items={tea:'Trà Ngộ Đạo',pill:'Độ Kiếp Đan',blessing:'Ban Phúc',root:'Biến Dị Linh Căn',camera:'Quay Cam'};
+const phases={cultivation:'Tu luyện',battle:'Diệt ma',paused:'Tạm dừng',stopped:'Đã dừng'};
+export function homePage(){return `<div id="home-connection"></div>
+  <section class="panel overview"><div class="panel-heading"><span class="heading-icon gold">${icon('flag')}</span><div><h2>Tổng quan phiên</h2><p>Trạng thái và các thông số chính của phiên hiện tại.</p></div><span class="live-indicator">${icon('refresh')} Trực tiếp</span></div>
+  <div class="stat-grid">${[['users','population','—','Số đạo hữu'],['swords','phase','—','Chế độ hiện tại'],['monitor','fps','—','FPS · chưa có nguồn'],['clock','clock','—','Chu kỳ hiện tại'],['flag','fields','—','Số chiến trường'],['lotus','queue','—','Hàng chờ độ kiếp']].map(([ico,id,val,label])=>`<div class="stat-card"><span class="stat-icon ${ico==='lotus'||ico==='swords'?'violet':''}">${icon(ico)}</span><strong id="stat-${id}">${val}</strong><span id="label-${id}">${label}</span></div>`).join('')}</div>
+  <details class="technical"><summary>Thông tin kỹ thuật phiên</summary><p id="dashboard-status">Đang lấy dữ liệu máy chủ…</p><p id="dashboard-load"></p><p id="dashboard-realms"></p></details></section>
+  <div class="home-grid"><section class="panel recent-card"><div class="panel-heading"><span class="heading-icon">${icon('logs')}</span><div><h2>Nhật ký phiên</h2><p>Các sự kiện và hoạt động gần đây trong phiên.</p></div><a class="text-link" href="#/logs">Xem đầy đủ ${icon('arrow')}</a></div><ol id="recent-logs" class="event-list"></ol><div class="log-scenery">${landscape()}</div></section>
+  <div class="home-stack"><div id="home-quick"></div><section class="panel gift-summary"><div class="panel-heading"><span class="heading-icon gold">${icon('gift')}</span><div><h2>Quà → vật phẩm <small>(đang áp dụng)</small></h2><p>Quy tắc quy đổi quà tặng thành vật phẩm trong game.</p></div><a class="text-link" href="#/settings/gifts">Quản lý chi tiết ${icon('arrow')}</a></div><div class="table-scroll"><table><thead><tr><th>Gift ID / đơn giá</th><th>Tên quà</th><th>Vật phẩm</th><th>Số lượng</th><th>Hiệu ứng</th></tr></thead><tbody id="gift-summary-body"></tbody></table></div><p id="gift-summary-empty" hidden>Chưa có quy tắc quà đang bật.</p></section></div></div>
+  <div class="shortcut-grid">${[['settings','Cài đặt','Cấu hình âm thanh, hiển thị, camera, tu luyện, độ kiếp, hệ thống boss & nhiệm vụ…','mountains'],['demo','Demo','Thử nghiệm cảnh, đạo hữu, vật phẩm và cơ chế trước khi lên LIVE.','cherry']].map(([route,title,desc,art])=>`<a class="shortcut panel" href="#/${route}">${landscape(art)}<span class="shortcut-icon">${icon(route)}</span><div><h2>${title}</h2><p>${desc}</p></div><span class="shortcut-arrow">${icon('arrow')}</span></a>`).join('')}</div>`;}
+export function updateHome(s,d){
+  text('stat-population',s.players.length);text('stat-phase',phases[s.phase]??s.phase);text('stat-clock',clock(s.remainingMs));text('stat-fields',`${s.battle?.status==='running'?s.battle.fields.filter(f=>f.count).length:0} / 11`);text('stat-queue',s.breakthroughQueueLength??0);
+  const reports=d?.renderReports??[];text('stat-fps',reports.length?reports[0].fps.toFixed(1)+' FPS':'—');text('label-fps',reports.length?'FPS · nguồn /song':'Chưa có báo cáo FPS');
+  text('mode-label',s.mode==='demo'?'Dữ liệu mô phỏng':'Dữ liệu LIVE');$('mode-badge').dataset.mode=s.mode;
+  text('backup-mode',s.mode==='demo'?'DEMO · dữ liệu mô phỏng':'LIVE · dữ liệu người chơi');
+  $('demo-live-warning').hidden=s.mode==='demo';
+  for(const id of ['start-game','pause-game','end-cycle'])if($(id))setDisabled($(id),id==='start-game'?['cultivation','battle'].includes(s.phase):id==='pause-game'?!['cultivation','battle'].includes(s.phase):s.phase==='stopped');
+  const rules=(s.config.giftRules??[]).filter(r=>r.enabled),body=$('gift-summary-body'),signature=JSON.stringify(rules);
+  if(body.dataset.signature!==signature){body.dataset.signature=signature;body.replaceChildren(...rules.map(rule=>{const tr=document.createElement('tr');for(const value of [rule.giftId||`${rule.minDiamonds.toLocaleString('vi-VN')} – ${rule.maxDiamonds.toLocaleString('vi-VN')}`,rule.giftName||'Theo đơn giá',items[rule.item]??rule.item,rule.quantity,{item:'Theo vật phẩm',sect:'Toàn tông môn',camera:'Quay camera'}[rule.effect]??rule.effect]){const td=document.createElement('td');td.textContent=value;tr.append(td);}return tr;}));$('gift-summary-empty').hidden=rules.length>0;}
+}
