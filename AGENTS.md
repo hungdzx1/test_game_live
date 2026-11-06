@@ -43,3 +43,13 @@ Nếu không thể kiểm thử một tính năng trong môi trường hiện t�
 ## Khi bắt đầu phiên làm việc mới
 
 Luôn đọc `AGENTS.md`, `GAME_DESIGN.md`, `PROGRESS.md` và tài liệu giai đoạn đang thực hiện trước khi chỉnh sửa code.
+
+## Ngoại lệ có giới hạn — Unity 2.5D
+
+- Theo yêu cầu chuyển renderer sang Unity, `unity-client/` ở gốc repository được dùng Unity/C# và các PNG **đã có sẵn** trong `public/assets/`. Đây là ngoại lệ cho công nghệ hiển thị và tài nguyên của Unity client; không xóa hoặc mở rộng chính sách procedural hiện hữu cho Three.js. Không tải asset/model/texture/font/audio ngoài hoặc Asset Store nếu chưa có yêu cầu riêng.
+- `GAME_DESIGN.md` vẫn là nguồn chuẩn về gameplay. Yêu cầu Unity mới thay giới hạn công nghệ cũ chỉ trong client Unity; không chuyển game engine sang C#, không tính lại tu vi, HP/damage, phần thưởng, xác suất độ kiếp, cooldown, chu kỳ hay quy tắc/giá quà ở client.
+- Backend Node.js, TikTok connector, API/WebSocket hiện hữu, schema lưu và tách DEMO/LIVE phải được giữ. Unity chỉ là client trình diễn; dữ liệu nhận từ server không được ghi ngược vào file dữ liệu game. Mọi thay đổi hợp đồng backend sau này cần phạm vi được yêu cầu và test riêng.
+- Không xóa `public/song.html` hoặc renderer Three.js; giữ đường chạy hiện hữu trong suốt migration. Không ghi đè, di chuyển hay mở sửa tự động project người dùng tại `public/unity-client/My project/`.
+- Chỉ thực hiện giai đoạn Unity được yêu cầu. Giai đoạn 01 chỉ khảo sát, khởi tạo project/cấu hình, phân thư mục và tài liệu; chưa triển khai network runtime, DTO gameplay, nhân vật, cảnh, FX hoặc HUD.
+- Ưu tiên Unity LTS đã cài và tương thích; nếu chỉ có bản Update thì ghi chính xác phiên bản, lý do chọn và giới hạn. Không tự cài/đổi Editor hoặc nâng/hạ package của project cũ. Chỉ thêm Unity package cần cho giai đoạn hiện tại.
+- Kiểm thử Editor, Play Mode, build Windows, capture OBS và LIVE thật là các kết quả riêng. Không nhận PASS nếu chỉ kiểm tra cấu trúc file hoặc batch import. Không tự commit/push/reset/xóa dữ liệu; luôn ghi PASS/FAIL/CHƯA KIỂM CHỨNG vào `PROGRESS.md`.

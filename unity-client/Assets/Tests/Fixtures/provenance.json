@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-11-06T16:02:03.802Z",
+  "generator": "scripts/unity-network-fixtures.js",
+  "sources": [
+    "gameEngine.js:snapshot",
+    "battleService.js:snapshot",
+    "breakthroughService.js:publicState",
+    "playerStore.js:createPlayer",
+    "gameEngine.js:event"
+  ],
+  "syntheticPlayers": true,
+  "gameplayUnmodified": true,
+  "hashes": {
+    "stopped.json": "2fa662d497857319aa92dcffe6b67416b2d54cddb43e099500a08b5cc502e078",
+    "cultivation.json": "1bcb7ebb30b8e9be4aac42b783e7c90ced83675b235380e3dcc044de749100f3",
+    "breakthrough.json": "f4a62f01cd3f2becc0c850f6c768f7d41da23d3ed5188b43f5a58ad080601b9a",
+    "breakthrough-result.json": "cd5319741eaff534f23eae8f474b574289c682ef92d123fca7f0c157f442ac6e",
+    "battle.json": "6cb43b416d064ba6e2a5206906d80f4fc308cbd594bd0aa6ffd3143707819ef1",
+    "paused-battle.json": "1bf628fd3a40b3a9406a40846acf9392298ede756c64bdc300f913f032e03b31",
+    "battle-result.json": "ab1e26f485fe6d29d7af3b3031c4a06248e803803148fa12c96fa42a567398d8",
+    "events.json": "d0da0597b16b1f39ba4bf3c4e8b900163aaf0aa840f9924ae43e6f9623ce72f3"
+  }
+}

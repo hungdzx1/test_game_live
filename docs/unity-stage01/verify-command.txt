@@ -1,0 +1,2 @@
+Unity 6000.5.9f1: Verify (chi kiem tra Editor, khong Play Mode/build/LIVE).
+PASS Editor configuration. Log: C:\Users\admin\Documents\CODE\TuTien\test-results\unity-stage01\editor-verify.log

@@ -1,0 +1,103 @@
+{
+    "device": "NVIDIA Quadro M1000M",
+    "api": "Direct3D11",
+    "shots": [
+        {
+            "file": "players-10-1080x1920.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 110.84450000000001
+        },
+        {
+            "file": "players-10-720x1280.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 110.84450000000001
+        },
+        {
+            "file": "players-500-1080x1920.png",
+            "players": 500,
+            "visible": 8,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 94.5145
+        },
+        {
+            "file": "players-500-720x1280.png",
+            "players": 500,
+            "visible": 8,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 94.5145
+        },
+        {
+            "file": "ritual-start-1080x1920.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 5.8216
+        },
+        {
+            "file": "ritual-start-720x1280.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 5.8216
+        },
+        {
+            "file": "ritual-strike-1080x1920.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": true,
+            "cpuParseSyncMs": 2.9249
+        },
+        {
+            "file": "ritual-strike-720x1280.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": true,
+            "cpuParseSyncMs": 2.9249
+        },
+        {
+            "file": "ritual-success-1080x1920.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 11.8305
+        },
+        {
+            "file": "ritual-success-720x1280.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 11.8305
+        },
+        {
+            "file": "ritual-failure-1080x1920.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 3.7847000000000006
+        },
+        {
+            "file": "ritual-failure-720x1280.png",
+            "players": 10,
+            "visible": 10,
+            "created": 10,
+            "lightning": false,
+            "cpuParseSyncMs": 3.7847000000000006
+        }
+    ],
+    "note": "Actual GPU screenshots with backend fixture replay. cpuParseSyncMs is a one-off CPU parse/sync measurement, not gameplay FPS/GPU timing."
+}

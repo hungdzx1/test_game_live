@@ -1,0 +1,62 @@
+{
+  "stage": "Unity 02",
+  "branch": "feature/unity-2-5d-migration",
+  "npmBefore": {
+    "pass": 91,
+    "fail": 0,
+    "skip": 1
+  },
+  "npmAfter": {
+    "pass": 91,
+    "fail": 0,
+    "skip": 1
+  },
+  "unityEditMode": {
+    "pass": 24,
+    "fail": 0
+  },
+  "editorPlay": {
+    "snapshots": 113,
+    "eventCallbacks": 32,
+    "offThreadCallbacks": 0,
+    "disconnects": 2
+  },
+  "windowsPlayer": {
+    "snapshots": 116,
+    "eventCallbacks": 33,
+    "offThreadCallbacks": 0,
+    "disconnects": 2
+  },
+  "windowsBuild": "PASS x64 Mono, 6000.5.9f1",
+  "dashboardSmoke": "PASS 6 groups; no browser runtime errors; fake connector only",
+  "oldGameplaySmoke": "PASS temporary DEMO data",
+  "bootstrapVerify": "PASS",
+  "preservation": "203/203 unchanged",
+  "knownIssues": [
+    "UnityEditor.Search.SearchDatabase startup exception observed; root cause not verified",
+    "Stage01 finishing-smoke timing failures not addressed by this stage"
+  ],
+  "unverified": [
+    "GUI/HUD visual rendering",
+    "GPU/OBS",
+    "IL2CPP",
+    "Other targets",
+    "Unity 500 players/long soak",
+    "Queue overflow/oversize peer fault injection",
+    "LTS",
+    "Real TikTok LIVE"
+  ],
+  "evidence": [
+    "npm-baseline.txt",
+    "npm-after.txt",
+    "live-smoke.txt",
+    "dashboard-smoke.txt",
+    "runner-editmode.xml",
+    "editmode-command.txt",
+    "editor-play.json",
+    "windows-player.json",
+    "build-command.txt",
+    "bootstrap-verify-command.txt",
+    "preservation-report.json"
+  ]
+}

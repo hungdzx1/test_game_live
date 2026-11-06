@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-06T17:51:57.327Z",
+  "method": "PNG CRC verified; lossless unfiltered 8-bit samples. Bboxes [left,top,right,bottom), alpha32 suppresses low-alpha halos. Edge/color counts are review signals, not automatic matte removal.",
+  "assets": [
+    {
+      "id": "Character_1/attack.png",
+      "url": "/assets/Characters/Character_1/attack.png",
+      "bytes": 1629543,
+      "sha256": "4c6a785a05cec513bbc360137a6b2c4644764492fc341eb694955b7aa82bcdb0",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 843140,
+        "semi": 728057,
+        "opaque": 1319,
+        "darkVisible": 3388,
+        "darkSemi": 3388,
+        "edgePixels": 82436,
+        "darkEdge": 3165,
+        "brightEdge": 29880,
+        "redEdge": 1052,
+        "blueEdge": 9273,
+        "significantDark": 224,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 2058
+      },
+      "alphaBins": {
+        "a1_15": 67067,
+        "a16_63": 10038,
+        "a64_127": 5996,
+        "a128_239": 13247,
+        "a240_254": 631709
+      },
+      "meanVisibleAlpha": 224.24870162988637,
+      "bboxAlpha": [
+        29,
+        30,
+        1244,
+        1240
+      ],
+      "bbox32": [
+        34,
+        33,
+        1201,
+        1234
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "id": "Character_1/back_3quarter.png",
+      "url": "/assets/Characters/Character_1/back_3quarter.png",
+      "bytes": 1393799,
+      "sha256": "6f9e7b29f0db747c458b7605964f9f1e3df1331b6ea1cf8b1e9c35f252857085",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 920758,
+        "semi": 650946,
+        "opaque": 812,
+        "darkVisible": 3521,
+        "darkSemi": 3521,
+        "edgePixels": 34748,
+        "darkEdge": 3157,
+        "brightEdge": 12112,
+        "redEdge": 643,
+        "blueEdge": 2877,
+        "significantDark": 374,
+        "significantRedEdge": 85,
+        "significantBlueEdge": 356
+      },
+      "alphaBins": {
+        "a1_15": 27317,
+        "a16_63": 3138,
+        "a64_127": 2729,
+        "a128_239": 6493,
+        "a240_254": 611269
+      },
+      "meanVisibleAlpha": 239.97239466182234,
+      "bboxAlpha": [
+        0,
+        35,
+        1208,
+        1254
+      ],
+      "bbox32": [
+        52,
+        53,
+        1203,
+        1213
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "id": "Character_1/celebrate.png",
+      "url": "/assets/Characters/Character_1/celebrate.png",
+      "bytes": 1344449,
+      "sha256": "8ccd0df10d23c0f1c8d8dea91e71346fd1033a039ade7ee23b7cd3f3aaa323e6",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 965648,
+        "semi": 606039,
+        "opaque": 829,
+        "darkVisible": 4125,
+        "darkSemi": 4125,
+        "edgePixels": 57702,
+        "darkEdge": 3827,
+        "brightEdge": 19576,
+        "redEdge": 1497,
+        "blueEdge": 7941,
+        "significantDark": 302,
+        "significantRedEdge": 109,
+        "significantBlueEdge": 1457
+      },
+      "alphaBins": {
+        "a1_15": 47422,
+        "a16_63": 4388,
+        "a64_127": 3616,
+        "a128_239": 8416,
+        "a240_254": 542197
+      },
+      "meanVisibleAlpha": 229.72965784981247,
+      "bboxAlpha": [
+        33,
+        0,
+        1198,
+        1254
+      ],
+      "bbox32": [
+        179,
+        9,
+        1072,
+        1244
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "id": "Character_1/fly.png",
+      "url": "/assets/Characters/Character_1/fly.png",
+      "bytes": 1128559,
+      "sha256": "3743a179a9c6246ee34d4a91a2f6a6366e81e44b7608bb7d2252cc02898f6aa5",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1059039,
+        "semi": 512748,
+        "opaque": 729,
+        "darkVisible": 3117,
+        "darkSemi": 3117,
+        "edgePixels": 48747,
+        "darkEdge": 3000,
+        "brightEdge": 17002,
+        "redEdge": 664,
+        "blueEdge": 5969,
+        "significantDark": 119,
+        "significantRedEdge": 22,
+        "significantBlueEdge": 869
+      },
+      "alphaBins": {
+        "a1_15": 40395,
+        "a16_63": 3659,
+        "a64_127": 3101,
+        "a128_239": 7114,
+        "a240_254": 458479
+      },
+      "meanVisibleAlpha": 229.64615941901974,
+      "bboxAlpha": [
+        0,
+        12,
+        1240,
+        1214
+      ],
+      "bbox32": [
+        179,
+        15,
+        1076,
+        1193
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "id": "Character_1/idle_stand.png",
+      "url": "/assets/Characters/Character_1/idle_stand.png",
+      "bytes": 1126030,
+      "sha256": "c1271857650dcd2603380b20bf8f62fe8abb78438168831ba6933b0fb76d76ca",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1065170,
+        "semi": 506678,
+        "opaque": 668,
+        "darkVisible": 4475,
+        "darkSemi": 4475,
+        "edgePixels": 39140,
+        "darkEdge": 4224,
+        "brightEdge": 12581,
+        "redEdge": 657,
+        "blueEdge": 4020,
+        "significantDark": 255,
+        "significantRedEdge": 23,
+        "significantBlueEdge": 840
+      },
+      "alphaBins": {
+        "a1_15": 31400,
+        "a16_63": 3405,
+        "a64_127": 2861,
+        "a128_239": 6537,
+        "a240_254": 462475
+      },
+      "meanVisibleAlpha": 234.05736913270235,
+      "bboxAlpha": [
+        31,
+        14,
+        1208,
+        1254
+      ],
+      "bbox32": [
+        231,
+        16,
+        981,
+        1241
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "id": "Character_1/meditate.png",
+      "url": "/assets/Characters/Character_1/meditate.png",
+      "bytes": 1610927,
+      "sha256": "8d95af30acdf1e9378746b0ea0cf935135119e8c0b9c9cb528dc3466f8976a34",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 819482,
+        "semi": 752577,
+        "opaque": 457,
+        "darkVisible": 6575,
+        "darkSemi": 6575,
+        "edgePixels": 50070,
+        "darkEdge": 6109,
+        "brightEdge": 14151,
+        "redEdge": 1667,
+        "blueEdge": 5354,
+        "significantDark": 472,
+        "significantRedEdge": 5,
+        "significantBlueEdge": 639
+      },
+      "alphaBins": {
+        "a1_15": 42238,
+        "a16_63": 3634,
+        "a64_127": 3030,
+        "a128_239": 7381,
+        "a240_254": 696294
+      },
+      "meanVisibleAlpha": 236.29829463211487,
+      "bboxAlpha": [
+        0,
+        3,
+        1253,
+        1254
+      ],
+      "bbox32": [
+        28,
+        70,
+        1228,
+        1195
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "id": "Character_1/meditate_3quarter.png",
+      "url": "/assets/Characters/Character_1/meditate_3quarter.png",
+      "bytes": 1549203,
+      "sha256": "73e554ca1811c9e824a47f4284396aa59e1a73480991cf85ce2af36732e89893",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 865397,
+        "semi": 706331,
+        "opaque": 788,
+        "darkVisible": 2785,
+        "darkSemi": 2785,
+        "edgePixels": 32879,
+        "darkEdge": 2586,
+        "brightEdge": 9119,
+        "redEdge": 1852,
+        "blueEdge": 3751,
+        "significantDark": 202,
+        "significantRedEdge": 16,
+        "significantBlueEdge": 859
+      },
+      "alphaBins": {
+        "a1_15": 25257,
+        "a16_63": 3305,
+        "a64_127": 2888,
+        "a128_239": 6815,
+        "a240_254": 668066
+      },
+      "meanVisibleAlpha": 241.6360301448554,
+      "bboxAlpha": [
+        31,
+        39,
+        1238,
+        1254
+      ],
+      "bbox32": [
+        41,
+        61,
+        1218,
+        1206
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  ],
+  "totals": {
+    "files": 7,
+    "fileBytes": 9782510,
+    "rgbaBytes": 44030448
+  }
+}

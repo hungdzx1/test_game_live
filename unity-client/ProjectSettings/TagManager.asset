@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: SectBackground
+    uniqueID: 73000
+    locked: 0
+  - name: SectArchitecture
+    uniqueID: 73001
+    locked: 0
+  - name: SectPlatform
+    uniqueID: 73002
+    locked: 0
+  - name: SectGround
+    uniqueID: 73003
+    locked: 0
+  - name: SectGroundDetail
+    uniqueID: 73004
+    locked: 0
+  - name: SectCharacters
+    uniqueID: 73005
+    locked: 0
+  - name: SectForeground
+    uniqueID: 73006
+    locked: 0
+  - name: SectAtmosphere
+    uniqueID: 73007
+    locked: 0
+  - name: SectHUD
+    uniqueID: 73008
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  m_MigratedRenderPipelines: []

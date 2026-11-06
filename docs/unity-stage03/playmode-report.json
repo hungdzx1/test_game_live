@@ -1,0 +1,9 @@
+{
+    "result": "PASS",
+    "graphics": "Null",
+    "note": "Five-second actual Editor Play Mode lifecycle/Update smoke; editorUpdateSamples is not gameplay FPS. No Node/LIVE connection.",
+    "seconds": 5.0081096999999989,
+    "editorUpdateSamples": 29799,
+    "runtimeErrors": 0,
+    "playing": true
+}

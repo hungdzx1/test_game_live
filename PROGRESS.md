@@ -1,3 +1,295 @@
+# Unity migration — Giai đoạn 04: Nhân vật và độ kiếp — 07/11/2026
+
+**Đã triển khai và kiểm thử phạm vi bước04.** Nhân vật/độ kiếp nhận dữ liệu Node qua client chỉ đọc bước02. Chưa triển khai battle Unity, không đổi gameplay/backend/protocol/save, không commit/push hoặc chuyển bước05. Camera giữ overview an toàn; các pose thiếu và FX đơn giản được ghi rõ, không nhận có animation vẽ tay đầy đủ.
+
+## Khảo sát và baseline
+
+- Đọc AGENTS.md, GAME_DESIGN.md, PROGRESS.md, bàn giao Unity01–03, docs/UNITY_SECT_SCENE.md/UNITY_WEBSOCKET.md, public/js/{characters,presentationState,sectLayout,realmAura,breakthroughScene}.js; đối chiếu gameEngine.snapshot(), breakthroughService.publicState()/lastResult, gameEventBus và các DTO/protocol hiện có. Phases07.2/07.3 dùng tham khảo; không triển khai Three.js07.x.
+- Git đầu/cuối giữ `feature/unity-2-5d-migration`, giữ các thay đổi chưa commit. Baseline npm **91 PASS / 0 FAIL / 1 SKIP**; Unity EditMode **36/36 PASS** trước khi thêm chức năng.
+- Editor người dùng đang mở project chính. Batch/import/test/GPU chạy trên bản sao validation tại test-results/unity-stage03/validation-project, không đóng Editor hoặc ghi đè scene đang chỉnh. Bàn giao prefab/material/import meta về project chính với ánh xạ GUID, rồi kiểm lại trên bản sao có cùng GUID chính.
+
+## File tạo/thay đổi trong bước04
+
+| Nhóm | File |
+|---|---|
+| Sprite | Assets/Art/Characters/Character_1/:7 PNG và importer.meta, bản sao byte-identical |
+| Prefab/material | Assets/Resources/{CharacterPrefab,TribulationPrefab}.prefab; Assets/Materials/Characters/{SharedUnlit,SpriteUnlit}.mat và ProceduralDisk.asset |
+| Nhân vật | Assets/Scripts/Characters/{CharacterManager,CharacterView,CharacterPoseController,RealmAuraController}.cs |
+| Độ kiếp/camera/bootstrap | Assets/Scripts/Effects/TribulationController.cs; Assets/Scripts/Scenes/{CameraDirector,SectCharacterBootstrap}.cs |
+| HUD tối thiểu | Assets/Scripts/UI/CharacterRosterHud.cs: số đệ tử từ snapshot/số visual, chờ snapshot khi mất đồng bộ |
+| Editor/test | Assets/Editor/{CharacterSceneSetup,CharacterScreenshotTest,CharacterPlayProbe}.cs; Assets/Tests/Editor/CharacterTests.cs; Assets/Tests/Fixtures/Characters/*; kèm.meta |
+| Driver | scripts/unity-character-{fixtures,sync,smoke}.js, chỉ fixture trong bộ nhớ/DEMO data tạm và chuyển tài nguyên mới |
+| Tài liệu | unity-client/README.md, docs/UNITY_CHARACTERS.md, docs/unity-stage04/*, PROGRESS.md |
+
+`Assets/Scenes/SectScene.unity` giữ nguyên byte, bao gồm bố cục/chỉnh sửa cũ. Bootstrap chỉ tạo root nhân vật lúc Play trong SectScene, không thêm vào scene asset. Các module network/DTO/protocol cũ không đổi. **341/341 file trong manifest bảo vệ đầu phiên giữ SHA-256**; unity-client/README.md và PROGRESS.md nằm ngoài manifest, được cập nhật có chủ đích. Không có thay đổi ngoài dự kiến. Backend, public/assets gốc, Three.js, data/config, package/project settings Unity và scene cũ giữ nguyên. Chi tiết preservation-report.json.
+
+## Hành vi bàn giao
+
+- Bảy pose đơn1254×1254, fullrect/PPU100, cùng scale.125 và trục X627; pivot chân theo silhouette từng pose, giữ toàn bộ tóc/áo/màu/tỉ lệ. Không sửa pixel PNG, không tint nhân vật, không bịa spritesheet. Bảng pivot/fallback và audit từng ảnh trong UNITY_CHARACTERS.md/ASSET_AUDIT.md.
+- CharacterPrefab gồm SpriteRenderer, CharacterPoseController, nameplate tên/realm hai dòng, aura theo11 realm backend, shadow và một vòng FX có thời hạn cho appearance/stage up/gift/teleport/victory. FX hiện còn đơn giản, không có art tải ngoài.
+- Roster theo userId, pool reset/reuse khi despawn/reconnect/session đổi, không nhân đôi nhân vật trên sân/đài. 12 ghế có sẵn; Low6, Medium10, High12; từ100 người tối đa10,500 người8 (Low vẫn6). Người ngoài nhóm giữ đủ state, follow/ritual thay người minh họa ở ghế modulo12. Không tạo prefab cho toàn bộ500 người.
+- Mapping đủ idle/walk/meditate/standUp/attack/teleport/celebrate/cast/fly/bow/hit; walk/standUp/teleport/bow/hit/cast có fallback ghi rõ. Sprite không bị squash; idle scale đều ±0.2%, fly bob nhẹ, hit/bow lean nhẹ toàn hình.
+- Độ kiếp đọc active.elapsedMs/durationMs/lightningCount và result.outcome. Bay0.3–1.5s, sau đó thiền; mây tối/sét theo công thức tham chiếu cũ, kết quả chỉ khi backend gửi; outcome thiếu không bị suy thành thất bại. Snapshot sửa timeline; pause/stopped đóng băng; reconnect không replay sét cũ. Result hết thì bay về ghế trong.8s nếu visual vẫn được chọn. Người ở sân vẫn thấy trong nghi thức.
+- CameraDirector ưu tiên ritual/sự kiện/follow để chọn subject hiện hình; giữ CameraRig full-frame9:16, **chưa pan/zoom cinematic**, không jump/shake hoặc mở profile card. Effective battle trả sect visual về pool, tắt ritualFX; không dựng battle trong bước04.
+
+## Kết quả kiểm thử
+
+| Kiểm tra | Kết quả | Bằng chứng/phạm vi |
+|---|---|---|
+| npm baseline/sau sửa | **PASS91 / FAIL0 / SKIP1**,92 bài cả hai lượt | npm-baseline.txt, npm-after.txt; SKIP là LIVE thật |
+| Unity baseline | **PASS36/36** | baseline-editmode.xml |
+| Unity cuối | **PASS63/63**:36 cũ+27 mới | final-editmode.xml; spawn10/50/100/500,50 vòng resync không tăng CreatedCount, pool/reconnect/session,11 mapping, import/pivot, pause/battle-clear, success/failure/missing outcome, return, focus,11 aura, duplicate event, Low |
+| PNG/import | **PASS7/7 SHA**, RGBA1254×1254, alpha≥32 không chạm cạnh | asset-audit.json, ASSET_AUDIT.md; giữ viền màu/pixel alpha rời vốn có |
+| GPU render | **PASS12 ảnh**,1080×1920 và720×1280 | screenshot-report.json; NVIDIA Quadro M1000M/Direct3D11;10/500 người, start/strike/success/failure; sprite không null/không rỗng và trong camera |
+| Play Mode + Node DEMO thật | **PASS**,50→51 người sau Node stop/restart | play-report.json:2 session,10 visual tối đa,10 prefab đã tạo,3 hiệu ứng sự kiện trước session reset,0 lỗi stack runtime; kiểm sprite có thật. Null graphics, không dùng kết quả này làm FPS/GPU |
+| Web routes trong smoke | **PASS** | /,/song,/api/state,/api/dashboard trả200 trên Node tạm; không tuyên bố đã chạy lại toàn bộ browser dashboard |
+| Bảo toàn | **PASS**, không có thay đổi ngoài phạm vi | preservation-report.json; scene/backend/WS/data/package/PNG gốc giữ nguyên; git diff --check PASS |
+| Windows Player mới/IL2CPP/OBS/FPS GPU/ngâm tải | **CHƯA KIỂM CHỨNG** | Build network bước02 không thay cho kết quả đồ họa bước04 |
+| TikTok LIVE thật | **CHƯA KIỂM CHỨNG / không gọi** | Smoke dùng dataRoot mới và connector từ chối LIVE |
+
+Ảnh minh họa: [Độ kiếp+sân1080](docs/unity-stage04/ritual-strike-1080x1920.png), [500người/8visual720](docs/unity-stage04/players-500-720x1280.png). Các ảnh là replay snapshot lấy từ backend thật với người chơi giả trong bộ nhớ, không phải ảnh chụp LIVE. `cpuParseSyncMs` là CPU parse/sync đơn lẻ có cold start, không phải FPS hoặc GPU timing.
+
+## Lỗi đã sửa và giới hạn
+
+- API spriteAlignment của TextureImporter không có trên Editor hiện tại: chuyển sang TextureImporterSettings và compile lại.
+- GUID script/PNG giữa validation và project chính từng khác, làm prefab thiếu component/sprite trong lượt thử. Đã ánh xạ GUID chính và copy đầy đủ importer meta về bản sao, tăng kiểm tra sprite không null/không rỗng, chạy lại63 test, capture và smoke trên tài nguyên cuối. Không nhận các ảnh trung gian thiếu sprite làm nghiệm thu.
+- Shader plane nền không áp SpriteRenderer.color nên mây/bóng từng trắng. Dùng Sprite-Unlit tích hợp URP riêng cho sprite; giữ shader line và renderer nền cũ; kiểm ảnh GPU sau sửa.
+- Pose đơn khác nhau về hình dáng/độ cao đầu vốn có; shared contact anchor giảm giật chân, không phải registration giải phẫu hoàn hảo. Chưa có pose đi/cúi/bị thương/đứng dậy riêng; mây/sét/vòng FX là code đơn giản; chỉ một bộ mặt/tóc/trang phục.
+- Camera hiện ưu tiên subject nhưng giữ overview, chưa chuyển động cinematic. Ghế/Breakthrough seat chỉnh độc lập với layer PNG, cần căn lại nếu người dùng đổi bố cục đài/sân.
+- Giới hạn visual giảm tải renderer, không làm nhẹ toàn bộ JSON500 người hoặc unload bảy texture. Chưa đo FPS/GPU residency/ngâm tải; không đặt số parse/sync cold-start thành benchmark60FPS.
+- Lỗi Editor index UnityEditor.Search.SearchDatabase đã ghi từ các bước trước vẫn ngoài phạm vi; không xóa cache. Lỗi timing smoke500 người từ giai đoạn01 chưa được coi là đã sửa. Chưa test thao tác Inspector/OBS bằng tay trên Editor người dùng.
+
+Hướng dẫn mở và chỉnh prefab: [docs/UNITY_CHARACTERS.md](docs/UNITY_CHARACTERS.md). **Dừng bước04, không commit/push hoặc triển khai battle/bước tiếp theo.**
+
+---
+
+# Sửa thao tác di chuyển layer Unity — 07/11/2026
+
+- Nguyên nhân: SectLayer.Sample áp lại Transform từ Position Pixels mỗi lần cập nhật; Move Tool mặc định chỉ đổi Transform nên vị trí bị trả về.
+- Thêm `unity-client/Assets/Editor/SectLayerEditor.cs` và `.meta`: handle di chuyển trong Scene View khi nhấn W ở Edit Mode ghi vào Position Pixels, hỗ trợ chọn nhiều layer, Undo/Redo, đánh dấu scene cần lưu và prefab override. Chỉ di chuyển XY; Z giữ theo sorting order. Không đổi scene/bố cục đang lưu, runtime, backend hoặc dữ liệu.
+- Cập nhật `unity-client/Assets/Tests/Editor/SectSceneTests.cs`, `docs/UNITY_SECT_SCENE.md`; bằng chứng trong `docs/unity-stage03/move-editmode.xml` và `move-npm.txt`.
+- **PASS:** Unity EditMode 36/36 trên bản sao validation, gồm test đường xử lý Move cập nhật tọa độ, không bật lại sau Sample, giữ Z, Undo/Redo. npm test 91 PASS / 0 FAIL / 1 SKIP (LIVE thật). git diff --check PASS.
+- **CHƯA KIỂM CHỨNG:** kéo chuột trực tiếp trong Editor của người dùng và lưu/mở lại bằng giao diện. Không đóng Editor hoặc ghi đè scene đang chỉnh.
+- Cách dùng: thoát Play Mode → chọn Temple trong Hierarchy → Scene View → W → kéo X/Y → Ctrl+S. Nhập số bằng SectLayer > Position Pixels. Transform Position trong Inspector vẫn là giá trị tạm bị layout ghi lại; scale dùng Uniform Scale, độ sâu dùng Sorting Order. Chưa chuyển giai đoạn, không commit/push.
+
+# Unity migration — Giai đoạn 03: Tông môn PNG 2.5D — 07/11/2026
+
+**Đã dựng SectScene thật, import PNG, kiểm thử và chụp ảnh Unity GPU. Dừng bước 03; chưa dựng hệ thống nhân vật/battle/UI gameplay. Không commit/push.** Bố cục còn giới hạn từ ảnh nguồn và placeholder, chưa nhận giống concept hoàn chỉnh.
+
+## Khảo sát và bảo toàn
+
+Đọc AGENTS.md, GAME_DESIGN.md, bàn giao 01–02, docs/UNITY_MIGRATION.md, UNITY_WEBSOCKET.md, ASSET_AUDIT.md, kế hoạch tông môn 07.1 để đối chiếu bố cục; khảo sát toàn bộ public/assets/concept và các PNG. Kế hoạch Three.js 07.x chỉ là tham khảo, không triển khai 07.1 hoặc sửa /song.
+
+Git giữ **feature/unity-2-5d-migration**, HEAD 2e7825a8a3ff89ac845305de31542c444df54cb6; giữ thay đổi chưa commit trước phiên. **155 file đã có** trong manifest đầu phiên (backend, data/config, public/assets/renderer, phases, protocol C#, scene 01–02 và package Unity) giữ nguyên SHA-256. Không đổi AGENTS/.gitignore trong bước này; diff ở đó là công việc trước.
+
+Editor của người dùng đang mở project chính, nên batch trùng project bị từ chối. Import/test/render chạy trên bản sao Assets/Packages/ProjectSettings tại test-results/unity-stage03/validation-project; không đóng Editor hoặc bỏ scene chưa lưu. Đã chuyển scene/material/import settings về **unity-client/**, giữ GUID chính, rồi lấy lại đúng project sau chuyển để chạy lại GPU capture và 35 tests. Không copy Library/cache hoặc package thay đổi từ bản sao.
+
+## File tạo/thay đổi
+
+| Nhóm | File / nội dung |
+|---|---|
+| Art | unity-client/Assets/Art/Sect/: **17 PNG** nguyên byte (15 ảnh yêu cầu + ui_header/ui_footer có sẵn), importer .meta và asset-audit.json |
+| Scene | Assets/Scenes/SectScene.unity + .meta: 18 instance PNG, 12 điểm neo sân + 1 điểm đài, HUD tiêu đề/tên tông môn, placeholder cành đào và bậc đá |
+| Runtime trình diễn | Scripts/Scenes/{SectLayer,CameraRig,SectSceneController,SectTextLayout}.cs + .meta; không gọi API/WS hoặc tính gameplay |
+| Render | Materials/SectUnlit.shader; Materials/Sect/: material theo texture, material/mesh placeholder dùng chung; không LUT/bloom/raytracing, không light/shadow/physics cho plane |
+| Editor | Assets/Editor/{SectSceneSetup,SectScreenshotTest,SectPlayModeTest}.cs + .meta: import/create-once/verify, chụp GPU, Play Mode smoke 5 giây |
+| Test | Assets/Tests/Editor/SectSceneTests.cs + .meta, **11 test mới**; giữ 24 test protocol cũ |
+| Project settings | Chỉ append SectScene vào build scenes, giữ NetworkTest/Bootstrap; thêm 9 sorting layer riêng |
+| Driver | scripts/unity-sect-assets.js (audit/copy nguyên byte); scripts/unity-sect-sync.js (chuyển generated assets, giữ GUID và từ chối ghi đè file đã chỉnh sau sync) |
+| Tài liệu | unity-client/README.md và README Art/Materials/Scenes/Tests; docs/UNITY_SECT_SCENE.md; docs/unity-stage03/*; PROGRESS.md |
+
+Không sửa backend/gameplay/quà/dữ liệu/WS, public/song.html, renderer Three.js, public/assets hoặc package Unity. Không thêm package/asset/font tải ngoài; dùng font built-in Unity. Concept/main.jpg chỉ tham chiếu, không được dán vào scene.
+
+## Bố cục và import
+
+- Camera orthographic 9:16, tham chiếu 1080×1920, PPU=100; dùng được 720×1280, cửa sổ khác tỉ lệ letterbox. Auto-fit content bounds bảo vệ sân/đài/công trình/HUD, drift tối đa 3.5×2.5 pixel tham chiếu.
+- Thứ tự: trời → mây → núi xa/trung → kiến trúc/thác → đài → sân/pháp trận → điểm nhân vật → cổng → khí quyển → HUD. Plane trong XY, không ép sân thành sàn 3D nằm ngang.
+- Kiến trúc scale đều/rotation=0; vòng pháp trận riêng scaleY=.35 để gần elip mặt sân, base alpha .58/glow .22, không cháy sáng.
+- Sprite Single/FullRect, sRGB/alpha transparency, Bilinear/Clamp, không mipmap/compression/NPOT resize, max4096/PPU100, CPU Read/Write tắt. UV chỉ bỏ padding alpha=0; alpha mềm vẫn được giữ. Bbox alpha≥32 dùng làm neo và kiểm khung, không dùng xóa pixel.
+- Low/Medium/High bật **12/15/17 plane PNG**, tương ứng 12/15/16 texture đang vẽ (sương dùng chung). Byte RGBA của phần đang vẽ khoảng **72/90/96 MiB**; scene vẫn tham chiếu đủ 17 ảnh ~**102 MiB**, chưa đo GPU residency thực. Low giảm overdraw, không bảo đảm unload texture.
+- Position Pixels/Uniform Scale/Anchor/Opacity/sorting chỉnh trong Inspector. Source Pixel Rect khác Content Pixel Rect; giữ scaleY=1 cho công trình. Hướng dẫn đầy đủ tại docs/UNITY_SECT_SCENE.md.
+
+## Kết quả thực tế
+
+| Kiểm tra | Kết quả | Bằng chứng / phạm vi |
+|---|---|---|
+| npm.cmd test baseline | **PASS 91 / FAIL 0 / SKIP 1**, 92 bài | docs/unity-stage03/npm-baseline.txt |
+| npm.cmd test sau thay đổi | **PASS 91 / FAIL 0 / SKIP 1**, 92 bài | npm-after.txt; SKIP là LIVE thật |
+| Audit/import | **PASS 17/17 copy hash**, kiểm CRC/kích thước/alpha/viền/bbox/gradient từng ảnh | ASSET_AUDIT.md và asset-audit.json; không biến gradient thành điểm chất lượng tự động |
+| Unity EditMode | **PASS 35/35**, trước và sau đồng bộ về project chính | final-editmode.xml: 24 protocol + 11 scene/import/bounds/drift/quality/anchor/HUD/letterbox |
+| GPU camera render | **PASS 8 ảnh thực** | screenshot-report.json; **NVIDIA Quadro M1000M / Direct3D11**; 1080×1920 và 720×1280 ở Low/Medium/High, thêm Medium t20/t60 |
+| Kiểm ảnh trực quan | **PASS trong phạm vi bố cục asset có sẵn** | Đã xem Medium1080, Medium720 và High1080; sân/đài/cổng/chính điện/HUD rõ, chữ không tràn; lỗi cắt sẵn trong nguồn ghi riêng |
+| Editor Play Mode 5 giây | **PASS**, có chuyển động Update, mesh ổn định, bounds an toàn, 0 lỗi stack scene runtime | playmode-report.json; nographics, không dùng làm bằng chứng GPU/FPS; editorUpdateSamples không phải FPS |
+| Gameplay cũ live-smoke.js | **PASS** DEMO/data tạm | live-smoke.txt: combo/kỹ năng/freeze/pending/reconnect5s; không LIVE thật |
+| GUID và bảo toàn | **PASS**, 67 generated/settings files được sync, 31 GUID được ánh xạ về GUID chính; 155 file bảo vệ không đổi | sync-command.txt, preservation-report.json; script URP camera được resolve từ package; git diff --check PASS |
+| Windows Player/OBS cho SectScene, GPU frame time/FPS thực, ngâm tải | **CHƯA KIỂM CHỨNG** | Không lấy kết quả Player network bước 02 hoặc CPU SubmitRenderRequest làm bằng chứng |
+| Nhân vật/battle/độ kiếp hoạt động/UI gameplay trong SectScene | **CHƯA TRIỂN KHAI**, ngoài bước 03 | Chỉ có điểm neo, không fake dữ liệu hoặc copy concept làm nền |
+| TikTok LIVE thật | **CHƯA KIỂM CHỨNG / không gọi** | Không cần LIVE để xem SectScene |
+
+Ảnh: [Medium 1080×1920](docs/unity-stage03/sect-medium-1080x1920-t0.png), [Medium 720×1280](docs/unity-stage03/sect-medium-720x1280-t0.png), [High 1080×1920](docs/unity-stage03/sect-high-1080x1920-t0.png), [Low 720×1280](docs/unity-stage03/sect-low-720x1280-t0.png). Chuyển động: [Medium t20](docs/unity-stage03/sect-medium-1080x1920-t20.png), [t60](docs/unity-stage03/sect-medium-1080x1920-t60.png). Đây là camera Unity URP thật; captureRenderMs chỉ là CPU gọi SubmitRenderRequest sau warmup, chưa gồm GPU readback, không báo thành FPS.
+
+## Lỗi đã sửa và hạn chế còn lại
+
+- Test ban đầu dùng GetInstanceID đã bị Unity 6.5 loại bỏ; chuyển sang so cùng đối tượng mesh và API FindAnyObjectByType, compile/test lại.
+- Ảnh GPU đầu phát hiện TextMesh quá lớn. Đã thêm SectTextLayout theo giới hạn pixel, kiểm HUD bounds trong test và ảnh mới; dời subtitle khỏi họa tiết trên header.
+- Kiểm drift ban đầu đánh dấu đuôi thác chạm mép như lỗi công trình. Đã phân loại Allow Frame Bleed riêng cho nền/khí quyển/đuôi thác; sân/đài/HUD/công trình vẫn phải nằm trong khung. Không nới camera để che lỗi chữ hoặc cắt sân.
+- Nguồn courtyard cắt trái/phải (299/250 pixel alpha≥32 chạm cạnh); lanterns_props cắt phải (177 pixel). Scene hiện toàn bộ footprint PNG; chưa thể phục hồi phần nguồn không có. Props mặc định ẩn để tránh trùng lan can/đèn.
+- Thiếu cây/cành đào, đoạn cầu/kiến trúc nối, rail/rock endcap riêng; có nhánh hoa/bậc đá code đơn giản với tên Placeholder. Chưa nhận concept hoàn chỉnh. Aura đài/nhân vật/nameplate/UI dữ liệu để các bước sau nếu được yêu cầu.
+- Play smoke vẫn có ArgumentOutOfRangeException ở **UnityEditor.Search.SearchDatabase** lúc index startup, cùng nhóm lỗi Editor đã ghi bước 02; không có stack Scripts/Scenes, runtime probe PASS. Chưa xác minh nguyên nhân Editor, không xóa cache project chính.
+- Smoke 500 người/timing lỗi ở giai đoạn 01 chưa được sửa hoặc chạy lại; không coi npm PASS là giải quyết nhóm đó.
+
+Hướng dẫn mở/chỉnh và danh sách asset thiếu: [UNITY_SECT_SCENE.md](docs/UNITY_SECT_SCENE.md). Tổng hợp máy đọc: [validation.json](docs/unity-stage03/validation.json). Log Editor đầy đủ ở test-results, không đưa licensing log vào docs.
+
+**Dừng bước 03. Không tự làm nhân vật/battle/bước 04, không commit/push hoặc reset dữ liệu.**
+
+---
+
+# Unity migration — Giai đoạn 02: WebSocket client — 06/11/2026
+
+**Đã triển khai client chỉ đọc, scene NetworkTest và kiểm thử kết nối thực trên Windows Editor/Windows Standalone Mono. Dừng ở bước 02; chưa dựng đồ họa/bước 03. Không commit/push/reset dữ liệu.** Các mục giai đoạn 01/07.0/06.x dưới đây là lịch sử.
+
+## Phạm vi và file
+
+- Đọc lại AGENTS.md, GAME_DESIGN.md, PROGRESS.md, README.md, kiến trúc Unity, tài liệu phases liên quan; đối chiếu gameEngine.snapshot(), battleService.snapshot(), breakthrough publicState, playerStore, gameEventBus, server transport và public/js/network.js.
+- Git đầu/cuối phiên vẫn ở **feature/unity-2-5d-migration**, HEAD 2e7825a8a3ff89ac845305de31542c444df54cb6. Giữ toàn bộ thay đổi chưa commit từ các phiên trước. Không tạo lại branch, stash, reset, stage, commit hoặc push.
+- Runtime mới trong unity-client/Assets/Scripts: Network/{UnityWebSocketClient,NativeWebSocketTransport,StateMapper,ProtocolSession}.cs; Models/GameModels.cs; Presentation/LocalGameState.cs; UI/{NetworkDebugHud,NetworkTestProbe}.cs; TuTienLive.Runtime.asmdef và .meta.
+- Scene/tooling mới: Assets/Scenes/NetworkTest.unity, Assets/Editor/NetworkTestSetup.cs, Test-Network.ps1. ProjectSettings thêm scene NetworkTest trước Bootstrap, Windows Mono/runInBackground; Bootstrap và URP giữ nguyên. MigrationProjectSetup.cs cho phép thêm runtime/scene bước 02 để utility cũ tiếp tục verify Bootstrap.
+- Package manifest/lock: thêm Newtonsoft JSON **3.2.2** và pin trực tiếp Test Framework **1.4.6**; URP 17.5.0 và Editor 6000.5.9f1 giữ nguyên. Newtonsoft DLL reference đúng trong asmdef, không thêm thư viện networking.
+- Test mới: Assets/Tests/Editor/{NetworkProtocolTests.cs,TuTienLive.Tests.asmdef}, Fixtures (7 snapshot, 12 event + provenance/hash), .meta. Generator scripts/unity-network-fixtures.js lấy output engine thật với người chơi giả trong bộ nhớ.
+- Driver mới scripts/unity-network-demo.js và scripts/unity-network-smoke.js: child Node/dataRoot tạm, Unity opt-in probe, ngắt rồi khởi động lại cùng cổng; kiểm web routes/API cùng hoạt động. Không gọi TikTok thật hoặc server người dùng.
+- Tài liệu: unity-client/README.md, README thư mục runtime/Tests, docs/UNITY_WEBSOCKET.md, banner lịch sử docs/UNITY_MIGRATION.md, docs/unity-stage02 và PROGRESS.md. **Không sửa AGENTS.md/.gitignore trong bước 02**; git diff ở hai file đó là thay đổi bước 01.
+- **Không đổi backend/services/protocol/API/WS, luật game, caidat.json, player data, public/song.html, renderer Three.js, PNG/phases hoặc project Unity cũ.** Hash trước/sau xác nhận 203 file có sẵn không đổi.
+
+## Hành vi đã có
+
+- Endpoint mặc định ws://127.0.0.1:3000/ws, đổi cổng trong Inspector hoặc --ws-url. Native transport chỉ bật trên Windows Editor/Standalone; không tuyên bố tương thích mọi target.
+- Nhận UTF-8 phân mảnh qua background Task → queue có lock/giới hạn → Update trên main thread. Cancel/Abort khi disable; generation loại callback cũ. Không có send/RPC hoặc tính lại gameplay.
+- Immutable snapshot/player/breakthrough/battle/event; dictionary inventory/participants/cooldowns và unknown field giữ nguyên. Nullable field thiếu không biến thành thông số gameplay tự đoán. Json.NET không kích hoạt type từ payload.
+- Version 1, seq cũ/replay, eventId dedup FIFO 200; session đổi xóa state/event history. Gói malformed bị bỏ trước khi thay session/sequence.
+- Reconnect 500ms → cap 10s, connect timeout 5s, watchdog snapshot 10s. Mỗi reconnect chờ snapshot mới và thay toàn bộ roster, không phát lại reward hoặc giữ nhân vật stale. Chưa dựng GameObject nhân vật; bước này cung cấp roster/Changed cho renderer sau.
+- NetworkTest có HUD debug WS/session/phase/remainingMs/players/events/latency; độ lệch receivedAt-serverTime ghi rõ **clock offset, không phải RTT**. Probe chỉ ghi report khi được gọi với --network-report.
+
+## Kết quả thực tế
+
+| Kiểm tra | Kết quả | Bằng chứng / giới hạn |
+|---|---|---|
+| npm.cmd test baseline | **PASS: 91 PASS / 0 FAIL / 1 SKIP, 92 bài** | docs/unity-stage02/npm-baseline.txt |
+| npm.cmd test sau sửa | **PASS: 91 PASS / 0 FAIL / 1 SKIP, 92 bài** | docs/unity-stage02/npm-after.txt; SKIP là LIVE thật |
+| Unity EditMode parsing/protocol | **PASS 24/24**, cả lượt đầu và sau bổ sung | runner-editmode.xml; schema thực, Unicode, uint/double/long, dictionary, null/missing, replay, duplicate, reconnect, session reset, malformed/nonfinite, immutable state/main thread, backoff/dedup bound |
+| Unity Editor Play Mode + Node DEMO | **PASS**, 30s, **113 snapshot / 32 event**, 0 callback ngoài main thread | editor-play.json; mất kết nối, retry, đổi session và roster 3 → 4 |
+| Windows x64 Mono build | **PASS**, build từ mã nguồn cuối | build-command.txt; local executable unity-client/Builds/NetworkTest/TuTienNetworkTest.exe, output ignored |
+| Windows Player + Node DEMO | **PASS**, 30s, **116 snapshot / 33 event**, 0 callback ngoài main thread | windows-player.json; 2 disconnect/retry observations, session mới và roster 3 → 4, cuối kỳ synchronized |
+| Dashboard browser smoke | **PASS 6 nhóm**, errors=[] | dashboard-smoke.txt; Chrome profile/data tạm, connector stub, không LIVE thật |
+| Gameplay cũ live-smoke.js | **PASS** | live-smoke.txt; combo, skills, freeze EXP/buff, pending, reconnect DEMO 5s |
+| Verify-Project.ps1 cũ | **PASS** Bootstrap/URP | bootstrap-verify-command.txt; không dùng thay test runtime |
+| Bảo toàn source/data/assets | **PASS 203/203 SHA-256** | preservation-report.json; git diff backend/public rỗng; git diff --check PASS |
+| GUI/HUD trực quan, GPU/OBS, IL2CPP, target khác, LTS | **CHƯA KIỂM CHỨNG** | Các lượt runtime trên là batch/nographics; chưa có screenshot HUD |
+| Unity 500 người/ngâm tải, fault injection overflow/oversize | **CHƯA KIỂM CHỨNG** | Có giới hạn trong code, chưa stress nghiệm thu |
+| TikTok LIVE thật | **CHƯA KIỂM CHỨNG / không gọi** | Chỉ dùng DEMO và connector stub |
+
+Lỗi đã xử lý: thiếu tham chiếu DLL Newtonsoft trong test khiến compile lỗi, đã sửa asmdef và compile/test lại; README mới bị mất dấu qua PowerShell native pipe, đã ghi lại UTF-8. Lượt đầu sandbox không kết nối được Unity Licensing, đã dừng đúng tiến trình test và chạy lại với quyền cần thiết, giữ nguyên Editor khác.
+
+Lỗi/giới hạn còn mở: Editor Play probe ghi ArgumentOutOfRangeException trong **UnityEditor.Search.SearchDatabase** lúc index startup, không phải stack runtime client; probe vẫn hoàn tất, chưa xác minh nguyên nhân Editor. Smoke 500 người giai đoạn 01 từng FAIL timing (effect cap/skill hồi sinh) **chưa được sửa hoặc chạy lại trong bước này**, không nhận đã hết lỗi từ npm PASS.
+
+Chi tiết kiến trúc/schema/phạm vi: [UNITY_WEBSOCKET.md](docs/UNITY_WEBSOCKET.md). Tổng hợp máy đọc: [validation.json](docs/unity-stage02/validation.json). Log Editor đầy đủ chỉ ở test-results, không đưa licensing log vào docs.
+
+Mở Unity Hub → project gốc unity-client → Assets/Scenes/NetworkTest.unity → Play; chạy Node DEMO riêng với cổng khớp Endpoint. Lệnh tái kiểm thử và build: [unity-client/README.md](unity-client/README.md). **Dừng bước 02, không tự làm bước 03.**
+
+---
+
+# Unity migration — Giai đoạn 01: khảo sát và khởi tạo — 06/11/2026
+
+**Đã tạo project thật và kiểm chứng Editor batch; chỉ giai đoạn 01. Chưa có Unity gameplay/network/đồ họa. Baseline smoke tổng hợp còn FAIL. Không chuyển giai đoạn 02, không commit/push/reset.** Các mục 07.0/06.x và bàn giao Git bên dưới giữ nguyên lịch sử.
+
+Đã đọc AGENTS.md, GAME_DESIGN.md, PROGRESS.md, README.md, package.json, server.js, gameEngine.js, gameEventBus.js, public/js/network.js; khảo sát thêm main/presentationState/playerStore/battle snapshot và các phases nền tảng/06 tổng quan/07. Đầu phiên ở main, HEAD `2e7825a8a3ff89ac845305de31542c444df54cb6`, có sẵn thay đổi audit/preview 07.0, PROGRESS, tài liệu, concept và project Unity chưa tracked. Tạo nhánh **feature/unity-2-5d-migration** tại cùng HEAD; không stash, checkout revision khác hoặc stage các thay đổi đó. Đổi nhánh không tách riêng thay đổi working tree.
+
+Project người dùng có sẵn ở **public/unity-client/My project**, Unity **6000.5.9f1**, URP **17.5.0**, đang có Editor chạy. Không ghi đè/di chuyển nó. Vì chưa có unity-client ở root, đã dùng Editor cài sẵn `-createProject` để tạo project mới tại **unity-client/**, ngoài static web root. Chỉ phát hiện bản 6000.5.9f1 trong thư mục Hub; đây không phải LTS, nên pin bản đã cài để kiểm chứng, không tự cài/downgrade. Lựa chọn LTS cho production chưa kiểm chứng, giải thích và nguồn chính thức trong tài liệu kiến trúc.
+
+## File và cấu trúc bàn giao
+
+| File / nhóm | Thay đổi giai đoạn 01 |
+|---|---|
+| `unity-client/Assets`, `Packages`, `ProjectSettings` | Project Editor tạo thật, pin version/revision/URP và lock file; URP Forward và scene Bootstrap rỗng chỉ Main Camera orthographic size 9.6, mặc định 1080×1920. Chưa có scene game/sprite/HUD |
+| `Assets/Scripts/{Network,Models,Presentation,Characters,Scenes,Effects,UI}` và `Assets/{Prefabs,Art,Animations,Materials,Tests}` | Đã tạo thư mục/README/.meta; không tạo class giả thay runtime, chưa import PNG hoặc viết DTO/WS |
+| `unity-client/Assets/Editor/MigrationProjectSetup.cs` | Utility Editor-only Initialize/Verify, từ chối ghi đè asset đã có, từ chối bỏ scene chưa lưu; kiểm cấu hình, không gửi HTTP/WS hoặc đọc dữ liệu game |
+| `unity-client/README.md`, `Verify-Project.ps1` | Hướng dẫn Hub và batch verify; script chạy ẩn, projectPath root này, log riêng; không bật backend/LIVE |
+| `docs/UNITY_MIGRATION.md` | File backend giữ nguyên, bảng mapping renderer, protocol thực, boundaries/scopes, rủi ro precision/threading/alpha/LTS/capture, test và việc chưa kiểm chứng |
+| `docs/unity-stage01/` | Evidence được chọn lọc: unit baseline/recheck/after, demo smoke, lỗi finishing, Editor report/output, SHA preservation; không đưa log licensing đầy đủ/cache vào repo |
+| `AGENTS.md` | Chỉ append ngoại lệ Unity/C# và PNG có sẵn cho root unity-client, giữ chính sách Three.js cũ và mọi luật gameplay/an toàn dữ liệu |
+| `.gitignore` | Loại Library/Temp/Logs/UserSettings/build/IDE ở project mới và generated output của project cũ; giữ Assets/.meta/Packages/ProjectSettings |
+| `PROGRESS.md` | Prepend báo cáo này, giữ nội dung chưa commit của 07.0 và toàn bộ lịch sử |
+
+Không sửa backend, package npm, GAME_DESIGN/README cũ, cấu hình/dữ liệu người chơi, public/song.html, renderer Three.js, network/API/WS, thuật toán tu luyện/độ kiếp/battle/phần thưởng/quà hoặc project Unity cũ. Kiểm SHA-256 **203 file có sẵn khớp**, [report](docs/unity-stage01/preservation-report.json). Không dùng Unity để tính lại game. `public/js/settings.js` vẫn được backend import và phải giữ khi port renderer sau này.
+
+## Kết quả kiểm thử thật
+
+| Kiểm tra | Kết quả |
+|---|---|
+| `npm.cmd test` baseline trước sửa | **FAIL: 92 bài — 90 PASS / 1 FAIL / 1 SKIP**; launcher timeout 5000ms, status null thay vì 1; [log](docs/unity-stage01/npm-baseline.txt) |
+| Test launcher chạy riêng lại, không sửa test/timeout | **PASS 1/1**; [log](docs/unity-stage01/launcher-recheck.txt) |
+| `npm.cmd test` baseline recheck | **PASS: 92 bài — 91 PASS / 0 FAIL / 1 SKIP**; [log](docs/unity-stage01/npm-baseline-recheck.txt) |
+| `node scripts/live-smoke.js` | **PASS** demo/offline: combo final/replay, kỹ năng, freeze EXP/buff, reconnect 5s, pending/dữ liệu tạm; [log](docs/unity-stage01/live-smoke-baseline.txt). Không kết nối LIVE thật |
+| `node scripts/finishing-smoke.js` (ba lần, không sửa script/backend) | **FAIL còn mở**: lần 1/3 assertion effect nhận trong 1s ≤84; lần 2 HTTP 400 do người thử đang hồi sinh/chưa tham chiến. Không có report hoàn tất từ script; không lấy phase5 report cũ để thay. [Tóm tắt](docs/unity-stage01/baseline-observations.json), [lỗi lần cuối chạy riêng](docs/unity-stage01/finishing-smoke-isolated.txt) |
+| Unity createProject; Initialize; mở lại Verify bằng Editor 6000.5.9f1 | **PASS import/compile/cấu hình**, log exit 0; [Editor report](docs/unity-stage01/editor-verification.json), [lệnh verify](docs/unity-stage01/verify-command.txt). Không coi đây là Play Mode hoặc GPU render |
+| `npm.cmd test` sau khởi tạo | **PASS: 92 bài — 91 PASS / 0 FAIL / 1 SKIP**; [log](docs/unity-stage01/npm-after.txt). Giữ SKIP LIVE thật, không thêm/sửa test Node |
+| Bảo toàn nguồn/dữ liệu/project cũ | **PASS 203 SHA-256**, không có file gốc đổi ngoài AGENTS/PROGRESS/gitignore được phép |
+| Unity GUI thao tác trực tiếp, test suite Unity của game, Play Mode/build Windows/IL2CPP, native WS, GPU/FPS/OBS/LIVE Studio, LTS, LIVE thật | **CHƯA KIỂM CHỨNG**. Network/DTO/đồ họa/game client Unity còn chưa triển khai |
+
+Đã sửa lỗi cú pháp nội suy biến PowerShell trong script Verify mới (`$editorVersion:` → `${editorVersion}:`), chạy lại thành công. C# utility cuối đã được Editor compile/Verify lại sau khi thêm bảo vệ scene chưa lưu. URP tự tạo GlobalSettings/DefaultVolumeProfile, có warning thông tin đó; licensing handshake có retry nhưng entitlement sau đó hợp lệ và các batch thoát 0. Không nhận toàn bộ warning là lỗi biên dịch hay che dấu chúng. UPM kéo test-framework/NUnit bắc cầu; chưa có NUnit/EditMode/PlayMode suite game Unity được chạy.
+
+FAIL finishing có cùng nhóm assertion rate nhận đã từng ghi trong lịch sử 06.1, nhưng nguyên nhân phiên này **chưa xác minh**, không kết luận chắc do tải máy/mạng/Unity. Không nới ngưỡng, sửa AI hồi sinh hoặc WebSocket/logic game trong giai đoạn khởi tạo để ép PASS. Đây là vấn đề hồi quy cần điều tra trước khi nghiệm thu migration gameplay.
+
+Hướng dẫn mở: Unity Hub → Projects → Add project from disk → chọn **unity-client ở root**, dùng đúng **6000.5.9f1**, đợi import và mở **Assets/Scenes/Bootstrap.unity**. Chỉ thấy scene trống/camera là đúng giai đoạn 01; chưa thể chơi game bằng Unity. Backend/web cũ vẫn chạy như README hiện hữu. Chi tiết: [Unity README](unity-client/README.md), [kiến trúc và bảng phạm vi](docs/UNITY_MIGRATION.md).
+
+**Dừng sau giai đoạn 01.** Chưa port network/runtime, chưa chuyển đồ họa, không tự bắt đầu giai đoạn 02. Không commit/push; tất cả thay đổi cũ được giữ.
+
+---
+
+# 07.0 — Audit PNG và preview độc lập — 06/11/2026
+
+**Đã có audit, preview và bằng chứng thực tế; dừng ở 07.0. Chưa tích hợp LIVE/07.1. Không commit/push/reset.** Phần bàn giao Git/06.2 bên dưới là lịch sử, không phải chỉ dẫn đang tiếp tục trong lượt này.
+
+Đã đọc AGENTS.md, GAME_DESIGN.md, PROGRESS.md, `phases/07_CHUYEN_2_5D/00_KE_HOACH_VA_QUY_TAC.md`, `07_0_AUDIT_PREVIEW.md`; khảo sát server static/CSP, `/song`, scene/layout/nhân vật/HUD và browser driver. Git đầu phiên chỉ có `?? phases/07_CHUYEN_2_5D/`; giữ nguyên tài liệu đó. Người dùng bổ sung `public/assets/concept/main.jpg` trong phiên, dùng làm tham chiếu. Baseline npm test trước sửa: **89 bài — 88 PASS / 0 FAIL / 1 SKIP** (terminal).
+
+## File mới và thay đổi
+
+- `scripts/audit-assets.js`: quét PNG đệ quy, kiểm signature/CRC, giải mã lossless, thống kê alpha/bbox/pixel đen/tín hiệu viền/cạnh bị cắt, SHA-256 và URL encode tên thư mục có dấu cách. Không sửa ảnh.
+- `public/preview-2_5d/asset-audit.json`: kết quả thật của 26 PNG, alpha bins và số liệu từng ảnh.
+- `public/preview-2_5d/layout.json`: 33 instance, tọa độ 1080×1920, crop/scale/scaleY/z/anchor/opacity/visibility/blend riêng. `meditate_3quarter` ở 8 vị trí sân, `meditate` trên đài. Khung hồ sơ và props mặc định ẩn.
+- `public/asset-preview.html`, `public/preview-2_5d/preview.css`, `preview.js`, `layout-model.js`: editor độc lập Three.js planes/orthographic; kéo tọa độ và thứ tự, số nhập, crop/neo, ẩn/hiện, zoom/pan, gallery alpha trắng/đen/checker, concept local overlay/so sánh, xuất/nhập JSON tải về riêng. Render khi đổi, texture dùng chung, không mipmap, dispose khi rời trang. Không nối state/API/WS game.
+- `test/asset-preview.test.js`: 3 bài mới có PNG mẫu kiểm đủ filters 0–4 và CRC/truncated, pixel alpha/bbox, validation/crop/anchor/encode/reorder.
+- `scripts/asset-preview-smoke.js`: app/data/profile tạm, thao tác UI/capture/benchmark và smoke mở `/song` nguyên trạng; không bật LIVE hoặc sửa dữ liệu thật.
+- `ASSET_AUDIT.md`: kiểm kê, kết luận phối cảnh/canvas/alpha, thiếu và cần tách lại, giới hạn, hướng dẫn mở preview và bằng chứng.
+- `docs/07-0/`: 2 ảnh preview 9:16, 1 ảnh so sánh concept, 3 contact sheet, 2 ảnh `/song` nguyên trạng, browser report và log npm test. Được sao chép từ test-results sau kiểm tra trực quan để giữ bằng chứng cùng tài liệu, chưa commit.
+- `PROGRESS.md`: bổ sung mục này, giữ lịch sử. Thư mục phases và main.jpg là file người dùng thêm, không tạo lại hay sửa.
+
+**Không thay đổi** `public/song.html`, `public/js/*`, CSS live, scene/camera/nhân vật/battle, thuật toán, quà, TikTok, WebSocket/API, storage, `caidat.json`, package/dependencies, 26 PNG nguồn. Git diff các file đã tracked xác nhận điều này; 26 SHA-256 nguồn sau QA khớp manifest.
+
+## Kết quả kiểm thử
+
+| Hạng mục | Kết quả |
+|---|---|
+| `npm.cmd test` sau sửa cuối | **PASS: 92 bài — 91 PASS / 0 FAIL / 1 SKIP**; [log](docs/07-0/npm-test-after.txt). SKIP vẫn là LIVE thật, không tăng lỗi so baseline |
+| Audit toàn bộ PNG | **PASS kỹ thuật: 26/26**, CRC hợp lệ, 25 RGBA/1 RGB; không file thiếu trong layout; không coi file hợp lệ là đã đạt mỹ thuật |
+| `node scripts/asset-preview-smoke.js` | **PASS: 25 kiểm tra**, Chrome 156/ANGLE Intel HD P530 D3D11, 0 exception; [report](docs/07-0/browser-report.json) |
+| X/Y/scale/opacity/z/anchor, crop full/alpha, drag vị trí/thứ tự, hide/show, zoom/pan/reset | **PASS**; hide giảm đúng 1 draw call; 12 lần chỉnh giữ texture/geometry |
+| Xuất JSON file mới, import JSON hợp lệ/sai, concept JPG cục bộ/opacity | **PASS**; JSON sai/concept mất giữ layout và ảnh trước; preview không gửi API/WS hay request ghi state |
+| PNG path có dấu cách; gallery trên checker/trắng/đen | **PASS load đủ 26 ảnh**, có ảnh thật; biên ở kích thước cuối vẫn cần rà riêng |
+| Capture đúng 720×1280 và 1080×1920, compose/compare | **PASS**; đã xem trực tiếp ảnh và sửa lỗi thanh cuộn làm hẹp canvas, nhãn chồng concept. Import concept lỗi cũng đã sửa |
+| `/song` hiện hữu mở ở hai khung 9:16 với data tạm 0 người/dừng | **PASS smoke mở trang**, 0 exception/fallback tắt. Không đồng nghĩa đã chạy lại toàn bộ kịch bản game bằng browser |
+| Chất lượng khớp concept hoàn toàn | **FAIL/CHƯA ĐẠT**: sân/props cắt nguồn, thiếu cành đào/aura/đường nối, nhân vật khác tỷ lệ chibi, vòng pháp trận xấp xỉ phối cảnh bằng scaleY; liệt kê đầy đủ trong ASSET_AUDIT.md |
+| Alpha sạch ở mọi zoom, bộ animation/pose chuyển tiếp, gameplay browser 10/30/60, OBS/LIVE, nhiều giờ | **CHƯA KIỂM CHỨNG trong lượt này**; không sửa live để né các giới hạn |
+
+Preview 720×1280: **60.6 FPS**, 26 draw calls, 52 triangles, 19 GPU texture dùng chung/26 geometry, RGBA ước tính **114.0 MiB**. Preview 1080×1920: **59.5 FPS**, 26 draw calls, 52 triangles, 19 GPU texture dùng chung/26 geometry, RGBA ước tính **114.0 MiB**. Bài đo render liên tục chỉ 3 giây cho cảnh tĩnh; không đánh giá hiệu năng `/song` hay giải quyết lỗi FPS của 06.2. Toàn bộ 26 ảnh RGBA khoảng 156 MiB chưa tính bộ nhớ browser/framebuffer. Cần ngân sách Low và đo thiết bị yếu khi được phép tích hợp.
+
+Ảnh: [preview 1080×1920](docs/07-0/preview-1080x1920.png), [preview 720×1280](docs/07-0/preview-720x1280.png), [so sánh 9:16](docs/07-0/comparison-1080x1920.png), [contact sheet](docs/07-0/asset-contact-sheet.png). `/song` nguyên trạng: [720](docs/07-0/song-unchanged-720x1280.png), [1080](docs/07-0/song-unchanged-1080x1920.png); có các dòng HUD đầu trang sát/chồng nhau, giữ nguyên vì ngoài phạm vi audit.
+
+Nền/công trình **không chung một hệ tọa độ concept**: canvas khác kích thước và vật thể đặt riêng giữa khoảng trong suốt; offset/crop đã nằm trong JSON. Viền màu ở RGB nguồn có phần thuộc alpha rất thấp, không đồng nghĩa toàn bộ hiển thị đục như ảnh xem raw; vẫn cần kiểm/rà alpha sạch trước dùng thật. Không tự chỉnh/tách lại PNG trong lượt audit.
+
+Mở `npm.cmd start` → `/asset-preview.html` trên cổng của app (mặc định 3000). Đã xuất audit/JSON/screenshot để đánh giá; **dừng sau 07.0, không chuyển 07.1, không commit/push**. Lịch sử 06.2 chưa đạt hiệu năng bên dưới vẫn có hiệu lực; lượt audit không nghiệm thu thay cho phần đó.
+
+---
+
 # Trạng thái bàn giao lên Git — 06/11/2026
 
 Theo yêu cầu mới của người dùng, chuẩn bị commit/push toàn bộ mã nguồn, tài liệu và tài nguyên mới hiện có lên `https://github.com/hungdzx1/test_game_live.git`. Yêu cầu này thay cho giới hạn không commit/push ở các lượt triển khai trước. Không reset dữ liệu và không chuyển sang 06.3.

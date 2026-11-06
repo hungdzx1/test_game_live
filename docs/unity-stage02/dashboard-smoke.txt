@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "Initial dashboard renders, five pages, no duplicate IDs/runtime exceptions",
+    "Five routes preserve running engine, one WS, no TikTok reconnect; dark/light persist after reload; sidebar collapse works",
+    "All settings groups save through original APIs; draft survives navigation; untouched values remain; disk/reload retain saved values",
+    "Demo actions, item use, comments, combo/replay, skills, log filters, search and confirmed restore/reset work on temporary data",
+    "Connection status is backend-driven; LIVE connector stub connects once; mode separation and demo locks persist across routes; key field clears",
+    "All five pages at 1920/1366/tablet/mobile have no horizontal page overflow; mobile navigation closes after selection; both themes captured"
+  ],
+  "errors": [],
+  "screenshots": [
+    "home-dark.png",
+    "home-light.png",
+    "settings.png",
+    "demo.png",
+    "logs.png",
+    "backup.png",
+    "laptop.png",
+    "mobile-dark.png",
+    "mobile-light.png"
+  ]
+}

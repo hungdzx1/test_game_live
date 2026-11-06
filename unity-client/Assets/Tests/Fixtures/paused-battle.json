@@ -1,0 +1,452 @@
+{
+  "type": "state:snapshot",
+  "version": 1,
+  "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+  "seq": 16,
+  "serverTime": 1793980923786,
+  "payload": {
+    "phase": "paused",
+    "effectivePhase": "battle",
+    "phaseStart": 1793980923786,
+    "elapsedActiveMs": 250,
+    "cycleId": "c7d3bf5b-1a94-47fa-8968-2a69d0a0bff6",
+    "completedCycles": 0,
+    "battlesStarted": 1,
+    "cameraUserId": null,
+    "battle": {
+      "id": "efacd49f-3324-4ad8-bc4a-a357afc55f6f",
+      "status": "running",
+      "elapsedMs": 250,
+      "durationMs": 300000,
+      "viewId": 0,
+      "manualView": null,
+      "viewSince": 0,
+      "focusReason": "spawn",
+      "focusAt": 0,
+      "fields": [
+        {
+          "id": 0,
+          "name": "Phàm Giới",
+          "count": 1,
+          "status": "running",
+          "bossName": "Ma Binh Thống Lĩnh",
+          "bossStatus": "alive"
+        },
+        {
+          "id": 1,
+          "name": "Luyện Khí Cốc",
+          "count": 1,
+          "status": "running",
+          "bossName": "Ma Binh Thống Lĩnh",
+          "bossStatus": "alive"
+        },
+        {
+          "id": 2,
+          "name": "Trúc Cơ Trận",
+          "count": 0,
+          "status": "inactive"
+        },
+        {
+          "id": 3,
+          "name": "Kim Đan Vực",
+          "count": 0,
+          "status": "inactive"
+        },
+        {
+          "id": 4,
+          "name": "Nguyên Anh Cảnh",
+          "count": 0,
+          "status": "inactive"
+        },
+        {
+          "id": 5,
+          "name": "Hóa Thần Chiến Trường",
+          "count": 0,
+          "status": "inactive"
+        },
+        {
+          "id": 6,
+          "name": "Luyện Hư Ma Vực",
+          "count": 0,
+          "status": "inactive"
+        },
+        {
+          "id": 7,
+          "name": "Hợp Thể Thiên Vực",
+          "count": 0,
+          "status": "inactive"
+        },
+        {
+          "id": 8,
+          "name": "Đại Thừa Ma Giới",
+          "count": 0,
+          "status": "inactive"
+        },
+        {
+          "id": 9,
+          "name": "Độ Kiếp Chiến Trường",
+          "count": 0,
+          "status": "inactive"
+        },
+        {
+          "id": 10,
+          "name": "Phi Thăng Thần Vực",
+          "count": 0,
+          "status": "inactive"
+        }
+      ],
+      "view": {
+        "id": 0,
+        "name": "Phàm Giới",
+        "realmIndex": 0,
+        "participantIds": [
+          "__proto__"
+        ],
+        "participants": {
+          "__proto__": {
+            "userId": "__proto__",
+            "name": "Vân Sơn",
+            "realmIndex": 0,
+            "stageIndex": 0,
+            "hp": 100,
+            "maxHp": 100,
+            "atk": 10,
+            "def": 5,
+            "moveSpeed": 4,
+            "x": -5.259730457924804,
+            "z": 4.192793788615116,
+            "homeX": -5.8500000000000005,
+            "joinedAt": 0,
+            "damage": 0,
+            "bossDamage": 0,
+            "mobDamage": 0,
+            "scoreAt": 0,
+            "skillCount": 0,
+            "bossIds": [],
+            "cooldowns": {
+              "1": 0,
+              "2": 0
+            },
+            "targetId": "0:boss:0",
+            "attackAt": 0,
+            "reviveAt": 0,
+            "animation": "walk",
+            "animationUntil": 700,
+            "lastEffectAt": -1500,
+            "facing": 2.5101999338398255
+          }
+        },
+        "joinedAtByUser": {
+          "__proto__": 0
+        },
+        "mobs": [
+          {
+            "id": "0:mob:0",
+            "kind": "mob",
+            "type": 0,
+            "name": "Ma Binh",
+            "hp": 22,
+            "maxHp": 22,
+            "atk": 3.2,
+            "def": 0.75,
+            "moveSpeed": 1.8,
+            "attackInterval": 2200,
+            "targetId": "__proto__",
+            "spawnTime": 0,
+            "status": "alive",
+            "x": 8.568275325499117,
+            "z": 0.1269401647513758,
+            "attackAt": 1500,
+            "animation": "walk",
+            "animationUntil": 0,
+            "facing": -1.2848252174201522
+          },
+          {
+            "id": "0:mob:1",
+            "kind": "mob",
+            "type": 1,
+            "name": "Ám Linh",
+            "hp": 16,
+            "maxHp": 16,
+            "atk": 3.2,
+            "def": 0.75,
+            "moveSpeed": 2.5,
+            "attackInterval": 2200,
+            "targetId": "__proto__",
+            "spawnTime": 0,
+            "status": "alive",
+            "x": -6.438574884570115,
+            "z": 5.808444065676117,
+            "attackAt": 1500,
+            "animation": "walk",
+            "animationUntil": 0,
+            "facing": 2.5112492369073363
+          },
+          {
+            "id": "0:mob:2",
+            "kind": "mob",
+            "type": 2,
+            "name": "Thạch Ma",
+            "hp": 35,
+            "maxHp": 35,
+            "atk": 3.2,
+            "def": 0.75,
+            "moveSpeed": 1.2,
+            "attackInterval": 2200,
+            "targetId": "__proto__",
+            "spawnTime": 0,
+            "status": "alive",
+            "x": 0.661510197517835,
+            "z": -8.692947536116296,
+            "attackAt": 1500,
+            "animation": "walk",
+            "animationUntil": 0,
+            "facing": -0.43074152435498486
+          }
+        ],
+        "nextMob": 3,
+        "pendingMobs": 0,
+        "activeBoss": {
+          "id": "0:boss:0",
+          "kind": "boss",
+          "type": 0,
+          "name": "Ma Binh Thống Lĩnh",
+          "hp": 380,
+          "maxHp": 380,
+          "atk": 9,
+          "def": 0,
+          "moveSpeed": 1.1,
+          "attackInterval": 2000,
+          "targetId": "__proto__",
+          "spawnTime": 0,
+          "status": "alive",
+          "x": -0.16232412407067903,
+          "z": -2.7780182918691567,
+          "attackAt": 2000,
+          "specialAt": 10000,
+          "animation": "walk",
+          "animationUntil": 0,
+          "enraged": false,
+          "spawnParticipants": 1,
+          "standardDps": 10,
+          "lastHit": null,
+          "facing": -0.6313927197499677
+        },
+        "bossHistory": [
+          {
+            "id": "0:boss:0",
+            "kind": "boss",
+            "type": 0,
+            "name": "Ma Binh Thống Lĩnh",
+            "hp": 380,
+            "maxHp": 380,
+            "atk": 9,
+            "def": 0,
+            "moveSpeed": 1.1,
+            "attackInterval": 2000,
+            "targetId": "__proto__",
+            "spawnTime": 0,
+            "status": "alive",
+            "x": -0.16232412407067903,
+            "z": -2.7780182918691567,
+            "attackAt": 2000,
+            "specialAt": 10000,
+            "animation": "walk",
+            "animationUntil": 0,
+            "enraged": false,
+            "spawnParticipants": 1,
+            "standardDps": 10,
+            "lastHit": null,
+            "facing": -0.6313927197499677
+          }
+        ],
+        "damageByUser": {
+          "__proto__": 0
+        },
+        "rewardState": "pending",
+        "status": "running",
+        "battleId": "efacd49f-3324-4ad8-bc4a-a357afc55f6f",
+        "top": [
+          {
+            "userId": "__proto__",
+            "name": "Vân Sơn",
+            "realmIndex": 0,
+            "stageIndex": 0,
+            "hp": 100,
+            "maxHp": 100,
+            "atk": 10,
+            "def": 5,
+            "moveSpeed": 4,
+            "x": -5.259730457924804,
+            "z": 4.192793788615116,
+            "homeX": -5.8500000000000005,
+            "joinedAt": 0,
+            "damage": 0,
+            "bossDamage": 0,
+            "mobDamage": 0,
+            "scoreAt": 0,
+            "skillCount": 0,
+            "bossIds": [],
+            "cooldowns": {
+              "1": 0,
+              "2": 0
+            },
+            "targetId": "0:boss:0",
+            "attackAt": 0,
+            "reviveAt": 0,
+            "animation": "walk",
+            "animationUntil": 700,
+            "lastEffectAt": -1500,
+            "facing": 2.5101999338398255,
+            "participationMs": 250
+          }
+        ]
+      }
+    },
+    "battleResult": null,
+    "remainingMs": 299750,
+    "elapsedMs": 12750,
+    "players": [
+      {
+        "schemaVersion": 2,
+        "userId": "unity-fixture:1",
+        "name": "Đạo hữu Ánh Nguyệt",
+        "seed": 1936082363,
+        "index": 0,
+        "homeX": -7.875,
+        "homeZ": -4,
+        "x": -7.875,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "celebrate",
+        "animationStartMs": 12500,
+        "overrideUntil": 15500,
+        "realmIndex": 1,
+        "stageIndex": 0,
+        "cultivation": 12.25,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 3,
+          "root": 0,
+          "pill": 0,
+          "blessing": 0,
+          "camera": 0
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 12500
+        },
+        "lastSeenAt": 1793980923779,
+        "focusCooldownMs": 0,
+        "hp": 180,
+        "atk": 18,
+        "def": 9,
+        "baseCultivationRate": 1.5,
+        "cultivationPerSecond": 1.5,
+        "realm": "Luyện Khí",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 180,
+        "activeBuffs": [],
+        "breakthroughProbability": 80
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "__proto__",
+        "name": "Vân Sơn",
+        "seed": 2238802877,
+        "index": 1,
+        "homeX": -6.125,
+        "homeZ": -4,
+        "x": -6.125,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 0,
+        "stageIndex": 0,
+        "cultivation": 12.5,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 0,
+          "root": 0,
+          "pill": 0,
+          "blessing": 0,
+          "camera": 0
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 12500
+        },
+        "lastSeenAt": 1793980923779,
+        "focusCooldownMs": 0,
+        "hp": 100,
+        "atk": 10,
+        "def": 5,
+        "baseCultivationRate": 1,
+        "cultivationPerSecond": 1,
+        "realm": "Phàm Nhân",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 100,
+        "activeBuffs": [],
+        "breakthroughProbability": 90
+      }
+    ],
+    "focusedScene": "battle",
+    "interactions": {
+      "wish": {
+        "power": 0,
+        "threshold": 1000,
+        "cooldownUntil": 0,
+        "awards": 0,
+        "pending": 0
+      },
+      "giftBanner": null
+    },
+    "config": {},
+    "mode": "demo",
+    "demoSpeed": 1,
+    "animationPreview": false,
+    "breakthroughQueueLength": 0,
+    "breakthrough": null,
+    "breakthroughResult": {
+      "id": "836fdf0c-6c81-4a50-9a2b-99a612fd2bcc",
+      "userId": "unity-fixture:1",
+      "outcome": true,
+      "realmIndex": 1,
+      "remainingMs": 3000
+    }
+  }
+}

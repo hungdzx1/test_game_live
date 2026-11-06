@@ -1,0 +1,79 @@
+{
+  "at": "2026-11-06T14:32:45.138Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/156.0.8078.81",
+    "revision": "@060bedfb508f73250e93aeb9ca8149b3958995d8",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "jsVersion": "15.6.75.27"
+  },
+  "gpu": "ANGLE (Intel, Intel(R) HD Graphics P530 (0x0000191D) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "checks": [
+    "33 configurable layers, concept 941x1672 loaded",
+    "Position, scale, opacity, Z and anchor editable",
+    "Invalid scale rejected",
+    "Full canvas crop",
+    "Alpha crop restored",
+    "Pointer drag changes selected layer coordinates",
+    "Drag reorder moves layer after target",
+    "Hide/show removes/restores one draw call",
+    "Repeated edits reuse textures and geometries",
+    "Zoom/pan/reset",
+    "JSON downloads into separate file",
+    "Invalid JSON leaves existing layout intact",
+    "Missing concept preserves previous image and coordinates",
+    "Local concept file imports as data URL overlay",
+    "Concept overlay opacity adjustable",
+    "Exact 720x1280 9:16 canvas",
+    "Exact 1080x1920 9:16 canvas",
+    "Comparison uses actual imported concept",
+    "All 26 original PNG load in checkerboard gallery",
+    "Preview sends no API, WebSocket or state-writing requests",
+    "No JavaScript exceptions",
+    "Existing /song route still serves original HTML",
+    "Unmodified /song renders at 720x1280",
+    "Unmodified /song renders at 1080x1920",
+    "No JavaScript exceptions after existing /song smoke"
+  ],
+  "samples": [
+    {
+      "width": 720,
+      "height": 1280,
+      "fps": 60.55967790234995,
+      "drawCalls": 26,
+      "triangles": 52,
+      "geometries": 26,
+      "textures": 19,
+      "uniqueSourceTextures": 19,
+      "rgbaBytes": 119535668,
+      "errors": []
+    },
+    {
+      "width": 1080,
+      "height": 1920,
+      "fps": 59.541629245251634,
+      "drawCalls": 26,
+      "triangles": 52,
+      "geometries": 26,
+      "textures": 19,
+      "uniqueSourceTextures": 19,
+      "rgbaBytes": 119535668,
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "requestCount": 217,
+  "dataRoot": "C:\\Users\\admin\\AppData\\Local\\Temp\\tutien-07-preview-RihC5w",
+  "files": [
+    "asset-contact-sheet-black.png",
+    "asset-contact-sheet-white.png",
+    "asset-contact-sheet.png",
+    "comparison-1080x1920.png",
+    "layout-preview-07-0.json",
+    "npm-test-after.txt",
+    "preview-1080x1920.png",
+    "preview-720x1280.png",
+    "song-unchanged-1080x1920.png",
+    "song-unchanged-720x1280.png"
+  ]
+}

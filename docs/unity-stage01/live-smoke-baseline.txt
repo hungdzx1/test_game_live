@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-11-06T15:15:10.937Z",
+  "version": "0.4.0",
+  "result": "PASS",
+  "checks": [
+    "Combo 1/3/5 → five tea uses once, duplicate ignored",
+    "Battle skills, gift inventory and wish pending; EXP/buff clock frozen",
+    "Demo transport recovers after real five-second delay while game continues",
+    "Return applies deferred pill before next breakthrough roll and grants community points",
+    "Only temporary demo file written; real players file untouched"
+  ],
+  "players": 31,
+  "liveReality": "CHƯA KIỂM CHỨNG LIVE THẬT"
+}

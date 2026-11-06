@@ -1,0 +1,72 @@
+{
+  "stage": "Unity 03",
+  "date": "2026-11-07",
+  "branch": "feature/unity-2-5d-migration",
+  "result": "PASS scoped scene/import/layout tests; source art limitations remain",
+  "scene": "unity-client/Assets/Scenes/SectScene.unity",
+  "pngImported": 17,
+  "originalPngChanged": 0,
+  "sourceFilesPreserved": 155,
+  "npmBefore": {
+    "pass": 91,
+    "fail": 0,
+    "skip": 1
+  },
+  "npmAfter": {
+    "pass": 91,
+    "fail": 0,
+    "skip": 1
+  },
+  "unityTests": {
+    "total": 35,
+    "passed": 35,
+    "failed": 0,
+    "protocol": 24,
+    "scene": 11
+  },
+  "screenshots": 8,
+  "gpu": "NVIDIA Quadro M1000M",
+  "graphicsApi": "Direct3D11",
+  "playMode": {
+    "result": "PASS",
+    "graphics": "Null",
+    "note": "Five-second actual Editor Play Mode lifecycle/Update smoke; editorUpdateSamples is not gameplay FPS. No Node/LIVE connection.",
+    "seconds": 5.0081096999999986,
+    "editorUpdateSamples": 29799,
+    "runtimeErrors": 0,
+    "playing": true
+  },
+  "oldGameplaySmoke": "PASS temporary DEMO only",
+  "sync": {
+    "generatedFiles": 67,
+    "guidRemaps": 31,
+    "mainProjectGuidsPreserved": true
+  },
+  "limits": [
+    "Source courtyard edges and right lantern props clipped",
+    "Blossom branch and connecting steps are procedural placeholders",
+    "No player renderer, battle or gameplay UI",
+    "No Windows Player/OBS test for SectScene",
+    "No long soak/GPU frame-time or target FPS acceptance",
+    "UnityEditor.Search startup exception remains outside scene runtime stacks"
+  ],
+  "noCommitPush": true,
+  "evidence": [
+    "npm-baseline.txt",
+    "npm-after.txt",
+    "live-smoke.txt",
+    "final-editmode.xml",
+    "screenshot-report.json",
+    "playmode-report.json",
+    "preservation-report.json",
+    "sync-command.txt",
+    "sect-low-1080x1920-t0.png",
+    "sect-low-720x1280-t0.png",
+    "sect-medium-1080x1920-t0.png",
+    "sect-medium-720x1280-t0.png",
+    "sect-high-1080x1920-t0.png",
+    "sect-high-720x1280-t0.png",
+    "sect-medium-1080x1920-t20.png",
+    "sect-medium-1080x1920-t60.png"
+  ]
+}

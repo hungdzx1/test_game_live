@@ -1,0 +1,25 @@
+node : node:internal/modules/run_main:107
+At line:2 char:108
++ ... EXITCODE }; node scripts/finishing-smoke.js *> test-results/unity-sta ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (node:internal/modules/run_main:107:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(report.maxMessagesInSlidingSecond.effects<=84)
+
+    at file:///C:/Users/admin/Documents/CODE/TuTien/scripts/finishing-smoke.js:51:10
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.13.1

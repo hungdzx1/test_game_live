@@ -1,0 +1,48 @@
+{
+  "stage": "Unity 04",
+  "editor": "6000.5.9f1",
+  "baseline": {
+    "npm": {
+      "pass": 91,
+      "fail": 0,
+      "skip": 1
+    },
+    "unity": {
+      "pass": 36,
+      "fail": 0
+    }
+  },
+  "final": {
+    "npm": {
+      "pass": 91,
+      "fail": 0,
+      "skip": 1
+    },
+    "unity": {
+      "pass": 63,
+      "fail": 0
+    },
+    "gpuScreenshots": 12,
+    "device": "NVIDIA Quadro M1000M",
+    "playMode": "PASS",
+    "protectedFilesUnchanged": 341
+  },
+  "unchanged": [
+    "backend",
+    "gameplay",
+    "data",
+    "WebSocket protocol",
+    "SectScene.unity",
+    "Three.js",
+    "public/assets",
+    "Unity packages/project settings"
+  ],
+  "unverified": [
+    "new Windows Player",
+    "IL2CPP",
+    "OBS",
+    "sustained FPS/GPU residency",
+    "real TikTok LIVE"
+  ],
+  "scope": "No battle; no commit/push; camera retains overview."
+}

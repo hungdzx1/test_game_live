@@ -1,0 +1,6 @@
+{
+  "result": "PASS",
+  "files": 67,
+  "guidRemaps": 31,
+  "scope": "Stage03 generated scene/materials, new PNG import settings, appended sorting/build scene; existing GUIDs retained"
+}

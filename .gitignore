@@ -9,3 +9,32 @@ data/
 *.log
 *.backup
 *.bak
+
+# Unity generated files; keep Assets, .meta, Packages and ProjectSettings versionable.
+/unity-client/[Ll]ibrary/
+/unity-client/[Tt]emp/
+/unity-client/[Oo]bj/
+/unity-client/[Ll]ogs/
+/unity-client/[Uu]ser[Ss]ettings/
+/unity-client/[Bb]uild/
+/unity-client/[Bb]uilds/
+/unity-client/[Mm]emoryCaptures/
+/unity-client/[Rr]ecordings/
+/unity-client/.vs/
+/unity-client/*.csproj
+/unity-client/*.sln
+/unity-client/*.slnx
+/unity-client/*.user
+
+# The user's pre-existing project remains in place; exclude only its generated output.
+/public/unity-client/**/[Ll]ibrary/
+/public/unity-client/**/[Tt]emp/
+/public/unity-client/**/[Oo]bj/
+/public/unity-client/**/[Ll]ogs/
+/public/unity-client/**/[Uu]ser[Ss]ettings/
+/public/unity-client/**/[Bb]uild/
+/public/unity-client/**/[Bb]uilds/
+/public/unity-client/**/.vs/
+/public/unity-client/**/*.csproj
+/public/unity-client/**/*.sln
+/public/unity-client/**/*.slnx

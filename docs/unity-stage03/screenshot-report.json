@@ -1,0 +1,741 @@
+{
+    "result": "PASS",
+    "unity": "6000.5.9f1",
+    "device": "NVIDIA Quadro M1000M",
+    "graphicsApi": "Direct3D11",
+    "note": "Actual Unity URP camera render requests. captureRenderMs is CPU wall time around warmed SubmitRenderRequest, excluding ReadPixels/GPU readback; not GPU frame time, gameplay FPS or an OBS benchmark.",
+    "shots": [
+        {
+            "file": "sect-low-1080x1920-t0.png",
+            "quality": "Low",
+            "width": 1080,
+            "height": 1920,
+            "visiblePngPlanes": 12,
+            "uniquePngTextures": 12,
+            "time": 0.0,
+            "halfHeight": 9.600000381469727,
+            "rgbaTextureBytes": 75499888,
+            "captureRenderMs": 39.2449,
+            "importantContent": [
+                {
+                    "layer": "Temple",
+                    "viewport": [
+                        0.03444448113441467,
+                        0.4895833432674408,
+                        0.4100000262260437,
+                        0.7327083349227905
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Breakthrough platform",
+                    "viewport": [
+                        0.42348146438598635,
+                        0.53125,
+                        0.9561481475830078,
+                        0.699833333492279
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Main courtyard — original perspective",
+                    "viewport": [
+                        0.04292595386505127,
+                        0.1354166567325592,
+                        0.9570740461349487,
+                        0.5564583539962769
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation base — fitted to courtyard ellipse",
+                    "viewport": [
+                        0.25535184144973757,
+                        0.3279176950454712,
+                        0.7446481585502625,
+                        0.4220823049545288
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Front gate",
+                    "viewport": [
+                        0.06587964296340943,
+                        0.10416671633720398,
+                        0.3693055510520935,
+                        0.2642708420753479
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Header frame",
+                    "viewport": [
+                        0.061222225427627566,
+                        0.8255208134651184,
+                        0.9387778043746948,
+                        0.9737916588783264
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Footer frame",
+                    "viewport": [
+                        0.051074087619781497,
+                        0.0651041567325592,
+                        0.9489258527755737,
+                        0.11757293343544007
+                    ],
+                    "inside": true
+                }
+            ]
+        },
+        {
+            "file": "sect-low-720x1280-t0.png",
+            "quality": "Low",
+            "width": 720,
+            "height": 1280,
+            "visiblePngPlanes": 12,
+            "uniquePngTextures": 12,
+            "time": 0.0,
+            "halfHeight": 9.600000381469727,
+            "rgbaTextureBytes": 75499888,
+            "captureRenderMs": 2.1911,
+            "importantContent": [
+                {
+                    "layer": "Temple",
+                    "viewport": [
+                        0.03444448113441467,
+                        0.4895833432674408,
+                        0.4100000262260437,
+                        0.7327083349227905
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Breakthrough platform",
+                    "viewport": [
+                        0.42348146438598635,
+                        0.53125,
+                        0.9561481475830078,
+                        0.699833333492279
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Main courtyard — original perspective",
+                    "viewport": [
+                        0.04292595386505127,
+                        0.1354166567325592,
+                        0.9570740461349487,
+                        0.5564583539962769
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation base — fitted to courtyard ellipse",
+                    "viewport": [
+                        0.25535184144973757,
+                        0.3279176950454712,
+                        0.7446481585502625,
+                        0.4220823049545288
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Front gate",
+                    "viewport": [
+                        0.06587964296340943,
+                        0.10416671633720398,
+                        0.3693055510520935,
+                        0.2642708420753479
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Header frame",
+                    "viewport": [
+                        0.061222225427627566,
+                        0.8255208134651184,
+                        0.9387778043746948,
+                        0.9737916588783264
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Footer frame",
+                    "viewport": [
+                        0.051074087619781497,
+                        0.0651041567325592,
+                        0.9489258527755737,
+                        0.11757293343544007
+                    ],
+                    "inside": true
+                }
+            ]
+        },
+        {
+            "file": "sect-medium-1080x1920-t0.png",
+            "quality": "Medium",
+            "width": 1080,
+            "height": 1920,
+            "visiblePngPlanes": 15,
+            "uniquePngTextures": 15,
+            "time": 0.0,
+            "halfHeight": 9.600000381469727,
+            "rgbaTextureBytes": 94373004,
+            "captureRenderMs": 0.883,
+            "importantContent": [
+                {
+                    "layer": "Temple",
+                    "viewport": [
+                        0.03444448113441467,
+                        0.4895833432674408,
+                        0.4100000262260437,
+                        0.7327083349227905
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Breakthrough platform",
+                    "viewport": [
+                        0.42348146438598635,
+                        0.53125,
+                        0.9561481475830078,
+                        0.699833333492279
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Main courtyard — original perspective",
+                    "viewport": [
+                        0.04292595386505127,
+                        0.1354166567325592,
+                        0.9570740461349487,
+                        0.5564583539962769
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation base — fitted to courtyard ellipse",
+                    "viewport": [
+                        0.25535184144973757,
+                        0.3279176950454712,
+                        0.7446481585502625,
+                        0.4220823049545288
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation glow",
+                    "viewport": [
+                        0.2595601975917816,
+                        0.32920560240745547,
+                        0.740439772605896,
+                        0.42079439759254458
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Front gate",
+                    "viewport": [
+                        0.06587964296340943,
+                        0.10416671633720398,
+                        0.3693055510520935,
+                        0.2642708420753479
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Header frame",
+                    "viewport": [
+                        0.061222225427627566,
+                        0.8255208134651184,
+                        0.9387778043746948,
+                        0.9737916588783264
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Footer frame",
+                    "viewport": [
+                        0.051074087619781497,
+                        0.0651041567325592,
+                        0.9489258527755737,
+                        0.11757293343544007
+                    ],
+                    "inside": true
+                }
+            ]
+        },
+        {
+            "file": "sect-medium-720x1280-t0.png",
+            "quality": "Medium",
+            "width": 720,
+            "height": 1280,
+            "visiblePngPlanes": 15,
+            "uniquePngTextures": 15,
+            "time": 0.0,
+            "halfHeight": 9.600000381469727,
+            "rgbaTextureBytes": 94373004,
+            "captureRenderMs": 1.5037,
+            "importantContent": [
+                {
+                    "layer": "Temple",
+                    "viewport": [
+                        0.03444448113441467,
+                        0.4895833432674408,
+                        0.4100000262260437,
+                        0.7327083349227905
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Breakthrough platform",
+                    "viewport": [
+                        0.42348146438598635,
+                        0.53125,
+                        0.9561481475830078,
+                        0.699833333492279
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Main courtyard — original perspective",
+                    "viewport": [
+                        0.04292595386505127,
+                        0.1354166567325592,
+                        0.9570740461349487,
+                        0.5564583539962769
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation base — fitted to courtyard ellipse",
+                    "viewport": [
+                        0.25535184144973757,
+                        0.3279176950454712,
+                        0.7446481585502625,
+                        0.4220823049545288
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation glow",
+                    "viewport": [
+                        0.2595601975917816,
+                        0.32920560240745547,
+                        0.740439772605896,
+                        0.42079439759254458
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Front gate",
+                    "viewport": [
+                        0.06587964296340943,
+                        0.10416671633720398,
+                        0.3693055510520935,
+                        0.2642708420753479
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Header frame",
+                    "viewport": [
+                        0.061222225427627566,
+                        0.8255208134651184,
+                        0.9387778043746948,
+                        0.9737916588783264
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Footer frame",
+                    "viewport": [
+                        0.051074087619781497,
+                        0.0651041567325592,
+                        0.9489258527755737,
+                        0.11757293343544007
+                    ],
+                    "inside": true
+                }
+            ]
+        },
+        {
+            "file": "sect-high-1080x1920-t0.png",
+            "quality": "High",
+            "width": 1080,
+            "height": 1920,
+            "visiblePngPlanes": 17,
+            "uniquePngTextures": 16,
+            "time": 0.0,
+            "halfHeight": 9.600000381469727,
+            "rgbaTextureBytes": 100666412,
+            "captureRenderMs": 3.9321,
+            "importantContent": [
+                {
+                    "layer": "Temple",
+                    "viewport": [
+                        0.03444448113441467,
+                        0.4895833432674408,
+                        0.4100000262260437,
+                        0.7327083349227905
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Breakthrough platform",
+                    "viewport": [
+                        0.42348146438598635,
+                        0.53125,
+                        0.9561481475830078,
+                        0.699833333492279
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Main courtyard — original perspective",
+                    "viewport": [
+                        0.04292595386505127,
+                        0.1354166567325592,
+                        0.9570740461349487,
+                        0.5564583539962769
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation base — fitted to courtyard ellipse",
+                    "viewport": [
+                        0.25535184144973757,
+                        0.3279176950454712,
+                        0.7446481585502625,
+                        0.4220823049545288
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation glow",
+                    "viewport": [
+                        0.2595601975917816,
+                        0.32920560240745547,
+                        0.740439772605896,
+                        0.42079439759254458
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Front gate",
+                    "viewport": [
+                        0.06587964296340943,
+                        0.10416671633720398,
+                        0.3693055510520935,
+                        0.2642708420753479
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Header frame",
+                    "viewport": [
+                        0.061222225427627566,
+                        0.8255208134651184,
+                        0.9387778043746948,
+                        0.9737916588783264
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Footer frame",
+                    "viewport": [
+                        0.051074087619781497,
+                        0.0651041567325592,
+                        0.9489258527755737,
+                        0.11757293343544007
+                    ],
+                    "inside": true
+                }
+            ]
+        },
+        {
+            "file": "sect-high-720x1280-t0.png",
+            "quality": "High",
+            "width": 720,
+            "height": 1280,
+            "visiblePngPlanes": 17,
+            "uniquePngTextures": 16,
+            "time": 0.0,
+            "halfHeight": 9.600000381469727,
+            "rgbaTextureBytes": 100666412,
+            "captureRenderMs": 1.687,
+            "importantContent": [
+                {
+                    "layer": "Temple",
+                    "viewport": [
+                        0.03444448113441467,
+                        0.4895833432674408,
+                        0.4100000262260437,
+                        0.7327083349227905
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Breakthrough platform",
+                    "viewport": [
+                        0.42348146438598635,
+                        0.53125,
+                        0.9561481475830078,
+                        0.699833333492279
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Main courtyard — original perspective",
+                    "viewport": [
+                        0.04292595386505127,
+                        0.1354166567325592,
+                        0.9570740461349487,
+                        0.5564583539962769
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation base — fitted to courtyard ellipse",
+                    "viewport": [
+                        0.25535184144973757,
+                        0.3279176950454712,
+                        0.7446481585502625,
+                        0.4220823049545288
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation glow",
+                    "viewport": [
+                        0.2595601975917816,
+                        0.32920560240745547,
+                        0.740439772605896,
+                        0.42079439759254458
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Front gate",
+                    "viewport": [
+                        0.06587964296340943,
+                        0.10416671633720398,
+                        0.3693055510520935,
+                        0.2642708420753479
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Header frame",
+                    "viewport": [
+                        0.061222225427627566,
+                        0.8255208134651184,
+                        0.9387778043746948,
+                        0.9737916588783264
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Footer frame",
+                    "viewport": [
+                        0.051074087619781497,
+                        0.0651041567325592,
+                        0.9489258527755737,
+                        0.11757293343544007
+                    ],
+                    "inside": true
+                }
+            ]
+        },
+        {
+            "file": "sect-medium-1080x1920-t20.png",
+            "quality": "Medium",
+            "width": 1080,
+            "height": 1920,
+            "visiblePngPlanes": 15,
+            "uniquePngTextures": 15,
+            "time": 20.0,
+            "halfHeight": 9.600000381469727,
+            "rgbaTextureBytes": 94373004,
+            "captureRenderMs": 0.7673,
+            "importantContent": [
+                {
+                    "layer": "Temple",
+                    "viewport": [
+                        0.03121185302734375,
+                        0.48843494057655337,
+                        0.40676742792129519,
+                        0.7315599918365479
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Breakthrough platform",
+                    "viewport": [
+                        0.4202488958835602,
+                        0.5301015973091126,
+                        0.9529155492782593,
+                        0.6986849308013916
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Main courtyard — original perspective",
+                    "viewport": [
+                        0.03969332575798035,
+                        0.13426828384399415,
+                        0.9538413882255554,
+                        0.5553099513053894
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation base — fitted to courtyard ellipse",
+                    "viewport": [
+                        0.252119243144989,
+                        0.32676932215690615,
+                        0.7414155006408691,
+                        0.42093390226364138
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation glow",
+                    "viewport": [
+                        0.2563275694847107,
+                        0.3280572295188904,
+                        0.7372071743011475,
+                        0.4196459949016571
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Front gate",
+                    "viewport": [
+                        0.0626470148563385,
+                        0.10301835089921951,
+                        0.36607295274734499,
+                        0.26312243938446047
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Header frame",
+                    "viewport": [
+                        0.05798959732055664,
+                        0.824372410774231,
+                        0.9355451464653015,
+                        0.972643256187439
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Footer frame",
+                    "viewport": [
+                        0.04784145951271057,
+                        0.06395578384399414,
+                        0.9456931948661804,
+                        0.116424560546875
+                    ],
+                    "inside": true
+                }
+            ]
+        },
+        {
+            "file": "sect-medium-1080x1920-t60.png",
+            "quality": "Medium",
+            "width": 1080,
+            "height": 1920,
+            "visiblePngPlanes": 15,
+            "uniquePngTextures": 15,
+            "time": 60.0,
+            "halfHeight": 9.600000381469727,
+            "rgbaTextureBytes": 94373004,
+            "captureRenderMs": 1.6879000000000002,
+            "importantContent": [
+                {
+                    "layer": "Temple",
+                    "viewport": [
+                        0.03761240839958191,
+                        0.4897112548351288,
+                        0.41316789388656618,
+                        0.7328363060951233
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Breakthrough platform",
+                    "viewport": [
+                        0.42664939165115359,
+                        0.531377911567688,
+                        0.959316074848175,
+                        0.699961245059967
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Main courtyard — original perspective",
+                    "viewport": [
+                        0.046093881130218509,
+                        0.13554459810256959,
+                        0.960241973400116,
+                        0.5565862655639648
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation base — fitted to courtyard ellipse",
+                    "viewport": [
+                        0.2585197687149048,
+                        0.32804563641548159,
+                        0.7478160858154297,
+                        0.4222102165222168
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Formation glow",
+                    "viewport": [
+                        0.26272812485694888,
+                        0.3293335735797882,
+                        0.743607759475708,
+                        0.42092233896255495
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Front gate",
+                    "viewport": [
+                        0.06904757022857666,
+                        0.10429465770721436,
+                        0.37247347831726076,
+                        0.2643987536430359
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Header frame",
+                    "viewport": [
+                        0.0643901526927948,
+                        0.8256487250328064,
+                        0.9419456720352173,
+                        0.9739196300506592
+                    ],
+                    "inside": true
+                },
+                {
+                    "layer": "Footer frame",
+                    "viewport": [
+                        0.05424201488494873,
+                        0.06523209810256958,
+                        0.9520938992500305,
+                        0.11770088225603104
+                    ],
+                    "inside": true
+                }
+            ]
+        }
+    ]
+}

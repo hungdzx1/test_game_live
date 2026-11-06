@@ -1,0 +1,12 @@
+{
+    "editorVersion": "6000.5.9f1",
+    "pipeline": "UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset",
+    "camera": "Orthographic",
+    "scene": "Assets/Scenes/Bootstrap.unity",
+    "result": "PASS: Editor import, compilation and empty project configuration only",
+    "limitations": "No Play Mode, GPU render, Windows build, networking, gameplay or OBS verification.",
+    "batchMode": true,
+    "width": 1080,
+    "height": 1920,
+    "rootObjects": 1
+}

@@ -1,0 +1,21 @@
+{
+  "generator": "scripts/unity-character-fixtures.js",
+  "syntheticPlayers": true,
+  "backendUnmodified": true,
+  "files": [
+    "players-10",
+    "players-50",
+    "players-100",
+    "players-500",
+    "ritual-start",
+    "ritual-strike",
+    "ritual-paused",
+    "ritual-success",
+    "success-events",
+    "failure-start",
+    "failure-strike",
+    "failure-paused",
+    "ritual-failure",
+    "failure-events"
+  ]
+}

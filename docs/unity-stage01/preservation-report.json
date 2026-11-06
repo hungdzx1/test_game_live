@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "checkedFiles": 203,
+  "changed": [],
+  "at": "2026-11-06T15:33:46.302Z",
+  "method": "SHA-256 of pre-existing public, phases, data and root files; excludes only authorized AGENTS/PROGRESS/gitignore, caches, and newly created unity-client/docs."
+}

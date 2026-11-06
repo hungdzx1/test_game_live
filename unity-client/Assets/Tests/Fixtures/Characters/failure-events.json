@@ -1,0 +1,105 @@
+[
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "fe091a73-8167-474a-8599-03dc8de5a16d",
+    "seq": 1,
+    "serverTime": 1793989189609,
+    "payload": {
+      "eventId": "02553377-2858-45ce-8c79-96d723398016",
+      "kind": "stage:up",
+      "userId": "ritual:0",
+      "timestamp": 1793989189609,
+      "stageIndex": 1
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "fe091a73-8167-474a-8599-03dc8de5a16d",
+    "seq": 2,
+    "serverTime": 1793989189609,
+    "payload": {
+      "eventId": "96b0698b-707b-43ac-9cfa-4c7f9240a467",
+      "kind": "stage:up",
+      "userId": "ritual:0",
+      "timestamp": 1793989189609,
+      "stageIndex": 2
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "fe091a73-8167-474a-8599-03dc8de5a16d",
+    "seq": 3,
+    "serverTime": 1793989189609,
+    "payload": {
+      "eventId": "8bae012f-b5b5-4d40-b22e-1f26a58d27fb",
+      "kind": "stage:up",
+      "userId": "ritual:0",
+      "timestamp": 1793989189609,
+      "stageIndex": 3
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "fe091a73-8167-474a-8599-03dc8de5a16d",
+    "seq": 4,
+    "serverTime": 1793989189609,
+    "payload": {
+      "eventId": "cd703b14-b5e2-4fb5-9532-e19ea8d1a105",
+      "kind": "breakthrough:started",
+      "userId": "ritual:0",
+      "timestamp": 1793989189609,
+      "id": "08fe7b9e-f639-4e06-8d42-97bf8aecce82",
+      "realmIndex": 0,
+      "durationMs": 12000,
+      "lightningCount": 1,
+      "guaranteed": false
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "fe091a73-8167-474a-8599-03dc8de5a16d",
+    "seq": 8,
+    "serverTime": 1793989189615,
+    "payload": {
+      "eventId": "366b27a2-3202-4b97-b80f-c576f506b3b3",
+      "kind": "breakthrough:completed",
+      "userId": "ritual:0",
+      "timestamp": 1793989189615,
+      "id": "08fe7b9e-f639-4e06-8d42-97bf8aecce82",
+      "outcome": false,
+      "realmIndex": 0,
+      "remainingMs": 3000
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "fe091a73-8167-474a-8599-03dc8de5a16d",
+    "seq": 10,
+    "serverTime": 1793989189616,
+    "payload": {
+      "eventId": "08765859-f6cb-49fe-9ccf-4e699dd624b2",
+      "kind": "teleport",
+      "userId": "ritual:1",
+      "timestamp": 1793989189616
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "fe091a73-8167-474a-8599-03dc8de5a16d",
+    "seq": 11,
+    "serverTime": 1793989189616,
+    "payload": {
+      "eventId": "2cbe9c7f-29e1-474c-a978-fcc1ba30dc0e",
+      "kind": "celebrate",
+      "userId": "ritual:2",
+      "timestamp": 1793989189616
+    }
+  }
+]

@@ -1,0 +1,1130 @@
+{
+  "stage": "Unity 03",
+  "generatedAt": "2026-11-06T16:45:52.589Z",
+  "originalsUnchanged": true,
+  "ppu": 100,
+  "assets": [
+    {
+      "id": "Architecture layers/breakthrough_platform.png",
+      "url": "/assets/Architecture%20layers/breakthrough_platform.png",
+      "bytes": 519943,
+      "sha256": "189129cfccb001788daa705d774c30219f1c7ccb4c8ead13ef47be7bd592abc2",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1345163,
+        "semi": 227956,
+        "opaque": 233,
+        "darkVisible": 3781,
+        "darkSemi": 3781,
+        "edgePixels": 19778,
+        "darkEdge": 3783,
+        "brightEdge": 135,
+        "redEdge": 2754,
+        "blueEdge": 2026,
+        "significantDark": 0,
+        "significantRedEdge": 9,
+        "significantBlueEdge": 411
+      },
+      "alphaBins": {
+        "a1_15": 14900,
+        "a16_63": 2205,
+        "a64_127": 1763,
+        "a128_239": 5446,
+        "a240_254": 203642
+      },
+      "meanVisibleAlpha": 231.45966282336133,
+      "bboxAlpha": [
+        0,
+        85,
+        930,
+        1648
+      ],
+      "bbox32": [
+        81,
+        503,
+        927,
+        979
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/Architecture layers/breakthrough_platform.png",
+      "crop": [
+        0,
+        82,
+        933,
+        1651
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 8.23735931561068,
+        "samples": 205322
+      },
+      "copySha256": "189129cfccb001788daa705d774c30219f1c7ccb4c8ead13ef47be7bd592abc2"
+    },
+    {
+      "id": "Architecture layers/front_gate.png",
+      "url": "/assets/Architecture%20layers/front_gate.png",
+      "bytes": 1244214,
+      "sha256": "f692554558ddad6df2c9e1538f5dd58cbca661600058237d44f61acbd51ebcc6",
+      "width": 1213,
+      "height": 1296,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 966664,
+        "semi": 605062,
+        "opaque": 322,
+        "darkVisible": 4487,
+        "darkSemi": 4487,
+        "edgePixels": 51415,
+        "darkEdge": 4471,
+        "brightEdge": 922,
+        "redEdge": 16714,
+        "blueEdge": 16,
+        "significantDark": 16,
+        "significantRedEdge": 1888,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 40929,
+        "a16_63": 4188,
+        "a64_127": 4031,
+        "a128_239": 9425,
+        "a240_254": 546489
+      },
+      "meanVisibleAlpha": 232.20350389174473,
+      "bboxAlpha": [
+        29,
+        17,
+        1167,
+        1232
+      ],
+      "bbox32": [
+        35,
+        66,
+        1165,
+        1126
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/Architecture layers/front_gate.png",
+      "crop": [
+        26,
+        14,
+        1170,
+        1235
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 7.489760704305221,
+        "samples": 547490
+      },
+      "copySha256": "f692554558ddad6df2c9e1538f5dd58cbca661600058237d44f61acbd51ebcc6"
+    },
+    {
+      "id": "Architecture layers/lanterns_props.png",
+      "url": "/assets/Architecture%20layers/lanterns_props.png",
+      "bytes": 582871,
+      "sha256": "0e8c3be377acf0312aee01b567671eadccabb31c28fef96a5239e3a160f8fca3",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1327257,
+        "semi": 246032,
+        "opaque": 63,
+        "darkVisible": 9546,
+        "darkSemi": 9546,
+        "edgePixels": 130945,
+        "darkEdge": 9547,
+        "brightEdge": 178,
+        "redEdge": 26945,
+        "blueEdge": 33,
+        "significantDark": 0,
+        "significantRedEdge": 6,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 106036,
+        "a16_63": 33576,
+        "a64_127": 13337,
+        "a128_239": 21101,
+        "a240_254": 71982
+      },
+      "meanVisibleAlpha": 100.9101607102948,
+      "bboxAlpha": [
+        0,
+        23,
+        941,
+        1648
+      ],
+      "bbox32": [
+        4,
+        479,
+        941,
+        1555
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 177,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/Architecture layers/lanterns_props.png",
+      "crop": [
+        0,
+        20,
+        941,
+        1651
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 11.152908118824127,
+        "samples": 79950
+      },
+      "copySha256": "0e8c3be377acf0312aee01b567671eadccabb31c28fef96a5239e3a160f8fca3"
+    },
+    {
+      "id": "Architecture layers/main_courtyard.png",
+      "url": "/assets/Architecture%20layers/main_courtyard.png",
+      "bytes": 1350182,
+      "sha256": "ef55dc0f564862e43773903e8db02bd2a7c9c4f86a4d9963b65bea04b87f36bf",
+      "width": 1148,
+      "height": 1370,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 822592,
+        "semi": 749995,
+        "opaque": 173,
+        "darkVisible": 6367,
+        "darkSemi": 6367,
+        "edgePixels": 33431,
+        "darkEdge": 6367,
+        "brightEdge": 527,
+        "redEdge": 4701,
+        "blueEdge": 1333,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 131
+      },
+      "alphaBins": {
+        "a1_15": 26824,
+        "a16_63": 4434,
+        "a64_127": 2321,
+        "a128_239": 5370,
+        "a240_254": 711046
+      },
+      "meanVisibleAlpha": 241.277071269369,
+      "bboxAlpha": [
+        0,
+        90,
+        1148,
+        1370
+      ],
+      "bbox32": [
+        0,
+        371,
+        1148,
+        1311
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 250,
+        "bottom": 0,
+        "left": 299
+      },
+      "importPath": "Assets/Art/Sect/Architecture layers/main_courtyard.png",
+      "crop": [
+        0,
+        87,
+        1148,
+        1370
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 4.395036023756905,
+        "samples": 711561
+      },
+      "copySha256": "ef55dc0f564862e43773903e8db02bd2a7c9c4f86a4d9963b65bea04b87f36bf"
+    },
+    {
+      "id": "Architecture layers/temple_left.png",
+      "url": "/assets/Architecture%20layers/temple_left.png",
+      "bytes": 1446585,
+      "sha256": "2838dff0718e1d56896b5edfd21f9080af41db647551289bf0e6a79257280199",
+      "width": 1040,
+      "height": 1512,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 831710,
+        "semi": 740497,
+        "opaque": 273,
+        "darkVisible": 12477,
+        "darkSemi": 12477,
+        "edgePixels": 42705,
+        "darkEdge": 12437,
+        "brightEdge": 667,
+        "redEdge": 5530,
+        "blueEdge": 1333,
+        "significantDark": 40,
+        "significantRedEdge": 328,
+        "significantBlueEdge": 9
+      },
+      "alphaBins": {
+        "a1_15": 33706,
+        "a16_63": 4351,
+        "a64_127": 3459,
+        "a128_239": 10367,
+        "a240_254": 688614
+      },
+      "meanVisibleAlpha": 238.18596865423817,
+      "bboxAlpha": [
+        0,
+        9,
+        1024,
+        1512
+      ],
+      "bbox32": [
+        2,
+        173,
+        1016,
+        1340
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/Architecture layers/temple_left.png",
+      "crop": [
+        0,
+        6,
+        1027,
+        1512
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 6.986698149199385,
+        "samples": 691052
+      },
+      "copySha256": "2838dff0718e1d56896b5edfd21f9080af41db647551289bf0e6a79257280199"
+    },
+    {
+      "id": "Architecture layers/waterfalls.png",
+      "url": "/assets/Architecture%20layers/waterfalls.png",
+      "bytes": 485789,
+      "sha256": "ee6f6775e5048222a196ce925613edf64c2d8ef56e0c3405563e9bfe5d6acef1",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1328711,
+        "semi": 244641,
+        "opaque": 0,
+        "darkVisible": 16798,
+        "darkSemi": 16798,
+        "edgePixels": 131400,
+        "darkEdge": 16798,
+        "brightEdge": 212,
+        "redEdge": 6,
+        "blueEdge": 9632,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 105609,
+        "a16_63": 45154,
+        "a64_127": 28489,
+        "a128_239": 38496,
+        "a240_254": 26893
+      },
+      "meanVisibleAlpha": 75.52978854729992,
+      "bboxAlpha": [
+        17,
+        2,
+        941,
+        1672
+      ],
+      "bbox32": [
+        358,
+        657,
+        908,
+        1672
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 21,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/Architecture layers/waterfalls.png",
+      "crop": [
+        14,
+        0,
+        941,
+        1672
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 4.8360457153554615,
+        "samples": 42734
+      },
+      "copySha256": "ee6f6775e5048222a196ce925613edf64c2d8ef56e0c3405563e9bfe5d6acef1"
+    },
+    {
+      "id": "Background layers/bg_cloud_far.png",
+      "url": "/assets/Background%20layers/bg_cloud_far.png",
+      "bytes": 755388,
+      "sha256": "9681a03baeef28956b147bb2202a66ff93818e05007a90df880889e95259bf59",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1161213,
+        "semi": 412139,
+        "opaque": 0,
+        "darkVisible": 85582,
+        "darkSemi": 85582,
+        "edgePixels": 200846,
+        "darkEdge": 85582,
+        "brightEdge": 25235,
+        "redEdge": 76,
+        "blueEdge": 14560,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 178262,
+        "a16_63": 33220,
+        "a64_127": 24260,
+        "a128_239": 49071,
+        "a240_254": 127326
+      },
+      "meanVisibleAlpha": 109.84259922016601,
+      "bboxAlpha": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "bbox32": [
+        17,
+        89,
+        925,
+        1580
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/Background layers/bg_cloud_far.png",
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 2.137829692608582,
+        "samples": 150785
+      },
+      "copySha256": "9681a03baeef28956b147bb2202a66ff93818e05007a90df880889e95259bf59"
+    },
+    {
+      "id": "Background layers/bg_mountain_far.png",
+      "url": "/assets/Background%20layers/bg_mountain_far.png",
+      "bytes": 565039,
+      "sha256": "a469a9862b7323cb1da367c5e1f6b7e3b87aeaf6f064feb5dae2408708a1117a",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1251303,
+        "semi": 322008,
+        "opaque": 41,
+        "darkVisible": 12559,
+        "darkSemi": 12559,
+        "edgePixels": 49700,
+        "darkEdge": 12559,
+        "brightEdge": 493,
+        "redEdge": 28,
+        "blueEdge": 4466,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 73
+      },
+      "alphaBins": {
+        "a1_15": 41411,
+        "a16_63": 14978,
+        "a64_127": 15769,
+        "a128_239": 41746,
+        "a240_254": 208104
+      },
+      "meanVisibleAlpha": 194.14674785514006,
+      "bboxAlpha": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "bbox32": [
+        0,
+        267,
+        941,
+        709
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 104,
+        "bottom": 0,
+        "left": 155
+      },
+      "importPath": "Assets/Art/Sect/Background layers/bg_mountain_far.png",
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 1.8925199422305656,
+        "samples": 228841
+      },
+      "copySha256": "a469a9862b7323cb1da367c5e1f6b7e3b87aeaf6f064feb5dae2408708a1117a"
+    },
+    {
+      "id": "Background layers/bg_mountain_mid.png",
+      "url": "/assets/Background%20layers/bg_mountain_mid.png",
+      "bytes": 1216650,
+      "sha256": "67eac94f903590cd84a8b8855932212dcfbdf47189a359bdb499a30e219b9dd0",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 776602,
+        "semi": 796742,
+        "opaque": 8,
+        "darkVisible": 160761,
+        "darkSemi": 160761,
+        "edgePixels": 190115,
+        "darkEdge": 160761,
+        "brightEdge": 105,
+        "redEdge": 56,
+        "blueEdge": 13374,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 3173
+      },
+      "alphaBins": {
+        "a1_15": 182998,
+        "a16_63": 4401,
+        "a64_127": 3433,
+        "a128_239": 9359,
+        "a240_254": 596551
+      },
+      "meanVisibleAlpha": 191.9514050831503,
+      "bboxAlpha": [
+        0,
+        20,
+        941,
+        1672
+      ],
+      "bbox32": [
+        0,
+        270,
+        941,
+        1672
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 494,
+        "bottom": 311,
+        "left": 793
+      },
+      "importPath": "Assets/Art/Sect/Background layers/bg_mountain_mid.png",
+      "crop": [
+        0,
+        17,
+        941,
+        1672
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 2.3303357173924333,
+        "samples": 597664
+      },
+      "copySha256": "67eac94f903590cd84a8b8855932212dcfbdf47189a359bdb499a30e219b9dd0"
+    },
+    {
+      "id": "Background layers/bg_sky.png",
+      "url": "/assets/Background%20layers/bg_sky.png",
+      "bytes": 1387633,
+      "sha256": "4747f5f33d54fbab139a858d657dfc19648f6bf93694aa44eec0c84234c99385",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 2,
+      "alphaChannel": false,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 0,
+        "semi": 0,
+        "opaque": 1573352,
+        "darkVisible": 0,
+        "darkSemi": 0,
+        "edgePixels": 0,
+        "darkEdge": 0,
+        "brightEdge": 0,
+        "redEdge": 0,
+        "blueEdge": 0,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 0,
+        "a16_63": 0,
+        "a64_127": 0,
+        "a128_239": 0,
+        "a240_254": 0
+      },
+      "meanVisibleAlpha": 255,
+      "bboxAlpha": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "bbox32": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "touchingSides": {
+        "top": 941,
+        "right": 1672,
+        "bottom": 941,
+        "left": 1672
+      },
+      "importPath": "Assets/Art/Sect/Background layers/bg_sky.png",
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 0.4264933826272657,
+        "samples": 1568130
+      },
+      "copySha256": "4747f5f33d54fbab139a858d657dfc19648f6bf93694aa44eec0c84234c99385"
+    },
+    {
+      "id": "FX layers/formation_ring_base.png",
+      "url": "/assets/FX%20layers/formation_ring_base.png",
+      "bytes": 2227646,
+      "sha256": "9777b729be083d39a18624afa4ab53ddddc8f4f84a76d483def13b00059b31f3",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 323448,
+        "semi": 1249068,
+        "opaque": 0,
+        "darkVisible": 131229,
+        "darkSemi": 131229,
+        "edgePixels": 765444,
+        "darkEdge": 131229,
+        "brightEdge": 89,
+        "redEdge": 0,
+        "blueEdge": 9252,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 677491,
+        "a16_63": 115112,
+        "a64_127": 79321,
+        "a128_239": 207908,
+        "a240_254": 169236
+      },
+      "meanVisibleAlpha": 77.4099992954747,
+      "bboxAlpha": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bbox32": [
+        24,
+        45,
+        1225,
+        1219
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/FX layers/formation_ring_base.png",
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 10.477248562654468,
+        "samples": 277769
+      },
+      "copySha256": "9777b729be083d39a18624afa4ab53ddddc8f4f84a76d483def13b00059b31f3"
+    },
+    {
+      "id": "FX layers/formation_ring_glow.png",
+      "url": "/assets/FX%20layers/formation_ring_glow.png",
+      "bytes": 1812093,
+      "sha256": "fad5a75416a376f162f88d53269b4418256ea3bc56b2bfa09747fb5609959767",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 257463,
+        "semi": 1315053,
+        "opaque": 0,
+        "darkVisible": 450365,
+        "darkSemi": 450365,
+        "edgePixels": 897637,
+        "darkEdge": 450365,
+        "brightEdge": 31838,
+        "redEdge": 6647,
+        "blueEdge": 16219,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 792312,
+        "a16_63": 190511,
+        "a64_127": 137686,
+        "a128_239": 184294,
+        "a240_254": 10250
+      },
+      "meanVisibleAlpha": 44.31158516044601,
+      "bboxAlpha": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bbox32": [
+        75,
+        90,
+        1180,
+        1159
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/FX layers/formation_ring_glow.png",
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 6.937572062586607,
+        "samples": 88709
+      },
+      "copySha256": "fad5a75416a376f162f88d53269b4418256ea3bc56b2bfa09747fb5609959767"
+    },
+    {
+      "id": "FX layers/light_particles.png",
+      "url": "/assets/FX%20layers/light_particles.png",
+      "bytes": 692395,
+      "sha256": "b3f7ac02ce335188677be620b99aae03803e7f8faea2e029f1fefaee6f42a570",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1025956,
+        "semi": 547396,
+        "opaque": 0,
+        "darkVisible": 418590,
+        "darkSemi": 418590,
+        "edgePixels": 524932,
+        "darkEdge": 418590,
+        "brightEdge": 2229,
+        "redEdge": 3514,
+        "blueEdge": 2917,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 508510,
+        "a16_63": 24477,
+        "a64_127": 7722,
+        "a128_239": 5724,
+        "a240_254": 963
+      },
+      "meanVisibleAlpha": 6.5524282238087235,
+      "bboxAlpha": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "bbox32": [
+        65,
+        116,
+        889,
+        1536
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/FX layers/light_particles.png",
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 7.6197636553161825,
+        "samples": 2878
+      },
+      "copySha256": "b3f7ac02ce335188677be620b99aae03803e7f8faea2e029f1fefaee6f42a570"
+    },
+    {
+      "id": "FX layers/mist_overlay.png",
+      "url": "/assets/FX%20layers/mist_overlay.png",
+      "bytes": 1659312,
+      "sha256": "c6b787149ad8fbd4acf2e61a70f562e233d0f475a740804d868f9c32e064d197",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 222565,
+        "semi": 1350787,
+        "opaque": 0,
+        "darkVisible": 332533,
+        "darkSemi": 332533,
+        "edgePixels": 716586,
+        "darkEdge": 332533,
+        "brightEdge": 69378,
+        "redEdge": 65,
+        "blueEdge": 54392,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 665162,
+        "a16_63": 103607,
+        "a64_127": 95085,
+        "a128_239": 286694,
+        "a240_254": 200239
+      },
+      "meanVisibleAlpha": 88.00556268308772,
+      "bboxAlpha": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "bbox32": [
+        0,
+        243,
+        941,
+        1672
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 963,
+        "bottom": 891,
+        "left": 848
+      },
+      "importPath": "Assets/Art/Sect/FX layers/mist_overlay.png",
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 0.9561458024690895,
+        "samples": 346680
+      },
+      "copySha256": "c6b787149ad8fbd4acf2e61a70f562e233d0f475a740804d868f9c32e064d197"
+    },
+    {
+      "id": "FX layers/petals_overlay.png",
+      "url": "/assets/FX%20layers/petals_overlay.png",
+      "bytes": 321294,
+      "sha256": "34af2036bbdefd91561e774d9c2d572f7b35763ae558d488d2fba36d2c96f030",
+      "width": 941,
+      "height": 1671,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1388084,
+        "semi": 184304,
+        "opaque": 23,
+        "darkVisible": 122383,
+        "darkSemi": 122383,
+        "edgePixels": 158132,
+        "darkEdge": 122383,
+        "brightEdge": 3604,
+        "redEdge": 9889,
+        "blueEdge": 74,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 153141,
+        "a16_63": 5085,
+        "a64_127": 3282,
+        "a128_239": 6143,
+        "a240_254": 16653
+      },
+      "meanVisibleAlpha": 32.713026306509626,
+      "bboxAlpha": [
+        21,
+        9,
+        941,
+        1649
+      ],
+      "bbox32": [
+        50,
+        130,
+        882,
+        1583
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/FX layers/petals_overlay.png",
+      "crop": [
+        18,
+        6,
+        941,
+        1652
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 2.8552978330955474,
+        "samples": 18921
+      },
+      "copySha256": "34af2036bbdefd91561e774d9c2d572f7b35763ae558d488d2fba36d2c96f030"
+    },
+    {
+      "id": "UI/ui_footer.png",
+      "url": "/assets/UI/ui_footer.png",
+      "bytes": 653022,
+      "sha256": "5b3f8e5f86f52dcaa85bedbcd46abf2375b931f73667a375078fb386093e9695",
+      "width": 2172,
+      "height": 724,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1069916,
+        "semi": 502531,
+        "opaque": 81,
+        "darkVisible": 129445,
+        "darkSemi": 129445,
+        "edgePixels": 176305,
+        "darkEdge": 129445,
+        "brightEdge": 222,
+        "redEdge": 1417,
+        "blueEdge": 144,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 166056,
+        "a16_63": 11849,
+        "a64_127": 5223,
+        "a128_239": 7123,
+        "a240_254": 312280
+      },
+      "meanVisibleAlpha": 160.793727567189,
+      "bboxAlpha": [
+        0,
+        39,
+        2143,
+        700
+      ],
+      "bbox32": [
+        32,
+        246,
+        2140,
+        465
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/UI/ui_footer.png",
+      "crop": [
+        0,
+        36,
+        2146,
+        703
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 3.4342995813585455,
+        "samples": 314112
+      },
+      "copySha256": "5b3f8e5f86f52dcaa85bedbcd46abf2375b931f73667a375078fb386093e9695"
+    },
+    {
+      "id": "UI/ui_header.png",
+      "url": "/assets/UI/ui_header.png",
+      "bytes": 1772804,
+      "sha256": "9b7e748e2b3231c199d89ff9c9b11c3a8f488b9399de24ae3c415ccd9dd40db4",
+      "width": 2172,
+      "height": 724,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 348111,
+        "semi": 1224413,
+        "opaque": 4,
+        "darkVisible": 139408,
+        "darkSemi": 139408,
+        "edgePixels": 1017595,
+        "darkEdge": 139408,
+        "brightEdge": 21014,
+        "redEdge": 109174,
+        "blueEdge": 1057,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 966479,
+        "a16_63": 49389,
+        "a64_127": 18708,
+        "a128_239": 69397,
+        "a240_254": 120440
+      },
+      "meanVisibleAlpha": 40.770849310324834,
+      "bboxAlpha": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "bbox32": [
+        11,
+        34,
+        2165,
+        681
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/Sect/UI/ui_header.png",
+      "crop": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "sharpness": {
+        "method": "Mean adjacent luminance differences at alpha >=192; descriptive, not a quality score",
+        "mean": 10.964208224041979,
+        "samples": 159970
+      },
+      "copySha256": "9b7e748e2b3231c199d89ff9c9b11c3a8f488b9399de24ae3c415ccd9dd40db4"
+    }
+  ]
+}

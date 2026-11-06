@@ -1,0 +1,6 @@
+{
+  "name": "TuTienLive.Runtime",
+  "references": [],
+  "overrideReferences": true,
+  "precompiledReferences": ["Newtonsoft.Json.dll"]
+}

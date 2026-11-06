@@ -1,0 +1,61 @@
+{
+  "note": "Tóm tắt quan sát terminal trong phiên, không phải báo cáo PASS từ finishing-smoke; hai lần đầu stderr chỉ ở terminal. Lần cuối có log stdout+stderr lưu kèm.",
+  "baselineNpm": {
+    "tests": 92,
+    "pass": 90,
+    "fail": 1,
+    "skip": 1,
+    "failure": "launcher.test.js spawnSync timeout 5000ms, status null != 1"
+  },
+  "launcherRecheck": {
+    "pass": 1,
+    "fail": 0
+  },
+  "baselineNpmRecheck": {
+    "tests": 92,
+    "pass": 91,
+    "fail": 0,
+    "skip": 1
+  },
+  "afterNpm": {
+    "tests": 92,
+    "pass": 91,
+    "fail": 0,
+    "skip": 1
+  },
+  "demoLiveSmoke": "PASS (không kết nối LIVE thật)",
+  "finishingSmoke": [
+    {
+      "run": 1,
+      "result": "FAIL",
+      "assertion": "report.maxMessagesInSlidingSecond.effects <= 84",
+      "location": "scripts/finishing-smoke.js:51",
+      "observedCount": null
+    },
+    {
+      "run": 2,
+      "result": "FAIL",
+      "assertion": "command HTTP 400 != 200: Đạo hữu chưa tham chiến hoặc đang hồi sinh.",
+      "location": "scripts/finishing-smoke.js:33",
+      "observedCount": null
+    },
+    {
+      "run": 3,
+      "result": "FAIL",
+      "assertion": "report.maxMessagesInSlidingSecond.effects <= 84",
+      "location": "scripts/finishing-smoke.js:51",
+      "observedCount": null
+    }
+  ],
+  "finishingConclusion": "Còn mở; chưa xác định nguyên nhân. Không sửa backend/test hoặc nới ngưỡng. Script không xuất report chi tiết khi assertion thất bại; không dùng phase5-smoke.json cũ làm kết quả phiên này.",
+  "notVerified": [
+    "Editor GUI thao tác trực tiếp",
+    "Unity Play Mode",
+    "Unity EditMode/PlayMode suite của game",
+    "Windows build/IL2CPP",
+    "GPU/FPS/OBS/LIVE Studio",
+    "Native Unity WebSocket",
+    "TikTok LIVE thật",
+    "Unity LTS compatibility"
+  ]
+}

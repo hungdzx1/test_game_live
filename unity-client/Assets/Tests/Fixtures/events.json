@@ -1,0 +1,178 @@
+[
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 3,
+    "serverTime": 1793980923783,
+    "payload": {
+      "eventId": "70a359dd-c0e6-4a04-9bf3-afb43d7bd300",
+      "kind": "stage:up",
+      "userId": "unity-fixture:1",
+      "timestamp": 1793980923783,
+      "stageIndex": 1
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 4,
+    "serverTime": 1793980923783,
+    "payload": {
+      "eventId": "aca08ef0-debe-453b-904f-8e6e7df83eba",
+      "kind": "stage:up",
+      "userId": "unity-fixture:1",
+      "timestamp": 1793980923783,
+      "stageIndex": 2
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 5,
+    "serverTime": 1793980923783,
+    "payload": {
+      "eventId": "177519b3-76a7-4cee-8d86-71d637a59d3c",
+      "kind": "stage:up",
+      "userId": "unity-fixture:1",
+      "timestamp": 1793980923783,
+      "stageIndex": 3
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 6,
+    "serverTime": 1793980923783,
+    "payload": {
+      "eventId": "929b45ea-58c4-45d2-84af-8e1054fda2ef",
+      "kind": "breakthrough:started",
+      "userId": "unity-fixture:1",
+      "timestamp": 1793980923783,
+      "id": "836fdf0c-6c81-4a50-9a2b-99a612fd2bcc",
+      "realmIndex": 0,
+      "durationMs": 12000,
+      "lightningCount": 1,
+      "guaranteed": false
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 8,
+    "serverTime": 1793980923784,
+    "payload": {
+      "eventId": "8edc9314-3a1f-4e8f-acbd-3342bab0a584",
+      "kind": "breakthrough:completed",
+      "userId": "unity-fixture:1",
+      "timestamp": 1793980923784,
+      "id": "836fdf0c-6c81-4a50-9a2b-99a612fd2bcc",
+      "outcome": true,
+      "realmIndex": 1,
+      "remainingMs": 3000
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 10,
+    "serverTime": 1793980923785,
+    "payload": {
+      "eventId": "d94d2591-707e-4f69-826b-02fdd21f44ab",
+      "kind": "battle:prepare",
+      "userId": null,
+      "timestamp": 1793980923785,
+      "battleId": "efacd49f-3324-4ad8-bc4a-a357afc55f6f"
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 11,
+    "serverTime": 1793980923785,
+    "payload": {
+      "eventId": "4a03dfeb-712d-450b-9a9d-44098764c89c",
+      "kind": "battle:joined",
+      "userId": "unity-fixture:1",
+      "timestamp": 1793980923785,
+      "fieldId": 1
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 12,
+    "serverTime": 1793980923785,
+    "payload": {
+      "eventId": "b0d18748-fc1d-4ab8-b1d3-d6cfab2584e2",
+      "kind": "battle:joined",
+      "userId": "__proto__",
+      "timestamp": 1793980923785,
+      "fieldId": 0
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 13,
+    "serverTime": 1793980923785,
+    "payload": {
+      "eventId": "a157aedf-8198-4620-9cd9-ff493c3e6ec5",
+      "kind": "boss:spawned",
+      "userId": null,
+      "timestamp": 1793980923785,
+      "fieldId": 0,
+      "name": "Ma Binh Thống Lĩnh"
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 14,
+    "serverTime": 1793980923785,
+    "payload": {
+      "eventId": "69590306-1de3-403b-88c0-a5455beaf715",
+      "kind": "boss:spawned",
+      "userId": null,
+      "timestamp": 1793980923785,
+      "fieldId": 1,
+      "name": "Ma Binh Thống Lĩnh"
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 17,
+    "serverTime": 1793980923787,
+    "payload": {
+      "eventId": "3beb172a-b68d-44a8-ab77-8895b3235735",
+      "kind": "battle:result",
+      "userId": null,
+      "timestamp": 1793980923787,
+      "battleId": "efacd49f-3324-4ad8-bc4a-a357afc55f6f"
+    }
+  },
+  {
+    "type": "game:event",
+    "version": 1,
+    "sessionId": "2c1de402-a147-4be6-b5b5-713bb3d08aa6",
+    "seq": 18,
+    "serverTime": 1793980923787,
+    "payload": {
+      "eventId": "1f72e2ed-ab93-4ab5-b28d-9a67ea9f23c1",
+      "kind": "battle:return",
+      "userId": null,
+      "timestamp": 1793980923787
+    }
+  }
+]

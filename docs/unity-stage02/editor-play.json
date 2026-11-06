@@ -1,0 +1,60 @@
+{
+  "result": "PASS",
+  "mode": "editor-play",
+  "initial": {
+    "ready": true,
+    "port": 56803,
+    "session": "fdf134b2-37cf-4f45-93b2-cc3b4ace5ac2",
+    "players": 3
+  },
+  "restarted": {
+    "ready": true,
+    "port": 56803,
+    "session": "50476886-7819-49f1-b423-3e9a6de85bb7",
+    "players": 4
+  },
+  "probe": {
+    "completed": true,
+    "unity": "6000.5.9f1",
+    "platform": "WindowsEditor",
+    "elapsedSeconds": 30.00037589999999,
+    "status": "Synchronized",
+    "endpoint": "ws://127.0.0.1:56803/ws",
+    "sessions": [
+      "fdf134b2-37cf-4f45-93b2-cc3b4ace5ac2",
+      "50476886-7819-49f1-b423-3e9a6de85bb7"
+    ],
+    "rosters": {
+      "fdf134b2-37cf-4f45-93b2-cc3b4ace5ac2": 3,
+      "50476886-7819-49f1-b423-3e9a6de85bb7": 4
+    },
+    "eventCallbacks": 32,
+    "offThreadCallbacks": 0,
+    "disconnects": 2,
+    "maxPlayers": 4,
+    "snapshots": 113,
+    "rejected": 0,
+    "lastError": null,
+    "queue": 0,
+    "synchronized": true,
+    "phase": "cultivation",
+    "players": 4,
+    "transitions": [
+      "Connecting",
+      "Synchronized",
+      "Disconnected - retry 500 ms (WebSocketException: The remote party closed the WebSocket connection without completing the close handshake.)",
+      "Connecting",
+      "Disconnected - retry 1000 ms (WebSocketException: Unable to connect to the remote server)",
+      "Connecting",
+      "Connected - awaiting snapshot",
+      "Synchronized"
+    ]
+  },
+  "dashboard": {
+    "players": 4,
+    "mode": "demo",
+    "webSockets": 1
+  },
+  "temporaryData": "C:\\Users\\admin\\AppData\\Local\\Temp\\tutien-unity-network-kGOW2c",
+  "live": false
+}

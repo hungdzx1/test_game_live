@@ -1,0 +1,773 @@
+{
+  "version": 1,
+  "width": 1080,
+  "height": 1920,
+  "concept": "/assets/concept/main.jpg",
+  "view": {
+    "zoom": 1,
+    "panX": 0,
+    "panY": 0
+  },
+  "notes": "07.0 preview only. x/y in design pixels from top-left; crop in source pixels. scaleY flattens circular FX only for this composition. All positions manually adjustable; no game binding. Original PNG bytes untouched.",
+  "layers": [
+    {
+      "id": "sky",
+      "name": "sky",
+      "asset": "Background layers/bg_sky.png",
+      "x": 0,
+      "y": 0,
+      "scale": 1.1477151965993624,
+      "scaleY": 1,
+      "z": 0,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "mountains-far",
+      "name": "mountains-far",
+      "asset": "Background layers/bg_mountain_far.png",
+      "x": 0,
+      "y": 0,
+      "scale": 1.1477151965993624,
+      "scaleY": 1,
+      "z": 1,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "clouds-far",
+      "name": "clouds-far",
+      "asset": "Background layers/bg_cloud_far.png",
+      "x": 0,
+      "y": 0,
+      "scale": 1.1477151965993624,
+      "scaleY": 1,
+      "z": 2,
+      "opacity": 0.55,
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "mountains-mid",
+      "name": "mountains-mid",
+      "asset": "Background layers/bg_mountain_mid.png",
+      "x": 0,
+      "y": 0,
+      "scale": 1.1477151965993624,
+      "scaleY": 1,
+      "z": 3,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "waterfalls",
+      "name": "waterfalls",
+      "asset": "Architecture layers/waterfalls.png",
+      "x": 0,
+      "y": 0,
+      "scale": 1.1477151965993624,
+      "scaleY": 1,
+      "z": 4,
+      "opacity": 0.9,
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "mist-back",
+      "name": "mist-back",
+      "asset": "FX layers/mist_overlay.png",
+      "x": 0,
+      "y": 0,
+      "scale": 1.1477151965993624,
+      "scaleY": 1,
+      "z": 5,
+      "opacity": 0.16,
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "courtyard",
+      "name": "courtyard",
+      "asset": "Architecture layers/main_courtyard.png",
+      "x": 540,
+      "y": 1640,
+      "scale": 0.97,
+      "scaleY": 1,
+      "z": 10,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        0,
+        371,
+        1148,
+        940
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "temple",
+      "name": "temple",
+      "asset": "Architecture layers/temple_left.png",
+      "x": 202,
+      "y": 925,
+      "scale": 0.41,
+      "scaleY": 1,
+      "z": 11,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        2,
+        173,
+        1014,
+        1167
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "platform",
+      "name": "platform",
+      "asset": "Architecture layers/breakthrough_platform.png",
+      "x": 710,
+      "y": 960,
+      "scale": 0.76,
+      "scaleY": 1,
+      "z": 12,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        81,
+        503,
+        846,
+        476
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "formation",
+      "name": "formation",
+      "asset": "FX layers/formation_ring_base.png",
+      "x": 555,
+      "y": 1110,
+      "scale": 0.48,
+      "scaleY": 0.38,
+      "z": 13,
+      "opacity": 0.7,
+      "visible": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "crop": [
+        24,
+        45,
+        1201,
+        1174
+      ],
+      "blend": "add"
+    },
+    {
+      "id": "formation-glow",
+      "name": "formation-glow",
+      "asset": "FX layers/formation_ring_glow.png",
+      "x": 555,
+      "y": 1110,
+      "scale": 0.53,
+      "scaleY": 0.4,
+      "z": 13.1,
+      "opacity": 0.18,
+      "visible": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "crop": [
+        75,
+        90,
+        1105,
+        1069
+      ],
+      "blend": "add"
+    },
+    {
+      "id": "seat-1",
+      "name": "seat-1",
+      "asset": "Characters/Character_1/meditate_3quarter.png",
+      "x": 215,
+      "y": 1040,
+      "scale": 0.115,
+      "scaleY": 1,
+      "z": 15,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        41,
+        61,
+        1177,
+        1145
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "seat-2",
+      "name": "seat-2",
+      "asset": "Characters/Character_1/meditate_3quarter.png",
+      "x": 390,
+      "y": 1018,
+      "scale": 0.115,
+      "scaleY": 1,
+      "z": 15.1,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        41,
+        61,
+        1177,
+        1145
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "seat-3",
+      "name": "seat-3",
+      "asset": "Characters/Character_1/meditate_3quarter.png",
+      "x": 575,
+      "y": 1025,
+      "scale": 0.115,
+      "scaleY": 1,
+      "z": 15.2,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        41,
+        61,
+        1177,
+        1145
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "seat-4",
+      "name": "seat-4",
+      "asset": "Characters/Character_1/meditate_3quarter.png",
+      "x": 770,
+      "y": 1045,
+      "scale": 0.115,
+      "scaleY": 1,
+      "z": 15.3,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        41,
+        61,
+        1177,
+        1145
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "seat-5",
+      "name": "seat-5",
+      "asset": "Characters/Character_1/meditate_3quarter.png",
+      "x": 935,
+      "y": 1080,
+      "scale": 0.115,
+      "scaleY": 1,
+      "z": 15.4,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        41,
+        61,
+        1177,
+        1145
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "seat-6",
+      "name": "seat-6",
+      "asset": "Characters/Character_1/meditate_3quarter.png",
+      "x": 325,
+      "y": 1220,
+      "scale": 0.14,
+      "scaleY": 1,
+      "z": 15.5,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        41,
+        61,
+        1177,
+        1145
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "seat-7",
+      "name": "seat-7",
+      "asset": "Characters/Character_1/meditate_3quarter.png",
+      "x": 575,
+      "y": 1250,
+      "scale": 0.14,
+      "scaleY": 1,
+      "z": 15.6,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        41,
+        61,
+        1177,
+        1145
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "seat-8",
+      "name": "seat-8",
+      "asset": "Characters/Character_1/meditate_3quarter.png",
+      "x": 840,
+      "y": 1230,
+      "scale": 0.14,
+      "scaleY": 1,
+      "z": 15.7,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        41,
+        61,
+        1177,
+        1145
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "ceremony",
+      "name": "ceremony",
+      "asset": "Characters/Character_1/meditate.png",
+      "x": 710,
+      "y": 746,
+      "scale": 0.16,
+      "scaleY": 1,
+      "z": 19,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        28,
+        70,
+        1200,
+        1125
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "gate",
+      "name": "gate",
+      "asset": "Architecture layers/front_gate.png",
+      "x": 245,
+      "y": 1695,
+      "scale": 0.44,
+      "scaleY": 1,
+      "z": 30,
+      "opacity": 1,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        35,
+        66,
+        1130,
+        1060
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "props",
+      "name": "props",
+      "asset": "Architecture layers/lanterns_props.png",
+      "x": 0,
+      "y": 0,
+      "scale": 1.1477151965993624,
+      "scaleY": 1,
+      "z": 31,
+      "opacity": 1,
+      "visible": false,
+      "anchor": [
+        0,
+        0
+      ],
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "particles",
+      "name": "particles",
+      "asset": "FX layers/light_particles.png",
+      "x": 0,
+      "y": 0,
+      "scale": 1.1477151965993624,
+      "scaleY": 1,
+      "z": 40,
+      "opacity": 0.2,
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "crop": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "blend": "add"
+    },
+    {
+      "id": "petals",
+      "name": "petals",
+      "asset": "FX layers/petals_overlay.png",
+      "x": 0,
+      "y": 0,
+      "scale": 1.1477151965993624,
+      "scaleY": 1,
+      "z": 41,
+      "opacity": 0.45,
+      "visible": true,
+      "anchor": [
+        0,
+        0
+      ],
+      "crop": [
+        0,
+        0,
+        941,
+        1671
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "header",
+      "name": "header",
+      "asset": "UI/ui_header.png",
+      "x": 540,
+      "y": 5,
+      "scale": 0.5,
+      "scaleY": 0.76,
+      "z": 90,
+      "opacity": 0.9,
+      "visible": true,
+      "anchor": [
+        0.5,
+        0
+      ],
+      "crop": [
+        11,
+        34,
+        2154,
+        647
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "notice",
+      "name": "notice",
+      "asset": "UI/ui_notice_panel.png",
+      "x": 1050,
+      "y": 250,
+      "scale": 0.28,
+      "scaleY": 1,
+      "z": 91,
+      "opacity": 0.9,
+      "visible": true,
+      "anchor": [
+        1,
+        0
+      ],
+      "crop": [
+        142,
+        8,
+        1264,
+        938
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "footer",
+      "name": "footer",
+      "asset": "UI/ui_footer.png",
+      "x": 540,
+      "y": 1840,
+      "scale": 0.48,
+      "scaleY": 1,
+      "z": 92,
+      "opacity": 0.95,
+      "visible": true,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        32,
+        246,
+        2108,
+        219
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "profile",
+      "name": "profile",
+      "asset": "UI/ui_profile_card.png",
+      "x": 540,
+      "y": 1765,
+      "scale": 0.4,
+      "scaleY": 1,
+      "z": 93,
+      "opacity": 1,
+      "visible": false,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        37,
+        61,
+        2096,
+        579
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "pose-attack",
+      "name": "pose-attack",
+      "asset": "Characters/Character_1/attack.png",
+      "x": 540,
+      "y": 1100,
+      "scale": 0.18,
+      "scaleY": 1,
+      "z": 50,
+      "opacity": 1,
+      "visible": false,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        34,
+        33,
+        1167,
+        1201
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "pose-back_3quarter",
+      "name": "pose-back_3quarter",
+      "asset": "Characters/Character_1/back_3quarter.png",
+      "x": 540,
+      "y": 1100,
+      "scale": 0.18,
+      "scaleY": 1,
+      "z": 50,
+      "opacity": 1,
+      "visible": false,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        52,
+        53,
+        1151,
+        1160
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "pose-celebrate",
+      "name": "pose-celebrate",
+      "asset": "Characters/Character_1/celebrate.png",
+      "x": 540,
+      "y": 1100,
+      "scale": 0.18,
+      "scaleY": 1,
+      "z": 50,
+      "opacity": 1,
+      "visible": false,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        179,
+        9,
+        893,
+        1235
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "pose-fly",
+      "name": "pose-fly",
+      "asset": "Characters/Character_1/fly.png",
+      "x": 540,
+      "y": 1100,
+      "scale": 0.18,
+      "scaleY": 1,
+      "z": 50,
+      "opacity": 1,
+      "visible": false,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        179,
+        15,
+        897,
+        1178
+      ],
+      "blend": "normal"
+    },
+    {
+      "id": "pose-idle_stand",
+      "name": "pose-idle_stand",
+      "asset": "Characters/Character_1/idle_stand.png",
+      "x": 540,
+      "y": 1100,
+      "scale": 0.18,
+      "scaleY": 1,
+      "z": 50,
+      "opacity": 1,
+      "visible": false,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "crop": [
+        231,
+        16,
+        750,
+        1225
+      ],
+      "blend": "normal"
+    }
+  ]
+}
