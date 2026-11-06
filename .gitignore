@@ -1,0 +1,11 @@
+node_modules/
+*.tmp
+test-results/*
+!test-results/.gitkeep
+data/
+.env
+.env.*
+!.env.example
+*.log
+*.backup
+*.bak
