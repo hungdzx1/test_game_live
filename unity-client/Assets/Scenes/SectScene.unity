@@ -191,7 +191,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36826921}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -273,6 +273,8 @@ MonoBehaviour:
   opacity: 0.45
   sortingLayer: SectAtmosphere
   sortingOrder: 101
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 1
   minimumQuality: 2
@@ -402,6 +404,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectGround
   sortingOrder: 60
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 1
   allowFrameBleed: 0
   minimumQuality: 0
@@ -628,6 +632,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectBackground
   sortingOrder: 20
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 1
   minimumQuality: 0
@@ -791,6 +797,8 @@ MonoBehaviour:
   opacity: 0.5
   sortingLayer: SectBackground
   sortingOrder: 10
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 1
   minimumQuality: 0
@@ -879,6 +887,8 @@ MonoBehaviour:
   opacity: 0.15
   sortingLayer: SectBackground
   sortingOrder: 35
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 1
   minimumQuality: 1
@@ -1070,6 +1080,8 @@ MonoBehaviour:
   opacity: 0.22
   sortingLayer: SectGroundDetail
   sortingOrder: 71
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 0
   minimumQuality: 1
@@ -1338,6 +1350,8 @@ MonoBehaviour:
   opacity: 0.58
   sortingLayer: SectGroundDetail
   sortingOrder: 70
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 0
   minimumQuality: 0
@@ -1391,6 +1405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TuTienLive.Runtime::TuTienLive.Scenes.SectTextLayout
   maximumSizePixels: {x: 850, y: 26}
+  autoFit: 1
 --- !u!102 &827321386
 TextMesh:
   serializedVersion: 3
@@ -1585,6 +1600,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectForeground
   sortingOrder: 90
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 1
   allowFrameBleed: 0
   minimumQuality: 0
@@ -1748,6 +1765,8 @@ MonoBehaviour:
   opacity: 0.45
   sortingLayer: SectAtmosphere
   sortingOrder: 100
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 1
   minimumQuality: 1
@@ -1908,6 +1927,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectBackground
   sortingOrder: 30
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 1
   minimumQuality: 0
@@ -2037,6 +2058,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectBackground
   sortingOrder: 0
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 1
   minimumQuality: 0
@@ -2199,6 +2222,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectHUD
   sortingOrder: 121
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 1
   allowFrameBleed: 0
   minimumQuality: 0
@@ -2318,6 +2343,8 @@ MonoBehaviour:
   safeMargin: 0.14
   driftAmplitude: {x: 0.035, y: 0.025}
   driftEnabled: 1
+  autoFitBounds: 1
+  sceneAuthored: 0
 --- !u!114 &1239546334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2519,6 +2546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TuTienLive.Runtime::TuTienLive.Scenes.SectTextLayout
   maximumSizePixels: {x: 900, y: 70}
+  autoFit: 1
 --- !u!102 &1248230136
 TextMesh:
   serializedVersion: 3
@@ -2747,6 +2775,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectArchitecture
   sortingOrder: 42
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 1
   allowFrameBleed: 0
   minimumQuality: 0
@@ -2871,6 +2901,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectPlatform
   sortingOrder: 50
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 1
   allowFrameBleed: 0
   minimumQuality: 0
@@ -3072,6 +3104,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectHUD
   sortingOrder: 120
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 1
   allowFrameBleed: 0
   minimumQuality: 0
@@ -3187,6 +3221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TuTienLive.Runtime::TuTienLive.Scenes.SectTextLayout
   maximumSizePixels: {x: 550, y: 18}
+  autoFit: 1
 --- !u!102 &1875315281
 TextMesh:
   serializedVersion: 3
@@ -3399,6 +3434,8 @@ MonoBehaviour:
   opacity: 0.045
   sortingLayer: SectAtmosphere
   sortingOrder: 102
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 1
   minimumQuality: 2
@@ -3412,7 +3449,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071561057}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3505,7 +3542,7 @@ Transform:
   m_GameObject: {fileID: 2076530167}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2911795, y: 2.0544105, z: 9.6}
+  m_LocalPosition: {x: -1.2367362, y: 2.362923, z: 9.6}
   m_LocalScale: {x: 1.1477152, y: 1.1477152, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3594,12 +3631,14 @@ MonoBehaviour:
     width: 550
     height: 1015
   anchor: {x: 0, y: 1}
-  positionPixels: {x: 410.88205, y: 754.55896}
+  positionPixels: {x: 416.3264, y: 723.7077}
   uniformScale: 1.1477152
   verticalScale: 1
   opacity: 1
   sortingLayer: SectArchitecture
   sortingOrder: 40
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 1
   minimumQuality: 0
@@ -3657,6 +3696,8 @@ MonoBehaviour:
   opacity: 1
   sortingLayer: SectForeground
   sortingOrder: 91
+  sceneAuthored: 0
+  bakedGeometry: {fileID: 0}
   protectFromClipping: 0
   allowFrameBleed: 0
   minimumQuality: 0

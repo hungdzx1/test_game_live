@@ -17,7 +17,7 @@ function log(message,level='system'){
   text('toast',message);$('toast').dataset.status=level;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,4000);
 }
 async function send(action,value,userId){try{const result=await control(action,value,userId);log('Đã áp dụng thao tác.');return result;}catch(error){log(error.message,'error');throw error;}}
-const cultivationPanel=createCultivationPanel(log),battlePanel=createBattlePanel(log),livePanel=createLivePanel(log),streamerPanel=createStreamerPanel(log,{onDashboard:d=>{dashboard=d;if(state)updateHome(state,d?.mode===state.mode?d:null);}});
+const cultivationPanel=createCultivationPanel(log),battlePanel=createBattlePanel(log),livePanel=createLivePanel(log),streamerPanel=createStreamerPanel(log,{onDashboard:d=>{dashboard=d;if(state){updateHome(state,d?.mode===state.mode?d:null);if(d?.mode===state.mode)livePanel.updateLog(d);}}});
 $('demo').onclick=()=>send('demo',Number($('count').value));
 document.querySelectorAll('[data-phase]').forEach(b=>b.onclick=async()=>{if(['battle','cultivation'].includes(b.dataset.phase)&&!await confirmAction('Chuyển pha ngay? Trận đang chạy có thể chốt thưởng hoặc nghi thức tạm hoãn.'))return;return send('phase',b.dataset.phase);});
 document.querySelectorAll('[data-event]').forEach(b=>b.onclick=()=>send('event',b.dataset.event,$('player').value));

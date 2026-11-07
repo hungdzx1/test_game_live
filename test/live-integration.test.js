@@ -21,7 +21,7 @@ async function wsSnapshot(port){const ws=new WebSocket(`ws://127.0.0.1:${port}/w
 test('04-12/17 demo HTTP pipeline, mapping restart, combo replay disk persistence and real data isolation',async t=>{
   const root=await temp(),real=path.join(root,'data/players.json'),file=path.join(root,'data/demo/players.json');await writeFile(real,'{"sentinel":"never-touch"}');
   let app=await createApplication({dataRoot:root,port:0}),port=await app.listen(),base=`http://127.0.0.1:${port}`;t.after(()=>app.close());
-  for(const route of ['/','/song','/js/livePanel.js','/js/liveOverlay.js'])assert.equal((await fetch(base+route)).status,200);
+  for(const route of ['/','/js/livePanel.js'])assert.equal((await fetch(base+route)).status,200);
   await post(base,'demo',10);await post(base,'phase','battle');
   const rule={...giftRulesFor()[0],id:'override',giftId:'5655',item:'root',quantity:2};assert.equal((await post(base,'giftRules',[rule])).status,200);
   const event={eventId:'http-gift',userId:'demo-1',ten:'Demo',loai:'qua',giftId:'5655',qua:'Demo',soKimCuong:1,soLuong:5,rawMeta:{giftType:1,repeatEnd:true,comboId:'http-combo'}};

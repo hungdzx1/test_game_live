@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="6" result="Failed(Child)" total="6" passed="4" failed="2" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 16:25:29Z" end-time="2026-11-07 16:25:32Z" duration="2.7957227">
+  <test-suite type="TestSuite" id="1000" name="Tu Tien LIVE - Unity Migration" fullname="Tu Tien LIVE - Unity Migration" runstate="Runnable" testcasecount="118" result="Failed" site="Child" start-time="2026-11-07 16:25:29Z" end-time="2026-11-07 16:25:32Z" duration="2.795723" total="6" passed="4" failed="2" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1141" name="TuTienLive.Tests.dll" fullname="C:/Users/admin/Documents/CODE/TuTien/test-results/unity-concept02/project/Library/ScriptAssemblies/TuTienLive.Tests.dll" runstate="Runnable" testcasecount="118" result="Failed" site="Child" start-time="2026-11-07 16:25:29Z" end-time="2026-11-07 16:25:32Z" duration="2.499004" total="6" passed="4" failed="2" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="21508" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1142" name="TuTienLive" fullname="TuTienLive" runstate="Runnable" testcasecount="118" result="Failed" site="Child" start-time="2026-11-07 16:25:29Z" end-time="2026-11-07 16:25:32Z" duration="2.492508" total="6" passed="4" failed="2" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1143" name="Tests" fullname="TuTienLive.Tests" runstate="Runnable" testcasecount="118" result="Failed" site="Child" start-time="2026-11-07 16:25:29Z" end-time="2026-11-07 16:25:32Z" duration="2.485192" total="6" passed="4" failed="2" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1067" name="GameAudioTests" fullname="TuTienLive.Tests.GameAudioTests" classname="TuTienLive.Tests.GameAudioTests" runstate="Runnable" testcasecount="6" result="Failed" site="Child" start-time="2026-11-07 16:25:29Z" end-time="2026-11-07 16:25:32Z" duration="2.471648" total="6" passed="4" failed="2" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1074" name="ActualNodeHttpSettingsAndWebSocketControlPlayingSources" fullname="TuTienLive.Tests.GameAudioTests.ActualNodeHttpSettingsAndWebSocketControlPlayingSources" methodname="ActualNodeHttpSettingsAndWebSocketControlPlayingSources" classname="TuTienLive.Tests.GameAudioTests" runstate="Runnable" seed="1569358694" result="Failed" start-time="2026-11-07 16:24:53Z" end-time="2026-11-07 16:25:07Z" duration="13.574025" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+              <failure>
+                <message><![CDATA[  https://localhost/api/control · Cannot connect to destination host · 
+  Expected: 200
+  But was:  0
+]]></message>
+                <stack-trace><![CDATA[at TuTienLive.Tests.GameAudioTests+<Post>d__14.MoveNext () [0x000f3] in C:\Users\admin\Documents\CODE\TuTien\test-results\unity-concept02\project\Assets\Tests\Editor\GameAudioTests.cs:108
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@1405238725ab\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1072" name="RealServerEventsAndRitualMotionPlayOnceAndReconnectDoesNotReplay" fullname="TuTienLive.Tests.GameAudioTests.RealServerEventsAndRitualMotionPlayOnceAndReconnectDoesNotReplay" methodname="RealServerEventsAndRitualMotionPlayOnceAndReconnectDoesNotReplay" classname="TuTienLive.Tests.GameAudioTests" runstate="Runnable" seed="1182336066" result="Failed" label="Error" start-time="2026-11-07 16:25:07Z" end-time="2026-11-07 16:25:18Z" duration="10.644244" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+              <failure>
+                <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+                <stack-trace><![CDATA[  at TuTienLive.Tests.GameAudioTests+<RealServerEventsAndRitualMotionPlayOnceAndReconnectDoesNotReplay>d__11.MoveNext () [0x00093] in C:\Users\admin\Documents\CODE\TuTien\test-results\unity-concept02\project\Assets\Tests\Editor\GameAudioTests.cs:61 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@1405238725ab\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1070" name="SavedSceneHasEditableClipsAndOneListenerWithoutChangingExistingObjects" fullname="TuTienLive.Tests.GameAudioTests.SavedSceneHasEditableClipsAndOneListenerWithoutChangingExistingObjects" classname="TuTienLive.Tests.GameAudioTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-07 16:25:18Z" end-time="2026-11-07 16:25:20Z" duration="2.364255" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1068" name="SavedSceneHasEditableClipsAndOneListenerWithoutChangingExistingObjects(&quot;Assets/Scenes/SectScene_Main.unity&quot;)" fullname="TuTienLive.Tests.GameAudioTests.SavedSceneHasEditableClipsAndOneListenerWithoutChangingExistingObjects(&quot;Assets/Scenes/SectScene_Main.unity&quot;)" methodname="SavedSceneHasEditableClipsAndOneListenerWithoutChangingExistingObjects" classname="TuTienLive.Tests.GameAudioTests" runstate="Runnable" seed="1691095886" result="Passed" start-time="2026-11-07 16:25:18Z" end-time="2026-11-07 16:25:18Z" duration="0.853875" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1069" name="SavedSceneHasEditableClipsAndOneListenerWithoutChangingExistingObjects(&quot;Assets/Scenes/SectScene_Concept02.unity&quot;)" fullname="TuTienLive.Tests.GameAudioTests.SavedSceneHasEditableClipsAndOneListenerWithoutChangingExistingObjects(&quot;Assets/Scenes/SectScene_Concept02.unity&quot;)" methodname="SavedSceneHasEditableClipsAndOneListenerWithoutChangingExistingObjects" classname="TuTienLive.Tests.GameAudioTests" runstate="Runnable" seed="1495576514" result="Passed" start-time="2026-11-07 16:25:18Z" end-time="2026-11-07 16:25:20Z" duration="1.504230" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-case id="1071" name="SuppliedAudioDecodesToNonSilentSamples" fullname="TuTienLive.Tests.GameAudioTests.SuppliedAudioDecodesToNonSilentSamples" methodname="SuppliedAudioDecodesToNonSilentSamples" classname="TuTienLive.Tests.GameAudioTests" runstate="Runnable" seed="1854672293" result="Passed" start-time="2026-11-07 16:25:20Z" end-time="2026-11-07 16:25:22Z" duration="1.641909" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1073" name="VolumeChannelsMissingClipsMalformedSettingsAndVoiceBudgetAreSafe" fullname="TuTienLive.Tests.GameAudioTests.VolumeChannelsMissingClipsMalformedSettingsAndVoiceBudgetAreSafe" methodname="VolumeChannelsMissingClipsMalformedSettingsAndVoiceBudgetAreSafe" classname="TuTienLive.Tests.GameAudioTests" runstate="Runnable" seed="164526839" result="Passed" start-time="2026-11-07 16:25:22Z" end-time="2026-11-07 16:25:32Z" duration="10.259699" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/admin/AppData/LocalLow/TuTienLive/Tu Tien LIVE - Unity Migration\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

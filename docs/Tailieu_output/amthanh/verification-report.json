@@ -1,0 +1,45 @@
+﻿{
+    "unverified":  [
+                       "Main Play Mode separately",
+                       "Windows build/executable",
+                       "Human listening/balance",
+                       "OBS capture",
+                       "Real LIVE"
+                   ],
+    "preservation":  {
+                         "unexpectedChanges":  [
+
+                                               ],
+                         "protectedFiles":  254,
+                         "unchanged":  252,
+                         "expectedAudioSceneChanges":  2
+                     },
+    "node":  {
+                 "skip":  1,
+                 "pass":  115,
+                 "files":  23,
+                 "fail":  0,
+                 "total":  116
+             },
+    "result":  "PASS",
+    "browser":  {
+                    "result":  "PASS",
+                    "browser":  "Chrome/156.0.8078.81",
+                    "checks":  [
+                                   "Saved master/music/effect sliders and independent channel switches via actual admin controls; values persist after reload",
+                                   "Master mute/unmute and channel restore save to the server; Unity guidance distinguishes server volume from browser preview/TTS"
+                               ],
+                    "errors":  [
+
+                               ]
+                },
+    "unity":  {
+                  "passed":  60,
+                  "version":  "6000.5.9f1",
+                  "failed":  0,
+                  "total":  60,
+                  "result":  "Passed",
+                  "mainPlayMode":  "CHƯA KIỂM CHỨNG riêng",
+                  "playMode":  "PASS Concept02; actual AudioSource and HTTP/WS Node backend; DSP signal verified"
+              }
+}

@@ -13,6 +13,7 @@ namespace TuTienLive.Editor
 
         private void OnSceneGUI()
         {
+            if(((SectLayer)target).sceneAuthored){Tools.hidden=false;return;}
             bool editing = !Application.isPlaying && Tools.current == Tool.Move;
             Tools.hidden = editing;
             if (!editing) return;
@@ -32,6 +33,12 @@ namespace TuTienLive.Editor
             {
                 var selected = (SectLayer)item;
                 Undo.RecordObject(selected.transform, "Move sect layer");
+                if(selected.sceneAuthored)
+                {
+                    selected.transform.position+=worldDelta;
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(selected.transform);
+                    EditorSceneManager.MarkSceneDirty(selected.gameObject.scene);continue;
+                }
                 var localDelta = selected.transform.parent
                     ? selected.transform.parent.InverseTransformVector(worldDelta) : worldDelta;
                 selected.positionPixels += new Vector2(localDelta.x, -localDelta.y) * SectLayer.PixelsPerUnit;

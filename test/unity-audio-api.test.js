@@ -1,0 +1,23 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {mkdtemp,readFile} from 'node:fs/promises';import os from 'node:os';import path from 'node:path';import {WebSocket} from 'ws';
+import {createApplication} from '../server.js';
+test('Unity audio uses existing server controls: volume/mute/channel/voice settings persist, broadcast and remain valid across modes/restart',async t=>{
+  const dataRoot=await mkdtemp(path.join(os.tmpdir(),'tutien-unity-audio-'));let app=await createApplication({dataRoot,port:0,connectorFactory:()=>{throw Error('Real LIVE forbidden');}});
+  let port=await app.listen(),base=`http://127.0.0.1:${port}`;t.after(()=>app.close());
+  const states=[],ws=new WebSocket(`ws://127.0.0.1:${port}/ws`);t.after(()=>ws.terminate());ws.on('message',raw=>{const m=JSON.parse(raw);if(m.type==='state:snapshot')states.push(m.payload);});
+  const post=(action,value)=>fetch(base+'/api/control',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,value})});
+  const settings={enabled:true,music:true,effects:true,masterVolume:.8,musicVolume:.3,effectsVolume:.6,maxVoices:2};
+  assert.equal((await post('audioSettings',settings)).status,200);
+  const until=async fn=>{const end=Date.now()+5000;while(!fn()){assert.ok(Date.now()<end,'Audio WS timeout');await new Promise(r=>setTimeout(r,20));}};
+  await until(()=>states.some(s=>s.config.audio.masterVolume===.8&&s.config.audio.effectsVolume===.6));
+  const file=path.join(dataRoot,'caidat.json'),stored=JSON.parse(await readFile(file,'utf8')).audio;
+  for(const[key,value]of Object.entries(settings))assert.equal(stored[key],value);
+  const before=await readFile(file,'utf8');
+  for(const bad of [{masterVolume:2},{musicVolume:-1},{effectsVolume:'0.6'},{enabled:1},{maxVoices:17},{unknown:1}])assert.equal((await post('audioSettings',bad)).status,400);
+  assert.equal(await readFile(file,'utf8'),before);
+  assert.equal((await post('mode','live')).status,200);assert.equal((await(await fetch(base+'/api/state')).json()).payload.config.audio.musicVolume,.3);
+  assert.equal((await post('audioSettings',{enabled:false})).status,200);assert.equal((await post('mode','demo')).status,200);assert.equal(app.engine.config.audio.enabled,false);
+  ws.terminate();await app.close();app=await createApplication({dataRoot,port:0});port=await app.listen();base=`http://127.0.0.1:${port}`;
+  assert.equal(app.engine.config.audio.enabled,false);assert.equal(app.engine.config.audio.effectsVolume,.6);assert.equal(app.engine.config.audio.maxVoices,2);
+  assert.equal((await post('audioSettings',{enabled:true,music:false,effects:false})).status,200);assert.equal(app.engine.config.audio.music,false);assert.equal(app.engine.config.audio.effects,false);
+});

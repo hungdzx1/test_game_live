@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "browser": "Chrome/156.0.8078.81",
+  "checks": [
+    "Saved master/music/effect sliders and independent channel switches via actual admin controls; values persist after reload",
+    "Master mute/unmute and channel restore save to the server; Unity guidance distinguishes server volume from browser preview/TTS"
+  ],
+  "errors": []
+}

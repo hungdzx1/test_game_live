@@ -1,0 +1,80 @@
+{
+  "result": "PASS structural edit",
+  "method": "Match alpha>=32 visible meditation height using uniform root scale so body, nameplate, aura and shadow resize together. All original child transforms and Character_3 bytes unchanged.",
+  "targetHeight": 1.3372191000000002,
+  "characters": [
+    {
+      "file": "unity-client/Assets/SectConcept02/Prefabs/Character_1.prefab",
+      "character": 1,
+      "pixelHeight": 1154,
+      "beforeScale": {
+        "x": 0.17367879,
+        "y": 0.17367879,
+        "z": 0.17367879
+      },
+      "beforeHeight": 2.0042532366,
+      "factor": 0.66719069,
+      "afterHeight": 1.3372190998618871,
+      "rootScale": 0.66719069,
+      "bodyScaleUnchanged": true,
+      "afterEffectiveBodyScale": {
+        "x": 0.1158768717384651,
+        "y": 0.1158768717384651,
+        "z": 0.1158768717384651
+      }
+    },
+    {
+      "file": "unity-client/Assets/SectConcept02/Prefabs/Character_2.prefab",
+      "character": 2,
+      "pixelHeight": 1200,
+      "beforeScale": {
+        "x": 0.16509677,
+        "y": 0.16509677,
+        "z": 0.16509677
+      },
+      "beforeHeight": 1.98116124,
+      "factor": 0.674967323,
+      "afterHeight": 1.3372190985941605,
+      "rootScale": 0.674967323,
+      "bodyScaleUnchanged": true,
+      "afterEffectiveBodyScale": {
+        "x": 0.1114349248828467,
+        "y": 0.1114349248828467,
+        "z": 0.1114349248828467
+      }
+    },
+    {
+      "file": "unity-client/Assets/SectConcept02/Prefabs/Character_3.prefab",
+      "character": 3,
+      "pixelHeight": 1230,
+      "beforeScale": {
+        "x": 0.105,
+        "y": 0.105,
+        "z": 0.105
+      },
+      "beforeHeight": 1.3372191000000002,
+      "factor": 1,
+      "afterScale": {
+        "x": 0.105,
+        "y": 0.105,
+        "z": 0.105
+      },
+      "afterHeight": 1.3372191000000002,
+      "rootScale": 1.0354
+    }
+  ],
+  "storm": {
+    "rootFileId": "879177243",
+    "beforeY": 0,
+    "afterY": 0.3,
+    "deltaY": 0.3,
+    "referencePixels": 30
+  },
+  "hashesAfter": {
+    "unity-client/Assets/Scenes/SectScene_Concept02.unity": "54533bcb615e097e25bcf66e8244ddfec98065738dbac6045dc80af7f9a531cb",
+    "unity-client/Assets/SectConcept02/Prefabs/Character_1.prefab": "73e49222a9e654840dde8e032e9124620980bfc35fc3a4f7c7c58e46eed51629",
+    "unity-client/Assets/SectConcept02/Prefabs/Character_2.prefab": "d68e76bb1c6d38064e6aaa1deb689e8affd74964e7d8b632bfa31e1785487558",
+    "unity-client/Assets/SectConcept02/Prefabs/Character_3.prefab": "ec66fd2e2778c690ad640280abb7a30c6a1429537f732f4c0ebe85ab5fce01fd"
+  },
+  "referenceRootScale": 1.0354
+}

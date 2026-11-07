@@ -1,6 +1,6 @@
 {
   "name": "TuTienLive.Tests",
-  "references": ["TuTienLive.Runtime"],
+  "references": ["TuTienLive.Runtime", "Unity.TextMeshPro", "UnityEngine.UI"],
   "overrideReferences": true,
   "precompiledReferences": ["Newtonsoft.Json.dll", "nunit.framework.dll"],
   "includePlatforms": ["Editor"],

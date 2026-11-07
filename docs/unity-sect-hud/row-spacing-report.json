@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "changedRectTransforms": [
+    "Rank_1",
+    "RankIcon_1",
+    "Rank_2",
+    "RankIcon_2",
+    "Rank_3",
+    "RankIcon_3"
+  ],
+  "allOtherSceneBytesUnchanged": true,
+  "before": "34ae294a17bfe062564c74bb5e41f7101bb6af61eca9074dd340beea5b8598f1",
+  "after": "679589b56aec5cd5cea39f5d0302ecbdb0dcf93a6387062ce557620dda25bda3"
+}

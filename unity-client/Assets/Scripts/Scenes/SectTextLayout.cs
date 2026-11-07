@@ -6,9 +6,12 @@ namespace TuTienLive.Scenes
     public sealed class SectTextLayout : MonoBehaviour
     {
         public Vector2 maximumSizePixels = new Vector2(900, 70);
+        [Tooltip("Off after migration: edit TextMesh/Transform directly. Fit is an explicit authoring action.")]
+        public bool autoFit = true;
         private MeshRenderer view;
-        private void OnEnable() { view = GetComponent<MeshRenderer>(); Fit(); }
-        private void LateUpdate() { Fit(); }
+        private void OnEnable() { view = GetComponent<MeshRenderer>(); if(autoFit)Fit(); }
+        private void LateUpdate() { if(autoFit)Fit(); }
+        [ContextMenu("Fit text once to pixel bounds")]
         public void Fit()
         {
             if (!view) view = GetComponent<MeshRenderer>();

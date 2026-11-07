@@ -1,5 +1,7 @@
 # Unity 04 — Nhân vật và độ kiếp
 
+**Bàn giao bước04 dưới đây là lịch sử. Sau refactor Scene Authoring, dùng SectScene_Editable.unity và prefab variant trong Assets/SceneAuthoring. Hệ thống được serialize sẵn, bootstrap không còn tạo GameObject lúc Play. Hướng dẫn hiện tại: [UNITY_SCENE_AUTHORING.md](UNITY_SCENE_AUTHORING.md).**
+
 Project: `unity-client/`, Unity **6000.5.9f1**, URP **17.5.0**. Chỉ lớp trình diễn; Node.js vẫn quyết định gameplay. Không thay backend, protocol, dữ liệu hoặc renderer Three.js. Không triển khai battle.
 
 ## Mở và chạy

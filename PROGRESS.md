@@ -1,3 +1,449 @@
+# Kiểm tra trước khi đẩy Git — 08/11/2026
+
+Theo yêu cầu người dùng, gom các cập nhật hiện có của Unity, backend, tài nguyên, cấu hình, tài liệu và tiện ích đọc thử để commit/push lên origin/main. `npm test`: **PASS 115 / FAIL 0 / SKIP 1**, tổng 116 bài; SKIP là LIVE thật. Không chạy lại Unity Editor/build trong lượt chỉ đồng bộ Git này; kết quả Unity từng tính năng giữ theo báo cáo bên dưới. Dữ liệu người chơi, cache/build Unity, runtime/model/output TTS cục bộ tiếp tục được ignore. Không thay logic hoặc reset dữ liệu khi chuẩn bị đẩy Git.
+
+---
+
+# Đổi bản đọc thử sang giọng nam — 08/11/2026
+
+**Đã triển khai và kiểm thử tạo WAV offline**, theo yêu cầu “thử đổi sang giọng nam”. Mặc định tiện ích đọc thử hiện là **Trầm Vang** (`vi_VN-tramvang-medium`); giữ nguyên model nữ và WAV giọng cũ để đổi lại. Không sửa nội dung file người dùng đã chỉnh (mẫu hiện162 ký tự), dữ liệu game, scene/Unity/backend.
+
+- Tải model/cấu hình/token/model card từ [vnhellboy/vietnamese-piper-voices](https://huggingface.co/vnhellboy/vietnamese-piper-voices), pin revision `df2a53e0b5c8039d17e642cc8d80fa03d59374b7`. Tác giả mô tả giọng nam miền Bắc trầm/vang, giọng được thiết kế tổng hợp rồi fine-tune, không phải sao chép một người cụ thể. Model card giữ ghi chú nguồn/lineage/giấy phép, không nhận là đã thẩm định dùng thương mại.
+- `tools/tts/piper/voice-settings.json`: `voice=male` mặc định, đổi `female` để quay lại giọng cũ. `synthesize.py --voice male|female` hoặc `doc-thu.ps1 -Voice female -Play` chọn riêng một lần. Không chỉnh tốc độ sample để giả đổi giọng; thực sự dùng model khác.
+- Thêm kiểm tra phoneme trước khi sinh WAV, có âm không nằm trong bảng model thì dừng báo lỗi. Setup tải được cả hai giọng khi cài mới, giữ dữ liệu model sẵn có; manifest cập nhật nguồn/hashes, không cài thêm framework/package. README cập nhật đường dẫn/cách đổi.
+- Kết quả nghe thử: `tools/tts/piper/output/thien-dao-giong-nam.wav`; `doc-thu.bat` sinh/phát lại giọng nam theo cấu hình hiện tại. WAV cũ giữ tại `thien-dao-giong-cu.wav` và model nữ cũ giữ tại models. Tiện ích chỉ là bản đọc thử; Unity vẫn chưa tự đọc theo sự kiện.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Giọng nam mặc định/launcher PowerShell | **PASS**, file chọn male → model Trầm Vang thực; đọc162 ký tự thành WAV mono22050Hz/16-bit,7,30 giây, tạo trong8,02 giây, RMS6185 khác0; `docs/Tailieu_output/offline-tts/male-voice-report.json` |
+| Bảng âm tiếng Việt | **PASS** với nội dung thử hiện tại, missingPhonemes=[]; không bỏ âm/ẩn cảnh báo. Không suy rộng thành mọi tên hoặc ngôn ngữ đều phát âm chính xác |
+| Offline/isolation | **PASS trong phạm vi tiến trình**, từ chối socket/DNS Python,0 lần gọi mạng, Python isolated=true/userSite=false; CPU, không API/cloud |
+| Đổi lại giọng nữ cũ | **PASS**, chọn override female tạo file thử riêng,6,41 giây âm thanh,missingPhonemes=[],0 lần gọi mạng; không ghi đè WAV mẫu nam; `female-voice-regression.json` |
+| Setup/giữ model cũ | **PASS**, setup chạy lại khi file có sẵn, Piper1.8/ONNX1.31.1 giữ nguyên, cả hai giọng có model/config; WAV mẫu giọng cũ đã sao giữ trước khi đổi |
+| Nghe qua loa/chất lượng chủ quan/Unity Editor/Play/build/OBS/LIVE | **CHƯA KIỂM CHỨNG**. Không nhận WAV có tín hiệu là đã nghe hoặc tích hợp Unity; không chạy suite gameplay cho thay đổi tiện ích TTS độc lập |
+
+Bản25hours_single-low được thử đầu tiên nhưng phát hiện model cũ chỉ có130 ký hiệu, thiếu âm thanh điệu/diacritic (2,5,6 và U+032A) trong mẫu hiện tại. Đây là hạn chế model, không sửa bằng gán tùy ý token hoặc tắt cảnh báo. Đã loại model đó, chỉ dọn ba file vừa tải trong thư mục riêng sau khi kiểm tra đường dẫn; không đụng model nữ có sẵn. Đổi sang Trầm Vang với bảng âm đầy đủ và tạo mẫu cuối PASS. Bước tiếp theo: người dùng nghe mẫu nam hoặc nháy doc-thu.bat; chỉnh voice-settings.json nếu muốn quay lại. Chưa triển khai tự đọc sự kiện Unity.
+
+---
+
+# Cài Piper tiếng Việt offline — 08/11/2026
+
+**Đã cài và kiểm thử tạo WAV**, theo yêu cầu cài giúp và báo vị trí. Phạm vi lượt này là cài bộ đọc/tiện ích thử; **chưa tích hợp giọng Thiên Đạo vào sự kiện Unity**.
+
+- Vị trí riêng: `C:\Users\admin\Documents\CODE\TuTien\tools\tts\piper\`. Python portable3.13.17, Piper1.8.0, ONNX Runtime1.31.1, giọng `vi_VN-vais1000-medium` (model/cấu hình/model card). Dùng CPU, không thêm CUDA/API cloud hoặc tài khoản. Tổng thư mục khoảng242MiB tính cả ZIP cài và thư viện.
+- Python hệ thống hiện3.15.0a7 được giữ nguyên; pip chỉ cài gói vào runtime/Lib/site-packages bằng binary wheels cp313. Launcher dùng `-I -X utf8`: không dùng user site/PYTHONPATH, không sửa PATH/registry/Python mặc định. Runtime/model/output/downloads loại khỏi Git.
+- `scripts/setup-offline-tts.ps1`: nguồn Python.org/PyPI/Hugging Face, phiên bản pin, tải file tạm trước khi hoàn tất cho lần cài sau, manifest phiên bản/gói/SHA256 trong `installation.json`. Model card/nguồn/giấy phép giữ kèm. Yêu cầu người dùng lần này cho phép tải engine và model tiếng Việt; không áp dụng mở rộng cho asset đồ họa/âm thanh ngoài khác.
+- `tools/tts/piper/noi-dung-doc-thu.txt`: file UTF-8 để người dùng tự sửa lời thử; `doc-thu.bat` tạo WAV và phát Windows khi người dùng nháy đúp. `doc-thu.ps1` có tùy chọn TextFile/Play; mặc định chỉ tạo, không tự phát loa trong test. `synthesize.py` đọc1–2.000 ký tự, model local, xuất16-bit PCM WAV và báo cáo. Đây chưa phải bảng kịch bản chạy theo sự kiện game.
+- Hướng dẫn vị trí/cách dùng/nguồn tại [README Piper](tools/tts/piper/README.md). Kịch bản game khi tích hợp sau cần mẫu câu theo sự kiện và biến tên/cảnh giới, hàng đợi/mute/âm lượng/AudioSource. Không yêu cầu người dùng tự lập trình phần này, nhưng chưa triển khai thêm phạm vi Unity ở lượt cài đặt.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Import/runtime/phiên bản | **PASS**, Python portable3.13.17 và Piper1.8.0/ONNX1.31.1; module nạp từ thư mục dự án, isolated=true/userSiteEnabled=false; Python hệ thống vẫn3.15.0a7 |
+| Đọc tiếng Việt ra WAV | **PASS**, mẫu145 ký tự, WAV mono22050Hz/16-bit, khoảng6,29 giây; peak32767/RMS6218 khác0, tạo trong7,61 giây ở lần cuối. `tools/tts/piper/output/thien-dao-doc-thu.wav`; report tại `docs/Tailieu_output/offline-tts/offline-report.json` |
+| Không gọi mạng khi tạo giọng | **PASS trong phạm vi tiến trình thử**, audit hook từ chối socket connect/DNS/sendto của Python,0 lần thử gọi mạng; model/config đọc đường dẫn local, không gọi dịch vụ TTS hoặc TikTok. Không ngắt Internet toàn máy người dùng để thử |
+| Script quản lý | **PASS**, parse PowerShell; chạy setup nhập thư viện thành công, launcher đọc thử sinh WAV; `.bat` chuẩn CRLF. Không dùng Python hệ thống làm runtime đọc |
+| Nghe thực tế qua loa, chất lượng giọng, giọng trầm/vang, độ trễ LIVE lâu dài | **CHƯA KIỂM CHỨNG**. Không tự nhận chất lượng nghe từ kiểm tra biên độ WAV; khi tích hợp cần giữ model nạp sẵn để tránh chi phí nạp mỗi câu |
+| Unity tự đọc theo sự kiện/Editor/Play Mode/build Windows/OBS | **CHƯA TRIỂN KHAI/CHƯA KIỂM CHỨNG** ở lượt này. Không sửa scene/C#/backend/quà/gameplay hoặc dữ liệu người chơi; không chạy lại suite game vì chỉ cài tiện ích độc lập |
+
+Lần kiểm import đầu gặp quoting của PowerShell khi truyền Python -c có dấu ngoặc kép, sửa thành quote bên trong bằng dấu đơn rồi chạy lại thành công. Kiểm tra isolation phát hiện import site vẫn có thể bật user site trong embedded distribution; launcher chuyển thêm -I, chạy lại WAV PASS và userSiteEnabled=false. Chưa tự commit/push hoặc phát tiếng ra loa. Bước tiếp theo: người dùng sửa file thử và nháy đúp doc-thu.bat để nghe; cần yêu cầu tích hợp riêng để Unity tự đọc kịch bản.
+
+---
+
+# Quà tặng, bình luận và follow — mục 4 Qua_Tbao.md — 08/11/2026
+
+**Đã triển khai và kiểm thử** theo `docs/Tailieu/Qua_Tbao.md` mục4. Đã hỏi và nhận xác nhận: bỏ toàn bộ tải danh mục quà TikTok, ba lựa chọn chỉ khớp đúng ba loại quà trong ảnh, không áp dụng cho mọi quà cùng giá.
+
+- Cài đặt → TikTok & quà → Quà → vật phẩm: thay bộ chọn danh mục online bằng ba thẻ ảnh local `public/assets/Qua/1xu.jpg`, `10xu.jpg`, `20xu.jpg`. Hoa hồng/Rose1 xu, Cỏ bốn lá/Shamrock10 xu, Má hồng nhỏ xinh/Tiny Blush20 xu dùng ID cụ thể. Đã tra nguồn và so biểu tượng; Tiny Blush khác little kisses cùng20 xu. Nguồn/ngày tra cứu/giới hạn tại [hướng dẫn phần4](docs/Tailieu_output/QUA_TBAO_PHAN4.md).
+- Chọn quà sẵn điền ID/tên/đơn giá, khóa các trường nhận diện/dải giá. Nhập thủ công mở lại ID/tên/dải giá như cũ; không tự xóa giá trị khi chuyển cách chọn. Giữ bản nháp, vật phẩm/số lượng/hiệu ứng/bật tắt/thêm/xóa/lưu, dữ liệu đã lưu không tự thay khi mở ứng dụng. Ưu tiên ID → tên → dải giá giữ nguyên; quà khác cùng giá vẫn có thể nhận theo dải giá cũ nếu streamer giữ dải đó.
+- Gỡ `giftCatalog.js`, tích hợp service/cache và API `/api/tiktok/gifts`, ô kênh/nút tải/tìm danh mục. Không đọc/ghi cache cũ, không xóa file cache nếu có. `tiktok-live-connector` và kết nối nhận sự kiện giữ nguyên, không thêm dependency/asset ngoài.
+- Sửa nguyên nhân bình luận bị bỏ qua: native protobuf v3 có `WebcastChatMessage.content`, mã cũ đọc `comment`. Hiện ưu tiên content, tương thích comment cũ, từ chối thiếu/sai kiểu/quá200 ký tự có lý do. Lệnh vẫn qua normalize/dedup/CommandRouter và user ID ổn định.
+- Trang chủ → Kết nối → Nhật ký bình luận & follow: hiển thị20 dòng từ dashboard khoảng2 giây, có nội dung đã lọc/kết quả lệnh/lý do lỗi/follow. Bus giữ tối đa50 dòng RAM theo engine; không lưu bình luận vào save, không gửi log qua WebSocket công khai/Unity. Follow đã có listener và thông báo, bổ sung log có giới hạn tần suất, không tạo nhân vật/thưởng mới. Dashboard chỉ thêm `interactionLog` cho quản trị localhost.
+- Cập nhật GAME_DESIGN/README/hướng dẫn phần4 và đánh dấu phần tải danh mục trong tài liệu phần1 là lịch sử. Smoke cũ `scripts/gift-settings-browser-smoke.js` chuyển chạy luồng mới; không để test tải danh mục đã gỡ trong bộ mặc định.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Node mặc định cuối cùng | **PASS115 / FAIL0 / SKIP1**,116 bài/24 file; `docs/Tailieu_output/qua-phan4/npm-test.txt`. SKIP là LIVE thật. Ba bài catalog cũ được thay bằng ba bài preset/native protobuf/pipeline, giữ test cấu hình và phần thưởng các phần trước |
+| Native connector → backend | **PASS**, encode/decode protobuf từ package đã cài, dispatch thật `processDecodedData`; thay duy nhất network connect/disconnect. Bình luận content tạo/nhận lại đúng user, phát lại không trùng, bình luận thường không nhập môn, follow chống trùng, lỗi có lý do; save không chứa chat, dashboard có log, snapshot công khai không có log, DEMO/LIVE/cache tách biệt |
+| Quy tắc quà/API | **PASS**, ba ID/đơn giá khớp đúng, ID khác cùng giá và đúng ID sai giá không khớp preset; dải giá cũ vẫn hợp lệ, cấu hình qua restart, API catalog cũ404, cache cũ giữ nguyên |
+| Chrome giao diện thực | **PASS**, Chrome156.0.8078.81, server/data/profile tạm. Ba ảnh local, khóa/mở thủ công, lưu/reload/bản nháp/thêm/xóa, thưởng ba quà, sai ID/đơn giá, combo/replay, nhập môn/follow/log, desktop1366/mobile390/sáng/tối;0 runtime error,0 kết nối LIVE,0 HTTP ngoài ứng dụng hoặc gọi API catalog từ trang. `browser-report.json`, sáu ảnh đã xem |
+| Bảo toàn | **PASS792/792** file giữ SHA256: data thật/demo/backups, caidat/package/lock, toàn bộ Unity Assets và ba JPG người dùng. `preservation-report.json`. Không sửa project Unity riêng của người dùng hoặc chạy server kiểm thử với dữ liệu production |
+| LIVE qua mạng thật, Unity Editor/Play Mode/build Windows, âm thanh/OBS | **CHƯA KIỂM CHỨNG trong lượt này**; không dùng PASS Node/Chrome thay cho Unity/LIVE thật. Metadata quà tra từ danh mục công khai, chưa đối chiếu phiên LIVE thực của tài khoản |
+
+Lần đầu Chrome phát hiện log mới chỉ có trong snapshot quản trị HTTP, WebSocket công khai không chứa log; đã nối qua dashboard quản trị sẵn có và chạy lại Chrome PASS. Harness protobuf đầu tiên dùng API fromPartial không có trong package này, sau đó thiếu default nested fields; sửa fixture dùng default từ decoder và encoder thực. Fixture EXP ban đầu chạy trong tu luyện nên tăng theo đồng hồ; dừng pha để kiểm tra riêng chống tạo lại nhân vật. Các lỗi harness đã sửa, không nới kỳ vọng gameplay. Lần kiểm hash PowerShell đọc nhầm wrapper array của JSON nên báo sai checked1; kiểm lại792 bản ghi bằng Node SHA256 cho PASS, không có file được bảo vệ thay đổi.
+
+Bước tiếp theo: khởi động lại Node và tải lại tab quản trị, chọn/lưu quà theo ảnh; khi có phiên LIVE thật, thử một bình luận nhập môn và follow rồi xem nhật ký tại Trang chủ. Không commit/push/reset/xóa dữ liệu. Chưa triển khai mục2 giọng AI hoặc các mục khác ngoài yêu cầu.
+
+---
+
+# Âm thanh Unity — AMTHANH.md — 07/11/2026
+
+**Đã triển khai và kiểm thử** theo `docs/Tailieu/AMTHANH.md`, dùng năm file có sẵn trong `unity-client/Assets/Musics/`. Không tải asset hoặc thêm package.
+
+- Thêm `GameAudioManager` tại **08_Systems/GameAudioManager** trong `SectScene_Main` và `SectScene_Concept02`. Năm trường AudioClip kéo thả trong Inspector gán sẵn BGM/Ban Phúc/độ kiếp thành công/tăng cấp tông môn/bay lên-xuống. BGM loop sau snapshot hợp lệ; nhạc tiếp tục trong pause/stopped, dừng khi disconnect hoặc mute.
+- Ban Phúc theo `blessing:activated`; thành công theo `breakthrough:completed` outcome=true; tông môn theo `sect:level` thực sự lên cấp (đầy MAX không phát lên cấp). Tiếng bay theo cạnh chuyển sang tư thế fly của nhân vật đang được render, bao gồm bay lên đài và trở về; không lặp mỗi frame, không phát hồi tố khi reconnect/đồng bộ đầu.
+- Dùng `config.audio` hiện hữu qua snapshot: enabled/music/effects, masterVolume/musicVolume/effectsVolume, maxVoices. Nhạc = tổng×nhạc, SFX = tổng×hiệu ứng; Cài đặt → Âm thanh → Lưu cập nhật Unity ngay. Không thay hợp đồng backend, schema save, DEMO/LIVE hoặc gameplay. Trang cài đặt làm rõ nghe thử/TTS tại tab là hệ thống trình duyệt, clip Unity ở Inspector.
+- Pool16 nguồn SFX tạo một lần, ngân sách2–16 theo server (mặc định8), ưu tiên độ kiếp/tăng cấp/Ban Phúc và gộp tiếng cùng loại trong150ms. Chống trùng, không giữ hàng đợi khi mute; disconnect/disable/session mới dừng âm cũ, thiếu clip hoặc config âm lượng sai không làm lỗi game. Không thay AudioListener.volume toàn cục.
+- Hai scene được bổ sung listener vì trước đó chưa có. Menu **Tu Tien LIVE → Audio → Add audio manager to current scene** thêm manager cho scene có SectSceneBindings; giữ nguyên clip đã gán khi manager tồn tại. Chỉ ghép năm object/component mới và tham chiếu con vào Systems, giữ byte của mọi object cũ khác; không đổi bố cục/camera/tỉ lệ/prefab.
+- Cập nhật GAME_DESIGN, hướng dẫn client và [docs/Tailieu_output/AMTHANH.md](docs/Tailieu_output/AMTHANH.md). Evidence ở `docs/Tailieu_output/amthanh/`; test dùng backend/data/profile/project tạm.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Node mặc định | **PASS115 / FAIL0 / SKIP1**,116 bài/23 file; `npm-test.txt`. Bài mới kiểm API/WS/lưu/restart/mode, âm lượng/bật tắt/maxVoices và từ chối input sai mà không sửa config. SKIP là LIVE thật |
+| Chrome cài đặt âm thanh | **PASS**, Chrome156.0.8078.81; chỉnh ba thanh, bật/tắt từng kênh/tổng, lưu/reload và đối chiếu API/file, không runtime exception. `browser-report.json`, `audio-settings.png` đã xem |
+| Unity compile/suite | **PASS60/60**,6 bài âm thanh +54 bài SectHud/Protocol/BlessingPanel/Concept02 hiện hữu; `unity-editmode.xml`. Unity6000.5.9f1 đang có, giữ Editor/package hiện tại |
+| Unity Editor/asset | **PASS**, cả Main và Concept02 có một manager/một listener, đủ năm clip, thao tác cài đặt lại không ghi đè; năm file giải mã ra mẫu âm thanh khác0 |
+| Unity Play Mode Concept02 | **PASS**, AudioSource thực phát đúng sự kiện, thành công/thất bại/MAX, bay lên/về đúng một lần, chống trùng/frame spam/reconnect; volume/mute/kênh/thiếu clip/input sai/ngân sách/ưu tiên/disable. BGM vẫn phát sau hơn một vòng clip ngắn, GetOutputData có tín hiệu khác0 |
+| Node thật ↔ Unity Play Mode | **PASS**, HTTP cấu hình trên backend tạm → WS → AudioSource: tổng.6×nhạc.4=.24, hiệu ứng.6×.3=.18; tim đạt cấp phát hai tiếng tăng cấp/Ban Phúc, mute dừng nhạc và SFX |
+| Bảo toàn | **PASS**,252/254 file giữ hash; hai scene thay đúng phần thêm âm thanh.201 object cũ Main và331 object cũ Concept02 giữ byte, mỗi scene chỉ thêm một con tại parent Systems và năm object/component mới; `preservation-report.json`, `scene-merge-report.json`. Dữ liệu thật/demo/backups/caidat/package/lock, clip/meta âm thanh, prefab/artwork giữ nguyên |
+| Main Play Mode riêng, Windows executable/build mới, nghe/cân chỉnh qua loa/tai nghe, capture OBS/LIVE thật | **CHƯA KIỂM CHỨNG** trong lượt này; không lấy batch import hoặc signal DSP làm bằng chứng đã nghe/thu OBS |
+
+Các lượt đầu lỗi trong test harness: URL/closure giữ tham chiếu qua domain reload bị mất khi EnterPlayMode; chuyển lấy URL sau Enter và đưa lambda vào hàm thường. Fixture tim ban đầu cấp tu vi cho chính nhân vật độ kiếp, làm tự xếp nghi thức tiếp theo nên chưa bay về; đổi người góp tim và assert fixture đã hết nghi thức. Chờ chuyển động theo đồng hồ Editor thay vì giả định một frame/WaitForSecondsRealtime trong EditMode test. Không nới kỳ vọng tiếng bay; bài riêng PASS rồi toàn bộ60/60 PASS. Giữ XML các lượt đầu để đối chiếu; không còn lỗi đã biết trong phạm vi này.
+
+Bước tiếp theo: Unity import script, mở scene Concept02 hoặc Main và chọn GameAudioManager để thay clip; trang quản trị Cài đặt → Âm thanh để chỉnh âm lượng và Lưu. Với scene đang mở chưa có object trong bộ nhớ, có thể dùng menu Audio rồi lưu cùng các chỉnh sửa của người dùng. Chạy thử âm nghe thực tế/thu OBS ở nguồn Unity khi cần. Không dừng Editor người dùng, không commit/push/reset/xóa dữ liệu production.
+
+---
+
+# Logic tăng tu vi — phần 1 — 07/11/2026
+
+**Đã triển khai và kiểm thử**, theo `docs/Tailieu/Logic_Tang_Tu_vi.md` phần1. Người dùng chọn **nguyên lực cộng ngay, chỉ gom tu vi cá nhân**.
+
+- Tốc độ gốc **2 tu vi/giây cho cả11 cảnh giới**; đọc cấu hình cũ với rate2, giữ HP/ATK/DEF/ngưỡng nâng tầng và các cơ chế hiện hữu. GAME_DESIGN cập nhật theo yêu cầu mới.
+- Mỗi tim hợp lệ tăng ngay nguyên lực và cho người gửi đã có nhân vật **2 tu vi/tim**. Gom riêng từng người: đủ100 chốt ngay, phần dư dưới100 chốt khi ngừng1 giây. Trà/Ban Phúc/Linh Căn áp dụng cùng hệ số cho giây và tim (một nguồn x2:4/giây và4/tim); giữ cộng hệ số/cap cũ. Ghi hệ số tại lúc nhận, không nhân lại khi chốt; Ban Phúc từ mốc có tác dụng với tim tiếp theo.
+- `likeCultivation.js` dùng CultivationService.grant: battle/paused/stopped giữ EXP chờ, về tu luyện áp dụng một lần; buff/thời gian tự động vẫn đóng băng. Tick vẫn chốt chuỗi khi tạm dừng. Tim trước nhập môn chỉ tăng nguyên lực, không tự tạo nhân vật/tu vi hồi tố. Tổng phòng tăng vượt số tim của event không gán phần không rõ chủ cho người gửi.
+- Biên nhận và chuỗi dở lưu cùng runtime (interactions version1, trường `likeStreaks` tùy chọn; schema người chơi2 giữ nguyên). Đọc save cũ, giữ phần dư/hệ số/chống trùng qua restart, không tăng tự động khi offline. DEMO/LIVE tách biệt. Tim không bị giới hạn bởi ngân sách bình luận/hiệu ứng thông thường, hàng đợi vẫn có giới hạn. Tổng tim nhảy bất thường bị từ chối trước khi sửa mốc đối chiếu.
+- Unity runtime tiếp tục chỉ trình diễn. Thêm5 snapshot từ Node và bài Play Mode Concept02 kiểm tra tu vi/nguyên lực/nâng tầng; không sửa scene/prefab/artwork hoặc project người dùng `public/unity-client/My project/`.
+- Hướng dẫn cách thử Demo và thông số tại [docs/Tailieu_output/LOGIC_TANG_TU_VI_PHAN1.md](docs/Tailieu_output/LOGIC_TANG_TU_VI_PHAN1.md); evidence ở `docs/Tailieu_output/tu-vi-phan1/`.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Node mặc định cuối cùng | **PASS114 / FAIL0 / SKIP1**,115 bài/22 file; `npm-test.txt`.12 bài mới kiểm tra tốc độ, gom chuỗi/biên100 và1 giây, buff/cap, battle/pause, chống trùng/tổng phòng, input sai, lưu/restart và mode. SKIP là LIVE thật |
+| API/WS/native adapter | **PASS**, nguyên lực ngay/tu vi chốt sau, Trà4/giây/4/tim, EXP chờ và17 tim dở qua restart, save/WS đồng nhất;1.100 event tim đơn qua adapter mô phỏng không mất đóng góp và replay không thưởng lại |
+| Chrome trang Demo | **PASS**, Chrome156.0.8078.81, backend/data/profile tạm; nút10/100 tim, chọn hai nhân vật, Trà, pause/resume,2.0/4.0 mỗi giây; không runtime exception; `browser-report.json`, ảnh `demo-hearts.png` đã xem |
+| Unity compile/suite | **PASS54/54**, SectHud/NetworkProtocol/BlessingPanel/Concept02 trên bản sao project, Unity6000.5.9f1; `unity-editmode.xml` |
+| Unity Editor Play Mode | **PASS**, Enter/ExitPlayMode thực:2 tu vi sau1 giây;50 tim tăng nguyên lực trước, tu vi102 sau chốt; Trà+100 tim lên502; thêm15 tim/chốt lên Trung Kỳ; protocol/roster/energy fill/rank text đúng snapshot Node |
+| Bảo toàn | **PASS243/243** file dữ liệu thật/demo/backups/caidat/package/lock/scene/prefab/artwork giữ hash; `verification-report.json`. Không dùng save production để thử hoặc dừng Editor đang mở |
+| Windows build/executable mới, GPU/FPS/OBS/LIVE thật | **CHƯA KIỂM CHỨNG** trong lượt này |
+
+Lần đầu test API bị từ chối khi chuyển LIVE vì fixture sentinel không có schema; sửa fixture thành save hợp lệ, giữ `initial-api-test.txt`, chạy lại API2/2 và toàn bộ115 bài thành công. Không có lỗi đã biết còn lại trong phạm vi này. Bước tiếp theo: khởi động lại Node để nạp code, dùng Demo chọn đạo hữu → nút tim; xác minh phiên LIVE thật/OBS khi streamer tự bật LIVE. Không commit/push/reset/xóa dữ liệu.
+
+---
+
+# Bảng cấp tông môn — phần 3 Qua_Tbao.md — 07/11/2026
+
+**Đã triển khai và kiểm thử**, theo `docs/Tailieu/Qua_Tbao.md` phần3 và câu trả lời người dùng: chọn trực tiếp Trà/Đan/Ban Phúc/Linh Căn/Quay Cam, chỉ phạm vi **Toàn tông môn**. Không triển khai phần2 giọng AI.
+
+- Cài đặt → TikTok & quà: thay hẳn “Kết nối & Nguyện Lực”/hàng mốc tim lặp bằng bảng **Cấp | Số lượng tim | Quà | Số lượng thưởng | Phạm vi**. Thêm cấp, xóa cấp cuối,1–50 cấp, có Không thưởng; ngưỡng1–1.000.000.000, lượng thưởng1–100. Bản nháp giữ khi đổi trang/snapshot, kiểm tra input trước lưu, không ghi khi sai. Cài đặt reconnect chuyển vào thông tin kết nối ở Trang chủ.
+- Node quản lý bảng `sectLevels`, config atomic qua action cùng tên. Mỗi dòng là tim riêng để hoàn tất cấp; tim dư qua nhiều dòng, quà một lần/dòng, dòng cuối đầy nhận quà rồi MAX. Mặc định1.000/3.000/5.000 và Ban Phúc×1 ở hai mốc đầu, mốc cuối Không thưởng như trước; có thể thêm cấp4 trở lên. Không còn thưởng wish/cooldown lặp song song, nhưng pendingPoints/pendingBlessings từ save cũ vẫn được trả nốt.
+- Quà cá nhân cấp đúng lượng cho từng đệ tử đã có lúc đạt mốc, qua inbox/túi/ItemService; battle/paused/stopped chưa tự dùng, giữ các giới hạn item. Ban Phúc toàn tông kích hoạt một lần/mốc, số lượng×30 giây x2, countdown đóng băng ngoài cultivation. Thưởng bị chặn vì inbox đầy giữ item/count/recipients lúc chốt, không đổi theo cấu hình mới hoặc nhận thêm người vào sau mốc.
+- Save tương tác version1/schema người chơi2 giữ nguyên, trường sectEnergy có version2 riêng với totalLikes/completedLevels, levelRewards tùy chọn. Đọc được save `{level,power}` ba cấp cũ theo ngưỡng gốc, không phát lại quà. Đổi/ngắn/mở rộng bảng giữ tổng tim, tính lại hiển thị (có thể giảm cấp nếu tăng ngưỡng), đánh dấu mốc đã vượt và không thưởng hồi tố. Biên nhận không xóa khi bỏ rồi thêm lại một cấp. Tiến độ/pending tách DEMO/LIVE, restart giữ đúng.
+- Unity StateMapper/Model nhận maxLevel cấu hình1–50, validate full/threshold; thiếu maxLevel giữ fallback3. HUD dùng số liệu server, không tính lại gameplay. Thêm snapshot cấp6 thật do Node tạo, test HUD/protocol/Play Mode; không sửa scene/prefab/PNG/tỉ lệ nhân vật.
+- Cập nhật GAME_DESIGN/protocol, hướng dẫn [docs/Tailieu_output/QUA_TBAO_PHAN3.md](docs/Tailieu_output/QUA_TBAO_PHAN3.md), ghi chú phần1 cũ và phân nhóm test. Evidence tại `docs/Tailieu_output/qua-phan3/`.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Node mặc định cuối cùng | **PASS102 / FAIL0 / SKIP1**,103 bài/20 file; `npm-test.txt`. SKIP là LIVE thật. Đã cập nhật các bài wish cũ theo yêu cầu thay bằng cấp, thêm8 bài về cấp động/cấu hình/API/migration/overflow |
+| Cấp động/backend | **PASS**,6–7 cấp và vượt nhiều mốc, năm loại quà, Ban Phúc một lần toàn tông, MAX/thêm cấp, thay ngưỡng không replay, lưu cũ/giữ tổng/biên nhận, pending giữ người nhận/item/count qua config/restart, API/WS đồng nhất/tách mode, input sai giữ file nguyên |
+| Browser bảng cấp mới | **PASS**, Chrome156.0.8078.81, server thật/data/profile tạm; thêm/sửa/xóa6–7 cấp, draft/input sai/lưu/reload, nút tim Demo nhận quà đúng/phúc lợi/MAX, thêm sau MAX không phát quà miễn phí, rút bảng giữ total, mobile390/desktop1366/tối/sáng; `browser-report.json`,4 ảnh đã xem |
+| Browser hồi quy | **PASS** phần chọn quà (`gift-regression/browser-report.json`) và5 trang admin (`admin-browser-report.json`). Các control reconnect vẫn dùng được ở Trang chủ; không tự nối LIVE |
+| Unity compile/suite | **PASS53/53** SectHud/NetworkProtocol/BlessingPanel/Concept02 trên bản sao project, Unity6000.5.9f1; `unity-editmode.xml` |
+| Unity Editor Play Mode | **PASS**, Enter/ExitPlayMode thực: snapshot Node cấp6/max6/15 trên60 tim qua Protocol, HUD cấp6/fill25%, disconnect ẩn fill; các bài Concept02/Ban Phúc Play Mode hiện hữu cũng PASS. Không coi static parse/npm là bằng chứng Play Mode |
+| Bảo toàn | **PASS243/243** file được bảo vệ, data thật/demo/backups/caidat/package/lock/scene/prefab/artwork giữ hash; `verification-report.json`. Không dừng Editor đang mở, không ghi save test vào dữ liệu production |
+| Windows build/executable mới, GPU/FPS/OBS/LIVE thật | **CHƯA KIỂM CHỨNG** trong lượt này; không chạy bộ renderer legacy thay cho Unity |
+
+Các lần đầu:11 bài Node còn assert schema/mốc wish cũ, đã chuyển sang kỳ vọng cấp mới và bổ sung các tình huống thực tế; suite cuối102 PASS. Unity lần đầu52/53 PASS, bài Play mới lỗi SetUp mở scene bằng Editor API sau domain reload vào Play; thêm guard rồi chạy lại53/53 PASS. Browser lần đầu so sánh trước khi POST tim cuối được xử lý (164 thay165); sửa chờ tổng tim authoritative và chạy lại PASS. Giữ `initial-unity-editmode.xml`, `initial-browser-report.json` để đối chiếu. Không còn lỗi kiểm thử đã biết trong phạm vi này.
+
+Bước tiếp theo: khởi động lại Node nếu dùng tiến trình mã cũ, tải lại trang admin và chờ Unity import C#. Mở Cài đặt → TikTok & quà → Cấp tông môn, thêm dòng/sửa tim/quà rồi Lưu. Xác minh lượt tim LIVE thật/OBS khi streamer tự mở phiên LIVE. Không commit/push/reset/xóa dữ liệu.
+
+---
+
+# Tách test legacy khỏi lệnh mặc định — 07/11/2026
+
+**Đã triển khai và kiểm thử**, theo yêu cầu giữ test `/song`/Three.js/preview cũ trong `test:legacy` khi Unity là client hiển thị chính.
+
+- `npm.cmd test`: chỉ chạy19 file trực tiếp trong `test/`, gồm backend/gameplay, TikTok/quà/tim, API/WebSocket, save/restore, DEMO/LIVE, trang quản trị và công cụ PNG dùng cho Unity. Giữ audio/TTS nghe thử và network client của admin.
+- `npm.cmd run test:legacy`: chạy9 file trong `test/legacy/`. Chuyển nguyên5 file visual-model/character-upgrade/sect-layout/breakthrough-visual/battle-visual; tách thêm phần renderer/camera/chất lượng/notice trong finishing, module/route `/song` và vendor, overlay quà, layout preview cũ. Các test backend trong foundation/battle-integration/live-integration vẫn giữ, chỉ chuyển các assertion về route hiển thị cũ sang legacy.
+- `npm.cmd run test:all`: chọn cả hai nhóm Node. Runner `scripts/run-tests.js` liệt kê file trực tiếp theo thư mục để tránh tự khám phá đệ quy vào legacy; nhận test mới tự động và chuyển tiếp tùy chọn Node, không phụ thuộc wildcard của shell, không thêm dependency. Unity C#/Editor/Play Mode và browser smoke vẫn chạy riêng.
+- Hai bài PNG giữ tại `test/asset-tools.test.js`. Các script browser legacy giữ đường dẫn hiện tại, chạy thủ công như trước, không tự thêm vào npm test. Cập nhật README và [docs/Tailieu_output/TEST_SUITES.md](docs/Tailieu_output/TEST_SUITES.md).
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Nhóm mặc định cuối cùng | **PASS94 / FAIL0 / SKIP1**, tổng95,19 file; `docs/Tailieu_output/test-suites/core-test.txt`. SKIP là LIVE thật |
+| Nhóm legacy cuối cùng | **PASS21 / FAIL0**,9 file; `legacy-test.txt`. Lần đầu thiếu import CAMERA_MODES trong file vừa tách, đã bổ sung và chạy lại cả nhóm thành công; giữ log ban đầu `initial-legacy-test.txt` |
+| Lệnh kết hợp/chuyển tiếp tùy chọn | **PASS**, `npm.cmd run test:all -- --test-name-pattern=05-14` nhận28 file và thực thi đúng hai bài settings/notice thuộc hai nhóm; `combined-selection-test.txt`. Đây là kiểm tra lựa chọn, không nhận là một lần chạy đầy đủ test:all; hai nhóm đã chạy đầy đủ riêng ở trên |
+| Phân nhóm/bảo toàn bài test | **PASS**,95 core +21 legacy =116 bài, không trùng tên giữa hai nhóm;113 bài cũ được giữ hoặc tách nhỏ. Tăng3 do tách settings/notice, module admin/legacy và route legacy. Năm file chuyển nguyên giữ hash khi hoàn lại độ sâu import; mặc định không còn import renderer cũ hoặc assert route `/song` |
+| Runtime và dữ liệu | **PASS886/886** file giữ hash, gồm root JS backend, package-lock/caidat, data thật/demo/backups, public và Unity Assets; `verification-report.json`. Chỉ sửa phân nhóm test, package scripts và tài liệu; không sửa gameplay/runtime hoặc dependency |
+| Browser/Unity Editor/Play/build Windows/OBS/LIVE thật | **CHƯA KIỂM CHỨNG trong lượt này**; không chạy lại vì thay đổi chỉ ở tổ chức/lệnh kiểm thử, không lấy PASS npm thay cho kiểm tra Unity |
+
+Evidence: `docs/Tailieu_output/test-suites/`. Bước tiếp theo: dùng `npm.cmd test` cho thay đổi backend/admin; chạy `test:legacy` khi cần hồi quy renderer cũ, Unity test riêng cho C#/scene/hiển thị. Không xóa `/song`, không commit/push/reset hoặc xóa dữ liệu.
+
+---
+
+# Cài đặt quà và mốc tim — phần 1 Qua_Tbao.md — 07/11/2026
+
+**Đã triển khai và kiểm thử phần 1** của `docs/Tailieu/Qua_Tbao.md`. Phần 2 giọng AI và phần 3 cấp tông môn tùy chỉnh chưa triển khai trong lượt này.
+
+- Đã kiểm tra thư viện/repository trước khi sửa: bản cài `tiktok-live-connector`2.5.0 có `fetchAvailableGifts()`, trả `id/name/diamond_count`. Đọc cả route `gift/list/`: phải có roomId nên gọi `fetchRoomId()` trước, không dựa vào ví dụ README thiếu bước này. Không thêm bảng ID/giá giả vào production.
+- Quà → vật phẩm: bấm quà mở danh sách có tìm tên không dấu/ID/giá, hiển thị tên/xu/ID, chọn tự điền thông số. Có phân trang100 dòng, trạng thái rỗng/lỗi, Escape/giữ focus, dark/light và mobile. Lưu cả ID+tên; ánh xạ vẫn xét ID và đơn giá trước tên/dải giá. Giữ cấu hình cũ và các luật combo/chống trùng/quà chờ.
+- Thêm `giftCatalog.js` và API `/api/tiktok/gifts`: chỉ lấy metadata qua HTTP, không mở WebSocket hoặc thay khóa/trạng thái LIVE; cache `data/tiktok-gifts.json`, giữ cache khi lỗi mạng, throttle30 giây/single flight. Không tải ảnh/asset hay thêm dependency. Network không nằm trong hàng đợi tick game.
+- Hàng cài đặt `Tim | Số lượng | Quà/hành động`, thêm số lượng thưởng/cooldown: mặc định cũ điểm nhiệm vụ; chọn được năm vật phẩm. Bốn vật phẩm cá nhân thưởng từng đệ tử hiện có, qua inbox/túi/ItemService; Ban Phúc cộng đồng chỉ kích hoạt một lần/mốc, cộng số lượng×30 giây x2. Battle/paused/stopped giữ chờ đến tu luyện, pending giữ đúng loại qua restart/thay cấu hình. Save tương tác version1 chỉ thêm trường pendingBlessings tùy chọn, không đổi schema người chơi hoặc envelope WS. Nguyên lực cấp1/2/3 vẫn theo1.000/3.000/5.000 riêng, không đổi thiết lập cấp tông môn.
+- Cập nhật `GAME_DESIGN.md`, overlay Three.js để thông báo đúng loại thưởng, thêm hướng dẫn và evidence theo vị trí yêu cầu: [docs/Tailieu_output/QUA_TBAO_PHAN1.md](docs/Tailieu_output/QUA_TBAO_PHAN1.md).
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Node regression cuối cùng | **PASS112 / FAIL0 / SKIP1**, tổng113;9 bài mới trong `test/gift-settings.test.js`; `docs/Tailieu_output/qua-phan1/npm-test.txt`. SKIP là LIVE thật |
+| API connector/catalog/mapping | **PASS**, chạy đúng class/route connector cài sẵn với HTTP response fixture; cache/restart/lỗi mạng/throttle/single flight, ID+tên và legacy rules, API/save/restart/tách DEMO-LIVE, không gọi connector LIVE |
+| Phần thưởng tim | **PASS**, tất cả item, cooldown/chống trùng, giữ pending battle/pause/restart, Ban Phúc cộng đồng không nhân số người, đổi cấu hình không đổi thưởng cũ, overflow giữ chờ, nguyên lực vẫn tăng |
+| Browser chức năng mới | **PASS**, Chrome156.0.8078.81, server thật/profile và data tạm, chỉ HTTP TikTok là fixture. Tìm tên/ID/giá, Đ→d, text an toàn, Escape, thêm/xóa/chọn/lưu/reload/bản nháp, quà/replay/tim; desktop1366 và mobile390, sáng/tối; `browser-report.json` và ảnh trong `docs/Tailieu_output/qua-phan1/` |
+| Browser hồi quy5 trang | **PASS**, các cài đặt, điều khiển demo, xác nhận restore/reset trên data tạm, kết nối transport giả/khóa chỉ RAM, responsive1920/1366/900/390; `admin-browser-report.json` |
+| Bảo toàn | **PASS735/735** file trong kiểm tra trước/sau lượt browser cuối: data thật/demo/backups, caidat/package/lock và toàn bộ Unity Assets; `preservation-report.json`. Không sửa scene/prefab/C# Unity, không commit/push/reset/xóa dữ liệu |
+| LIVE thật / catalog từ phòng TikTok thật | **CHƯA KIỂM CHỨNG**, chưa có phiên LIVE hợp lệ được cung cấp. Các ID990001… trong ảnh chỉ là fixture kiểm thử, không đưa vào dữ liệu production |
+| Unity Editor/Play/build Windows, OBS, tải/FPS | **CHƯA KIỂM CHỨNG trong lượt này**; không lấy kết quả lịch sử thay kiểm tra mới |
+
+Các lần kiểm tra đầu:4 lỗi thiết lập test mới (constructor connector cần object options, test gọi nhầm phương thức join) đã sửa,9/9 PASS. Chrome trong sandbox timeout CDP trước mở trang, đã chạy lại bằng hồ sơ tạm với quyền thực thi phù hợp. Browser phát hiện Escape trong ô search mặc định chỉ xóa tìm kiếm, đã thêm đóng dialog rõ ràng và kiểm tra lại PASS. Smoke cũ dùng `.ui-dialog` lấy nhầm hộp chọn quà thay hộp xác nhận, đã đổi locator theo `#dialog-confirm` và toàn bộ smoke PASS. Không còn lỗi kiểm thử đã biết trong phạm vi này.
+
+Bước tiếp theo: khởi động lại Node nếu đang dùng tiến trình mã cũ, mở **Cài đặt → TikTok & quà**, bấm quà → nhập kênh LIVE → **Tải từ TikTok**, chọn/lưu ánh xạ. Xác minh tải catalog/nhận quà và tim bằng phiên LIVE thật khi streamer tự mở LIVE. Không tự chuyển sang phần2/3.
+
+---
+
+# Nâng mây/sét và cân kích thước ba nhân vật — 07/11/2026
+
+**Đã chỉnh trong `SectScene_Concept02` và hai prefab Character_1/2**, theo yêu cầu nâng vùng mây/sét một chút và dùng mẫu3 làm chuẩn kích thước.
+
+- `05_Tribulation/Breakthrough seat/StormFX` tăng local Position Y từ0 lên**0.3**, tương đương30px trong khung1080×1920. Mây và cả bốn frame sét cùng đi lên, giữ tương quan; ghế đài, beam, camera, HUD và mọi child Transform không đổi.
+- Thu nhỏ đồng đều root prefab Character_1 về**0.66719069**, Character_2 về**0.674967323**. Giữ toàn bộ Scale/Position con đã chỉnh, nên hình/tên/aura/bóng giảm cùng nhau; không kéo méo PNG. Character_3 giữ nguyên byte và root Scale**1.0354** đã có sẵn. Không thay ghế hoặc lựa chọn ngẫu nhiên/pool.
+- Dùng chiều cao nội dung alpha≥32 của pose meditation, tính cả root Scale thực của mẫu3. Đo trực tiếp trên instance trong Unity: cả ba khoảng**1.33721912 world units**, sai số dưới0.001. Lần kiểm tra render đầu đã phát hiện phép tính ban đầu bỏ sót root1.0354 của mẫu3; đã hiệu chỉnh rồi import/đo/render lại. Các pose khác dùng cùng hệ số đồng đều, không đổi sprite/tỉ lệ ảnh.
+- Scene chỉ đổi một giá trị Y của StormFX; mỗi prefab1/2 chỉ thêm ba override root Scale. Kiểm tra loại các override mới khỏi YAML khôi phục đúng từng byte cũ; Body Scale và mọi nội dung khác giữ nguyên. Thêm helper Editor `Concept02SizeVerification` để đo và xuất ảnh, không chạy trong gameplay, không save người chơi mẫu.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Unity compile và suite liên quan | **PASS14/14**, gồm4 Concept02,3 variants và7 storm; `docs/unity-size-refinement/editmode.xml`; chạy trên đúng prefab cuối cùng |
+| Editor Play Mode | **PASS**, hai bài Enter/ExitPlayMode thực; pooling/giữ Scale và độ kiếp/mây/sét/disconnect vẫn hoạt động |
+| Kích thước thực sau import | **PASS**, ba mẫu cùng chiều cao alpha1.33721912, mẫu3 không đổi; `unity-size-report.json` |
+| GPU | **PASS**, NVIDIA Quadro M1000M/Direct3D11;7 ảnh trước/sau ở1080×1920/720×1280, gồm ba mẫu cùng hàng, cảnh10 người và mây/sét. Frame03 tại1890ms dùng để xem tia sét đang sáng; ảnh trước/sau chỉ thay tạm root StormFX để so sánh, không save |
+| Bảo toàn | **PASS**, `verification-report.json`; data/Main/mẫu3/asset và meta/backend/package/settings giữ hash. Chỉ một Y trong scene và sáu giá trị scale mới ở hai prefab được thay |
+| Node regression | Không chạy lại vì chỉ đổi layout/prefab và helper Editor;103 PASS/1 SKIP của lượt trước là evidence lịch sử |
+| Windows build/executable, OBS, LIVE thật, tải/FPS | **CHƯA KIỂM CHỨNG** cho lượt chỉnh bố cục này |
+
+Hướng dẫn vị trí chỉnh và Scale cập nhật trong [docs/UNITY_CONCEPT02.md](docs/UNITY_CONCEPT02.md). Bước tiếp theo: mở lại scene ngoài Play Mode, chờ import rồi Play; không cần khởi động lại Node cho thay đổi hình ảnh này. Không đổi prefab3, dữ liệu, backend hoặc runtime gameplay; không dừng Editor người dùng, commit/push/reset/xóa dữ liệu.
+
+---
+
+# Bảng và cơ chế Ban Phúc — 07/11/2026
+
+**Đã triển khai và kiểm thử theo `docs/UI_BANPHUC.md` trong `SectScene_Concept02`.** Yêu cầu mới thay quy tắc cộng nhiều Ban Phúc thành x4/x6: giờ giữ một Ban Phúc x2 và cộng thời gian; GAME_DESIGN.md đã cập nhật rõ thay đổi này. Trà/linh căn và giới hạn cộng hệ số giữa các nguồn khác nhau giữ nguyên.
+
+- Bảng340×200 ngay dưới Thiên Đạo Thông Cáo, mặc định ẩn; tám PNG nguyên byte từ `public/assets/02/UI/UI_BANPHUC/` chuyển vào `Assets/Art/SectConcept02/UI/Blessing/`. Chữ BAN PHÚC/x2 tốc độ tu luyện/Còn lại:mm:ss dùng TMP; fill thu ngắn từ trái. Thiếu `ui_blessing_ornaments.png` trong nguồn nên thay hai điểm trang trí bằng hình thoi Image Unity; concept BanPhuc.png chỉ tham chiếu, không dùng làm ảnh ghép sẵn.
+- Node ItemService quản lý một buff toàn tông môn x2; mỗi lần dùng Ban Phúc cộng30 giây. Còn20 giây nhận thêm thành50 giây, tổng duration của đợt thành60 để vẽ thanh50/60. Quà được ánh xạ Ban Phúc giữ luồng inventory/activation/chống trùng/combo/chờ nhập môn/battle hiện có. Mỗi lần lên cấp1→2 hoặc2→3 cộng30 giây, vượt hai cấp cùng lúc cộng60; cấp3 đầy MAX không nhận thêm.
+- Chỉ giảm thời gian trong tu luyện; battle/pause/stopped/offline giữ nguyên. Người nhập môn khi còn buff cũng hưởng. Snapshot thêm `interactions.blessing = {remainingMs,durationMs,multiplier:2}`; Unity chỉ đọc để bật bảng/đồng hồ/fill, không tự tính buff hoặc countdown. Hết hạn, snapshot cũ thiếu trường, disconnect thì ẩn.
+- Save schema2 và interactions version1 giữ nguyên: thêm durationMs tùy chọn trong globalBuffs, gộp các Ban Phúc save cũ thành một x2 với tổng remaining; không xóa người chơi, mất thời gian buff hoặc phát lại thưởng cấp đã đạt. DEMO/LIVE tách riêng. Điểm nhiệm vụ/cooldown wish không đổi. Event mới blessing:activated dùng game:event hiện hữu.
+- Scene ghép có guard: chỉ đổi2 document UI hiện hữu (component/child của Canvas), thêm63 document UI; mọi byte ngoài UI giữ nguyên. Không rebuild scene hoặc sửa prefab/Transform nhân vật. Menu mở scene đã có vẫn giữ chỉnh sửa người dùng.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Node regression | **PASS103 / FAIL0 / SKIP1**, tổng104; `docs/unity-blessing/npm-test.txt`. SKIP=LIVE thật |
+| Business/API/WebSocket/save | **PASS**,7 bài mới: x2/cộng30s, tu vi thực và nguồn Trà/linh căn, người mới, quà combo/dedup/chờ, lên cấp/burst/MAX, đóng băng/expiry chính xác, legacy/restart, DEMO/LIVE và commit/API/WS trên dữ liệu tạm |
+| Unity compile và suite theo phạm vi | **PASS55/55**, gồm10 trường hợp Ban Phúc mới +45 Concept02/variants/HUD/storm/protocol; `editmode.xml`; không nhận toàn bộ103 bài Unity PASS |
+| Editor Play Mode | **PASS**, ba bài Enter/ExitPlayMode thực; Ban Phúc hiển thị/gia hạn/hết hạn/kích hoạt lại/disconnect, các luồng nhân vật/HUD/mây/sét trước đó vẫn qua kiểm thử |
+| GPU render | **PASS**, NVIDIA Quadro M1000M/Direct3D11, xuất11 ảnh; đã xem các ảnh chính1080×1920 và720×1280,30s/15s/50s/lên cấp/pause/battle/hết hạn. Bảng nằm dưới thông cáo, chữ rõ, sen/sao/khung/đồng hồ/fill đúng |
+| Bảo toàn | **PASS222/222** file trước phiên được bảo vệ, gồm data/Main/prefab/ảnh và meta cũ/public JS/package/settings; tám PNG mới giữ hash nguồn, import Texture2D. `verification-report.json`, `scene-upgrade-report.json` |
+| Windows build/executable, OBS, LIVE thật, tải/FPS | **CHƯA KIỂM CHỨNG** cho thay đổi này. Nhóm CharacterTests cũ thiếu SectScene_Editable vẫn là giới hạn đã ghi ở lượt trước, không chạy lại để nhận PASS |
+
+Lỗi đã sửa trước nghiệm thu: validator duration ban đầu coi null như thiếu; đã phân biệt và toàn bộ Node PASS. Lần Unity đầu54/55 vì ảnh mới bị import Cubemap, không tạo Texture2D reference; đã đặt rõ Texture2D, thêm guard thiếu texture, gán lại đủ tám ảnh và kiểm tra importer/reference trong test; chạy lại55/55 PASS rồi render GPU. Evidence lần đầu ở `initial-editmode.xml`. Không tải package/asset hoặc đổi Editor để sửa.
+
+Hướng dẫn [docs/UNITY_BANPHUC.md](docs/UNITY_BANPHUC.md), cập nhật `docs/UNITY_CONCEPT02.md` và `docs/UNITY_WEBSOCKET.md`. Bước tiếp theo: khởi động lại Node, mở lại scene ngoài Play Mode rồi Play; trong DEMO đang tu luyện chọn Ban Phúc ở Túi đồ, cấp1 và dùng để thử. Không reset dữ liệu nếu tông môn đã MAX. Kiểm thử dùng project validation và data tạm; không dừng Editor người dùng, commit/push hoặc xóa dữ liệu.
+
+---
+
+# Fill nguyên lực và PNG mây/sét độ kiếp — 07/11/2026
+
+**Đã triển khai và kiểm thử trong phạm vi `SectScene_Concept02`.** Dùng lại đúng PNG đã có trong `Assets/Art/SectConcept02/`, không tải tài nguyên mới hoặc đổi backend/gameplay.
+
+- `Header/EnergyFill` dùng `ui_progress_fill.png`, crop theo tiến độ server như trước. Sửa lỗi lớp fill nằm dưới phần tâm tối đục của ProgressFrame: fill được vẽ trên khung, căn trong viền và giữ neo trái. Kiểm tra650/1.000,1.500/3.000 và5.000/5.000 MAX; mất dữ liệu thì ẩn fill.
+- Thêm `05_Tribulation/Breakthrough seat/StormFX`, gồm StormCloud và Lightning_01…04. Mây dùng `fx_cloud_storm.png`; bốn frame sét dùng đúng `fx_lightning_01.png` đến `fx_lightning_04.png`. Căn theo vùng alpha nội dung vì canvas nguồn khác nhau, scale đồng đều, không sửa/import lại PNG. Transform chỉnh trực tiếp trong scene, gắn theo ghế đài.
+- `TribulationController` nhận các renderer tùy chọn: Concept02 dùng PNG, prefab/scene cũ giữ mây/sét procedural. Mỗi cửa sổ sét180ms hiện hữu chia bốn frame45ms, theo elapsed/duration/lightningCount từ server. Pause giữ frame; reconnect lấy đúng thời điểm; kết quả thành/bại, battle và disconnect tắt mây/sét. Thiếu bộ frame thì fallback procedural; tắt component giữ FX tắt cả khi manager còn gọi Sample. Không tạo object mỗi frame, không đổi lịch độ kiếp, xác suất hoặc sát thương.
+- `Concept02StormSetup` chỉ nâng cấp bản sao validation, không rebuild scene người dùng. Scene production ghép có guard: chỉ sửa3 document UI, thêm reference PNG vào override TribulationFX, thêm child vào ghế đài và17 document FX mới. Mọi document khác giữ nguyên byte; prefab procedural dùng chung không bị sửa. Menu tạo scene mới cũng có cấu hình này, mở scene đã có vẫn giữ chỉnh sửa người dùng.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Unity compile và suite đúng phạm vi | **PASS45/45**:7 bài storm mới +38 bài Concept02/variants/HUD/protocol; `docs/unity-storm/editmode.xml` |
+| Editor Play Mode | **PASS**, hai bài Enter/ExitPlayMode thực: nhân vật/HUD/ritual hiện hữu; PNG sét giữ frame02-index khi pause, kết quả/disconnect tắt FX |
+| Lịch/frame/fallback | **PASS**, đủ frame01→04, tắt giữa các đợt, đợt thứ2 theo server count, reconnect không phát lại từ đầu, pause/battle/success/failure/disconnect; prefab procedural được thử trực tiếp và vẫn chạy đúng |
+| Node regression | **PASS96 / FAIL0 / SKIP1**, tổng97; `docs/unity-storm/npm-test.txt`. SKIP là LIVE thật; backend không thay đổi |
+| GPU render | **PASS**, NVIDIA Quadro M1000M/Direct3D11; đã xem10 ảnh, gồm bốn frame sét, mây giữa các đợt, ba mức nguyên lực, disconnect và720×1280; phần còn lại1080×1920 |
+| Bảo toàn | **PASS238/238** file được bảo vệ, gồm data/Main/prefab nhân vật/prefab procedural/PNG và meta/backend/public JS/package/settings. `docs/unity-storm/verification-report.json`, `scene-upgrade-report.json` |
+| Nhóm CharacterTests cũ phụ thuộc `SectScene_Editable.unity` | **FAIL thiết lập27 trường hợp** trong lần thử mở rộng đầu vì scene này không có trong repository nguồn; runtime của nhóm đó **CHƯA KIỂM CHỨNG**. Không tạo lại scene/asset cũ để thay bố cục người dùng. Đã kiểm tra tương thích controller trực tiếp trên prefab procedural trong suite45/45 |
+| Build Windows/executable, OBS, LIVE thật, tải/FPS cho thay đổi này | **CHƯA KIỂM CHỨNG** |
+
+Lần đầu suite mở rộng có41 PASS/30 FAIL (`initial-editmode.xml`):27 lỗi thiếu scene cũ và3 lỗi test disable/SetUp vào Play Mode. Đã sửa test/guard disable và chạy lại suite45/45 thành công; không nhận toàn bộ93 bài Unity PASS. PowerShell chặn npm.ps1 nên dùng npm.cmd để chạy regression thành công. Kiểm thử/render trên bản sao `test-results/unity-concept02/project`, không dừng Editor đang mở hoặc lưu người chơi mẫu vào scene.
+
+Hướng dẫn: [docs/UNITY_CONCEPT02.md](docs/UNITY_CONCEPT02.md). Bước tiếp theo: mở lại `SectScene_Concept02` ngoài Play Mode, chờ Unity import, rồi Play; dùng tim và chuẩn bị độ kiếp DEMO để xem hiệu ứng. Không cần thay backend cho lượt này. Không commit/push/reset/xóa dữ liệu.
+
+---
+
+# TOP 3 cảnh giới và nguyên lực tông môn — 07/11/2026
+
+**Đã triển khai và kiểm thử** cho `SectScene_Concept02`, theo xác nhận ngưỡng tim riêng từng cấp và tối đa cấp3. Kết quả dưới đây thay thế giới hạn HUD chưa nối dữ liệu ở lần dựng scene ban đầu.
+
+- Bảng Thiên Đạo Thông Cáo hiển thị TOP3 toàn bộ người chơi trong snapshot, kể cả ngoài pool nhân vật đang thấy: cảnh giới → tiểu cảnh giới → tu vi giảm dần, userId tăng dần khi bằng nhau. Tên/cảnh giới cập nhật từ server, ba icon vàng/bạc/đồng lấy UV từ `Assets/Art/SectConcept02/UI/ui_rank_icons.png`; không sửa PNG hoặc phát thưởng xếp hạng.
+- Node quản lý nguyên lực: cấp1 cần1.000 tim lên2, cấp2 thêm3.000 lên3, cấp3 thêm5.000 đầy MAX; tổng9.000, tim dư chuyển tiếp, không có cấp4. Chỉ cộng tim sau đối soát delta/tổng và chống trùng hiện hữu, kể cả lúc battle/paused. Ban Phúc/cooldown/phần thưởng cũ giữ nguyên, chưa thêm lợi ích gameplay theo cấp.
+- Snapshot bổ sung trường tùy chọn `interactions.sectEnergy`; save tương tác version1/schema2 bổ sung cấp/tiến độ tùy chọn, tách DEMO/LIVE và khôi phục sau restart. Save cũ khởi đầu tiến độ cấp1/0, không xóa người chơi. Unity chỉ đọc dữ liệu và crop fill theo tỷ lệ; server cũ chưa có trường thì hiển thị `-- / -- TIM`.
+- Scene chỉ đổi các document thuộc `07_UI`:19 document cũ và12 document mới; tinh chỉnh tiếp sáu vị trí hàng/icon để chữ không chạm đường trang trí. Mọi document ngoài UI giữ nguyên byte.52 file được bảo vệ (Main, dữ liệu, prefab/tỷ lệ đã chỉnh, artwork nguồn) giữ hash; không chạy lại factory trên scene người dùng.
+- Cập nhật `GAME_DESIGN.md`, `docs/UNITY_WEBSOCKET.md`, `docs/UNITY_CONCEPT02.md`; evidence tại `docs/unity-sect-hud/`. Fixture do Node tạo và bài API dùng thư mục dữ liệu kiểm thử riêng.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Node regression | **PASS95 / FAIL0 / SKIP1**, tổng96; `npm-test.txt`. SKIP là LIVE thật. Bài API mới chạy riêng sau đó: **PASS1/1**, `api-test.txt` |
+| API/WebSocket/save/restart và tách DEMO/LIVE | **PASS** với application/server thật, dữ liệu tạm; API và WS cùng xuất cấp2/1.500/3.000, đổi mode và restart giữ đúng tiến độ |
+| Unity compile và suite theo phạm vi | **PASS38/38**, gồm7 trường hợp HUD mới,3 variants,4 Concept02 và24 protocol; `editmode.xml` |
+| Editor Play Mode | **PASS** bằng Enter/ExitPlayMode thực trong UnityTest: snapshot ghi sẵn cập nhật TOP3/level2/fill50%, disconnect, nhân vật/ritual/beam và Transform sân vẫn đúng |
+| GPU render cuối cùng | **PASS**, NVIDIA Quadro M1000M/Direct3D11; đã xem4 ảnh: cấp1/650, cấp2/1.500 và cấp3/MAX tại1080×1920, thêm cấp2 tại720×1280. Có icon1/2/3 và fill đúng; lần cuối chỉ tinh chỉnh vị trí sáu RectTransform sau suite38/38, sau đó compile/render lại thành công |
+| Bảo toàn scene và dữ liệu | **PASS**, `preservation-report.json`, `scene-upgrade-report.json`, `row-spacing-report.json`;52 file giữ hash, ngoài UI không thay đổi |
+| Windows build/executable, OBS, LIVE thật, tải/FPS cho thay đổi này | **CHƯA KIỂM CHỨNG**; không lấy kết quả build cũ làm bằng chứng cho mã mới |
+
+Bước tiếp theo: khởi động lại server Node rồi mở `SectScene_Concept02` và Play Unity để nhận trường nguyên lực mới. Không dừng Editor của người dùng, không commit/push/reset hoặc xóa dữ liệu.
+
+---
+
+# Chọn ngẫu nhiên nhân vật Unity 1–3 — 07/11/2026
+
+**Đã triển khai và kiểm thử** cho `SectScene_Concept02`: chọn ngoại hình ngẫu nhiên ổn định theo seed server, từ danh sách prefab chỉnh được trong Inspector.
+
+- `CharacterManager.characterVariants`: danh sách mở rộng, đã gán3 prefab tại `04_Characters → Character Manager → Character Variants`. Snapshot/reconnect/độ kiếp không roll lại khi seed và danh sách không đổi. Danh sách trống/toàn None dùng `characterPrefab` cũ, bỏ qua ô None trong danh sách có mẫu hợp lệ.
+- Pool tách theo prefab, giữ sprite/Transform/tỉ lệ/nameplate đã chỉnh của từng mẫu, không lấy nhầm visual của mẫu khác. Chỉ đổi instance khi người chơi đổi prefab được chọn; snapshot bình thường giữ instance.
+- Scene chỉ thêm trường danh sách prefab vào YAML; giữ nguyên mọi byte khác của scene. Không chạy lại scene factory hoặc ghi đè các prefab đã được người dùng chỉnh. Main và7 file scene/prefab/meta được bảo vệ giữ hash; `docs/unity-character-variants/preservation-report.json`.
+- Scene setup cho lần tạo mới cũng gán danh sách3 mẫu; thêm helper cấu hình chỉ được chạy trên project validation. Không đổi backend, protocol, schema/save, PNG, gameplay hoặc tự thêm nhân vật thứ4.
+- Hướng dẫn thêm4+: ảnh trong `Assets/Art/SectConcept02/Characters/Character_4/`, duplicate/chỉnh prefab trong `Assets/SectConcept02/Prefabs/`, thêm vào ô Element3 của Character Variants rồi save scene ngoài Play. Không cần sửa C#. Thay số lượng/thứ tự catalog có thể đổi cách phân mẫu, chưa lưu ngoại hình vào backend.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Unity compile và bộ kiểm thử chọn theo phạm vi | **PASS31/31**, gồm3 test variants mới,4 Concept02 và24 protocol; `docs/unity-character-variants/editmode.xml` |
+| Editor Play Mode snapshot ghi sẵn | **PASS**;10 người sử dụng đủ3 bộ sprite, HUD/ritual/beam/disconnect đúng, Transform sân giữ nguyên |
+| Ổn định/pool/khả năng mở rộng | **PASS**; cùng snapshot giữ instance,5 reconnect giữ ngoại hình và không tăng số instance đã tạo, fallback khi null/trống/None, append mẫu thứ4 tạm dùng được và giữ root Scale1.73 |
+| Scene/prefab bảo toàn | **PASS**; scene chỉ thêm Character Variants,7 file Main/prefab/meta không thay đổi; các prefab1–3 được giữ cả chỉnh sửa tỉ lệ sẵn có |
+| Build Windows/GPU capture/OBS/LIVE/FPS riêng cho bổ sung này | **CHƯA KIỂM CHỨNG**; không dùng kết quả build/ảnh ở lần tạo scene trước để nhận PASS cho mã mới |
+
+Hướng dẫn mới ở [docs/UNITY_CONCEPT02.md](docs/UNITY_CONCEPT02.md), mục **Thêm nhân vật thứ4**. Bước tiếp theo: mở scene, chọn04_Characters để xem/chỉnh Character Variants; khi có bộ ảnh thứ4 thì thêm prefab vào danh sách. Không commit/push hoặc xóa dữ liệu.
+
+---
+
+# Scene Unity Concept 02 — 07/11/2026
+
+**Đã tạo và kiểm thử scene mới `unity-client/Assets/Scenes/SectScene_Concept02.unity`**, dựa trên bản sao `SectScene_Main` và `public/assets/02/concept/1.jpg`, theo `docs/UNITY.md`. Giữ scene Main và các thay đổi trước phiên; không chuyển giai đoạn gameplay, commit/push hoặc đổi Build Settings.
+
+- Sao chép **39 PNG** nguyên byte vào `Assets/Art/SectConcept02/{Background,Architecture,Effects,Characters,UI}`. Chuẩn hóa riêng tên bản sao `ui_cultivation_icon.png.png`; có audit/hash/alpha bounds. Unity dùng tài nguyên trong Assets, không đọc ảnh từ public khi chạy.
+- Tạo **15 lớp mesh đã bake** và material riêng trong `Assets/SectConcept02/`, ghép trời/núi/mây, đài/thác/sân/cành đào, pháp trận vàng/cyan, beam, hạt/cánh hoa. Giữ phối cảnh PNG, khung1080×1920 tràn viền; bỏ cổng/chùa/footer/placeholder cũ trong bản scene mới. Camera không auto-fit/drift làm co sân.
+- UI Canvas1080×1920, TextMeshPro độc lập; header atlas tách bằng UV, UI bỏ padding alpha rất mờ bằng bboxalpha≥32+8px. Beam/vòng vàng căn vào mặt đài, hoa giảm kích thước/opacity sau khi xem render GPU.
+- Ba prefab variant `Character_1…3` dùng đủ4 pose meditation/fly/attack/celebrate; idle/rear/pose thiếu fallback meditation. Prefab/nameplate chỉnh Inspector; manager mặc định dùng Character_1, chưa mapping nhiều ngoại hình theo userId. Scene lưu không có người chơi giả; ảnh3 mẫu chỉ là preview tạm không save.
+- Kế thừa network/manager/pool/12 ghế/điểm độ kiếp/ritual/camera từ Main; căn ghế theo sân mới. `Concept02Hud` chỉ đọc snapshot: trạng thái, RemainingMs, kết nối, số đệ tử, người độ kiếp; beam chỉ bật trong Play khi có độ kiếp server. Không tự đếm clock, roll, tính gameplay hoặc ghi dữ liệu.
+- Menu `Tu Tien LIVE/Concept 02/Open or create new scene` mở/verify khi đã có, không rebuild/ghi lại bố cục. Từ chối scene chưa lưu và từ chối ghi đè resource khi scene bị thiếu. Capture cũng từ chối bỏ thay đổi scene chưa lưu. Helper recreate chỉ chạy được trong đúng project validation riêng.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| Unity6000.5.9f1 compile/import/reference | **PASS**; importer Texture2D/Sprite/FullRect/PPU100, không mipmap/compression, asset và script reference hợp lệ |
+| Scene/prefab/idempotence + protocol | **PASS28/28**, gồm4 bài mới và24 bài NetworkProtocolTests hiện hữu; `docs/unity-concept02/editmode.xml`. Đây là bộ chọn theo phạm vi, không nhận toàn bộ76 bài Unity đã chạy |
+| Editor Play Mode với snapshot ghi sẵn | **PASS**;10 người/PNG mới, giữ Transform sân, HUD cập nhật, độ kiếp/beam, disconnect trả về chờ và trả visual về pool; nằm trong bài UnityTest thực sự Enter/ExitPlayMode |
+| GPU render | **PASS**, NVIDIA Quadro M1000M/Direct3D11; đã xem1080×1920,720×1280 và ảnh3 mẫu nhân vật; `docs/unity-concept02/concept02-*.png` |
+| Node regression | **PASS91 / FAIL0 / SKIP1**, tổng92; `docs/unity-concept02/npm-test.txt`. SKIP=LIVE thật |
+| Bảo toàn | **PASS533/533** file được bảo vệ, gồm Main/scene/prefab/script cũ/backend/data;39/39 PNG nguồn và Unity khớp SHA256. `docs/unity-concept02/preservation-report.json` |
+| Build Windows cho scene này | **PASS Succeeded**,0 error/0 warning,323702586bytes; `docs/unity-concept02/build-report.json`. Output kiểm thử riêng trong `test-results/unity-concept02/project/Builds/Concept02/`; chưa chạy executable |
+| Executable Windows thực, OBS, LIVE, ngâm tải/FPS, thao tác kéo thả trên Editor chính | **CHƯA KIỂM CHỨNG**; không suy từ import/Play fixture/ảnh tĩnh |
+
+Giới hạn đúng phạm vi: backend chưa có trường nguyên lực tông môn như concept nên fill inactive, không giả650/1000; NoticePanel đang dùng trạng thái/kết nối/roster/độ kiếp, chưa là TOP3 chiến trường. Thiếu halo xanh riêng thì bỏ qua theo tài liệu. Mây sét/4 PNG sét/rank/fill đã import để dùng tiếp, chưa nối thành runtime mới; sét procedural kế thừa được giữ. Thác hiện là PNG tĩnh. Không thay Node/TikTok/WS/DTO/gameplay/data/Three.js hoặc project Unity cũ.
+
+Hướng dẫn: [docs/UNITY_CONCEPT02.md](docs/UNITY_CONCEPT02.md). Kiểm thử chạy trong `test-results/unity-concept02/project`, chuyển161 file asset/scene qua script có guard, giữ GUID nguồn. Bước tiếp theo: người dùng mở scene mới để review/chỉnh bố cục; chỉ triển khai HUD/FX/gameplay bổ sung khi được yêu cầu.
+
+---
+
+# Xưởng nhân vật và hướng dẫn Canvas — 07/11/2026
+
+Phạm vi: dựng thử sprite trước, dùng prefab cho server về sau. Không sửa gameplay, backend, WS, dữ liệu hay scene SectScene_Editable. Không commit/push. Giữ toàn bộ thay đổi chưa commit của lượt refactor trước.
+
+- Thêm `Scripts/Characters/CharacterWorkshop.cs`: số lượng 0–100, danh sách riêng tên/subtitle/aura/pose/bảy sprite từng người; pose thiếu fallback idle, idle bắt buộc khi Generate; giảm count giữ đầu vào. Runtime chỉ animate pose/aura/name, không ép root Transform về ghế mỗi frame, không tạo player backend.
+- Thêm `Editor/CharacterWorkshopEditor.cs`: Inspector có Resize/Generate/Clear với Undo, chỉ tạo lại khi bấm; không đụng con không được đăng ký. Menu `Tu Tien LIVE/Characters/Open Character Workshop` tạo mới một lần hoặc mở scene có sẵn, không rebuild scene cũ. Không tự save/discard scene chưa lưu của người dùng.
+- Thêm `Assets/Scenes/CharacterWorkshop.unity`: bản sao môi trường có GameObject `04_Characters/Character Workshop - select me`, ba instance mẫu; NetworkClient/CharacterManager/roster server tắt riêng trong scene này.
+- Thêm `Assets/SceneAuthoring/Prefabs/CharacterSample.prefab`: variant tương thích CharacterView, giữ Body/Shadow/Aura/Burst hiện có; thêm Canvas World Space + Image nền + TextMeshProUGUI, nameLabel serialize đúng. TMP 3D cũ chỉ inactive trong mẫu. Không thay PNG/prefab production.
+- Thêm `Editor/CharacterWorkshopVerification.cs`, `Tests/Editor/CharacterWorkshopTests.cs`; bổ sung `docs/UNITY_CHARACTER_WORKSHOP.md`, README và evidence `docs/unity-character-workshop/`.
+
+| Kiểm tra | Kết quả |
+|---|---|
+| npm test baseline và sau sửa | PASS 91, FAIL 0, SKIP 1 (LIVE thật), tổng 92; bằng chứng lượt sau npm-after.txt |
+| Unity compile / toàn bộ EditMode suite | PASS 72/72 trên Unity 6000.5.9f1, project validation; editmode.xml |
+| Play Mode xưởng không server | PASS, chuyển fly/cập nhật tên, ba instance, NetworkClient disabled |
+| Nhập liệu / fallback / tạo lại | PASS: count clamp, giữ tên/input khi giảm rồi tăng, sprite thiếu dùng idle, hai lần Generate vẫn ba child; root/nameplate Transform không bị reset bởi Sample |
+| Scene/prefab đã serialize | PASS: scene được mở từ disk và reference/ba instance hợp lệ trong test |
+| GPU render 9:16 | PASS: workshop-1080x1920.png, đã xem trực tiếp ba sprite và Canvas nameplate |
+| Windows build riêng cho bổ sung này / thao tác kéo thả thủ công trong Editor chính / mapping nhiều ngoại hình theo userId | CHƯA KIỂM CHỨNG / CHƯA TRIỂN KHAI mapping; không nhận PASS từ kết quả build lượt refactor trước |
+
+Giới hạn: Generate thay thế instance đã tạo trong xưởng, vì vậy chỉnh riêng trên instance cần lưu prefab trước khi Generate lại. 12 ghế đầu theo scene, phần dư dùng lưới thử có thể ngoài khung. Không tự áp dụng prefab mẫu vào scene server; người dùng có thể gán CharacterSample vào CharacterManager.characterPrefab để dùng một mẫu chung. Chưa có ánh xạ bộ sprite khác nhau theo userId. HUD thật còn TextMesh, chưa tự đổi toàn bộ sang Canvas; binder footer TextMesh không nhận TMP UI trực tiếp. Hướng dẫn Canvas Screen Space/World Space và lộ trình gán prefab có trong tài liệu mới.
+
+---
+# Unity refactor — Scene / Prefab / Inspector authoring — 07/11/2026
+
+**Đã refactor và kiểm thử. Scene làm việc mới: `unity-client/Assets/Scenes/SectScene_Editable.unity`.** Chỉnh Temple/đối tượng bằng native Transform rồi Ctrl+S; scene mới không reset layout từ tọa độ pixel lúc Play/reopen. Không ghi đè scene/prefab gốc, không thay Node/TikTok/gameplay/data/WS; không commit/push tự động.
+
+## Khảo sát, backup và phạm vi
+
+- Đọc AGENTS.md, GAME_DESIGN.md, PROGRESS.md, toàn bộ166 YAML document của SectScene.unity, SectSceneSetup/SectLayer/SectSceneController/SectTextLayout/CameraRig và các controller nhân vật/FX/bàn giao03–04. Baseline npm91 PASS/0 FAIL/1 SKIP. 63 bài Unity của bước04 đã PASS ở lượt bàn giao trước; lần này68 bài kiểm tra cả scene migration mới.
+- Đầu phiên main có sẵn thay đổi ProjectAuditorSettings.asset; giữ nguyên bytes, không reset/commit. Editor người dùng đang mở nên test/migration/build chạy trong bản sao validation, không đóng Editor hoặc bỏ scene chưa lưu.
+- Backup scene/prefab cũ trước thay đổi ở docs/unity-scene-authoring/backup; migration menu cũng backup source+.meta vào unity-client/SceneAuthoringBackups/<timestamp> trước lần tạo scene mới. Folder backup local được ignore. Bản gốc trong Assets giữ nguyên SHA-256.
+- Manifest418 file kiểm tra:23 thay đổi có chủ đích trong presentation/Editor/tests/Unity package/build-scene list; không có thay đổi ngoài phạm vi. public/PNG, backend rootJS, data, network/protocol/DTO, original scene/prefabs và bytes ProjectAuditorSettings đều giữ nguyên. README/docs/PROGRESS được cập nhật ngoài manifest.
+
+## Thay đổi bàn giao
+
+| File/nhóm | Thay đổi |
+|---|---|
+| Assets/Scenes/SectScene_Editable.unity +.meta | Copy an toàn từ scene gốc;9 nhóm Environment,Architecture,Formation,Characters,Tribulation,Effects,UI,Systems,Camera. Tái sử dụng18 layer/camera/12 ghế/điểm đài/placeholder, không tạo renderer PNG trùng |
+| Assets/SceneAuthoring/* |18 mesh quad đã bake, prefab variant CharacterPrefab, TMP font/settings, font/shader/OFL từ TMP Essential Resources đi kèm SDK Unity; giữ mọi PNG gốc |
+| Scripts/Presentation/TransformOffset.cs | Cộng offset animation vào pose gốc của Transform, rebase khi chỉnh trực tiếp, restore khi disable; không là game state |
+| Scripts/Scenes/SectLayer.cs | Mode sceneAuthored dùng Transform + baked mesh + sorting MeshRenderer; không gán Position Pixels/Uniform Scale/rotation0 trong scene mới. Opacity/quality/motion vẫn Inspector/code presentation |
+| Scripts/Scenes/{CameraRig,SectSceneController,SectTextLayout}.cs | Giữ camera pose/scale, drift cộng thêm, optional auto-fit; không chạy animation Edit Mode tự động. Text autoFit tắt sau migration; fit chỉ khi người dùng gọi rõ |
+| Scripts/Scenes/{SectSceneBindings,SectCharacterBootstrap}.cs | Reference manager/network/HUD/ritual/camera/groups serialize; bootstrap chỉ lookup tương thích, không tự tạo hệ thống khi Play |
+| Scripts/Characters/{CharacterManager,CharacterView,CharacterPoseController,RealmAuraController}.cs | Pool parent serialize; nameplate TMP chỉnh Inspector, không tự đặt scale/vị trí text; body/aura/burst cộng offset vào Transform hiện có |
+| Scripts/Effects/TribulationController.cs | RootFX đặt sẵn dưới điểm đài, không gán lại vị trí root mỗi frame; timing/outcome vẫn đọc backend |
+| Editor/{SectSceneAuthoringMigration,SceneAuthoringVerification}.cs | Menu migration idempotent/verify và QA scene-copy Play/build; không xóa hoặc overwrite asset cũ |
+| Editor/{SectSceneSetup,CharacterSceneSetup,SectLayerEditor,SectPlayModeTest,CharacterPlayProbe,CharacterScreenshotTest}.cs | Setup cũ chuyển migration khi asset đã có; retire destructive rebuild; Move Tool native cho scene mới; probe/capture đọc scene mới, evidence vào folder mới |
+| Tests/Editor/* |5 test authoring mới; cập nhật test cũ từ pixel-layout sang native Transform và scene mới; protocol/gameplay test giữ |
+| Packages/manifest.json,packages-lock.json và asmdef | Thêm uGUI2.5.0/TMP, đúng Unity6000.5; các dependency module chuẩn UI/audio/physics2D của gói. Không nâng URP hoặc Editor |
+| ProjectSettings/EditorBuildSettings.asset | Thêm editable scene đầu danh sách, giữ cả3 scene cũ |
+| scripts/unity-authoring-{sync,smoke,compare}.js | Transfer chỉ asset mới có GUID mapping/guard, smoke Node DEMO tạm, đo diff PNG không chỉnh ảnh |
+| Docs/README/.gitignore | UNITY_SCENE_AUTHORING.md, evidence folder, banner lịch sử tài liệu03/04, hướng dẫn mở đúng scene, ignore backup local |
+
+**TMP:** built-in LegacyRuntime không cung cấp font face cho FontEngine ở môi trường này. Nameplate dùng LiberationSans/OFL và shader được đóng gói trong SDK uGUI đã cài; không tải font/art từ web/Asset Store. HUD tĩnh giữ font cũ. Có khác biệt raster chữ TextMesh→TMP được đo riêng, không thay mặt/tóc/trang phục hoặc pixel PNG.
+
+## Kết quả thực tế
+
+| Kiểm tra | Kết quả | Bằng chứng |
+|---|---|---|
+| npm baseline và sau sửa | **PASS91 / FAIL0 / SKIP1**,92 bài cả hai lượt | npm-baseline.txt/npm-after.txt; SKIP=LIVE thật |
+| Compile và EditMode cuối | **PASS68/68** | final-editmode.xml, trên đúng asset/GUID đã chuyển về project chính.63 bài hiện có+5 authoring; test cũ cập nhật assertion pixel→Transform |
+| Native edit/save/reopen | **PASS** | Temple position/rotation/scale,opacity,sorting,text scale qua Sample/save/reopen; camera custom pose/manual size; prefab pose/nameplate offsets |
+| Reference/missing scripts | **PASS** |9 groups, manager,prefab variant,7 sprite poses,TMP font,pool,seats,network,HUD,ritual,baked meshes/material; strengthened Verify cuối PASS |
+| Idempotence | **PASS** | Gọi migration2 lần không tăng số GameObject hoặc đổi bytes scene; lượt verify sau transfer báo already migrated/nothing rebuilt |
+| Editor Play Mode | **PASS** | editor-play-report.json: saved/reopened scene test với Temple dời/xoay/scale và title scale tùy chỉnh, layoutValid/spritesValid=true,2 sessions,50→51 players,10 visual/10 created,3 effects,0 lỗi stack runtime; Null graphics |
+| Windows build | **PASS Succeeded**,0 warning/0 error | build-report.json; x64 Mono development,315858992 bytes, lượt cuối21.18s. Đây là validation build từ scene copy có chỉnh sửa cố ý, không sửa production scene |
+| Windows executable thực | **PASS, Direct3D11** | player-play-report.json: custom layout giữ sau Play,2 sessions,50→51 players,10 visual/10 created,3 effects,0 lỗi runtime; dashboard routes cùng trả200 |
+| GPU capture9:16 | **PASS12 ảnh** | before/after:1080×1920 và720×1280,10/500 players và ritual start/strike/success/failure; NVIDIA Quadro M1000M/Direct3D11, kiểm sprite không rỗng/bounds |
+| So sánh ảnh | **PASS phạm vi bố cục/art giữ nguyên** | comparison-report.json:0.552–0.823% pixel đổi toàn ảnh do nameplate TMP; ngoài nameplate+18px đệm còn0–1 pixel đổi/ảnh ở ngưỡngRGB>2/255. Không gọi là ảnh bit-identical |
+| Bảo toàn | **PASS** | preservation-report.json: original scene/prefabs/PNG/backend/data/WS unchanged; không động bytes ProjectAuditor trước phiên |
+| GUI kéo chuột trực tiếp/OBS/LTS/IL2CPP/ngâm tải/FPS/GPU residency/LIVE thật | **CHƯA KIỂM CHỨNG** | Không suy từ test native Transform, ảnh tĩnh hoặc smoke vài giây thành những kết quả này |
+
+## Lỗi đã xử lý và giới hạn
+
+- Optional props inactive chưa có mesh runtime: migration ApplyLayout cho cả layer inactive trước bake.
+- TMP FontEngine không load LegacyRuntime: dùng font/shader/OFL đi kèm SDK; khởi tạo TMP Settings trước font asset. Không dùng font OS hoặc tải artwork ngoài.
+- Unity fake-null khiến toán tử?? bỏ qua AddComponent<TextMesh>: thay bằng kiểm tra bool của Unity object.
+- GUID script/font/shader giữa main và validation khác do Editor import song song: map giữ GUID chính, copy lại chính output main vào validation, chạy68 test/capture/build/Windows smoke cuối. Không nhận lượt verify/capture lỗi trung gian làm PASS.
+- Fix kiểu int của build summary và tên class report trùng enum BuildResult; compile/build lại0 warning/error.
+- Lỗi Editor UnityEditor.Search.SearchDatabase startup đã có từ các bước trước vẫn xuất hiện ở log Editor; không có stack runtime script mới. Không xóa cache hoặc tuyên bố đã sửa lỗi Editor.
+- Bản scene legacy còn chế độ pixel-layout để đọc dữ liệu gốc và không tự tạo nhân vật nữa; **dùng SectScene_Editable cho chức năng mới**. Prefab Resources cũ là base, variant SceneAuthoring là prefab đang dùng.
+- Root động của nhân vật vẫn theo Seat/state để spawn/bay; body/nameplate/FX giữ offset cấu hình prefab. Mesh import rect/anchor không phải control layout sau bake. Ghế phải được căn cùng sân nếu đổi bố cục sân; nên dời cả nhóm Tribulation để đài/seat/FX đi cùng nhau.
+- Camera mặc định auto-fit có thể nới orthographic size khi công trình ra mép; tắt Auto Fit Bounds nếu muốn cố định size. Chỉnh Edit Mode rồi save; Unity vẫn bỏ thay đổi Play Mode khi Stop theo quy tắc chuẩn.
+- Chưa thêm battle/UI gameplay mới, không sửa thuật toán/cơ chế/WS/API. Các lỗi PNG nguồn và placeholder bước03 vẫn giữ. Không nhận chuyển TMP là hỗ trợ mọi emoji/ngôn ngữ.
+
+Hướng dẫn: [UNITY_SCENE_AUTHORING.md](docs/UNITY_SCENE_AUTHORING.md). Ảnh: [trước](docs/unity-scene-authoring/before/ritual-strike-1080x1920.png), [sau](docs/unity-scene-authoring/after/ritual-strike-1080x1920.png). **Không commit/push trong refactor này.**
+
+---
+
 # Unity migration — Giai đoạn 04: Nhân vật và độ kiếp — 07/11/2026
 
 **Đã triển khai và kiểm thử phạm vi bước04.** Nhân vật/độ kiếp nhận dữ liệu Node qua client chỉ đọc bước02. Chưa triển khai battle Unity, không đổi gameplay/backend/protocol/save, không commit/push hoặc chuyển bước05. Camera giữ overview an toàn; các pose thiếu và FX đơn giản được ghi rõ, không nhận có animation vẽ tay đầy đủ.

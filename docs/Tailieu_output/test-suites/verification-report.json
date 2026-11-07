@@ -1,0 +1,38 @@
+{
+  "result": "PASS",
+  "protectedFiles": 886,
+  "changed": [],
+  "core": {
+    "files": 19,
+    "tests": 95,
+    "pass": 94,
+    "skip": 1,
+    "fail": 0
+  },
+  "legacy": {
+    "files": 9,
+    "tests": 21,
+    "pass": 21,
+    "fail": 0
+  },
+  "originalTests": 113,
+  "currentTests": 116,
+  "missingOriginalTests": [],
+  "splitFormerTest": {
+    "former": "05-14 Notice priority, TTL and queue bound; settings reject invalid values",
+    "replacements": [
+      "05-14 Notice priority, TTL and queue bound",
+      "05-14 Shared audio/display/camera settings reject invalid values"
+    ]
+  },
+  "wholeFilesPreservedExceptImportDepth": [
+    "visual-model.test.js",
+    "character-upgrade.test.js",
+    "sect-layout.test.js",
+    "breakthrough-visual.test.js",
+    "battle-visual.test.js"
+  ],
+  "defaultHasLegacyRendererImportsOrSongRoute": false,
+  "combinedSelection": "PASS: both 05-14 tests present, arguments forwarded",
+  "checkedAt": "2026-11-07T15:12:03.594Z"
+}

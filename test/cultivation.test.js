@@ -16,9 +16,9 @@ test('02-01 exact normalized commands and duplicate join preserve progress; no a
   router.handle({eventId:'d',userId:'another',name:'<xấu> rất dài'.repeat(10),text:'nhap mon'});assert.ok([...e.getPlayer('another').name].length<=20);assert.ok(!e.getPlayer('another').name.includes('xấu'));
 });
 test('02-02 / 02-03 exact server elapsed time and realm stats',()=>{
-  let {e,p}=setup();advance(e,99950);assert.equal(p.stageIndex,0);advance(e,50);assert.equal(p.stageIndex,1);assert.ok(p.cultivation<1e-7);assert.equal(e.items.getEffectiveStats(p).atk,11);
-  ({e,p}=setup());p.realmIndex=3;advance(e,174950);assert.equal(p.stageIndex,0);advance(e,50);assert.equal(p.stageIndex,1);assert.ok(p.cultivation<1e-7);assert.equal(e.items.getEffectiveStats(p).baseCultivationRate,3.2);
-  assert.deepEqual(DEFAULT_RULES.realms.map(r=>[r.hp,r.atk,r.def,r.rate]),[[100,10,5,1],[180,18,9,1.5],[320,32,16,2.2],[560,56,28,3.2],[980,98,49,4.5],[1720,172,86,6.3],[3010,301,151,8.8],[5270,527,264,12],[9220,922,461,16.5],[16140,1614,807,22],[28240,2824,1412,30]]);
+  let {e,p}=setup();advance(e,49950);assert.equal(p.stageIndex,0);advance(e,50);assert.equal(p.stageIndex,1);assert.ok(p.cultivation<1e-7);assert.equal(e.items.getEffectiveStats(p).atk,11);
+  ({e,p}=setup());p.realmIndex=3;advance(e,279950);assert.equal(p.stageIndex,0);advance(e,50);assert.equal(p.stageIndex,1);assert.ok(p.cultivation<1e-7);assert.equal(e.items.getEffectiveStats(p).baseCultivationRate,2);
+  assert.deepEqual(DEFAULT_RULES.realms.map(r=>[r.hp,r.atk,r.def,r.rate]),[[100,10,5,2],[180,18,9,2],[320,32,16,2],[560,56,28,2],[980,98,49,2],[1720,172,86,2],[3010,301,151,2],[5270,527,264,2],[9220,922,461,2],[16140,1614,807,2],[28240,2824,1412,2]]);
 });
 test('02-04 / 02-13 battle, pause, stopped freeze all EXP/buffs/cooldowns and item consumption',()=>{
   const {e,p}=setup();e.items.grantItem(p,'tea',2);e.items.useItem(p,'tea');p.breakthrough.cooldownRemainingCultivationMs=60000;
@@ -28,8 +28,8 @@ test('02-04 / 02-13 battle, pause, stopped freeze all EXP/buffs/cooldowns and it
 test('02-05 / 02-12 additive x2/x4/x6, permanent root, cap, partial expiry and global blessing',()=>{
   const {e,p}=setup();for(let i=1;i<=3;i++){e.items.grantItem(p,'tea');e.items.useItem(p,'tea');assert.equal(totalMultiplier(p,[],e.rules),i*2);}
   e.items.grantItem(p,'root',2);e.items.useItem(p,'root');assert.equal(totalMultiplier(p,[],e.rules),8);assert.throws(()=>e.items.useItem(p,'root'));assert.equal(p.inventory.root,1);
-  p.buffs=[];e.items.grantItem(p,'tea');e.items.useItem(p,'tea');assert.equal(totalMultiplier(p,[],e.rules),4);p.buffs[0].remainingMs=125;e.tick(250);assert.equal(p.cultivation,.75);assert.equal(p.buffs.length,0);assert.equal(totalMultiplier(p,[],e.rules),2);
-  e.items.grantItem(p,'blessing');e.items.useItem(p,'blessing');e.join(createPlayer('new','Người mới',1));assert.equal(e.items.getEffectiveStats(e.getPlayer('new')).cultivationPerSecond,2);advance(e,30000);assert.equal(e.globalBuffs.length,0);assert.equal(p.spiritualRootMultiplier,2);
+  p.buffs=[];e.items.grantItem(p,'tea');e.items.useItem(p,'tea');assert.equal(totalMultiplier(p,[],e.rules),4);p.buffs[0].remainingMs=125;e.tick(250);assert.equal(p.cultivation,1.5);assert.equal(p.buffs.length,0);assert.equal(totalMultiplier(p,[],e.rules),2);
+  e.items.grantItem(p,'blessing');e.items.useItem(p,'blessing');e.join(createPlayer('new','Người mới',1));assert.equal(e.items.getEffectiveStats(e.getPlayer('new')).cultivationPerSecond,4);advance(e,30000);assert.equal(e.globalBuffs.length,0);assert.equal(p.spiritualRootMultiplier,2);
 });
 test('02-06 / 02-11 full stage queues once; one ceremony at a time',()=>{
   const {e,p}=setup();e.cultivation.add(p,500);assert.equal(p.stageIndex,3);assert.equal(p.cultivation,50);for(let i=0;i<10;i++)e.breakthrough.enqueue(p);assert.deepEqual(e.breakthrough.queue,[p.userId]);

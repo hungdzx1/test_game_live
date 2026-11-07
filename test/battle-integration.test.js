@@ -10,7 +10,7 @@ async function snapshot(port){const ws=new WebSocket(`ws://127.0.0.1:${port}/ws`
 test('03-20 HTTP/WS reload preserves battle, disk restart preserves boss/cooldowns/IDs and rewards',async t=>{
   const root=await mkdtemp(path.join(os.tmpdir(),'tutien-phase3-'));await mkdir(path.join(root,'data/demo'),{recursive:true});const file=path.join(root,'data/demo/players.json'),real=path.join(root,'data/players.json');await writeFile(real,'{"untouched":"phase3"}');
   let app=await createApplication({dataRoot:root,port:0}),port=await app.listen(),base=`http://127.0.0.1:${port}`;t.after(()=>app.close());
-  for(const url of ['/','/song','/js/battleScene.js','/js/battlePanel.js','/js/battleOverlay.js'])assert.equal((await fetch(base+url)).status,200);
+  for(const url of ['/','/js/battlePanel.js'])assert.equal((await fetch(base+url)).status,200);
   assert.equal((await post(base,'battleSettings',{cultivationSeconds:10,battleSeconds:15})).status,200);assert.equal((await post(base,'battleSettings',{battleSeconds:0})).status,400);
   assert.equal((await post(base,'battleDemo')).status,200);assert.equal(app.engine.players.size,44);assert.equal((await post(base,'battleDemo')).status,400);
   assert.equal((await post(base,'command',{text:'1',eventId:'persistent-skill'})).status,200);assert.equal((await post(base,'phase','paused')).status,200);

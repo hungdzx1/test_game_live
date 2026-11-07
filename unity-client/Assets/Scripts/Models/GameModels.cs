@@ -55,6 +55,8 @@ namespace TuTienLive.Models
         public BreakthroughState Breakthrough { get; }
         public BreakthroughResult BreakthroughResult { get; }
         public BattleState Battle { get; }
+        public SectEnergyState SectEnergy { get; }
+        public BlessingState Blessing { get; }
         // Config/interactions/battleResult/tiktok remain lossless dynamic data via CopyField.
         internal Snapshot(JObject value) : base(value)
         {
@@ -62,7 +64,27 @@ namespace TuTienLive.Models
             Breakthrough = Object("breakthrough") is JObject b ? new BreakthroughState(b) : null;
             BreakthroughResult = Object("breakthroughResult") is JObject r ? new BreakthroughResult(r) : null;
             Battle = Object("battle") is JObject battle ? new BattleState(battle) : null;
+            SectEnergy = Object("interactions")?["sectEnergy"] is JObject energy ? new SectEnergyState(energy) : null;
+            Blessing = Object("interactions")?["blessing"] is JObject blessing ? new BlessingState(blessing) : null;
         }
+    }
+
+    public sealed class BlessingState : JsonModel
+    {
+        public double RemainingMs => Number("remainingMs").Value;
+        public double DurationMs => Number("durationMs").Value;
+        public int Multiplier => (int)Number("multiplier").Value;
+        internal BlessingState(JObject value) : base(value) { }
+    }
+
+    public sealed class SectEnergyState : JsonModel
+    {
+        public int Level => (int)Number("level").Value;
+        public int MaxLevel => (int)(Number("maxLevel")??3);
+        public long Power => (long)Number("power").Value;
+        public long Threshold => (long)Number("threshold").Value;
+        public bool Full => Flag("full").Value;
+        internal SectEnergyState(JObject value) : base(value) { }
     }
 
     public sealed class PlayerState : JsonModel

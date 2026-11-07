@@ -1,0 +1,42 @@
+﻿{
+    "node":  {
+                 "skip":  1,
+                 "pass":  114,
+                 "files":  22,
+                 "fail":  0,
+                 "total":  115
+             },
+    "result":  "PASS",
+    "protectedFiles":  243,
+    "browser":  {
+                    "result":  "PASS",
+                    "browser":  "Chrome/156.0.8078.81",
+                    "checks":  [
+                                   "Existing Demo buttons: 10 hearts increase energy immediately; only selected character receives 20 pending EXP after idle",
+                                   "Resume applies pending EXP once; Tea shows 4/s; 100 hearts settle 400 EXP immediately; switching selection routes hearts to the second character"
+                               ],
+                    "errors":  [
+
+                               ],
+                    "realLive":  "CHƯA KIỂM CHỨNG"
+                },
+    "unverified":  [
+                       "Windows build/executable",
+                       "GPU/FPS",
+                       "OBS",
+                       "Real LIVE"
+                   ],
+    "unchanged":  243,
+    "unity":  {
+                  "passed":  54,
+                  "version":  "6000.5.9f1",
+                  "failed":  0,
+                  "total":  54,
+                  "result":  "Passed",
+                  "playTest":  "ServerCultivationAndLikeStreaksReachConceptHudInPlayMode",
+                  "project":  "test-results/unity-concept02/project"
+              },
+    "changes":  [
+
+                ]
+}

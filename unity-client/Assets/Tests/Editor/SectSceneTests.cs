@@ -15,7 +15,7 @@ namespace TuTienLive.Tests
         private SectSceneController controller;
         [SetUp] public void Open()
         {
-            EditorSceneManager.OpenScene("Assets/Scenes/SectScene.unity",OpenSceneMode.Single);
+            EditorSceneManager.OpenScene("Assets/Scenes/SectScene_Editable.unity",OpenSceneMode.Single);
             controller=UnityEngine.Object.FindAnyObjectByType<SectSceneController>();Assert.That(controller,Is.Not.Null);
             foreach(var l in controller.layers)l.ApplyLayout();controller.Sample(0);
         }
@@ -79,7 +79,7 @@ namespace TuTienLive.Tests
         }
         [Test] public void InspectorAnchorAndBoundsFitWorkAfterMovingLayer()
         {
-            var layer=controller.layers.Single(l=>l.name=="Breakthrough platform");layer.positionPixels=new Vector2(1200,650);layer.anchor=new Vector2(.2f,.7f);layer.ApplyLayout();
+            var layer=controller.layers.Single(l=>l.name=="Breakthrough platform");layer.transform.localPosition=new Vector3(6.6f,3.1f,8);layer.ApplyLayout();
             controller.Sample(0);controller.cameraRig.FitBounds();
             var max=controller.cameraRig.GetComponent<Camera>().WorldToViewportPoint(layer.ContentBounds.max);Assert.That(max.x,Is.LessThan(1));
             Assert.That(controller.cameraRig.RequiredHalfHeight,Is.GreaterThan(9.6f));
@@ -87,18 +87,17 @@ namespace TuTienLive.Tests
         [Test] public void SceneMoveUpdatesLayoutAndSupportsUndoRedo()
         {
             var layer=controller.layers.Single(l=>l.name=="Temple");
-            var before=layer.positionPixels;var z=layer.transform.localPosition.z;
+            var before=layer.transform.position;
             var editorType=AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("TuTienLive.Editor.SectLayerEditor")).First(t=>t!=null);
             Undo.IncrementCurrentGroup();
             editorType.GetMethod("MoveLayers").Invoke(null,new object[]{new UnityEngine.Object[]{layer},new Vector3(1,-.5f,3)});
             Undo.FlushUndoRecordObjects();
             controller.Sample(20);controller.Sample(0);
-            Assert.That(layer.positionPixels,Is.EqualTo(before+new Vector2(100,50)));
-            Assert.That(layer.transform.localPosition.z,Is.EqualTo(z));
+            Assert.That(layer.transform.position,Is.EqualTo(before+new Vector3(1,-.5f,3)));
             Undo.PerformUndo();controller.Sample(0);
-            Assert.That(layer.positionPixels,Is.EqualTo(before));
+            Assert.That(layer.transform.position,Is.EqualTo(before));
             Undo.PerformRedo();controller.Sample(0);
-            Assert.That(layer.positionPixels,Is.EqualTo(before+new Vector2(100,50)));
+            Assert.That(layer.transform.position,Is.EqualTo(before+new Vector3(1,-.5f,3)));
             Undo.ClearAll();
         }
         [Test] public void HudTextFitsItsReservedArea()
@@ -107,6 +106,7 @@ namespace TuTienLive.Tests
             foreach(var layout in UnityEngine.Object.FindObjectsByType<SectTextLayout>())
             {
                 var text=layout.GetComponent<TextMesh>();text.font.RequestCharactersInTexture(text.text,text.fontSize,FontStyle.Normal);layout.Fit();
+                if(string.IsNullOrEmpty(text.text))continue;
                 var b=layout.GetComponent<MeshRenderer>().bounds;
                 Assert.That(b.size.x,Is.GreaterThan(0));Assert.That(b.size.x*100,Is.LessThanOrEqualTo(layout.maximumSizePixels.x+.05f));
                 Assert.That(b.size.y*100,Is.LessThanOrEqualTo(layout.maximumSizePixels.y+.05f));

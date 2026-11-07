@@ -38,11 +38,11 @@ test('05-24 Corrupt JSON and invalid semantic state are preserved with exact-byt
   const root=await mkdtemp(path.join(os.tmpdir(),'tutien-store-'));assert.deepEqual(await new JsonStore().read(path.join(root,'missing.json'),{safe:true}),{safe:true});
   await writeFile(path.join(root,'caidat.json'),'null');await assert.rejects(createApplication({dataRoot:root,port:0}));assert.ok((await readdir(root)).some(n=>n.includes('.corrupt-')));assert.equal(await readFile(path.join(root,'caidat.json'),'utf8'),'null');
 });
-test('05-25 Served frontend module graph and style links resolve locally without CDN/assets',async t=>{
+test('05-25 Admin module graph and style links resolve locally without CDN/assets',async t=>{
   const {base}=await setup(t),visited=new Set();
   async function visit(url){assert.equal(new URL(url).origin,base);if(visited.has(url))return;visited.add(url);const r=await fetch(url);assert.equal(r.status,200,url);const text=await r.text();if(url.endsWith('.js'))for(const match of text.matchAll(/(?:^|\n)\s*import\s+(?:[^;\n]*?\sfrom\s*)?['"]([^'"]+)['"]/g)){const name=match[1];await visit(name==='three'?base+'/vendor/three/three.module.js':new URL(name,url).href);}}
-  for(const page of ['/','/song']){const r=await fetch(base+page);assert.equal(r.status,200);const text=await r.text();for(const m of text.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))"/g))await visit(new URL(m[1],base).href);}
-  assert.ok(visited.has(base+'/js/audio.js'));assert.ok(visited.has(base+'/vendor/three/three.core.js'));assert.ok(visited.size>20);
+  for(const page of ['/']){const r=await fetch(base+page);assert.equal(r.status,200);const text=await r.text();for(const m of text.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))"/g))await visit(new URL(m[1],base).href);}
+  assert.ok(visited.has(base+'/js/audio.js'));assert.ok(visited.has(base+'/js/admin.js'));assert.ok(visited.has(base+'/js/network.js'));assert.ok(visited.size>20);
 });
 test('05-16/17 500 server players, 500 valid gifts and bounded secondary effects preserve all accepted contributions',()=>{
   const e=new GameEngine(Array.from({length:500},(_,i)=>createPlayer('p'+i,'Đạo hữu '+i,i)));e.setPhase('battle');

@@ -1,0 +1,137 @@
+{
+  "method": "RGB max-channel absolute difference >2/255; only TMP nameplate bounds +18px are excluded for the outside-nameplate metric. No editing of source PNGs.",
+  "shots": [
+    {
+      "file": "players-10-1080x1920.png",
+      "width": 1080,
+      "height": 1920,
+      "changedPixelsThreshold2": 14203,
+      "percentChanged": 0.6849440586419753,
+      "outsideNameplateChangedPixels": 1,
+      "outsideNameplateComparedPixels": 1982438,
+      "outsideNameplateMeanMaxChannelError": 0.000010088587890264413,
+      "outsideNameplateMaxChannelError": 17
+    },
+    {
+      "file": "players-10-720x1280.png",
+      "width": 720,
+      "height": 1280,
+      "changedPixelsThreshold2": 6840,
+      "percentChanged": 0.7421875,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 863792,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    },
+    {
+      "file": "players-500-1080x1920.png",
+      "width": 1080,
+      "height": 1920,
+      "changedPixelsThreshold2": 11441,
+      "percentChanged": 0.5517457561728395,
+      "outsideNameplateChangedPixels": 1,
+      "outsideNameplateComparedPixels": 2000300,
+      "outsideNameplateMeanMaxChannelError": 0.000009998500224966255,
+      "outsideNameplateMaxChannelError": 17
+    },
+    {
+      "file": "players-500-720x1280.png",
+      "width": 720,
+      "height": 1280,
+      "changedPixelsThreshold2": 5518,
+      "percentChanged": 0.5987413194444444,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 874880,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    },
+    {
+      "file": "ritual-start-1080x1920.png",
+      "width": 1080,
+      "height": 1920,
+      "changedPixelsThreshold2": 15708,
+      "percentChanged": 0.7575231481481481,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 1975681,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    },
+    {
+      "file": "ritual-start-720x1280.png",
+      "width": 720,
+      "height": 1280,
+      "changedPixelsThreshold2": 7585,
+      "percentChanged": 0.8230251736111112,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 861080,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    },
+    {
+      "file": "ritual-strike-1080x1920.png",
+      "width": 1080,
+      "height": 1920,
+      "changedPixelsThreshold2": 15690,
+      "percentChanged": 0.7566550925925926,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 1975546,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    },
+    {
+      "file": "ritual-strike-720x1280.png",
+      "width": 720,
+      "height": 1280,
+      "changedPixelsThreshold2": 7549,
+      "percentChanged": 0.8191189236111112,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 860732,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    },
+    {
+      "file": "ritual-success-1080x1920.png",
+      "width": 1080,
+      "height": 1920,
+      "changedPixelsThreshold2": 15586,
+      "percentChanged": 0.7516396604938271,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 1976219,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    },
+    {
+      "file": "ritual-success-720x1280.png",
+      "width": 720,
+      "height": 1280,
+      "changedPixelsThreshold2": 7492,
+      "percentChanged": 0.8129340277777778,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 860946,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    },
+    {
+      "file": "ritual-failure-1080x1920.png",
+      "width": 1080,
+      "height": 1920,
+      "changedPixelsThreshold2": 15761,
+      "percentChanged": 0.7600790895061729,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 1975546,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    },
+    {
+      "file": "ritual-failure-720x1280.png",
+      "width": 720,
+      "height": 1280,
+      "changedPixelsThreshold2": 7583,
+      "percentChanged": 0.8228081597222222,
+      "outsideNameplateChangedPixels": 0,
+      "outsideNameplateComparedPixels": 860732,
+      "outsideNameplateMeanMaxChannelError": 0,
+      "outsideNameplateMaxChannelError": 0
+    }
+  ]
+}

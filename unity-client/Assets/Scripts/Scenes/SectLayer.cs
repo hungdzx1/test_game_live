@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Rendering;
+using TuTienLive.Presentation;
 
 namespace TuTienLive.Scenes
 {
@@ -19,13 +20,16 @@ namespace TuTienLive.Scenes
         [Tooltip("Anchor in the visible rectangle: (0,0) bottom-left, (.5,0) bottom-center.")]
         public Vector2 anchor = new Vector2(.5f, 0);
         [Tooltip("1080 x 1920 layout: X rightwards, Y downwards from top-left.")]
-        public Vector2 positionPixels;
-        [Min(.001f)] public float uniformScale = 1;
+        [HideInInspector] public Vector2 positionPixels;
+        [HideInInspector,Min(.001f)] public float uniformScale = 1;
         [Tooltip("Keep 1 for architecture. Only rings use the documented ground ellipse ratio.")]
-        [Range(.1f, 1.5f)] public float verticalScale = 1;
+        [HideInInspector,Range(.1f, 1.5f)] public float verticalScale = 1;
         [Range(0, 1)] public float opacity = 1;
-        public string sortingLayer = "SectBackground";
-        public int sortingOrder;
+        [HideInInspector] public string sortingLayer = "SectBackground";
+        [HideInInspector] public int sortingOrder;
+        [HideInInspector] public bool sceneAuthored;
+        [Tooltip("Baked once by migration. Layout uses Transform; sorting uses MeshRenderer.")]
+        public Mesh bakedGeometry;
         public bool protectFromClipping;
         [Tooltip("Only background/atmosphere and waterfall tails may intentionally extend beyond the portrait frame.")]
         public bool allowFrameBleed;
@@ -37,6 +41,7 @@ namespace TuTienLive.Scenes
         private MaterialPropertyBlock block;
         private bool dirty = true;
         private MeshRenderer view;
+        private readonly TransformOffset offsetPose = new TransformOffset();
         private static readonly int ColorId = Shader.PropertyToID("_Color");
         public const float PixelsPerUnit = 100;
         public Bounds WorldBounds => GetComponent<MeshRenderer>().bounds;
@@ -45,18 +50,27 @@ namespace TuTienLive.Scenes
             get
             {
                 var center = (new Vector2(.5f, .5f) - anchor) * contentPixelRect.size / PixelsPerUnit;
-                return new Bounds(transform.TransformPoint(new Vector3(center.x, center.y)),
-                    new Vector3(contentPixelRect.width * uniformScale / PixelsPerUnit, contentPixelRect.height * uniformScale * verticalScale / PixelsPerUnit, .01f));
+                var local=new Bounds(new Vector3(center.x,center.y),new Vector3(contentPixelRect.width/PixelsPerUnit,contentPixelRect.height/PixelsPerUnit,.01f));
+                var result=new Bounds(transform.TransformPoint(local.min),Vector3.zero);
+                for(int x=0;x<2;x++)for(int y=0;y<2;y++)for(int z=0;z<2;z++)
+                    result.Encapsulate(transform.TransformPoint(new Vector3(x==0?local.min.x:local.max.x,y==0?local.min.y:local.max.y,z==0?local.min.z:local.max.z)));
+                return result;
             }
         }
         public Vector3 AuthoredPosition => new Vector3((positionPixels.x - 540) / PixelsPerUnit, (960 - positionPixels.y) / PixelsPerUnit, 10 - sortingOrder * .01f);
-        private void OnEnable() { dirty = true; ApplyLayout(); }
+        private void OnEnable() { offsetPose.Capture(transform); dirty = true; ApplyLayout(); }
         private void OnValidate() { dirty = true; }
         private void Update() { if (dirty) ApplyLayout(); }
         public void ApplyLayout()
         {
             if (!sourceSprite) return;
             view = GetComponent<MeshRenderer>();
+            if(sceneAuthored)
+            {
+                if(block==null)block=new MaterialPropertyBlock();
+                if(!GetComponent<MeshFilter>().sharedMesh&&bakedGeometry)GetComponent<MeshFilter>().sharedMesh=bakedGeometry;
+                dirty=false;ApplyOpacity(opacity);return;
+            }
             if (!ownedMesh) { ownedMesh = new Mesh { name = name + "_OwnedQuad", hideFlags = HideFlags.HideAndDontSave }; GetComponent<MeshFilter>().sharedMesh = ownedMesh; }
             if (block == null) block = new MaterialPropertyBlock();
             var size = sourcePixelRect.size / PixelsPerUnit;
@@ -87,11 +101,29 @@ namespace TuTienLive.Scenes
                 case SectMotion.Petals: offset += new Vector2(Mathf.Sin(time * .10f + phase) * .08f, -Mathf.Sin(time * .045f + phase) * .12f); break;
                 case SectMotion.Glow: alpha *= .92f + .08f * Mathf.Cos(time * .6f); break;
             }
-            transform.localPosition = AuthoredPosition + new Vector3(offset.x, offset.y);
-            transform.localRotation = Quaternion.identity;
-            transform.localScale = new Vector3(uniformScale, uniformScale * verticalScale, 1);
-            block.SetColor(ColorId, new Color(1, 1, 1, alpha)); view.SetPropertyBlock(block);
+            if(sceneAuthored)
+            {
+                // Scene Transform contains the old t=0 appearance. Only animate its delta.
+                Vector2 initial=Vector2.zero;
+                if(motion==SectMotion.Cloud)initial.x=Mathf.Sin(phase)*.12f;
+                if(motion==SectMotion.Mist)initial.x=Mathf.Sin(phase)*.10f;
+                if(motion==SectMotion.Petals)initial.x=Mathf.Sin(phase)*.08f;
+                offsetPose.Apply(transform,new Vector3(offset.x-initial.x,offset.y-initial.y),Quaternion.identity);
+            }
+            else
+            {
+                transform.localPosition = AuthoredPosition + new Vector3(offset.x, offset.y);
+                transform.localRotation = Quaternion.identity;
+                transform.localScale = new Vector3(uniformScale, uniformScale * verticalScale, 1);
+            }
+            ApplyOpacity(alpha);
         }
+        private void ApplyOpacity(float alpha)
+        { if(view&&block!=null){block.SetColor(ColorId,new Color(1,1,1,alpha));view.SetPropertyBlock(block);} }
+        public void RestoreAuthoredPose(){if(sceneAuthored)offsetPose.Restore();}
+        public void MarkSceneAuthored(Mesh geometry)
+        { bakedGeometry=geometry;sceneAuthored=true;offsetPose.Capture(transform);GetComponent<MeshFilter>().sharedMesh=geometry;dirty=true;ApplyLayout(); }
+        private void OnDisable(){RestoreAuthoredPose();}
         private void OnDestroy()
         { if (ownedMesh) { if (Application.isPlaying) Destroy(ownedMesh); else DestroyImmediate(ownedMesh); } }
         private void OnDrawGizmosSelected()

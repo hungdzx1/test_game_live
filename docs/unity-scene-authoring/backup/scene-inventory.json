@@ -1,0 +1,1018 @@
+[
+  {
+    "header": "!u!29 &1",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!104 &2",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!157 &3",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!196 &4",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &34531964",
+    "name": [
+      "Seat_08"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &34531965",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &36826921",
+    "name": [
+      "Light particles"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &36826922",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &36826923",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &36826924",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &36826925",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &113696051",
+    "name": [
+      "\"Main courtyard \\u2014 original perspective\""
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &113696052",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &113696053",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &113696054",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &113696055",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &136978453",
+    "name": [
+      "Seat_01"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &136978454",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &195048314",
+    "name": [
+      "02 Architecture"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &195048315",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &234532586",
+    "name": [
+      "Seat_06"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &234532587",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &291595564",
+    "name": [
+      "Mountains far"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &291595565",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &291595566",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &291595567",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &291595568",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &310748066",
+    "name": [
+      "05 Foreground"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &310748067",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &466661273",
+    "name": [
+      "Clouds far"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &466661274",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &466661275",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &466661276",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &466661277",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &615640152",
+    "name": [
+      "Seat_11"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &615640153",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &620719081",
+    "name": [
+      "Mist behind architecture"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!114 &620719082",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!23 &620719083",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &620719084",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!4 &620719085",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &626709549",
+    "name": [
+      "Seat_03"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &626709550",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &695600457",
+    "name": [
+      "Seat_07"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &695600458",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &697935146",
+    "name": [
+      "Formation glow"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!114 &697935147",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!23 &697935148",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &697935149",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!4 &697935150",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &748491397",
+    "name": [
+      "Seat_09"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &748491398",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &750479810",
+    "name": [
+      "07 HUD reserved"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &750479811",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &811735464",
+    "name": [
+      "\"Formation base \\u2014 fitted to courtyard ellipse\""
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &811735465",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &811735466",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &811735467",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &811735468",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &827321383",
+    "name": [
+      "Sect name"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &827321384",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &827321385",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: e1eb3c8789412e04aa90b089091ac12f, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!102 &827321386",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &827321387",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &827385927",
+    "name": [
+      "Front gate"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &827385928",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &827385929",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &827385930",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &827385931",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &962717434",
+    "name": [
+      "03 Courtyard"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &962717435",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1009745994",
+    "name": [
+      "Petals"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1009745995",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &1009745996",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &1009745997",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1009745998",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &1017107130",
+    "name": [
+      "Seat_04"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1017107131",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1079704125",
+    "name": [
+      "Mountains mid"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1079704126",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &1079704127",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &1079704128",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1079704129",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &1152331561",
+    "name": [
+      "Sky"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1152331562",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &1152331563",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &1152331564",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1152331565",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &1213049146",
+    "name": [
+      "\"SectScene \\u2014 PNG 2.5D\""
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1213049147",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 9a957c41896878045ac9b6bf35c4ec49, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!4 &1213049148",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1228377322",
+    "name": [
+      "Seat_05"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1228377323",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1230776634",
+    "name": [
+      "Footer frame"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1230776635",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!23 &1230776636",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &1230776637",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1230776638",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1239546332",
+    "name": [
+      "\"CameraRig \\u2014 1080 x 1920\""
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1239546333",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 5483fa51d5030304a9a9de3eee40c53a, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!114 &1239546334",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!20 &1239546335",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1239546336",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1247951272",
+    "name": [
+      "\"04 Character anchors \\u2014 no player renderer in stage 03\""
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1247951273",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1248230133",
+    "name": [
+      "Title"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1248230134",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1248230135",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: e1eb3c8789412e04aa90b089091ac12f, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!102 &1248230136",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &1248230137",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1261247348",
+    "name": [
+      "06 Atmosphere"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1261247349",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1294281887",
+    "name": [
+      "Temple"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1294281888",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &1294281889",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &1294281890",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1294281891",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &1395895955",
+    "name": [
+      "01 Background"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1395895956",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1473461022",
+    "name": [
+      "Breakthrough seat"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1473461023",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1563800585",
+    "name": [
+      "Breakthrough platform"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1563800586",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!23 &1563800587",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &1563800588",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1563800589",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1650167674",
+    "name": [
+      "Header frame"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1650167675",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &1650167676",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &1650167677",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1650167678",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &1658379787",
+    "name": [
+      "Seat_10"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1658379788",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1790480554",
+    "name": [
+      "Seat_12"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1790480555",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1875315278",
+    "name": [
+      "Subtitle"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1875315279",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &1875315280",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: e1eb3c8789412e04aa90b089091ac12f, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!102 &1875315281",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &1875315282",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &1908214762",
+    "name": [
+      "\"Placeholder \\u2014 blossom branch (PNG missing)\""
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &1908214763",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &1908214764",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &1908214765",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &2071561057",
+    "name": [
+      "\"Mist foreground \\u2014 very light\""
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!114 &2071561058",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!23 &2071561059",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &2071561060",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!4 &2071561061",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &2076530167",
+    "name": [
+      "Waterfalls"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &2076530168",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &2076530169",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &2076530170",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!114 &2076530171",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!1 &2096692219",
+    "name": [
+      "\"Lantern props \\u2014 source clipped at right, optional\""
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!114 &2096692220",
+    "name": [
+      ""
+    ],
+    "script": [
+      "{fileID: 11500000, guid: 7f37eb2e9c46d4347a2bbabfd0f1fe58, type: 3}"
+    ]
+  },
+  {
+    "header": "!u!23 &2096692221",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &2096692222",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!4 &2096692223",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &2106565522",
+    "name": [
+      "Seat_02"
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &2106565523",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1 &2109360478",
+    "name": [
+      "\"Placeholder \\u2014 connecting stone steps\""
+    ],
+    "script": []
+  },
+  {
+    "header": "!u!4 &2109360479",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!23 &2109360480",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!33 &2109360481",
+    "name": [],
+    "script": []
+  },
+  {
+    "header": "!u!1660057539 &9223372036854775807",
+    "name": [],
+    "script": []
+  }
+]

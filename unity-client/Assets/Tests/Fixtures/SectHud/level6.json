@@ -1,0 +1,760 @@
+{
+  "type": "state:snapshot",
+  "version": 1,
+  "sessionId": "c26f2ea2-2dca-4376-8c96-313a0722c4cc",
+  "seq": 1,
+  "serverTime": 1794065548757,
+  "payload": {
+    "phase": "paused",
+    "effectivePhase": "cultivation",
+    "phaseStart": 1794065548754,
+    "elapsedActiveMs": 0,
+    "cycleId": "18aef9b5-846f-4935-960f-106c87322e96",
+    "completedCycles": 0,
+    "battlesStarted": 0,
+    "cameraUserId": null,
+    "battle": null,
+    "battleResult": null,
+    "remainingMs": 600000,
+    "elapsedMs": 0,
+    "players": [
+      {
+        "schemaVersion": 2,
+        "userId": "character:0",
+        "name": "Disciple 0",
+        "seed": 2836180330,
+        "index": 0,
+        "homeX": -7.875,
+        "homeZ": -4,
+        "x": -7.875,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 0,
+        "stageIndex": 0,
+        "cultivation": 3,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 100,
+        "atk": 10,
+        "def": 5,
+        "baseCultivationRate": 1,
+        "cultivationPerSecond": 2,
+        "realm": "Phàm Nhân",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 100,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 90
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "character:1",
+        "name": "Disciple 1",
+        "seed": 2852957949,
+        "index": 1,
+        "homeX": -6.125,
+        "homeZ": -4,
+        "x": -6.125,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 1,
+        "stageIndex": 0,
+        "cultivation": 4.5,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 180,
+        "atk": 18,
+        "def": 9,
+        "baseCultivationRate": 1.5,
+        "cultivationPerSecond": 3,
+        "realm": "Luyện Khí",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 180,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 80
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "character:2",
+        "name": "Disciple 2",
+        "seed": 2802625092,
+        "index": 2,
+        "homeX": -4.375,
+        "homeZ": -4,
+        "x": -4.375,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 2,
+        "stageIndex": 0,
+        "cultivation": 6.599999999999999,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 320,
+        "atk": 32,
+        "def": 16,
+        "baseCultivationRate": 2.2,
+        "cultivationPerSecond": 4.4,
+        "realm": "Trúc Cơ",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 320,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 70
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "character:3",
+        "name": "Disciple 3",
+        "seed": 2819402711,
+        "index": 3,
+        "homeX": -2.625,
+        "homeZ": -4,
+        "x": -2.625,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 3,
+        "stageIndex": 0,
+        "cultivation": 9.6,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 560,
+        "atk": 56,
+        "def": 28,
+        "baseCultivationRate": 3.2,
+        "cultivationPerSecond": 6.4,
+        "realm": "Kim Đan",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 560,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 60
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "character:4",
+        "name": "Disciple 4",
+        "seed": 2769069854,
+        "index": 4,
+        "homeX": -0.875,
+        "homeZ": -4,
+        "x": -0.875,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 4,
+        "stageIndex": 0,
+        "cultivation": 13.5,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 980,
+        "atk": 98,
+        "def": 49,
+        "baseCultivationRate": 4.5,
+        "cultivationPerSecond": 9,
+        "realm": "Nguyên Anh",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 900,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 50
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "character:5",
+        "name": "Disciple 5",
+        "seed": 2785847473,
+        "index": 5,
+        "homeX": 0.875,
+        "homeZ": -4,
+        "x": 0.875,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 5,
+        "stageIndex": 0,
+        "cultivation": 18.899999999999995,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 1720,
+        "atk": 172,
+        "def": 86,
+        "baseCultivationRate": 6.3,
+        "cultivationPerSecond": 12.6,
+        "realm": "Hóa Thần",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 1450,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 40
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "character:6",
+        "name": "Disciple 6",
+        "seed": 2735514616,
+        "index": 6,
+        "homeX": 2.625,
+        "homeZ": -4,
+        "x": 2.625,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 6,
+        "stageIndex": 0,
+        "cultivation": 26.399999999999995,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 3010,
+        "atk": 301,
+        "def": 151,
+        "baseCultivationRate": 8.8,
+        "cultivationPerSecond": 17.6,
+        "realm": "Luyện Hư",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 2300,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 35
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "character:7",
+        "name": "Disciple 7",
+        "seed": 2752292235,
+        "index": 7,
+        "homeX": 4.375,
+        "homeZ": -4,
+        "x": 4.375,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 7,
+        "stageIndex": 0,
+        "cultivation": 36,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 5270,
+        "atk": 527,
+        "def": 264,
+        "baseCultivationRate": 12,
+        "cultivationPerSecond": 24,
+        "realm": "Hợp Thể",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 3700,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 30
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "character:8",
+        "name": "Disciple 8",
+        "seed": 2701959378,
+        "index": 8,
+        "homeX": 6.125,
+        "homeZ": -4,
+        "x": 6.125,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 8,
+        "stageIndex": 0,
+        "cultivation": 49.5,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 9220,
+        "atk": 922,
+        "def": 461,
+        "baseCultivationRate": 16.5,
+        "cultivationPerSecond": 33,
+        "realm": "Đại Thừa",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 6000,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 25
+      },
+      {
+        "schemaVersion": 2,
+        "userId": "character:9",
+        "name": "Disciple 9",
+        "seed": 2718736997,
+        "index": 9,
+        "homeX": 7.875,
+        "homeZ": -4,
+        "x": 7.875,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "meditate",
+        "animationStartMs": 2500,
+        "overrideUntil": 2400,
+        "realmIndex": 9,
+        "stageIndex": 0,
+        "cultivation": 66,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 2,
+          "root": 2,
+          "pill": 2,
+          "blessing": 0,
+          "camera": 2
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 3000
+        },
+        "lastSeenAt": 1793989189539,
+        "focusCooldownMs": 0,
+        "hp": 16140,
+        "atk": 1614,
+        "def": 807,
+        "baseCultivationRate": 22,
+        "cultivationPerSecond": 44,
+        "realm": "Độ Kiếp",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 9600,
+        "activeBuffs": [
+          {
+            "kind": "blessing",
+            "multiplier": 2,
+            "remainingMs": 60000,
+            "durationMs": 60000
+          }
+        ],
+        "breakthroughProbability": 20
+      }
+    ],
+    "focusedScene": "sect",
+    "interactions": {
+      "wish": {
+        "power": 15,
+        "threshold": 60,
+        "cooldownUntil": 0,
+        "awards": 5,
+        "pending": 0
+      },
+      "sectEnergy": {
+        "level": 6,
+        "power": 15,
+        "threshold": 60,
+        "maxLevel": 6,
+        "full": false
+      },
+      "blessing": {
+        "remainingMs": 60000,
+        "durationMs": 60000,
+        "multiplier": 2
+      },
+      "giftBanner": null
+    },
+    "config": {
+      "sectLevels": [
+        {
+          "level": 1,
+          "likes": 10,
+          "reward": {
+            "item": "tea",
+            "quantity": 2
+          },
+          "scope": "all"
+        },
+        {
+          "level": 2,
+          "likes": 20,
+          "reward": {
+            "item": "pill",
+            "quantity": 2
+          },
+          "scope": "all"
+        },
+        {
+          "level": 3,
+          "likes": 30,
+          "reward": {
+            "item": "blessing",
+            "quantity": 2
+          },
+          "scope": "all"
+        },
+        {
+          "level": 4,
+          "likes": 40,
+          "reward": {
+            "item": "root",
+            "quantity": 2
+          },
+          "scope": "all"
+        },
+        {
+          "level": 5,
+          "likes": 50,
+          "reward": {
+            "item": "camera",
+            "quantity": 2
+          },
+          "scope": "all"
+        },
+        {
+          "level": 6,
+          "likes": 60,
+          "reward": {
+            "item": "tea",
+            "quantity": 2
+          },
+          "scope": "all"
+        }
+      ]
+    },
+    "mode": "demo",
+    "demoSpeed": 1,
+    "animationPreview": false,
+    "breakthroughQueueLength": 0,
+    "breakthrough": null,
+    "breakthroughResult": null
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "type": "state:snapshot",
+  "version": 1,
+  "sessionId": "0adf6019-29b6-4748-b901-75628ecd400d",
+  "seq": 3,
+  "serverTime": 1794067180239,
+  "payload": {
+    "phase": "cultivation",
+    "effectivePhase": "cultivation",
+    "phaseStart": 1794067180229,
+    "elapsedActiveMs": 1000,
+    "cycleId": "ca708b3d-685e-4f21-a6a6-f9e8af27ffd6",
+    "completedCycles": 0,
+    "battlesStarted": 0,
+    "cameraUserId": null,
+    "battle": null,
+    "battleResult": null,
+    "remainingMs": 599000,
+    "elapsedMs": 1000,
+    "players": [
+      {
+        "schemaVersion": 2,
+        "userId": "cultivation-demo",
+        "name": "Thanh Vân",
+        "seed": 257773017,
+        "index": 0,
+        "homeX": -7.875,
+        "homeZ": -4,
+        "x": -7.875,
+        "z": -4,
+        "pendingStageRewards": 0,
+        "pendingExp": 0,
+        "pendingBlessings": 0,
+        "lastBattleRewardId": null,
+        "animation": "teleport",
+        "animationStartMs": 0,
+        "overrideUntil": 2400,
+        "realmIndex": 3,
+        "stageIndex": 0,
+        "cultivation": 102,
+        "spiritualRootMultiplier": 1,
+        "inventory": {
+          "tea": 0,
+          "root": 0,
+          "pill": 0,
+          "blessing": 0,
+          "camera": 0
+        },
+        "buffs": [],
+        "breakthrough": {
+          "queued": false,
+          "failedAttempts": 0,
+          "protectionPoints": 0,
+          "cooldownRemainingCultivationMs": 0,
+          "heavenlyFate": 0,
+          "pillCount": 0
+        },
+        "questState": {
+          "points": 0,
+          "checkInSession": null,
+          "cycleId": null,
+          "cycleCount": 0,
+          "cooldownMs": 0,
+          "passiveMs": 1000
+        },
+        "lastSeenAt": 1794067180226,
+        "focusCooldownMs": 0,
+        "hp": 560,
+        "atk": 56,
+        "def": 28,
+        "baseCultivationRate": 2,
+        "cultivationPerSecond": 2,
+        "realm": "Kim Đan",
+        "stage": "Sơ Kỳ",
+        "cultivationRequired": 560,
+        "activeBuffs": [],
+        "breakthroughProbability": 60
+      }
+    ],
+    "focusedScene": "sect",
+    "interactions": {
+      "wish": {
+        "power": 50,
+        "threshold": 1000,
+        "cooldownUntil": 0,
+        "awards": 0,
+        "pending": 0
+      },
+      "sectEnergy": {
+        "level": 1,
+        "power": 50,
+        "threshold": 1000,
+        "maxLevel": 3,
+        "full": false
+      },
+      "blessing": {
+        "remainingMs": 0,
+        "durationMs": 0,
+        "multiplier": 2
+      },
+      "giftBanner": null
+    },
+    "config": {},
+    "mode": "demo",
+    "demoSpeed": 1,
+    "animationPreview": false,
+    "breakthroughQueueLength": 0,
+    "breakthrough": null,
+    "breakthroughResult": null
+  }
+}

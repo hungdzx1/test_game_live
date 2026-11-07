@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "protectedFiles": 52,
+  "changedFiles": [],
+  "scene": {
+    "result": "PASS",
+    "changedUiDocuments": 19,
+    "newUiDocuments": 12,
+    "nonUiDocumentsUnchanged": true,
+    "before": "da3fe37df79c79b41bdd809793ad577b6c488afb6cb306f0185283c7df2cd828",
+    "after": "34ae294a17bfe062564c74bb5e41f7101bb6af61eca9074dd340beea5b8598f1"
+  },
+  "note": "Main scene, player data, all existing character prefabs and source artwork unchanged; only existing UI documents and new rank-icon children changed in Concept02.",
+  "finalSceneHash": "679589b56aec5cd5cea39f5d0302ecbdb0dcf93a6387062ce557620dda25bda3",
+  "finalSpacingReport": "row-spacing-report.json"
+}

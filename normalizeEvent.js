@@ -11,7 +11,11 @@ export function fromTikTok(kind,data,roomId,words=[]){
   const user=numericString(data.user?.id,'user ID'),message=numericString(data.common?.msgId,'message ID');
   const room=numericString(String(roomId||data.common?.roomId||''),'room ID');
   const result={eventId:eventDigest(`${room}:${kind}:${message}`),source:'tiktok',loai:types[kind],userId:`tt:${user}`,ten:cleanName(data.user?.nickname??'Đạo hữu',words),avatar:null,qua:'',giftId:'',soKimCuong:0,soLuong:1,noiDung:'',timestamp:Date.now(),rawMeta:{streamId:room}};
-  if(kind==='chat')result.noiDung=data.comment;
+  // Native v3 decodes WebcastChatMessage.content; older connector examples use comment.
+  if(kind==='chat'){
+    result.noiDung=data.content??data.comment;
+    if(typeof result.noiDung!=='string')throw new Error('Thiếu nội dung bình luận hợp lệ.');
+  }
   if(kind==='gift'){
     result.giftId=numericString(String(data.giftId??''),'gift ID');
     if(!data.gift||!Number.isInteger(data.gift.type))throw new Error('Thiếu loại/đơn giá quà; không đoán từ tên.');

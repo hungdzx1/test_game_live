@@ -18,7 +18,7 @@ namespace TuTienLive.Editor
         private static bool sawRitual,sawDisconnected;
         public static void Run()
         {
-            SectSceneSetup.CleanScenes();EditorSceneManager.OpenScene(SectSceneSetup.ScenePath,OpenSceneMode.Single);
+            SectSceneSetup.CleanScenes();EditorSceneManager.OpenScene(SectSceneAuthoringMigration.PreferredScene,OpenSceneMode.Single);
             SessionState.SetBool(Key,true);SessionState.SetFloat(Key+"Deadline",(float)EditorApplication.timeSinceStartup+150);
             EditorApplication.EnterPlaymode();
         }

@@ -1,0 +1,3170 @@
+﻿[
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\caidat.json",
+        "sha256":  "34687C24365AF1FA75505BE2824C2284EF2644B3C46FB8D72BC09FC1F99B282D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\package.json",
+        "sha256":  "7A9F80DA131BD098AFDC99DA2EA0CE74DE4CD9EC095F84FFA29AC4E477E6D4B6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\package-lock.json",
+        "sha256":  "24FEDAEA17C2D0219FA75E4124278507E0F6E7D874917AF8111DC21B8482EE47"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\data\\players.json",
+        "sha256":  "1648E70640C8FCDB9AE8A1FA624AB33923DED51B20B8EAB31A0087DAA6921CE4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\data\\players.json.v1.backup",
+        "sha256":  "97E8B8CBC281D7C15FC69E2A4CA1BF2365ED3624B5591983971ECE1EE1ED4CBB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\data\\backups\\demo-reset-1793956912696-820dff09.json",
+        "sha256":  "AB0A618EBE594437293CD79678EA6046CDDDC3BC5C8BF99638D4C4D87C497DCD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\data\\backups\\demo-reset-1794060468967-d8155c46.json",
+        "sha256":  "7F3007C9DD13913425E3DD5AABF00CF860D5049C7427175053AEDF00A718F176"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\data\\demo\\players.json",
+        "sha256":  "18DABE55561CBCB67C925EE748120DC2B59E6F25454F777680071EEE6BBCC970"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\data\\demo\\players.json.v1.backup",
+        "sha256":  "72812A9D9B195395884C7401725DE210709B62815D8B616DF008CE2C1A03B848"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Animations.meta",
+        "sha256":  "DF7EE45A4AA1BFB501407C56210FEF9664D682775EC964038F58C2187AE0DFE0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art.meta",
+        "sha256":  "23D53B6F95DF8F9A387110E18261C5ABFE0731E7391D84AD0A078EAEC900D7D8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\DefaultVolumeProfile.asset",
+        "sha256":  "836A40D8370FA719DACF3731617EAD8421F2C467A6DF930776B2C8AE5955F669"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\DefaultVolumeProfile.asset.meta",
+        "sha256":  "E0810646C5EE1F8EC8654548D4DCC2557D914A7D4D0FE4BD7ACAFBBC27EFB6D9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor.meta",
+        "sha256":  "B5D0A77F1B5CB333DEB97B017F0A463D134394EA659EC7ED2C673F1C1E32CCDD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front.meta",
+        "sha256":  "25EDA6389BAB796C07C25B30622CDCBC24347CE1E01887E5E5CFEF40927375A3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials.meta",
+        "sha256":  "7F8A5683BC4EFE9FA9D54448B6E9CC7BABB0ED14509CC217EDB5945ED491A2DA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics.meta",
+        "sha256":  "FF4FC27CBED44654832F4470273D941453CBBC09D04A8E3EABE430B933D3FBE1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Prefabs.meta",
+        "sha256":  "444BA689F177BDCBD5DD77B26E6C148A1BFB56F83700D8BB211F38BBE0A142E5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Resources.meta",
+        "sha256":  "830597E7E62D384168F2D34366ABAA91F2B5EE3DDBA2FA0F2A165F1C5540D046"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring.meta",
+        "sha256":  "57459DE9B8A63DE3963BFD6371DFB0285049C5641E2F4AA2793BE298B3C05E5A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes.meta",
+        "sha256":  "26ADF513341CCBF986AD2870CEADE4E5566F5581860D0F9F8E0BF9A6FCDC9D84"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts.meta",
+        "sha256":  "617237164F1FF30616D2558A52C73D41B7317D9E223199143109543B68EB045F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02.meta",
+        "sha256":  "97B84857461348507D4FA1EFC87577A660D248E7EF39DD7039A4009CC7EE2E76"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Settings.meta",
+        "sha256":  "D40EA72BA25AD7CD1BE9EFB0517085ED2ADC14C115ACF9A05A79A9F244A37250"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests.meta",
+        "sha256":  "2543FBE547A5A51363394904A55844155C1760D3FF5C0EAA7BD97EE040FC54EF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro.meta",
+        "sha256":  "8529D84D190A68AEB1A16E0A90308081BD30A738DBCC63C63B2A93C53B9A11B3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\UniversalRenderPipelineGlobalSettings.asset",
+        "sha256":  "4E4F680EFE4986329A3B40EF80675A9D51A5798745701AD023F7651E60C9BC3E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\UniversalRenderPipelineGlobalSettings.asset.meta",
+        "sha256":  "1B2A5FABCE5524AFDE09E52800C112494845C8C927967C01DA3F8A33EE987B98"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Animations\\README.md",
+        "sha256":  "8643383140913F0FF8D63FD7D1E2BE2C0E9314E038E8613B44C1A0080AE6745F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Animations\\README.md.meta",
+        "sha256":  "03B67BF1B2A60A367E5B6E95BA5CF86DBD2E63AB9100DBA5FB73769750F84331"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Characters.meta",
+        "sha256":  "D170163F7435ED5DFCA424D3C9DC33D83164AF2883BA3669FD4CEA84A6230A35"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\README.md",
+        "sha256":  "28EFA680256CF3A7B26213F7C72E293F7504F98BDDF266D5C9734A0B646B9168"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\README.md.meta",
+        "sha256":  "2886C36473EB08468204AF9ED0D547FA32230E6449F1BE721DD3BB50326CEF75"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect.meta",
+        "sha256":  "46C58451E5B03FDF7C85C59F85421CE097904235A02C2EFFCA98814E4541C8FE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02.meta",
+        "sha256":  "6355013EAC34514A6B3E012D58780531D41E7E704BF36FE4B21AE8E83180FC43"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Characters\\Character_1.meta",
+        "sha256":  "0348C34799D4ED5B764E3D81739CE15D77CF8FE9E0094307119BE5447ED81818"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers.meta",
+        "sha256":  "A25EA182A4040412997E69F881CC59C34B169101886398B035497B3B2CD60162"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\asset-audit.json",
+        "sha256":  "B8FDB8A9A5436616E086CDBBEF09AC3555628DC8DA69E112EA1F570232CFF2C3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\asset-audit.json.meta",
+        "sha256":  "627886D79FD3B04FDD09E48515AB755892AFF54890B898E41C799D878A01F06C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Background layers.meta",
+        "sha256":  "DEF393D5A18CB0897FFFDE5FA477CCE2C0025946B87AE240A98EFE954FDFC708"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers.meta",
+        "sha256":  "3A3DDA1DDDDF690B3812A303FAB3203A4F5BCA4548245564300A59887A96A7C5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\UI.meta",
+        "sha256":  "1F03AE9A938BD43C9D5E8F0B1D4A080673256EEF95541316F3F2A4C1D95DC492"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\breakthrough_platform.png",
+        "sha256":  "189129CFCCB001788DAA705D774C30219F1C7CCB4C8EAD13EF47BE7BD592ABC2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\breakthrough_platform.png.meta",
+        "sha256":  "7809A384FE6AACFD0131ACC741895DCF4F93CA3F0FEF377F95ADE83F7EE77549"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\front_gate.png",
+        "sha256":  "F692554558DDAD6DF2C9E1538F5DD58CBCA661600058237D44F61ACBD51EBCC6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\front_gate.png.meta",
+        "sha256":  "B90EA4878EC68D3D24A0CD38226C432B997088E7835C840891F044324943188C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\lanterns_props.png",
+        "sha256":  "0E8C3BE377ACF0312AEE01B567671EADCCABB31C28FEF96A5239E3A160F8FCA3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\lanterns_props.png.meta",
+        "sha256":  "1D4BE5BC5A9686B1D4F08FE67FA5E3BA020EE17A0437697B7505E41337B7BE22"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\main_courtyard.png",
+        "sha256":  "EF55DC0F564862E43773903E8DB02BD2A7C9C4F86A4D9963B65BEA04B87F36BF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\main_courtyard.png.meta",
+        "sha256":  "8E66717BEF66AB2CBC6F078F2DCE510781EC56653013C74A4BDC55E89539A81B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\temple_left.png",
+        "sha256":  "2838DFF0718E1D56896B5EDFD21F9080AF41DB647551289BF0E6A79257280199"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\temple_left.png.meta",
+        "sha256":  "DB07A3A337EDD3B593B67C5A18069C8EDC5BCF5AE3C81848B70AAC8A3598121D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\waterfalls.png",
+        "sha256":  "EE6F6775E5048222A196CE925613EDF64C2D8EF56E0C3405563E9BFE5D6ACEF1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Architecture layers\\waterfalls.png.meta",
+        "sha256":  "9A721E15D5133C8B5F5BB43E4BF9CDC37AB1781F55E086E4FC0C1B8E811C9CDA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Background layers\\bg_cloud_far.png",
+        "sha256":  "9681A03BAEEF28956B147BB2202A66FF93818E05007A90DF880889E95259BF59"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Background layers\\bg_cloud_far.png.meta",
+        "sha256":  "628515019E1AA57B100E10098B38ABA44F919F3B74F0D93B3E041C33E645D6B7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Background layers\\bg_mountain_far.png",
+        "sha256":  "A469A9862B7323CB1DA367C5E1F6B7E3B87AEAF6F064FEB5DAE2408708A1117A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Background layers\\bg_mountain_far.png.meta",
+        "sha256":  "32F6DA1DC3173298AA968F4049CB3665017A66C9D33578A33F3E7F0CEC46B8C1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Background layers\\bg_mountain_mid.png",
+        "sha256":  "67EAC94F903590CD84A8B8855932212DCFBDF47189A359BDB499A30E219B9DD0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Background layers\\bg_mountain_mid.png.meta",
+        "sha256":  "352639690F8DD02B609C20E059F19449A2AD51186E45981DA477B357BE86C201"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Background layers\\bg_sky.png",
+        "sha256":  "4747F5F33D54FBAB139A858D657DFC19648F6BF93694AA44EEC0C84234C99385"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\Background layers\\bg_sky.png.meta",
+        "sha256":  "CE79D1E96E78D3A2E7EE4900C4350F24A9456795514AC7A3DE3F4513919C0C94"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\formation_ring_base.png",
+        "sha256":  "9777B729BE083D39A18624AFA4AB53DDDDC8F4F84A76D483DEF13B00059B31F3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\formation_ring_base.png.meta",
+        "sha256":  "632780482343D7C8934A0498B8516550A66CBA4FCA948EAE738D1FAD1DFB8EA5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\formation_ring_glow.png",
+        "sha256":  "FAD5A75416A376F162F88D53269B4418256EA3BC56B2BFA09747FB5609959767"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\formation_ring_glow.png.meta",
+        "sha256":  "E565ABD262E309432674482A28AD5C7268E38E9DE146874BB41945A869A90EE8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\light_particles.png",
+        "sha256":  "B3F7AC02CE335188677BE620B99AAE03803E7F8FAEA2E029F1FEFAEE6F42A570"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\light_particles.png.meta",
+        "sha256":  "51817D40D8DF608F1DAAFF438A17ECF6735E8C0BC452B2A19BE78EA0AC1A4EB1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\mist_overlay.png",
+        "sha256":  "C6B787149AD8FBD4ACF2E61A70F562E233D0F475A740804D868F9C32E064D197"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\mist_overlay.png.meta",
+        "sha256":  "32BF862EF2DC68DE5353E9002539275B2C773C67E8D5EF08B57C21485465EDC2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\petals_overlay.png",
+        "sha256":  "34AF2036BBDEFD91561E774D9C2D572F7B35763AE558D488D2FBA36D2C96F030"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\FX layers\\petals_overlay.png.meta",
+        "sha256":  "EABFDC587531B8E30BF982A9E60AB221D2780C69AA33F630D719BB3464715745"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\UI\\ui_footer.png",
+        "sha256":  "5B3F8E5F86F52DCAA85BEDBCD46ABF2375B931F73667A375078FB386093E9695"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\UI\\ui_footer.png.meta",
+        "sha256":  "1F9C5F6461A4264A2D021CD7E00E6BE66A5C738EDDDD7E38CF9200075FB26300"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\UI\\ui_header.png",
+        "sha256":  "9B7E748E2B3231C199D89FF9C9B11C3A8F488B9399DE24AE3C415CCD9DD40DB4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\Sect\\UI\\ui_header.png.meta",
+        "sha256":  "8036825A8E64DA563490092B5C916B5CCCD68DA7106ED4898DEC0A095619CF47"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Architecture.meta",
+        "sha256":  "CA20F9FA78FC11F6FF0A333D67A74B5D59F20D91F4A3D005089C91C2173EF21A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\asset-audit.json",
+        "sha256":  "8FA79489BAE805D831B543F73674C829828860C21377BE1B06A28C195DD87F32"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\asset-audit.json.meta",
+        "sha256":  "3791A8F16E50B6BC2AFC5794A9089351FFFFBD5E500DDADC8BC2B680B81A9215"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background.meta",
+        "sha256":  "BB3108348313B1439D1DBC2D3640651ABFC261C8E7C6337B544059F1AC256093"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters.meta",
+        "sha256":  "56C7E645C74FD659F6572F404D089AE45377F3CC1AB24B4054B309C8C1F7B058"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects.meta",
+        "sha256":  "B4408E6D1C5FD10A0D4C1F5976A8EB2E76D06964E25502D7DBC0E720BE86B181"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI.meta",
+        "sha256":  "6C633C3BA856DB84C23FE467176D655667C0AA7C98B4BDB1DBC3A1C1C1F544DA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Architecture\\breakthrough_platform.png",
+        "sha256":  "F4138AF149257982B4C5CB8C04945B7A48F2461A64230B2E179410AB10672E22"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Architecture\\breakthrough_platform.png.meta",
+        "sha256":  "F7CCEFAB92D2C4AD1C499A9DE62B01183B65C6C14ACFDFEE98C7D1BE075B3547"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Architecture\\cherry_branches.png",
+        "sha256":  "F020B47F06D28822F261F4A6E3D75FBA40F102DFF05ED4918E468BF739D27F2D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Architecture\\cherry_branches.png.meta",
+        "sha256":  "75F85109D99C14A3540602AB608588E085E23A01E8326A48D28D71875191200B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Architecture\\main_courtyard.png",
+        "sha256":  "9ED6A27AB30C81CB2CF841DA9EFFF6C244B3FD965D3ED89AE4954F6D37718131"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Architecture\\main_courtyard.png.meta",
+        "sha256":  "5322DE016DE94CEE668849F775CA5C327B0BE772E16EED0BB918B143DDE10D1C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Architecture\\waterfalls.png",
+        "sha256":  "64A02BFA7072E95CFEB7DF173701EFC2ADE0CBD843365F5E99D3C3C60CB9C88F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Architecture\\waterfalls.png.meta",
+        "sha256":  "881B86A692C9299DE9375017A51855C2FB4232B0D4C2C95457E658FD03B6E9C1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_cloud_far.png",
+        "sha256":  "75042B75B39C29947389E4B8DB0EF6C8E9F607B4FBC3552BAE299602AA6FE205"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_cloud_far.png.meta",
+        "sha256":  "B99AF9D12C041C1C230752E5D92ACEF8EA63A49B3FFA803C9530657F6878A494"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_cloud_near.png",
+        "sha256":  "DF75ACD2CF913578B5F427203CD09A6F48EE0631837CF4D17E4F74C9AFD4741B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_cloud_near.png.meta",
+        "sha256":  "AF1504FD43D686504E46730BCB91DC855270F44C6D53B9E6C5C3657B63EABCF7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_mountain_far.png",
+        "sha256":  "09928195C7085D38068DC4CB29ABFC6DD4C0746C06715146237DC7EC87EEB874"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_mountain_far.png.meta",
+        "sha256":  "79D6389C18003FBEFDCAB7419EF3E7A83BFB8057DA6A345AFCC5EAB4AE3BF6FD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_mountain_mid.png",
+        "sha256":  "50D3BD69CBCD43AC71B94212885563C8A76FD86D097C1A532B1AC5FDDE4AA79F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_mountain_mid.png.meta",
+        "sha256":  "3D8522550356DF13EFDFFBA37F28AAD1CD1865D2BAE8702652762B8CDB6E9A6D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_sky.png",
+        "sha256":  "D474D28E4D7A1CFA19662299A6B1FB87E2A319F618FDA5CEFB790CD3D9C864D6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Background\\bg_sky.png.meta",
+        "sha256":  "76E4CC790F4CE78366DDF8F48E1740280944E9E2FF050C2964148C08C96F86E5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_1.meta",
+        "sha256":  "62A9ED47C1E07E18C8D29814F207CF445BC60DC971B3573D35994C469043FA82"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_2.meta",
+        "sha256":  "A1B382C5FE1D93C86FA46FAA2DC2E0F6844697E6B83235BFCA329A18E9D887B3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_3.meta",
+        "sha256":  "C08D401F67D66C43C15702DFB531A5440ADD306BDDE7A580CA73674E9D7E9156"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_1\\attack.png",
+        "sha256":  "91C7633720DFED6049DD0770044C3D6BB0550F3F5D917EC1483339AA2B0BD7BB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_1\\attack.png.meta",
+        "sha256":  "313E06604D3862DDAC94CC9FAEA808E758A874234922EC27FD6B65BD0B3E4DD5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_1\\celebrate.png",
+        "sha256":  "A4B07630F12D8F9FC12FB0B88CFAB4B79C43B7A3F2275F546918BCC5FDBA2C77"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_1\\celebrate.png.meta",
+        "sha256":  "CAC641666C48445FA7C646C232610D901DF105B85244F1F9A93E1C0A7DA8FC82"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_1\\fly.png",
+        "sha256":  "B049C84693BEA5A0C4C52D0461F2F1FE80003614D91116142600ADA083BDEC5F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_1\\fly.png.meta",
+        "sha256":  "D47739DDC9C25330B88F2152C2B108F30A222445A4A55E1C211E549780789167"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_1\\meditation.png",
+        "sha256":  "48736C39853D4A30718CE62C0AA5755FDF760D2CBEC86E47AF140CF413C0485C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_1\\meditation.png.meta",
+        "sha256":  "87DCC9617A62D16AE2040F41FCAFA750232F4C35F858C3C194ED105F26D1764A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_2\\attack.png",
+        "sha256":  "B5C42C242C19FFBF1F93FD422EB77695AD818CB60BAEF4766775DCDEC1492784"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_2\\attack.png.meta",
+        "sha256":  "EED4444F00A974CAED73A1C665C967585B5C537DFDA8E64BA186CE2FF7BC3263"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_2\\celebrate.png",
+        "sha256":  "79B7D8C5B74C2026DAA416E0A9526A3EC91E3EAC9E6196FE74F2339E53C29770"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_2\\celebrate.png.meta",
+        "sha256":  "B1AF7FE8AA6C585F2747CC0DD2A9D94D761A8615BEBD37126CFA0B1BD4FC7BFC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_2\\fly.png",
+        "sha256":  "F9F0FA728BF8FAA8A25AE9A11529EE3415C9921306056FBC6858A56CB585B66A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_2\\fly.png.meta",
+        "sha256":  "B27C0A9B810AD167CFCBA2F4967815593C5251C63D015D91CA26D034B168EB29"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_2\\meditation.png",
+        "sha256":  "E51985D61653A8820A932521FC03630566D54BA87656DFCC21C1F9E6AE3408F6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_2\\meditation.png.meta",
+        "sha256":  "7690C78A8ED771B6FD46F59CCC29731A3B41FC0114EBCD058039036F26D47DC0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_3\\attack.png",
+        "sha256":  "CB980B0234CBA0D574FD7783F01E8D65ADE03F8C4F539498193F403CB3627EDF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_3\\attack.png.meta",
+        "sha256":  "68B310C05542E562FFCDABBA59269167B978C6A60BFB92BD6F7592646D2100C6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_3\\celebrate.png",
+        "sha256":  "6CB8DAC342A02701D06E0849E4B8B1F0425D601488FAED9BF70539A2EBC4286D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_3\\celebrate.png.meta",
+        "sha256":  "1679BE5330FA51B19BC52F64113AEFE2C0B95509C61F318FD3AD4AC9ED492DEA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_3\\fly.png",
+        "sha256":  "977B623D021110A500E6D756691E8252EC445D8DE79A7533698A6E1F56D9C9A9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_3\\fly.png.meta",
+        "sha256":  "BD417D1A8FCB15F522D13A98A3C336DA1DA810CC4062A479DC1AF6C97256E092"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_3\\meditation.png",
+        "sha256":  "05EA5DF3DFE95FE9BDA9CB52A5CE391662DC95D351921DA7FB4A666FF2DAEDD3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Characters\\Character_3\\meditation.png.meta",
+        "sha256":  "0D4E3F5112BCF78A0DC6F685ED3A77658C911F7F9AD8009468812234AF236D21"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\breakthrough_effect.png",
+        "sha256":  "C8F1202C8B999196DA644583CECFE82F6D191BEEC30AC237B730CAE39020A9F3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\breakthrough_effect.png.meta",
+        "sha256":  "0BAF74F30393C7C16811A311843D0BEC987E75C99F158CCAD281D6ABFE688407"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\formation_breakthrough.png",
+        "sha256":  "339232E04AA69B539EE1BFAA7B3210F486DADBB374EF5CDB180B2D294FE4F069"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\formation_breakthrough.png.meta",
+        "sha256":  "2A83215C7B64F4575EED23C6753F1F324C7BA0B4F1FDDA80A0AF5FC38BBB26D4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\formation_ground.png",
+        "sha256":  "B1DD22672DCFB5D9C3818CE8D1F7FC42425C15AA3453AF40BE6BD77DF074F571"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\formation_ground.png.meta",
+        "sha256":  "6F09471D1F6D1C22F084106BED4E1B259864DA1DA72DC3F9524C17A822231899"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_cloud_storm.png",
+        "sha256":  "69720906FDC75C867C52B646457C28E47A2ACCF381F93B468270062B22FA1FAE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_cloud_storm.png.meta",
+        "sha256":  "EABEE5A5F6D93E6FC543649C0E141B4B5B5AADA6CF3B137D6DFCE130F83DA741"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_lightning_01.png",
+        "sha256":  "C2BD64D9F319E7FAC42BD1B612DC3321DB5E9B6B073DB55A58157D512A6D1BB3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_lightning_01.png.meta",
+        "sha256":  "28ECEB84B668C58DC0D423FD24927C9F318968A37ABAF2F12A9811CF6385CD3A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_lightning_02.png",
+        "sha256":  "24F8531DDCD8BFA3E50800FF3AD11C4965ED2A76BB843BC6FD7F32C415D48C0B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_lightning_02.png.meta",
+        "sha256":  "3AFE120348F64525AEF666FA5E021ED52B9A9954F4E577716438761EF78576A6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_lightning_03.png",
+        "sha256":  "AC746FB4EB6327D650F082CEA08C0794FEE4B42EBADD188AE53DC62506FFA628"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_lightning_03.png.meta",
+        "sha256":  "FF1D75FD82E3AF6DE84D446B40580ABDF92E5CA673C93764920C14371D8B0D1E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_lightning_04.png",
+        "sha256":  "7526CB6E4066B4E3767FC82F0ECEAE63408A88A3F71C051885E7A6BC6FA82B40"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\fx_lightning_04.png.meta",
+        "sha256":  "DA97BDE894C4923774B8EC1236FA0CD7F2360E65307ED7D10E43563DC96AE5BD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\particles_overlay.png",
+        "sha256":  "05825428A270AC4D061482339C7A8170F2EA7C2AFE6F091F576820A16D568458"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\particles_overlay.png.meta",
+        "sha256":  "0DF137B1CDCACD3C686ACFF261B56FE5A6E275EA7F0E4340C8635E5B5A79C9AA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\petals_overlay.png",
+        "sha256":  "34AF2036BBDEFD91561E774D9C2D572F7B35763AE558D488D2FBA36D2C96F030"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\Effects\\petals_overlay.png.meta",
+        "sha256":  "4B04027FF21AE31E9D172DF579A237FCFC2426A82C07094906FF14E2CC07EA88"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing.meta",
+        "sha256":  "7FA60B2050C96C09B7DB5008C8B31804F28887D1507ABD28566ABCC4682EAAC5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_courtyard_trim.png",
+        "sha256":  "3AC3813831FA416697C7DD99CB5AC049BC56ACEEEE05CBA7E249029013822E4B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_courtyard_trim.png.meta",
+        "sha256":  "D04E3382901992FEFE9326C24A95EE5B2A4320F798BFE07ACA5F2E7A73239FCD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_cultivation_icon.png",
+        "sha256":  "601BBABA7FB324026C8179EBEA4A958ADA62C1703A4A2247BB81F42349002642"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_cultivation_icon.png.meta",
+        "sha256":  "44AF89374F9F060BF9AD818635C7638FBCE0D35C3E87E20A94EE1D3E1F843FED"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_header.png",
+        "sha256":  "9DED103FEF83A3FCD33296CD06002416D977620B077ACADD61AD2FED1017FFED"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_header.png.meta",
+        "sha256":  "FA30A1817DD30DF295D85FDC16753112240339135EE3D05E069AC2B7145FC481"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_notice_panel.png",
+        "sha256":  "2151C9818C8ABE79BF4DDFBECBF77690270D8C889EF866A0460BCDD0885417FC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_notice_panel.png.meta",
+        "sha256":  "A552057D6BFB73B4EF8503DEB5CC03B511063C7A576BE4F965B793B9FD3C9536"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_progress_fill.png",
+        "sha256":  "97A2F47A2B30E8AE7814B14A3A70478245EC9127EF2FBC2CA6C7720F92CF2D8A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_progress_fill.png.meta",
+        "sha256":  "40B93FFE23A5C29225E701A4326EF46E94E1FE2E58FA7A53B3ED20E5EBA01D7F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_progress_frame.png",
+        "sha256":  "E266EB3852B9457A94F02E6C253EEC3AEC7D50C8333F9837CC33375BB3B143FC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_progress_frame.png.meta",
+        "sha256":  "B736A627CEAFFBDDE067AE9E647B6FE345181E9AC8E6AE13E91091917B8EEAFA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_rank_icons.png",
+        "sha256":  "40B20223C48BBC83998705AFF8D6A13AC1E6C0630948C4EDB58BCF1A9ED97370"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_rank_icons.png.meta",
+        "sha256":  "B574BDBC83D7AD5133CB1FC250267B6F8FFC609E3825858F5ED60F84908D3427"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_timer_frame.png",
+        "sha256":  "704EE0BB232F6504ECE4775D4AE53B7741EE43E6F91E874692AE82BD35576434"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\ui_timer_frame.png.meta",
+        "sha256":  "DE7C5A09F29EE6CE7CA6A08E019B325C475066FC8C279C4EC7E29DBA61F22774"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\asset-audit.json",
+        "sha256":  "6F6EFE9F2FBB4794F715049C5C7761CD67CBCABED28E46A3BDE75CA2A76DDBEC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\asset-audit.json.meta",
+        "sha256":  "BEA8A3459C3D50129D42F272556D0937911130E641A50C4CDFA51DF923C172EA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_border.png",
+        "sha256":  "FCDDC3955E9CBD40BEE214292F44284AD32ECF34C541F40C47BD74D368338BE3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_border.png.meta",
+        "sha256":  "10C0F21F5ADD5097466EA4EBCF1CE3B7D89AFB7E312A7D174F01635B8DF8E447"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_hourglass.png",
+        "sha256":  "7822599FA9D105A5B4769826FFDABA9A6CF8F7647D308BEE54E8B6644DFD03A8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_hourglass.png.meta",
+        "sha256":  "A07C17FA8F8B9320109973932B805DB3A71C4724DC67540A988FE556FC2E4525"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_lotus.png",
+        "sha256":  "9D2FC0A4B40BF1D37BEB03F57B1D81A5242F3B00F8A5F4EBA860C3D46BDCAC58"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_lotus.png.meta",
+        "sha256":  "D38899FEF560E8FACE2C92AEBC85CC6BE8335FB7D2BABAB1C1F4B68E17C69073"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_panel.png",
+        "sha256":  "1BC4D7891C0029576609EA44E217FBDA340F95B05688D487AA7FA65A8A518809"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_panel.png.meta",
+        "sha256":  "88EF7CF721D7BB0E87D8A76C79928156EC24C416FF997AEA943B91DE7EC069F7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_progress_bg.png",
+        "sha256":  "8C95EF6E7DFEA21C336152E9E0F465A88E74B99EB938407D89A5A58723CD8555"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_progress_bg.png.meta",
+        "sha256":  "60147FE43E9CE7F9739BFD45C645272359A829DFE56F6C5D25086BC7D05C9553"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_progress_fill.png",
+        "sha256":  "DB80026C9F40E3FAF1781F441213B2829152689484AB57C4A0D88C5E287C1519"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_progress_fill.png.meta",
+        "sha256":  "4AA9CC724125DD2BAFF6293B52467D69BD3D91B68055D975E71522C4E4789F07"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_sparkles.png",
+        "sha256":  "0EA5E1A2FF059F201E09107A720579A835259490A6D86DE207D1FB33D21E42EE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_sparkles.png.meta",
+        "sha256":  "2FA0230FB13CEF722EA3C583DDF71909BA4CF8FC38BE3F193FE4BF9F61F4E34F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_timer_panel.png",
+        "sha256":  "C1787DAA87716D4DFD3702ECCABDED208DDA0FFEFA5D9F718B17C2D72DA341B9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Art\\SectConcept02\\UI\\Blessing\\ui_blessing_timer_panel.png.meta",
+        "sha256":  "418455C54277F7AA564754AC7A354A29F14C0352777F5D9A3C8327BB36428EEC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\BlessingPanelSetup.cs",
+        "sha256":  "037147F06C2876BF89064ACD63E7749E7554568986F9FC5256900D8E1B4DCE23"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\BlessingPanelSetup.cs.meta",
+        "sha256":  "544438BF150701482A1060B2EF6AF7A7EC90D795BEE09C0EB3A9580531710BBE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\BlessingPanelVerification.cs",
+        "sha256":  "A2A77D9223D7C4A75B825B8856D4D21A6A966733E34E4C0BC3F561FF65236469"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\BlessingPanelVerification.cs.meta",
+        "sha256":  "E67C608ED9F9BEE38530A8BFC311424227C1794A117D5C95D4CCEACC0C99CBC2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterPlayProbe.cs",
+        "sha256":  "9EBE66BF6F6297E8FA2728FA698CC3A80801A6562264E318E92CDE0BB876116C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterPlayProbe.cs.meta",
+        "sha256":  "45381F2320E3832F33C097DA74EF500C1DE602A622E3FD955E8008A4F679165C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterSceneSetup.cs",
+        "sha256":  "63987E317CFD2381022A20BE12B70728C892EF718EB2411748E46E66C808789E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterSceneSetup.cs.meta",
+        "sha256":  "110A1508880F20ED8F75BF053ADB8B3EBF7751C666300BED9FAA6040DE63F9E4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterScreenshotTest.cs",
+        "sha256":  "D87514321A4F15CAEF53E15C33936EE25982736EE8C37738C64903DCD64B7E69"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterScreenshotTest.cs.meta",
+        "sha256":  "B4B3C1FF14FF8FED719EACD2C01E2C7FBDC18A69CC99E33976E5A88BB81E6B32"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterVariantVerification.cs",
+        "sha256":  "127F734B5A328E40708CDFAE33E156DE280FE97D54CD55051802AF9A269E6064"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterVariantVerification.cs.meta",
+        "sha256":  "B8083BC681EA4DA98924E9D66745468AC14E9552F8B100BCE88C9CFC335921D4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterWorkshopEditor.cs",
+        "sha256":  "B8C8772B3F22E8F494D1B3751E865301F8C38F9238D1D588195FCEA711F125E5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterWorkshopEditor.cs.meta",
+        "sha256":  "840AFBCFCB6CCDEE53204600126AD922D5947F55C53B5CFC3EB7BA6D4FBEBCA4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterWorkshopVerification.cs",
+        "sha256":  "44E22307E41C46FDE17EF5B36E98756BF16920AB698DBBB437D9D6094C9FA8A8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\CharacterWorkshopVerification.cs.meta",
+        "sha256":  "B213C199D15F845B47FBD5517535B977055A809CBB8244FD27AC8602CA63B4A4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02HudLayout.cs",
+        "sha256":  "1AE03EFCA57D3F77B03C4B3F71E38CA914181EC772A707D64F41AA7223744220"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02HudLayout.cs.meta",
+        "sha256":  "68D135CFCDCD0D314B2E80A85760B36C2412E9524365B770DBBE2E729AF6BB5E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02SceneSetup.cs",
+        "sha256":  "F35A30F05E6C7C6C7624D6A4E799B9452E8DC71C69097951396589D1B915F537"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02SceneSetup.cs.meta",
+        "sha256":  "CBE3DE9EBE9DFAA84ED99EB15D42DD5352D025DE857061D053B86E76812E26BC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02SizeVerification.cs",
+        "sha256":  "57C956216780D5820363D7D271634543327E1235B7C2D2802837AB57D5D691A3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02SizeVerification.cs.meta",
+        "sha256":  "F7D8CE41314A683812354A16B4A0FFF48087ACF675115D835F4EADFD7BA4FE9C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02StormSetup.cs",
+        "sha256":  "AA00FD72690BCA00C97F6595AA380DACEA40524D54759329921C725261939670"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02StormSetup.cs.meta",
+        "sha256":  "FA226DB0A06660B7FDD6F2EC1E8D7CB91CF76A7B1540D859C40C46ADD1F049BA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02StormVerification.cs",
+        "sha256":  "26E14339D7B8455B609FD189F61E8509F2B5B26F0BDBB9819444021072DF2EC4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02StormVerification.cs.meta",
+        "sha256":  "93FCE262E9F5651DAD5F62861215AB7D6299B5E965A01B470E2556F1463B2CB3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02Verification.cs",
+        "sha256":  "A8E86B41CD653999FEEC048C52344999A26F9EB80ADE22F168ED3177F1F6F354"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\Concept02Verification.cs.meta",
+        "sha256":  "0E8E88CF7812DEF6BB54E45AAC77F0321B6278A59B4B00CFF35F30DFA6D71FD3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\GameAudioSetup.cs",
+        "sha256":  "839061749EA739C5779D4C7B0F7E78AC4278ABF441818853AE77024E84C53795"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\GameAudioSetup.cs.meta",
+        "sha256":  "3E1B9A8572BD5CD56AB7577510B79D9C0A9B97550A3DDFC38F1FB2E7A3F039DF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\MigrationProjectSetup.cs",
+        "sha256":  "A175FAC4C59C73DDB8860050CD2E84A77953648CE87614C939299888DB76592A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\MigrationProjectSetup.cs.meta",
+        "sha256":  "5436AE0F3FBA7F1CB9C3E67D29569DCD8EE907A96521837BD7AA663EAC7DB40A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\NetworkTestSetup.cs",
+        "sha256":  "AEE831070725211F8D09FEA942CDB8385E63C860A69BD65EFD74E0D3A623AFCB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\NetworkTestSetup.cs.meta",
+        "sha256":  "4870B74C4F1473B5BB093ACB38E8636763DE474E5A1590A7CC2B83E5BB75BB9F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SceneAuthoringVerification.cs",
+        "sha256":  "33FE6036CEEB45A2C15BBEEFCA6DDDC1A959606DC359F5699B9500D4537F04CA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SceneAuthoringVerification.cs.meta",
+        "sha256":  "55C87C67D4761AC97324E343BAF4D694C03D8EADF82A6422A84740DFDF03B903"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectHudVerification.cs",
+        "sha256":  "918F6117D028D2ECC789481129738346D550E7EBEE79068F18CE6F3BC28423D3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectHudVerification.cs.meta",
+        "sha256":  "45968B0BE1E6DEE08473995A918F59E6D5FD106896AE468553305799705C3680"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectLayerEditor.cs",
+        "sha256":  "06156749BAFDAF7681D8D00750C04D2B69BFDB9A64F3331B0C2BC1391ED13F71"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectLayerEditor.cs.meta",
+        "sha256":  "E4819E190C98EF114B8D3829C052DE2BB27C0A939476E7982FCD28AE306B6798"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectPlayModeTest.cs",
+        "sha256":  "898658D1ADC4E4018C042B0110AABAAED00E4855B65A4C7671EB3F472221C39F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectPlayModeTest.cs.meta",
+        "sha256":  "55F48132AD1C31D33248EC149FED5ACE6DE9E2F59A48AB98B874BE5D4FCD9A38"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectSceneAuthoringMigration.cs",
+        "sha256":  "5E463901294FC73A32236D4127FC05FC5F9450B0E0AEFE76C39A301402660416"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectSceneAuthoringMigration.cs.meta",
+        "sha256":  "F9457BE84729EF04A3B02D6264815ED51784CF12CCB0397D55B216E2C748F689"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectSceneSetup.cs",
+        "sha256":  "B8A8FC050FEFAF6F59E41DAF4ACAC0CD2E7BD74096FEAFD41EEBA2E077ADE351"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectSceneSetup.cs.meta",
+        "sha256":  "DDB6B2E58AB2852897424FB3D35ECA02B5B7DECDC4B7829E00E560A9D60939DA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectScreenshotTest.cs",
+        "sha256":  "EBB821E1802B3B8AC2D4A4F2970DCBA4235397269F2F855183EAEBF375FA8253"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Editor\\SectScreenshotTest.cs.meta",
+        "sha256":  "67C9BF508D809DC561805157D6AE23F6A032CB973BE1B1D2AB92585EE7AF8FDD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\Fz Dom Casual SDF.asset",
+        "sha256":  "AC9B2596FB643C7614879D87C72889AA8EBE09B1FB987D50F11B5CB1C31DE9E4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\Fz Dom Casual SDF.asset.meta",
+        "sha256":  "9DB86307FC43943694CB401FE8AAE75D09BF25494E292CA0A5B973201F22871F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\Fz Dom Casual.otf",
+        "sha256":  "4188710E0934ED6B2226B16F8B138EC4D2EDDCB63A362D839D14C1B9CE18F811"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\Fz Dom Casual.otf.meta",
+        "sha256":  "945CAE2D9776178AF908209B1F2318208C988993742E7ACD7220804E03F30013"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\LilitaOne-Regular SDF.asset",
+        "sha256":  "B2782D74F60C145CFED437BAD8228C6CE03F459FC4F398ACD4A7A42D2A476B4C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\LilitaOne-Regular SDF.asset.meta",
+        "sha256":  "8D97A108DFDC05D6EE04FEBC5DC66C105BB52E3FE6F4D7E1A605D09A754EA635"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\LilitaOne-Regular.ttf",
+        "sha256":  "4444C23631884F411AA7F2FEE35061B1756A9927940C62D2A5572ACF470B3FFA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\LilitaOne-Regular.ttf.meta",
+        "sha256":  "0DE2FC3CFE837382743CDEB3DBABFF011C9A504C630EE4ED08CC7DFB2B6A6B7E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\Silver SDF.asset",
+        "sha256":  "C3D50FE2D34A35C102FA71685ED984D29CD15DA0A81C2A3121DDD5E6F0FE921B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\Silver SDF.asset.meta",
+        "sha256":  "696DA9145DF3EF0705E65DC5406B764AEFF56B6041DD4BE04ACDB293C1E7C115"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\Silver.ttf",
+        "sha256":  "D7A15F3EEF3F67809B2CA6C1F457FBBC7B86DEFDEE8D7704F4136ADF7C3D532E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Front\\Silver.ttf.meta",
+        "sha256":  "3922ED7576AB5434C40F639D455654623DF2641B455CE500EF3ABACE327FCD73"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Characters.meta",
+        "sha256":  "96804418FD6B4EE0B0417D3985860994D4BD7EB91EFD559641E29F5AFB4E7619"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\README.md",
+        "sha256":  "69F7CB42B3A3646C5B0FFDB07B3338DF064BA3249568780571AD170B14BBBF46"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\README.md.meta",
+        "sha256":  "07CE8BED4A29686AF2F025E14D785F4F3EBA02782DD7D4944A1447D3EB32FE0C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect.meta",
+        "sha256":  "681CB463E97DFF8093094237BFDA3525252F5352D59A5BCCE093CA24DD77BA0E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\SectUnlit.shader",
+        "sha256":  "E1E532D9899B5D8FD393D1F67D88F1D48853400BE4E8BE253F08B930DDBD2703"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\SectUnlit.shader.meta",
+        "sha256":  "F8A060898010C14C73D5C071E437A08378ED963B5ED1BEDA8D0055A8B75A66AC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Characters\\ProceduralDisk.asset",
+        "sha256":  "BE0FFA04D81F56D6BB3B48313962D129AD7744C2714751FE57C20795E7694BAC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Characters\\ProceduralDisk.asset.meta",
+        "sha256":  "36399C91092E5561BF7F727342E104C4AAD603AF7D5F6B6F6EDD6BC7F94612F5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Characters\\SharedUnlit.mat",
+        "sha256":  "2928E3C3FE759418BC0D078782670F98C6FB2E1C0D3BDA8AAAC39BE71F214098"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Characters\\SharedUnlit.mat.meta",
+        "sha256":  "8AE8B3BF8A561CDB702D12764AF2DC3575F59A5D4F07C93D5E0F0849B415D828"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Characters\\SpriteUnlit.mat",
+        "sha256":  "2A5E55DED5B6CF285C103D493F6A09EF63FD4AA796AAB848D2ED282FE9FE1FC3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Characters\\SpriteUnlit.mat.meta",
+        "sha256":  "98C106484BE554C8E3317D9610BC4E475D0F2F2230BABE7B1D22D62D766146D4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\bg_cloud_far.mat",
+        "sha256":  "E1A49D60856FF5FE776377308C204EFAE23602B8D36CFB646CB4E28FFA7DDE45"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\bg_cloud_far.mat.meta",
+        "sha256":  "E41F3EDC54F1087737D6EDC5D0EABB15B1D2D17CA466A6BB493DA1DC2D3FD8C7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\bg_mountain_far.mat",
+        "sha256":  "74542E6A089FE7598B64925093BD48173A099E273506C0713ED495F8228019F3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\bg_mountain_far.mat.meta",
+        "sha256":  "AA69786FB9B1BD1A807AA7E36EF312A22ADE702D0E7747A6D1C99E147473D64E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\bg_mountain_mid.mat",
+        "sha256":  "913F3E538F8923F7E5CBC6044878D5DDCC45057A9BCF7A117D52ED32C9A078D6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\bg_mountain_mid.mat.meta",
+        "sha256":  "834A8939B3766F3261F090E03F8121B2248BD93A21839532605CBDB7B260EC59"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\bg_sky.mat",
+        "sha256":  "DE155242A434995430C0289B5590D29F899137C24F64A298475E49083EACEC4E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\bg_sky.mat.meta",
+        "sha256":  "83A563627318BECA0D555669DFD720B0CFA54F96A020A29FA565FF53488512D9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\breakthrough_platform.mat",
+        "sha256":  "1D691269A44FCA56E6F4005D9E04F04F8371DAB2E4EAFE5FC27A5864D80412C5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\breakthrough_platform.mat.meta",
+        "sha256":  "373740A8EF749D1EE1BF52FB309226A165A5EAF0D419E46FFE0D80DAB687F774"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\formation_ring_base.mat",
+        "sha256":  "C840E9A5ECE2691A774AEF01E91E14A7067473D8F1A04FBD7D07CEFE640A29DD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\formation_ring_base.mat.meta",
+        "sha256":  "E05A2610D0B57685332E31FBFE390DC86ACB40E197FF563578165B06C0B71D32"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\formation_ring_glow.mat",
+        "sha256":  "83C8FD336E7C9C7794486FD64CF15FAB2517AD0F64AD634CDE7F0B19C46BFC0E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\formation_ring_glow.mat.meta",
+        "sha256":  "F43E134C884ED5B2D33F461666B6143A653AE5296BFAD3923656F15D40309A73"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\front_gate.mat",
+        "sha256":  "31F9B2072167929C6E8A9D60446861C9BE55C4D8AD079B476913F1341CA0844E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\front_gate.mat.meta",
+        "sha256":  "83635CB6ADB14A3692EEE2CABB3AFD5C4A590D9A8CDEEBAC24EE8042F08625CB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\lanterns_props.mat",
+        "sha256":  "264212C2FD23EA3B20717E6E0194CCD155E1BBF32B7CC0476377B1554921448C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\lanterns_props.mat.meta",
+        "sha256":  "7B6AE141CA01B74CAA716A1DCC110A30BE76407D0F76E0846A5A1ED3C5691E97"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\light_particles.mat",
+        "sha256":  "92FF3E014099FC316AD4443BCFA1782FE60A5A55AA8021D2B34A4F1C4392BDC1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\light_particles.mat.meta",
+        "sha256":  "F92EAA997FDA5B7873DE48AA1DE9D07343E0A1587657771DA795A919114AF789"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\main_courtyard.mat",
+        "sha256":  "B63C6FF994A4AE3DA8DC3BC85FAF72F89A691CC5D190CC9B9BA34B631D5D59BD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\main_courtyard.mat.meta",
+        "sha256":  "4C9E8C105A2D48081096217BEA87CDEC060E47724933EEABB83EA230F77FFBB1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\mist_overlay.mat",
+        "sha256":  "5045AB0C77006C688E05F53FBB6996F48899502C27F2DE908370E3842A583E5E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\mist_overlay.mat.meta",
+        "sha256":  "AA22E0EF30E52008E449E168A9CCD7307EC24248D1160D19D411FF2E214EEB7A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\petals_overlay.mat",
+        "sha256":  "7093D85867EA519D0EB173352E9BCF4B903B9D2094AAEF14162685F3F6D4F3C6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\petals_overlay.mat.meta",
+        "sha256":  "1D9B6065FD2A08A13427F7E9159E346F2F8F90ED016FF207255449D7C91967E8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\Placeholder.mat",
+        "sha256":  "93B842F633475550CC950317E73E68BCB2A87EDEA3E09DF3BF54B1E7275F8F52"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\Placeholder.mat.meta",
+        "sha256":  "09978D5B22C546564616D7A07DFECB90B12DBC8CAE08B6DC90F8B43231E06752"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\PlaceholderBranch.asset",
+        "sha256":  "0885BB64083179712B87FF320F586A55CFFA61EB99EAFF1E143306F49F367C42"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\PlaceholderBranch.asset.meta",
+        "sha256":  "0324EC1A55BA898B13F14AD5C05BE0C4542382E7008A234B4F40DA5772D84FF2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\PlaceholderBridge.asset",
+        "sha256":  "2FA869EFA3E82E136666552F83EAB75DCBBEA7D9907830E936A57D5F3626A976"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\PlaceholderBridge.asset.meta",
+        "sha256":  "AF04E06A3420414095AEAA517EBB10DCE8D04E6A75CEB61AE9ECABA1F9672AB8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\temple_left.mat",
+        "sha256":  "9162A79E8F15D27A9E4C6C0DE0C5119EDFFC9CE1F1DB3BD0AD248ED91CBDE9BE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\temple_left.mat.meta",
+        "sha256":  "03A105F6FB84D584E87DEBFC220CCA8CB1616822BFFC93CF0AC6E08BC8CAEE1D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\ui_footer.mat",
+        "sha256":  "3E333EEDEB276AECFBCF12E77F96F6C6C9D0E0E407303E8B9BE107508287E8D7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\ui_footer.mat.meta",
+        "sha256":  "F58AE9D3A1BEE296E6CABE593A232002894A215196CC9C646DEF1BEAD4D5C8F9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\ui_header.mat",
+        "sha256":  "073126CE91300914940587603B382E3D73F61284A9C756CF6D460F0B67887A85"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\ui_header.mat.meta",
+        "sha256":  "4660E93E6EC00B915C401621124F503EDDE1FF7C8155B10CE1D117E807622959"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\waterfalls.mat",
+        "sha256":  "2DA6789B946DCCA872635089E50BDCA58D01519F2320BB4CB7BAA2A1C451A899"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Materials\\Sect\\waterfalls.mat.meta",
+        "sha256":  "68E79BE81D91C4919593DEA3766F98AF2CD9A16E3A4D5B8C7521AC9CA0C2387D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\BGM.mp3",
+        "sha256":  "5BDE9F65FAF8533A06476F75ACEB24966B94E1CA93B81BFBD44D7C8CFB07BC25"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\BGM.mp3.meta",
+        "sha256":  "41FEC36DBF66A674B410BD3129933D138CBF61261BF8EB6D1B7C89E27B007942"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\Sfx_banphuc.mp3",
+        "sha256":  "DBC791784F00695BAFA7E1C73EB76F5794144F4AE2BDF40C4309F76C678B212D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\Sfx_banphuc.mp3.meta",
+        "sha256":  "5AF0B69FE68E5393620535C378EC8C12D2191C533FA07751266EF254800B288A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\sfx_fly.wav",
+        "sha256":  "C9AA08DE97E5A1235F9B2B4EB7A1096F2FE09586995859E46AA83E9066BADCA2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\sfx_fly.wav.meta",
+        "sha256":  "70CEB03AA4570C91B744DCF23D02F64C72A9B61524BA64C4ED4EEBEB0FCBB2BE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\sfx_lv_up_TM.mp3",
+        "sha256":  "C71F3C675681F26687C0790DF307DDF034C3B0410431EAAC01EFAD849496BC47"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\sfx_lv_up_TM.mp3.meta",
+        "sha256":  "321EC41FFD01424220D21D35930F10465C286D3E1EE47E6557FB3CE89102D690"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\sfx_SDokiep.mp3",
+        "sha256":  "63D3ED13B0DE5F1506AA4F8D8CFE47999FCD54882831440FBC12AE7212C75439"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Musics\\sfx_SDokiep.mp3.meta",
+        "sha256":  "1AD14AB2D171E1B2FD17134907BA0723B21101FA1D2B08C994290EDAE0BC6CC5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Prefabs\\README.md",
+        "sha256":  "670393E25B49D78E4B1C6DD4BE5E655C52AFFAA4771065A71C87D20E4178374E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Prefabs\\README.md.meta",
+        "sha256":  "76FF4883BDAD2CC67663035DF93C329380925E1588DF5D6595CB4CD42378C05A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Resources\\CharacterPrefab.prefab",
+        "sha256":  "4E599A571BCB17B2D23B8E722014924975ACCF2DCA3DB6769E5B265B09FFE9BA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Resources\\CharacterPrefab.prefab.meta",
+        "sha256":  "2E3F0143AF5139786AC2CEB558DC7D3B9FC3820B1C069171BFEB8A92E73BFA40"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Resources\\TribulationPrefab.prefab",
+        "sha256":  "CB1BDE70153CDE98692763977538C9D468F5E70D15921CD4B899FCEAF88D8AA1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Resources\\TribulationPrefab.prefab.meta",
+        "sha256":  "23664276C45C5EF6CF096A8D09E2AAE742792507BBE32336432EFA886A3EE159"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Fonts.meta",
+        "sha256":  "C64316CB487A1C9D11999BCE6E46F183CD75A3F0C2FCF3A058448D82897536C9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes.meta",
+        "sha256":  "EA624F4FAC343107DE1DCFD7C8C5954B942AFDF8EC770EAFB93BA0BC68B7915C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Nameplate SDF.asset",
+        "sha256":  "5ABDA2973B8009199D55899FB159BF4804355E59868E432508C2CE77DB1E6C57"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Nameplate SDF.asset.meta",
+        "sha256":  "416A7123522D708BC0AFE3A48BA10A1834A470BE7D1483FE47AC9759E0EF3513"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Prefabs.meta",
+        "sha256":  "F4BD4DF25128D029FC30A072BF01F29259370CCCC57160929206F673D393F5F4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Resources.meta",
+        "sha256":  "97F12292F3C27395A64ACF196736DF96191D8B3B9821F04587DFD5CF9C46138E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders.meta",
+        "sha256":  "E71082207B62E1E3B64A950C7BFB4A9E52A4FC172B4DBB1453CF316FD38408E9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Fonts\\LiberationSans - OFL.txt",
+        "sha256":  "37F8552E9A874EC10710DC0EDE6A9ADF168E6609FBD02A507F35629373B85A48"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Fonts\\LiberationSans - OFL.txt.meta",
+        "sha256":  "099E90A0301C9A3D8C28622D954C97E93D0914ED0EABE1BC74D910F1B22CE05D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Fonts\\LiberationSans.ttf",
+        "sha256":  "E5B0AF421EA2BFBC1AC8D251D647268087AE82786234C57F757D1F0B90FA8B49"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Fonts\\LiberationSans.ttf.meta",
+        "sha256":  "C8BF2A3E019063EE373CFE4B0AE8489C6CA3576C64B4204307F14BFB8AB826AF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_00.asset",
+        "sha256":  "27DB45918B4D1A1F1BE0834B28CAEB404F30958A34E9FECBE2489C6B506A72B0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_00.asset.meta",
+        "sha256":  "288E77D518DAC1EF71DA3FE6CDFB5C69C045A57B1D25E159C1A2D670A7342110"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_01.asset",
+        "sha256":  "68375CFCA0CB61E5EB029966C5B040C84BB15153B325264777F5968F94F1E714"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_01.asset.meta",
+        "sha256":  "30727B59332047CFB8AF7D0BA6DBC4BB025C0DB18E7FF5CC7CFD974B2CD7B9A6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_02.asset",
+        "sha256":  "28DBABAAC89E8F0F6223112EA77DB8B80DCF705266F6EE737081D94D4C2F297A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_02.asset.meta",
+        "sha256":  "3776AFDC8087B3EA7452ED9DB9E20E28C1C86C9BDCE43A611FA57DAEBB0610F9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_03.asset",
+        "sha256":  "3918D528BEBFC503300CF1E002814C0169DEAAB0184931D8E8DAE104E69B8F74"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_03.asset.meta",
+        "sha256":  "185D4FCD76E7CB730672038AA824D7592E502B6C3C699368442E8DEB1BE56096"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_04.asset",
+        "sha256":  "76EDB6E3104DCC85FBA2360C55AC32EE3A671FF29575A4DBCE7A83FC47A405CF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_04.asset.meta",
+        "sha256":  "AE22EB55996D45A20A410928E8A7994A4F774564AE79733036BC4DB97074F1DF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_05.asset",
+        "sha256":  "C03A708E51401B4B32D9803FD50CE9FD78F1D03733AA8C019FE789E460AAC3FD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_05.asset.meta",
+        "sha256":  "A4531B9230FA4EEB99A746CE1F412FCD6DBD78D28E69A1D558AC5D76A0A154DA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_06.asset",
+        "sha256":  "D80C128DDC2425319EC36745DCE3ACFD7BE94104627E67062A568F6F41ABDD96"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_06.asset.meta",
+        "sha256":  "42EBE52E62F2B0305CD2B4FA703095521E8FCDF2CF881996F0F51EDB77FDF26B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_07.asset",
+        "sha256":  "AAD39A8F2C85D5B7BAEABC6B20F35D2B42A54669A311ACB2D2EECF73D658AE6A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_07.asset.meta",
+        "sha256":  "5C43A075C8EA081CFF3660CEF06F313407D46E41A37F6C5A1E4FE93D09585099"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_08.asset",
+        "sha256":  "B31AD1EC1D388673804CADA710102082EBE097FE15AA1878945AD473D00A6AE0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_08.asset.meta",
+        "sha256":  "556B88D2EE3AF4C4860CEC86BE5673F1B64270A91B33E237C5E5BF4BB231DF98"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_09.asset",
+        "sha256":  "D76B98986C31889189275CB2ECDD908FBC5E55DDEADA95F421DA905570FB9474"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_09.asset.meta",
+        "sha256":  "AD344F73EFF7FB33ED2BB7F052371E12433A758EDD8134A87965A698904C2EF3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_10.asset",
+        "sha256":  "15472A90EFE0FA6E8833A4F5A740656FB8F0242A2C46248C799F24088507AC0D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_10.asset.meta",
+        "sha256":  "79B8E0C8E6C50783D826F9ED15C6F0B5AB51104AF1F5FE4C748526CEA12FCEF8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_11.asset",
+        "sha256":  "42CE8DB1C798505457C12CCC6F4632A3ED6F3F267763EF04FBF60DD2A612ED85"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_11.asset.meta",
+        "sha256":  "D637F5B189B8AB4433A141A7DF02DBD22F93E1C992E6D456F9E8CD4E3EC42477"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_12.asset",
+        "sha256":  "A805AAFBE1C7C0AC977BCAF173193DCE9F2435D41C547793EEE001E749B3FA51"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_12.asset.meta",
+        "sha256":  "46F5CFF59C7195FF8184C76559B3D3A194493A0602550AC5742005ADFC845891"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_13.asset",
+        "sha256":  "D573C0AD3C755C6068DA022AD7F3A78308B2897BBA8F9770580C5FC125524640"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_13.asset.meta",
+        "sha256":  "FC096E25A73C2D120465AD386992ACEDB3C0D69D8FF005EB61F332E135EDD8C0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_14.asset",
+        "sha256":  "8D5681F2F9F36805E99105A62A510EBF64AC519456A1865B572CE6B0983CBEA3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_14.asset.meta",
+        "sha256":  "3060748661F6769BDCF3575EA113D01BC5691F5D0238C88FAF64C2F46B523205"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_15.asset",
+        "sha256":  "81D6BFE7C03F14271C0FBF9831712E5FB6F5324939886FE026954C4B1413C121"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_15.asset.meta",
+        "sha256":  "8BB96D3BD148EB76E98800688E62EDF9C9F19511DDF598C855C2474802BC2DE9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_16.asset",
+        "sha256":  "D95A84E2C78946D12E86D42D948FA8EC10E103762FD1982A82C652C7BF1471F3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_16.asset.meta",
+        "sha256":  "F8CE8989C9FC99491613D16F66A57F38FA01742FBE37F765894300AD5E57B431"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_17.asset",
+        "sha256":  "0B7AB7C212C7194B324DD741F160B27072401862739C3DA0B930BA80A95A7623"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Meshes\\Layer_17.asset.meta",
+        "sha256":  "A8C00371D77F79E8C56440677498679B46304C428A93035FF6FF757FE495519C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Prefabs\\CharacterPrefab.prefab",
+        "sha256":  "DCDAA3A53BB70B1D705929218E185C53E14698587454362BB8E164DDD561E868"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Prefabs\\CharacterPrefab.prefab.meta",
+        "sha256":  "EAE6E10CD47073E14D12F92A49DAE494C902E6EA1C366469F036345F0AF80D4A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Prefabs\\CharacterSample.prefab",
+        "sha256":  "73825F38211C6F86FC6353B1341EA6AE77A9A27C561C0AB5276CB29B7482C765"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Prefabs\\CharacterSample.prefab.meta",
+        "sha256":  "A49B8EE1C4D2158AB600148ABC16584A5E195E2E705E6961253C5C53904C6FE2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Resources\\TMP Settings.asset",
+        "sha256":  "527296FD860B06E959BA1BFD1B6055A77F19E001CD2D669673EB0D329FF3AEEF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Resources\\TMP Settings.asset.meta",
+        "sha256":  "D9A4706F6287B4D006F90702D44ECBED8CF13069F1CA5D5FC3C1F5238AF12E87"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\SDFFunctions.hlsl",
+        "sha256":  "88CF0F62E4000B71750C059D0886B19504CD1CF10F39BB61DDC11B77A882D417"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\SDFFunctions.hlsl.meta",
+        "sha256":  "54B38D4926778A54D57017972968C49CF937F19E93FE2DA0E9B2BB224758A2ED"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMPro.cginc",
+        "sha256":  "14EDB7D7B88CAF2B82CAE68200ABE895E5B5B3474C3FFFBF0E9B4B09A4E2467E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMPro.cginc.meta",
+        "sha256":  "5869F7D342D18060C0D5017FB1AEF8873F1826084CCF1ECF19D11E66AB381BB0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMPro_Mobile.cginc",
+        "sha256":  "D9D43DDD9810476162F21B42477D9CE2CDC4E6CC7571D354C3253AAFC6673EAD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMPro_Mobile.cginc.meta",
+        "sha256":  "D6C782DBCB5B4D64ED43AFA6833491B1E9172B0FA3899404786AB03CB352C06E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMPro_Properties.cginc",
+        "sha256":  "66DB1F03E8D7A413EBA79BCB6602FDB2DE710B586F34A6F2584ED6F68F028E90"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMPro_Properties.cginc.meta",
+        "sha256":  "5133E69509E402D8546F687C6E56926E809E861BEDA18C6AEB6B40A45D478CE8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMPro_Surface.cginc",
+        "sha256":  "244B442520282A66363D121C8D2AEEB30BB1E72CBBADBF41CE68D9100322ADE5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMPro_Surface.cginc.meta",
+        "sha256":  "32086EB235834746196AC5896787ED3F1335889559942406A076515FA7631704"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_Bitmap-Custom-Atlas.shader",
+        "sha256":  "42892A52F22BDDE6D482CF2DA5F35E4B813063FC6FE42189EEE5562080079494"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_Bitmap-Custom-Atlas.shader.meta",
+        "sha256":  "7BD4735CC8CDF94322B45F25BD91B53D3A537515B15AB16344E98706900F7825"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_Bitmap-Mobile.shader",
+        "sha256":  "B50AFC7EDC8A710F8B4159149B2391E7238B5E4076CC0EA2119090ED29E13B4A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_Bitmap-Mobile.shader.meta",
+        "sha256":  "59F8B7A90124A6FE9A99D44DF80A84B253190335346E2FCF164E8C7F896AEC91"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_Bitmap.shader",
+        "sha256":  "1D32F34C71276C1321AA0540A2410E15808743A38B2026923045A4DEC4A79B58"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_Bitmap.shader.meta",
+        "sha256":  "B0A2E7AABA6E68D497FCEE227936632649A0FACD5F1FA16B5583E571C9453B84"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF Overlay.shader",
+        "sha256":  "A0D318756CBA0F95A7052C387E629D0ADD3E9A4125C8333F1D1ED591AF5F17CB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF Overlay.shader.meta",
+        "sha256":  "EA969144E0144FC766881AEBB12DE4883FCC14915860C4222F7A2B988340E6EB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF SpaceWarp.shader",
+        "sha256":  "CDC87D1DF815B00E49CB2FD3010E872FDF740F89F81C915FD1A3D974BD8A596E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF SpaceWarp.shader.meta",
+        "sha256":  "40E371E731EAB87E525737909B7BABE3C6BAA06AEA8620AA207A228BA14670E6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF SSD SpaceWarp.shader",
+        "sha256":  "40F4D9F424E2B72CB80AF23439F383BC9502582780436222D84806CEDBB8797B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF SSD SpaceWarp.shader.meta",
+        "sha256":  "6488BFB4E000F3B2BC438731793747638B7BE2445F6386CB2605136331C4C8E4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF SSD.shader",
+        "sha256":  "2A991951B00B0C052363A1025F655450054325437B3D13C2623A987C8EC77C30"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF SSD.shader.meta",
+        "sha256":  "9B48A5AFDA32E1CAD405D9880A465D0961A0D5379B0FBA0A32178D1AB392D64B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile Masking.shader",
+        "sha256":  "41CFF58473557BF760D03513A8C098F43A24E4EEB4C8CCD7D828C045A338A9ED"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile Masking.shader.meta",
+        "sha256":  "6105B9CC275BC603A6E8D4D917E83F9712FA710B99411DB01BA04274ED75B492"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile Overlay.shader",
+        "sha256":  "FB286386D0592CE6D63EB736F180B4B0F638EC538B0855AA54767A438EBD1173"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile Overlay.shader.meta",
+        "sha256":  "585B47755C4B9547236416C175C45A788C05DF6A90F1447F0E1D90DB2CDD893D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile SpaceWarp.shader",
+        "sha256":  "D28725953A5B116C5C2E141BD7FDB8F7FBD3C0157F9DCCF5C88D96B488C969BB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile SpaceWarp.shader.meta",
+        "sha256":  "404D7A757BC61FAB3DB958C837ABEC19231D6BB22A205266E43CFDFF9E0079B7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile SSD SpaceWarp.shader",
+        "sha256":  "A9D58993803F78A3288BDA17903C20B3E5EEAF947993F5F9D3C2B783458D668C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile SSD SpaceWarp.shader.meta",
+        "sha256":  "274D228B71C3A8ADDF6D6522E0A288C9896ADED004948D5EE8C67922CADA9772"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile SSD.shader",
+        "sha256":  "8B30C140F6AF9134392FE6ECF4C0676DB73F873489AC52ADFB47BBD288CB51B8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile SSD.shader.meta",
+        "sha256":  "25B3D01992936C347C8358CB5067864677973C7510F3BE773348F57F8B4D4498"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile-2-Pass.shader",
+        "sha256":  "DD92066FCCFF4CE3C49EAA1E13C9FA1A9427E864B2FCB57E1E010C5E47459AC1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile-2-Pass.shader.meta",
+        "sha256":  "CFF0B535908BCC6085F94C00B2D9E9803D61C37090D44360123C158AF336DD79"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile.shader",
+        "sha256":  "44C39AABC7E88E7E1FEFFC1880DF754F4ADF86B62E9512AA89E9D2D65171AFF4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Mobile.shader.meta",
+        "sha256":  "7B177D5CD2FAEA20E28CC12E357E29AAB8E9010600689557C0C7C0B3D18E9531"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Surface-Mobile.shader",
+        "sha256":  "F9FAE5906DD37D89298338953294459975DE58A5421E68DD9E82A79794B95509"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Surface-Mobile.shader.meta",
+        "sha256":  "6D3E50021BC400599CD7DEFFE5A0A5653D3655790B3CA851E39432056AC779B9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Surface.shader",
+        "sha256":  "5DADB68B56429547918B392626E9AF8FD5173936D20BB43CFCA58DFA00947257"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF-Surface.shader.meta",
+        "sha256":  "A0871898D0CEF66CC15A369F1B38DA20230EE3C75C09BE52A024C04D3C2B9C6E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF.shader",
+        "sha256":  "10EFE6D4728474A09970B857FAF37913793E168DC13DBD4D7316B54B37615D97"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_SDF.shader.meta",
+        "sha256":  "A27290834FDA9A1F1D6126C4754566957A3617D3BAA7544FEB6882887BE8FFAE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_Sprite.shader",
+        "sha256":  "AF669BB9AE136C8099F8E0A94A6933FD2F1E1FB0A6842129939A319FAB4B8DBB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SceneAuthoring\\Shaders\\TMP_Sprite.shader.meta",
+        "sha256":  "7EE56236A6C4E65D8FE10B68BB1D8EE445C95475C7A5B8AF1C73655764F5CBDE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\Bootstrap.unity",
+        "sha256":  "A6233958DC1E3531ABA08780E223F5FE1876527CB72388741CCE8D129CBA9C38"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\Bootstrap.unity.meta",
+        "sha256":  "DC1CF0CC6E5D9C37F5FE5860CD009FE44AC43A5007BA3208C140CA20657A304D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\CharacterWorkshop.unity",
+        "sha256":  "10E5A0D5EADA89BF2B2D8A7BEE62446BDE73061BF57E42CC7ECAB8B8A124D99E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\CharacterWorkshop.unity.meta",
+        "sha256":  "B7A33CAC5F192D7858D48277D3D707F8CBCC509F2A2AFDAA6A01B8C54A321EE2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\NetworkTest.unity",
+        "sha256":  "761B332FD3C11369D98DBD79F35DD46141343FFA48D2630E6D9F715E715E2B22"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\NetworkTest.unity.meta",
+        "sha256":  "694FAD55720F15009EAC8DEF5A684ED030CA6851422648C4EA385FB9468F57FC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\SectScene.unity",
+        "sha256":  "02A8D0C9CC2B56A2B3CDF3EB1F56A156A4316BEABB70905B170217616F446156"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\SectScene.unity.meta",
+        "sha256":  "D51E8494AD56D81567E4BC4D157024302B512D88AC902DC398E9AD7BF3535280"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\SectScene_Concept02.unity",
+        "sha256":  "C3BEBBD9BE543FBCD5D8C15E7AAB9EBF194A36E8A0E3E16D09067EDF0FFCE489"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\SectScene_Concept02.unity.meta",
+        "sha256":  "32D3F310FB04D0BDBD302778717984291C72806A34D95F61D22A03B0F6DE67DF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\SectScene_Main.unity",
+        "sha256":  "8626B243D38418FCF8094396AD582C1915BF5EF80546B1CCFFFCF28E36B7824F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scenes\\SectScene_Main.unity.meta",
+        "sha256":  "2A7D864797961DB12F08A51692A9381F0D9CE5808FCA7400639C20AD26A8D5A1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Audio.meta",
+        "sha256":  "0EC8F3D6D2B05012A4752F6791CDE4A6F9B8D9BB918A453636F96334BFBE5DF5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters.meta",
+        "sha256":  "085E72E41C2DC2F961F3ABBE3724CF0A8C9261E64EF5763E86FE2CB634DD8F34"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Effects.meta",
+        "sha256":  "E43AE72536E3776C2E7A3F9397ECF1726595DDDC127331F74F29DDA5D024B28E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Models.meta",
+        "sha256":  "DAD5E3833AA84EEAA13CCD0440AB1EA70AC82968E967E9F46DCB8D4F0CA1D7BE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network.meta",
+        "sha256":  "67AC23822FF50B79F7595CB7EFD5C6C4FB8E280702ADB98EEE5B18EF47474651"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Presentation.meta",
+        "sha256":  "A23B9D6FB7A696933CBD32DABB795040D6361828D8328F3AFC8244F738C0700E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes.meta",
+        "sha256":  "150318F2ADD5794C9DCA43B6DF2CEF2DC674091170163DE6B2A19BCC0B41057D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\TuTienLive.Runtime.asmdef",
+        "sha256":  "273A6B31F26755D02D9A33E1AEE92CB85AC06E8FD59CA50D8A1C0CA25F1368CD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\TuTienLive.Runtime.asmdef.meta",
+        "sha256":  "E5D25B78A2EACB338B035D98475437FE3DE75BB932D4ADFDB41FEA2A54B16783"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI.meta",
+        "sha256":  "D540744726A7BDD1F87B5D3ED73AAE6847E8DC379661EC089B58E10E8FF8BEE2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Audio\\GameAudioManager.cs",
+        "sha256":  "37CB070375098AEAF33872FB56AC55F4173D09EFF2F3DA79A6ACF96E6657021A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Audio\\GameAudioManager.cs.meta",
+        "sha256":  "FFFA52330ABE2746C1175DF6807C6BC5BDC9118C52A5644092BE8903D8D1938B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\CharacterManager.cs",
+        "sha256":  "41747E19227B8797C505E9EBE4E89906D9BDE784E39759312DE2C291AC3A3E84"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\CharacterManager.cs.meta",
+        "sha256":  "FCBCF4FD60663490D82D1483694E67C4895AC3E1F2D651B660A18624696F3AB4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\CharacterPoseController.cs",
+        "sha256":  "2C5FD12A623E9F2D4224EDF0E17C2A083599870C7211AB6F2AF7960165982F90"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\CharacterPoseController.cs.meta",
+        "sha256":  "1C8ED124CC9FA93944C0751E4F21FE429B1CE8114EF7BF0D6794B6887B0B4B8F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\CharacterView.cs",
+        "sha256":  "010ECF8D6934ED16C877768A85FA85F3B1244137145FC8E048B9715A41DD8125"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\CharacterView.cs.meta",
+        "sha256":  "C0112DE2E241CE196D9D704CCC62D644093273518440B1377AB7357FA1028FDD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\CharacterWorkshop.cs",
+        "sha256":  "FCF98352B326931FB9CA4BA23FA90052B3AEE0509F867A4463CF712D312C262B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\CharacterWorkshop.cs.meta",
+        "sha256":  "54CF74B6301639770E7C3D0B65F44BC11BAFBB3B37241A509F13F847C0EFCAB0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\README.md",
+        "sha256":  "F691E819BF9C61A878414C7FB1DD3B4AF565D522FABED68FF3C79557F3A8C55A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\README.md.meta",
+        "sha256":  "3C8EDCA8C658B5F1DA9C8DCF6C4619D66A257D6CA0BFA222E62328F7D515AD4B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\RealmAuraController.cs",
+        "sha256":  "DB4E04C3C37C4C54F511E10E6FC14F0DD5EEBBECAF000B266A6AB6FC1E19BA83"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Characters\\RealmAuraController.cs.meta",
+        "sha256":  "D428FEC1D262AE2E9F2AEC2824AE68AB6E3AC72DF1040084240C2DAA58A41B0E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Effects\\README.md",
+        "sha256":  "AFD91E1F8449B8706E466AA9BACCC6F273BF13E655D84093C5D898ED7AF6B262"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Effects\\README.md.meta",
+        "sha256":  "5884DC6DB958C51D384256E4E192A00AF56FBEFC42C783B0AC6C1EFCB75A75C1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Effects\\TribulationController.cs",
+        "sha256":  "0FA7A2A9202DABE902846435301027DCB2D8FCA9B190846C2075AB6D6F9B69D6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Effects\\TribulationController.cs.meta",
+        "sha256":  "BA5FC0509DF7964BC7E937790ABD7F590B3519B920C1C28F3A21EFAD14F5FD26"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Models\\GameModels.cs",
+        "sha256":  "8A250D10E49AA9EB5E5FB94E3331F7D4D6373449D7874121F346C59664C6B7D3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Models\\GameModels.cs.meta",
+        "sha256":  "C0CFF566A688B8FCEE01FD096313BC2E2D4B46CE0F613D4FED12D8FE1056ADAA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Models\\README.md",
+        "sha256":  "E81554B21DB72F4AABFB7609980CB73C1ACC0D5FD8372D1D4FBA69631A944015"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Models\\README.md.meta",
+        "sha256":  "4B68995535D7739005A878479783BC514757A921AB52F2368B7C3065D2B50C5B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\NativeWebSocketTransport.cs",
+        "sha256":  "7E22942B4ABCB66C202D2F64AB8760E062C048D9D8BE44F895700EB69D53485E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\NativeWebSocketTransport.cs.meta",
+        "sha256":  "F03C0196D008FBA6241209DBA87A595F67720078945A338D9AF807C269F28A48"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\ProtocolSession.cs",
+        "sha256":  "FA73D59557BE151AD0F489F56D8B6F8A9BE47A080E91331482B9CE0EC901A58A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\ProtocolSession.cs.meta",
+        "sha256":  "B2DB19113AAE40AC1F3663215CC62C9786982D5A3A858FFD4AAF0D78897AE003"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\README.md",
+        "sha256":  "FEAC891F1511FC3776F4021E44749BC3B97178E0EAA91B7A2B58DB180A55E1E9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\README.md.meta",
+        "sha256":  "FB6D3E73A96E614E952220605A289EE67FBAEC5AB6E5DC313CF6C914CECBC9C2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\StateMapper.cs",
+        "sha256":  "6F413FD17ECC10F8DC386E4F018D2C68AC44024BE363F032E3644A068FBA51E7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\StateMapper.cs.meta",
+        "sha256":  "F57016A5A389ECA7898D9D0FCFABD8FC5E3E29730838D299CF527BC92456F737"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\UnityWebSocketClient.cs",
+        "sha256":  "62BE3C5B74F01F7B0D0D7E2A8F18E28D8B84C87E5049626EC6287A11D03C653A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Network\\UnityWebSocketClient.cs.meta",
+        "sha256":  "FCBA9B2B656AB5F1E6F85BED46DCF4A48B86FB2728B06F2F4994C28120748945"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Presentation\\LocalGameState.cs",
+        "sha256":  "711ABDA4BF7904A09DDA55D08E763BAAD344D3FB1149F72E5B50CB39D8F32050"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Presentation\\LocalGameState.cs.meta",
+        "sha256":  "1CC4E435A8CF132E3F38017AF3F07A5D594BBAB5FEA714987266D8BB4FBBCD1D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Presentation\\README.md",
+        "sha256":  "20BF6433B173EB975EBAD99B9D32430E62A237AD8DAE3FBF634DD6AC358B1B6B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Presentation\\README.md.meta",
+        "sha256":  "8A1154026934D4C86C4285D20B844FD6AAD9A0ED69A2FDD6346B49454113FA2E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Presentation\\TransformOffset.cs",
+        "sha256":  "E1BD31A72C4B60E7AD1B3357F20EAC914ED145D257886F3CF68CC9CF6B7FC1A3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Presentation\\TransformOffset.cs.meta",
+        "sha256":  "165C5595B0F3B33D1100155587395A56B6BEA93167409555BC51FBB45724280E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\CameraDirector.cs",
+        "sha256":  "DEA53EFD50D7B928DE838A90E39C4F1520F6885F26A3597E97C53CFE71062D7C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\CameraDirector.cs.meta",
+        "sha256":  "7324AED359CAE9930B9F4DDE76AE7AF5D9D3629468FA1C4850A8116FCE27B3C5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\CameraRig.cs",
+        "sha256":  "C6E0CB2CBF6E238FC7AD9E068D7CC406368AA121580A4C646B34768C47B83414"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\CameraRig.cs.meta",
+        "sha256":  "1EC153D04373FA5009EBD663843F5C37885BA56CE0D1B11095C1143F91965621"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\README.md",
+        "sha256":  "6BCDEF2116F93CE53345C1190E2CDBD2189F1A0E36362FB82E88B6E597B71634"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\README.md.meta",
+        "sha256":  "61723C8C53565D0D1133FD63FC8E89445B612DA9BE9B620429515F673A80EC4D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectCharacterBootstrap.cs",
+        "sha256":  "DA04A4CF3EEB7989533319D28EA98700A9A5A05551767393F7853775469C0E7C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectCharacterBootstrap.cs.meta",
+        "sha256":  "A545F004AEAC19EBA51B2FB30D6C3CA2C103669367F154C447BE51FEA0DF7E65"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectLayer.cs",
+        "sha256":  "BCBA5C75F36E83F58C9B09D803778C71116A04E6AA2007A856BBA2E207CCD78D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectLayer.cs.meta",
+        "sha256":  "6B0CE1265ACA724DC31F993015436B646CE65698D4E624D0C1CCC0384E6139D6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectSceneBindings.cs",
+        "sha256":  "9BD983DE4819BCB474DAF2009D44CCC1D8A3797CC068C513F1E3D4ECF5D602FF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectSceneBindings.cs.meta",
+        "sha256":  "48ABFF6059D5ED2CB79C766FAB0D095548491AD42A9A4672EF43A10F9D86E6BE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectSceneController.cs",
+        "sha256":  "A7BDA045DA629B334A239C4E484E1EA48C29365F3C246CDD416EF18CE7ED3458"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectSceneController.cs.meta",
+        "sha256":  "6EAC0449EE4F7F16A48F181AD92CD43DF38B79979E24C18B209754E9737A9545"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectTextLayout.cs",
+        "sha256":  "19A5947BFB99AFF3EEA665D9D64307A722FB703E7AC23E859F58A4A2F135E8BB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\Scenes\\SectTextLayout.cs.meta",
+        "sha256":  "FB9A0AE0A92E9198A92B0014F368F3B5897A3DFE8C0B7E8E1F3D1BC7E39E8AE2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\BlessingPanelHud.cs",
+        "sha256":  "48D36749505466927147EE59806EE17706CEF8085978C68BBD8CDCA38C23AB6C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\BlessingPanelHud.cs.meta",
+        "sha256":  "1E51FD3A87DFAF5F6E1EB974BAF88026C1687FA968B9D3D19BF1C29F23EACB2F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\CharacterRosterHud.cs",
+        "sha256":  "39CC65F60DF439EFCCC88363CE2E652BFED4538215DD81AEB3B7EEC9E4BC39D3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\CharacterRosterHud.cs.meta",
+        "sha256":  "4E4A353E482170FDE345B1790F588BC4985F2BD73722652EA3DADD4F86C6A680"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\Concept02Hud.cs",
+        "sha256":  "1F3F0297DE190CC1F9382B6A300D2B4BEEB63F7E7A3F023D44903CAB4EA37FB7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\Concept02Hud.cs.meta",
+        "sha256":  "9ACCC89A23204F01C887BA4C402A259245DC13702972210D2E70D2DACC332D62"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\NetworkDebugHud.cs",
+        "sha256":  "B181AE27483B47089B5C30441AA6FD63BF1E27E1A50B8A3E39255504E287813C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\NetworkDebugHud.cs.meta",
+        "sha256":  "21952A54C338BFB13DD63ABB4FB354AE01E6D1012BE9D97EC33D54CE36B60C3C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\NetworkTestProbe.cs",
+        "sha256":  "04C17D496A29F07F64934A23219B1BD6818C3BCF980F1D25D1CCE108C532C442"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\NetworkTestProbe.cs.meta",
+        "sha256":  "2CDC60DA5254EE852CC10F74FE2BCEBDE5B12B2D514FF5F031E1FAC403FEC0ED"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\README.md",
+        "sha256":  "9B43EA907B5B79C19A5E8F6BCC0E138E71E706A07CD266683B35E0046EE6D4AD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\README.md.meta",
+        "sha256":  "38164F29854B9F2E6D2EF59A804C4675E5EBFDBEE54FB1941AF1DBC7E4293731"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\SceneAuthoringProbe.cs",
+        "sha256":  "783B2CFB284895B7D74D4E25C868575FEC3F194E51CEE70B11BD21E792D40BB8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Scripts\\UI\\SceneAuthoringProbe.cs.meta",
+        "sha256":  "97F297E2FF45D1C176FD00EB8302D90717A7D8CD3A8D5004A0ECA2557B8E398C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials.meta",
+        "sha256":  "367057F0DD52AA96D5E0E1ADDAFBEB08868AFB5ECFC33F0F406C6268524CDB3F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes.meta",
+        "sha256":  "9A0562AB68F73C64E207C4E999429A93118179F77FBF378A4B554975411A8D55"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Prefabs.meta",
+        "sha256":  "52048512236A023813B3DBB82E6C87289B04EFFF685690211F2E41BADC261932"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\BreakthroughBeam.mat",
+        "sha256":  "2BF46CF621C47493DB84503BF3BE7CA2650E1B1302DA6702F294921BFB78FD14"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\BreakthroughBeam.mat.meta",
+        "sha256":  "F2C74165387825B65B6F69F0A773A971703615485EB18E955954D407EBC554FB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\BreakthroughPlatform.mat",
+        "sha256":  "9E24D78354C00DCBAAF231B31C1BA2443CAD2FECDE711F0A69574D21151A08E8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\BreakthroughPlatform.mat.meta",
+        "sha256":  "E19C4227B4F0ADC87196056E340591A630229F136CCADF1D2D5A0A733C9CA48D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\CherryBranches.mat",
+        "sha256":  "619F718B84ACC63A1589B0E77F742051E0F0E2C6F98AC293F13E4761743C6A1F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\CherryBranches.mat.meta",
+        "sha256":  "A429E32B2D33B85585CB8C8D92D6AC56624516035CDDEFAA2409F22C24C52A4A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\CloudFar.mat",
+        "sha256":  "F63458CC959ACD1B37C7A21550580D5729D08875340CE374D49B5A4F87240D5A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\CloudFar.mat.meta",
+        "sha256":  "BE758E031A68BF11E5B0EBF0DF791B0EF4B67CEE40929F7D92731A6B786785BA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\CloudNear.mat",
+        "sha256":  "0EE5092316F670ABF95A13C3E82F7A03726043567E47838C3BBBAD30518946BF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\CloudNear.mat.meta",
+        "sha256":  "4DD1B92A2BF7B932CD41571997B00C3D54D1278C9A3F0C47E8FF8AE6F5D6AB74"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\CourtyardTrim.mat",
+        "sha256":  "FED47E4AF82C9850C6F754A8C9E311FE94D293ECD5F05CCF67F3964D6F9A34D9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\CourtyardTrim.mat.meta",
+        "sha256":  "B0192EC3BE9A9D26391ECDF6B7AC0E56E6DC1C9FE64D33E43E135EB3E1C7D817"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\FormationBreakthrough.mat",
+        "sha256":  "8E0641FB41ECCDD985B8F289EE375FE354F78DEF00DD081019E9FF9AFDD1FED1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\FormationBreakthrough.mat.meta",
+        "sha256":  "A779CEB4B71AF740B52630DC67EE34FC653090BF524268668C1062F8C55A3C3F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\FormationGround.mat",
+        "sha256":  "62107DBF2B62886A5DF83D29569B3F185970F671B02CD60474A5BE35EA28EF6D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\FormationGround.mat.meta",
+        "sha256":  "FFA7E370E46F75AB268BD786D163327D2B1F593CB30BBCB453A8E8453F7C9762"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\MainCourtyard.mat",
+        "sha256":  "316A49F33838CD6B917E3E40998833905EA6C1EE5D99FAB5E302A1747DCDD2F4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\MainCourtyard.mat.meta",
+        "sha256":  "F1819B972178370B8097D3C891EE4C915252BA6752DECEA02FD8124412436507"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\MountainFar.mat",
+        "sha256":  "9EA55E3E5E7C671FDA5AE653182B394D4255AFA48DDE91C7D4C0DEE355701198"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\MountainFar.mat.meta",
+        "sha256":  "4D51B9CF4EBF27ECA01931C3429BBB31CC846B5EAACC75CB69E41E1948080A69"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\MountainMid.mat",
+        "sha256":  "9997D4475303915A807BC8832754B2C006CF8871C78F04086AE89502F5584435"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\MountainMid.mat.meta",
+        "sha256":  "76CE4FE7296AE4563D0CFA29650CE8E4951EE1F6A02648B52CB49377042B9D12"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\Petals.mat",
+        "sha256":  "B42435271461DE8B58ED7043BEC5D8DECA78BC5FD90D4CCBD751AA8C2699446F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\Petals.mat.meta",
+        "sha256":  "6E774CFF1FAFB1194A573BDA1740C83921E546C0E37B6A26FA5E27FC5B283FBA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\Sky.mat",
+        "sha256":  "7FBE4B75BD6FA2446EF1F655907493FD828B58922679A47CE2B1FD4A094731D9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\Sky.mat.meta",
+        "sha256":  "9FA8C30512C71E110A1D6D76A5CB97EE81838715FB0320037F0CDA96EA3865CD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\SpiritualParticles.mat",
+        "sha256":  "A43C512055CFAB47920B35A11992A58F1A5DD1D46EF560E1BC9DDFD7D82E2727"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\SpiritualParticles.mat.meta",
+        "sha256":  "B0164BC52000950164F62BE879A5215ED7AA0375B9ED6740C8F6D12EBE799C00"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\Waterfalls.mat",
+        "sha256":  "29411E7CD9298E0F97EEE4BF4F9EB908B46C2B743FF53AED390601DD9378DA2B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Materials\\Waterfalls.mat.meta",
+        "sha256":  "A97AABAC99D3C3AC68BE68B126E5ED01175F8018EBB029FEAC199E2534D423E1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\BreakthroughBeam.asset",
+        "sha256":  "A306DBF319B2DCFDA888F3BC7B206DA38774E2E160A9AC88C5A9EA382BA4BFDE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\BreakthroughBeam.asset.meta",
+        "sha256":  "3368E4F56FF1941D4921A0C6CBEC62B6818E437C5A6752C85E45958EF7191376"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\BreakthroughPlatform.asset",
+        "sha256":  "FD6C5453B96DA2BF329E08D4D8054A8FF177A90E9A30562E120672136B9B2073"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\BreakthroughPlatform.asset.meta",
+        "sha256":  "56504FDFDD43C433F7467D8F26F8AC5E70D022A07DE12EF6619ABA8AC308853B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\CherryBranches.asset",
+        "sha256":  "D950F3EC0C92226B2517C88F3D5C472D2E8F0880A8B79B65FC50F0ECCA19CD62"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\CherryBranches.asset.meta",
+        "sha256":  "4B65282B431FD8C6EA19CF730E266470A0EB7D84A0979D3F8F44793A04096176"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\CloudFar.asset",
+        "sha256":  "80B78D5D992B236349D4176E7DCBADCF3185CB227B5F9EC243D5AA70D42F069D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\CloudFar.asset.meta",
+        "sha256":  "E26B64A128EEA825C3046279E6099EDB6CE9AE33533061D443C985C10CDB578D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\CloudNear.asset",
+        "sha256":  "C59080696374B23C0556F86BDB5A769C141D2ECB5062E46A14196A05E3D9AE12"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\CloudNear.asset.meta",
+        "sha256":  "980F68127033C155FE5D034C1C7D60BE6484F387DD197B3A4CD62EABFE6B0965"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\CourtyardTrim.asset",
+        "sha256":  "43E513EA005AC7140AFFC42ED772105DE4962F3C5D6DAB7950BE003E9DAF1DEC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\CourtyardTrim.asset.meta",
+        "sha256":  "A96CCF6C5FB7879493DC3BD366E87E5FA80EE46586E0212E46768BA136B68B38"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\FormationBreakthrough.asset",
+        "sha256":  "CAE4487E8456F6AABB9CA36E79A75C8FC7CD9BDF63FBF37E828F13685D0B1D1D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\FormationBreakthrough.asset.meta",
+        "sha256":  "9E48B4E9B9983618FF97A9C03FD0D8A132E1389BDC7E28A0FA272D9CB20EDF58"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\FormationGround.asset",
+        "sha256":  "CEFA7AB9B05FB6BDA7FAB8C8BB3E22B532AD6681197F8E7EF7547E9EF4264B6D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\FormationGround.asset.meta",
+        "sha256":  "D5B0FC7DEBA6F63A367DA54B60F1CE14A6A01EF5FCD6A1DBAF6551422B3E4D93"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\MainCourtyard.asset",
+        "sha256":  "FEBD39C588AC9989E643DDFB56A07D8ED3475C99A2095087C2264AC6D11BAB5C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\MainCourtyard.asset.meta",
+        "sha256":  "695BA4CA4B43A55D86A418D42CA4FE51B03CF0A51D68D68069511E182B5F4C97"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\MountainFar.asset",
+        "sha256":  "81844BC1BC448FBE45547C65D3444DFD69044C990D1AE93D3CB5D43C0062041C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\MountainFar.asset.meta",
+        "sha256":  "96ACB6A203D6D53B620AE867D6CE81EE5A81CB99A9F47D107B99AFCC571A469F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\MountainMid.asset",
+        "sha256":  "C1B38EAAAD06BAD00E1B21A2100C4C66EF8BB06A5C67B6389ADB6F32BAB304D1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\MountainMid.asset.meta",
+        "sha256":  "A6E03DDF1564AD5E2B2308335017D49858CBDB8BC2DBE999AEADA0CE95CC46A7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\Petals.asset",
+        "sha256":  "502C9439DA69752D9C9C45A7C8DC9D6223CF296BCDAE92FB0F3FCB21F90BA25C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\Petals.asset.meta",
+        "sha256":  "10B16EE6CD2E6827248A1494E28A06B65FB6A759D73AEA1CD9723CBFBEEA539E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\Sky.asset",
+        "sha256":  "03B0BB97934072D448A61D4EB7A27651C1ED6C59AC2FF92ACE7DD793CB8C3ADB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\Sky.asset.meta",
+        "sha256":  "18F2C7450FAC258726AC6C2878EEED47685285E943F7221C2DA06AD85E85DAA4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\SpiritualParticles.asset",
+        "sha256":  "4AB17DC2B6C05EF2CF47D987FCE15E73092366831B563E3C227719C0F66347D9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\SpiritualParticles.asset.meta",
+        "sha256":  "80B2A30BBA91C268709FFBD7FB52FEFE27C4B7C3A57742AB4EDC23FC9D601CFE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\Waterfalls.asset",
+        "sha256":  "B90FB5796C4ED37A136246B2C3D8D395399A350244A442BB54E2BCB8C0A12BDA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Meshes\\Waterfalls.asset.meta",
+        "sha256":  "96CA040F9AD03F559CC4719DC7C814826E062E805EF368C31CAC4CF897B83FFB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Prefabs\\Character_1.prefab",
+        "sha256":  "73E49222A9E654840DDE8E032E9124620980BFC35FC3A4F7C7C58E46EED51629"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Prefabs\\Character_1.prefab.meta",
+        "sha256":  "557BD68B7B6F4D09107B9E0D210C5942D95DFDE6014FFA7761533142B80FC752"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Prefabs\\Character_2.prefab",
+        "sha256":  "D68E76BB1C6D38064E6AAA1DEB689E8AFFD74964E7D8B632BFA31E1785487558"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Prefabs\\Character_2.prefab.meta",
+        "sha256":  "3DB4CB0411C50AEE97144B1AD9AB82188FEBD29B273E677FCC81861B0A14EF81"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Prefabs\\Character_3.prefab",
+        "sha256":  "EC66FD2E2778C690AD640280ABB7A30C6A1429537F732F4C0EBE85AB5FCE01FD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\SectConcept02\\Prefabs\\Character_3.prefab.meta",
+        "sha256":  "172AC7D4CD332F9EFA00457E54C8650A7FBD02ACD29267C2C47D6945E8E3B7CF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Settings\\TuTienPipeline.asset",
+        "sha256":  "0F75E5FE8DC3AA0F88DC0E9606F44203E4896DB1E77DED67F40B13ED849C2B6A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Settings\\TuTienPipeline.asset.meta",
+        "sha256":  "D56EBD61945279EA43CE63975CCF547C922256A65890C3445D7A548C8A43B7BE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Settings\\TuTienRenderer.asset",
+        "sha256":  "AD92BB404642ABED94A7012106DE50B9FAA67A7AFC4E798103F26536BCDF30E0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Settings\\TuTienRenderer.asset.meta",
+        "sha256":  "76A5D88FD513B02B091D2C546AEBCB1F84C469A124957852AD3DE77F62D264C3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor.meta",
+        "sha256":  "89E334B424E140437120BBCF6A16A214DE62E12AF2957226FC2CB23CA9F9B30B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures.meta",
+        "sha256":  "5181C5E87758951D548F2380A8FDD63F4F8112DD5A3225992F20E59D3D6D483F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\README.md",
+        "sha256":  "4A48EBBD62AD194D005DF7462932737A306FFB33C1645BFC7C46DA3E758BAA88"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\README.md.meta",
+        "sha256":  "8177D46DAF11AFB9106EF555A275BF088711797AB48DD571BD2A0F61DF4A10EF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\BlessingPanelTests.cs",
+        "sha256":  "94EFE6C5E52A0D1EB66CED172507CD977F23673C2DF106788C00917321492E09"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\BlessingPanelTests.cs.meta",
+        "sha256":  "DB848BB81B2C09F55E8C1D9C8A54D8958B15515253E797F6F9000EA1EDA7AAC9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\CharacterTests.cs",
+        "sha256":  "16B37AAF0D9F769A514218ABBB8160E0E35C09F955D48C3E8E9F5898FF465161"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\CharacterTests.cs.meta",
+        "sha256":  "C649BF1B3A0A36413EB2597FB31EEACC6FCA09892DBA405BDBB5F7000F3394C5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\CharacterVariantTests.cs",
+        "sha256":  "CE9295A27774A3E1D6A4C362A3DE2D1335A87F325821FC806CC43C560AF3B517"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\CharacterVariantTests.cs.meta",
+        "sha256":  "AB53D5E934BA5A1D23C934359809A60214BA1DCB440FBDBB63AC507903DCF9DD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\CharacterWorkshopTests.cs",
+        "sha256":  "1E56B7A459AE65EB08637B4D0E3999C8C5271DD9444FF568A66C565B0B0BC80E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\CharacterWorkshopTests.cs.meta",
+        "sha256":  "C3529263029ADE92E08B62B73B37CB2B84706B23B3478BB444C99359B3EC9E3E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\Concept02StormTests.cs",
+        "sha256":  "5A07B0C4EF17BA5077607BA979BF7E180BA7DFC0DB7F9121BDC13D38EEC04A59"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\Concept02StormTests.cs.meta",
+        "sha256":  "D6FAF8CD1B69DC721A5AE42CC09A46BF73DF2BDBFC8ACD730BF8B66B82C2B6E7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\Concept02Tests.cs",
+        "sha256":  "0A369F4C91B1F09C35EFFAE549748A3465946BD2A545B8D8FA1A37CF21E3DF03"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\Concept02Tests.cs.meta",
+        "sha256":  "E9E7A6E15BF73DF8D69AF979232FC5056FA3C0074535E0F1FACDA595809E0E08"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\GameAudioTests.cs",
+        "sha256":  "30A713A9CF465AC08555EB4C13ED583E706908DDD9CB9B5A797FA3DD3FE56EE4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\GameAudioTests.cs.meta",
+        "sha256":  "F545590C446B550F224BB6A8EC12B3F707B24E636EC7664ACD304653078C6DF1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\NetworkProtocolTests.cs",
+        "sha256":  "5CDA357CB6C7B880E91497A577AF95043037591C05B9DCAD822CFDB26D3A2C46"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\NetworkProtocolTests.cs.meta",
+        "sha256":  "16B752E7735AF0BC45699ECA51536302D3A6534D5DD109BEF1BD02113855C73F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\SceneAuthoringTests.cs",
+        "sha256":  "D9ECF1714B557BE11896DD6CC1BE315DB3EE2211C6DAEC50D4DA9A5362A1888A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\SceneAuthoringTests.cs.meta",
+        "sha256":  "84AF19D198081E1187D3201C63AC54C91E246878B971D4B72B145F4B0748E433"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\SectHudTests.cs",
+        "sha256":  "D01945378B79363D0699F26FDF0BB89261D57EF8F84D9A1C39C946344625F88F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\SectHudTests.cs.meta",
+        "sha256":  "54F46CA11EC3B4C2799929E0D57F2E89B5374BDE2AC5D541B7B6D3AE5DEB7BDD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\SectSceneTests.cs",
+        "sha256":  "301768130C640B1213E947893478BA75D7B07BCB290093C78AAE5E54CF10AFE9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\SectSceneTests.cs.meta",
+        "sha256":  "862EAFB0846564B91206BC2046506295D1A83FD43273CC95519CD4CD77AD2CF9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\TuTienLive.Tests.asmdef",
+        "sha256":  "4777BF0A6E938A8F1E077B55884C4D4995ECBCFDB7959D67B8EF353F76606A96"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Editor\\TuTienLive.Tests.asmdef.meta",
+        "sha256":  "262A1510C1C83CE4D8D2D324BF70601458E2E5DE620350C8ACCA75AA9146F279"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio.meta",
+        "sha256":  "75D60B2B9F419DDD877076A8364E86FB24C207E4F1926294E5D1B243A7C6F527"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\battle-result.json",
+        "sha256":  "9310D2873F56DE841A28DFDFDD40DA494B89067015F3D2C2CC00AED54E66A3EC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\battle-result.json.meta",
+        "sha256":  "74EB6EDED0C3C2B9BA9513D8BC199C2D1D265592F9EA294883F7EF31289A53D4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\battle.json",
+        "sha256":  "BC0379A41E9DF991C4BECD435D4F71C3A3758817BE1C3A4DC2B71158A8A71DDA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\battle.json.meta",
+        "sha256":  "6657628D6FE4DF51F0E7B5D557C4767B48992866BEE93D7DDE2E58738ADE885A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing.meta",
+        "sha256":  "5C69504AEA9B8D3F82EF18FF916AE839C01FA14816BB045AE3F0AD0262673B39"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\breakthrough-result.json",
+        "sha256":  "33FABCC322BF6C99E217D8FC9728236E5A222F3093439EE13736AC71763D955B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\breakthrough-result.json.meta",
+        "sha256":  "9F2E085FC8F1FFACF1DDDE37CC625A0A686E4D5BFD74E806DA18A818FC94F1D3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\breakthrough.json",
+        "sha256":  "699DF68AFF2C7F55FC43560E93D7C9107128DE266F7F2596816E03007B31DD54"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\breakthrough.json.meta",
+        "sha256":  "3BE33F96FA4DB9C26460FC1513A5F20F4DC59620D183FD6E111997B4683C1B3D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters.meta",
+        "sha256":  "23F4AE9F3329FFACE72646C391AAC01EB75CD22F28960A6124E32B29B8CB2E10"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\cultivation.json",
+        "sha256":  "7D094295C1DE1A2770EE76CE35EF9A69026D286B28BAE1FE6176CE9F9C9FF666"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\cultivation.json.meta",
+        "sha256":  "BB83C14F55069EE0FC8FE5E935F9CF0DC5D6927C74BCB232E311835158D4F426"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes.meta",
+        "sha256":  "92437345E0E8CC9A54E00BB81E02214355F62CF7AA12F268A1101B033F3F0124"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\events.json",
+        "sha256":  "BBA7E01EC4E607F1C1D2AB8EC11BEC4CB8F15292CBB292B6637D27306024F1F9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\events.json.meta",
+        "sha256":  "1B0CAEA17378B6FA346ABCB1775621791010F4012001AF38635DA41D577CFF8F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\paused-battle.json",
+        "sha256":  "2CB529DE1AA63C3A753C4CAE6D1178FCF66448B334C6459F38AC7D598E47754F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\paused-battle.json.meta",
+        "sha256":  "D392A4C169E0DA3A4C6C76D71D426CB78CA842360D2AFCFACBE168E980E9CE3E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\provenance.json",
+        "sha256":  "CA52C90A330CE46615740005535C0D883E9485732D0504CC7107A8822B98AE5D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\provenance.json.meta",
+        "sha256":  "4867C0B496E6016628655AA0AF2C69442FA386E92D6D94D9D63719232168BF2A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\SectHud.meta",
+        "sha256":  "33F0932CC30DD7E2C0F76476DABA653F65192120868D704445331BE1B239DC5C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\stopped.json",
+        "sha256":  "368BD4B70803F4B85CCF54BB9EF2CC5D9405726BD37F98CE4D091C3BEA51BA97"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\stopped.json.meta",
+        "sha256":  "32E7BB43C0C7F238A5594B7231FC7CA4D6E432B8F4FF4997A001E10D5E252702"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\banphuc.json",
+        "sha256":  "C46031284EF303BBD520FD1730B97939D1EA8AB404F5A4896C9D3E0A50519982"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\banphuc.json.meta",
+        "sha256":  "0CC0FE96F1CED8F78A0EACE528F401CF21219F745C396EEAB0A1C8553158C31F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\channels-off.json",
+        "sha256":  "F75B92D10E5024B98492FD603AFBB6DDB1A9725AEF122E9DF9A7B22FA9046A82"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\channels-off.json.meta",
+        "sha256":  "490FED66BC4FCDFF45EE3E3755172D14A093EDADAAFE894A03967702F41E166B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\initial.json",
+        "sha256":  "DCB096589A682E7BF24D05CA3BA8C626E483D18FE4A2B27DDC6F2E6D5BFB9E41"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\initial.json.meta",
+        "sha256":  "79E8AB4B3FB7DBAA7E5D8E6CCBE01A10B1B283A4C4EBA6E36F43E1CF4F2338CD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\level.json",
+        "sha256":  "CB739BF4547D35427B4D78D783A5D59A0B000EDBB1D0678540923CC1AE19DEEB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\level.json.meta",
+        "sha256":  "13A15BDF2A814A44A0C14BD309A594E8F6840DFEB238163647961B8EEDD1791E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\muted.json",
+        "sha256":  "277D6B87CB06A5DAA88F31C2FEFFC5A144060928310785482447F197AC47410A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\muted.json.meta",
+        "sha256":  "159C710846037C15175D2BE6563181732A1B9BF719DEE449DFCF7F020425EA54"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\ritual-fly.json",
+        "sha256":  "7668746D362E28D4014697CE7069F360FA6D26017C704A0C9CE9AE2D6351D399"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\ritual-fly.json.meta",
+        "sha256":  "2FE1811F54D06A30E65299D6C2D0D3C7AFB83C82DA1A08B2C6D512C9CEF28ED8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\ritual-result.json",
+        "sha256":  "3A99B91A942782B4F95CC0720C569EA41A4583120064462E5BFAE29F63EA5702"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\ritual-result.json.meta",
+        "sha256":  "3CF4ED375EA9E8226269EB86011A8E03F0E67A88E38E4AF79E938C448264F126"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\ritual-return.json",
+        "sha256":  "4CE46DA62B0FEE520161855619DC3B63F980E9D30BF97EDD51A5CE6F5FF60334"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\ritual-return.json.meta",
+        "sha256":  "1719E279D92790D1DC3CD8408C3291279E04D21F97660860E082FA5B3E599DE5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\ritual-start.json",
+        "sha256":  "1025C71538E7EC180448E80AA26EB256E7D6835A53F73B878072E08040FD2C41"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\ritual-start.json.meta",
+        "sha256":  "45A2EF89AD879E6161C74B22A2C21BED61D275DF264E95500DF1FB34C9D9E150"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\success.json",
+        "sha256":  "3A51242F7F7717BAF867B59AE54985E84141B6E84F639CAD53A8619850238B41"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\success.json.meta",
+        "sha256":  "F85B6D4F27C5D50CF8CAC55F47E9DD0CE86F95E3C9733DAE57FA71EF86E71471"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\volume.json",
+        "sha256":  "43B87E2B18F65EDAD27DF0BEE6743756F2430E664177C150E3F06DBC0E066CA4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Audio\\volume.json.meta",
+        "sha256":  "437EB2FB2358C355C15244BFFA060A4E5ACA1E7F99731200A8C58118DC042875"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\active-30.json",
+        "sha256":  "50841CF6DDFC261BBAD9D058627AE962FD4F9A3ED109589A6A56F055DD2861F9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\active-30.json.meta",
+        "sha256":  "462800B0B11FC5F21088C38DB502B1EE2EC746EAF6D86CBC81A02973A1E3663B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\battle.json",
+        "sha256":  "C9FA4C9034BBF4735B67B1AD0BF311539BB28E5D5AF4E7C64F5A9E436BC4CACE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\battle.json.meta",
+        "sha256":  "041B6ABAE1FA8A35443E3950AD8ED58B7C1648596761FE590DF8091E232009FE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\expired.json",
+        "sha256":  "1C4B5C0896A0560D0B254EE1204F752569F9AA39C2A584617EEF4ABEB70D3D0D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\expired.json.meta",
+        "sha256":  "8E256E69865FD83D66D3A47186B0EF0D6E8E018E0F8581B2B5631EA852380EF0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\idle.json",
+        "sha256":  "40E7B7B6B215522C727468FF47DB4E94260F10043E80A1A4E61B67026ECEBDC9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\idle.json.meta",
+        "sha256":  "1D2D1B734BA0851066CF6904320544ECE8BCE249F65607FDE5EFD8AD2B0F35CA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\level-up.json",
+        "sha256":  "62BCFE40F72B06EC82157124F602C11479CA789C358899F19E7B28A87A7F94D7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\level-up.json.meta",
+        "sha256":  "3753D1CFCC8C5ADBD027316DC7E43648B9812A5FABD0AF3964C05A1C1B3AD7B6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\paused.json",
+        "sha256":  "13C274C59E2D47FE565AD66386003DABE4770888FE705F5CF133AA643BF414F2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\paused.json.meta",
+        "sha256":  "E208746246BACD4791655A05C1AEE73E183ADB6AE2C04E3894AEC5FB33E464C5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\remaining-15.json",
+        "sha256":  "FE5BDD5259DDE800111BB653A637D177672EDD9B50EAE2BBB5FCF51C8E02F741"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\remaining-15.json.meta",
+        "sha256":  "CD7C8656A79BA7622F020A5F2E368A978E0671E1C8396638468FA4C5A2C33C86"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\stacked-50.json",
+        "sha256":  "683A42D65B6992D8F17CC45F45A14D1D39E351F7DCCBA13D22B40004CC4EF89A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Blessing\\stacked-50.json.meta",
+        "sha256":  "603185FB57A0BE210F176A82D6E6CD1512B73005E0746913CCCA689C545B737C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\failure-events.json",
+        "sha256":  "72C7A3BCD3878754BF23F86F6BE90656A8A9E8E99816A03B367D4EEFB1CB357A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\failure-events.json.meta",
+        "sha256":  "F96C6DF3BEC128E3A6FA81852573B481572ED2DE6723656F889BDB2C694DFFF6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\failure-paused.json",
+        "sha256":  "88CB9AE0E76BDB9C7980F3E1AF900A6AFFD55C12BF0C207309A6BD2D5273E1B5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\failure-paused.json.meta",
+        "sha256":  "6CE989DD6B5ED07835F66BFAC2E68C04A5A22B46A4A879BD83766A8CAFE1F634"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\failure-start.json",
+        "sha256":  "6F059BC77E39DBD2AA0935E4E87FEF03881E99611595314ECFA6E228212DFD46"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\failure-start.json.meta",
+        "sha256":  "144264BAF69A57118ABF2D9D9A81261435080FC60D10B0BF8CA72E9E36DC9947"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\failure-strike.json",
+        "sha256":  "893C0EB6763B3FB1A17CB170863502EE6B214AAC7D405AF8566E83DE02A759C5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\failure-strike.json.meta",
+        "sha256":  "49D1EBC59C6DAE1E2C6F6FD8C28AF8440F00AF4B5681463F99B8596FA40ACB0F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\players-10.json",
+        "sha256":  "21681291946BE7B45223AB74B3E655763E4B4B445912A9C38D08629766D02B95"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\players-10.json.meta",
+        "sha256":  "277556708B3B4163FF5E7D1A1614B030A664F1DCE6969E66A7F1F0591A953C0D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\players-100.json",
+        "sha256":  "C683B7AF2F0ED87725AEB6ACE52C555979FE713427D179357334CDBC38C9F72A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\players-100.json.meta",
+        "sha256":  "311D903C59B669151EFC188778055423A6D0EF3BF8823EC237631C8284AA5FD2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\players-50.json",
+        "sha256":  "82EAC65331DC4E2169EF9773B6E3B2671ED25CCE078721F1DBA847B791B7EAC5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\players-50.json.meta",
+        "sha256":  "33D5BAEE3DB2598EED3DE884275FF6BEE853407DB75BC5F6EDBB60D23E728578"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\players-500.json",
+        "sha256":  "8CEE099B3A2E3C2BC8AD9EFA76E7774B4824190D61273C0EF9B4395D3807E841"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\players-500.json.meta",
+        "sha256":  "EC869E473CB7CEB504C1323990B00805A3619BE0F9693037231E600FA2844C5F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\provenance.json",
+        "sha256":  "9D632588822A9B8BB0A727ACCDC5DCBD166418593288D8C046DFD48C351AE895"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\provenance.json.meta",
+        "sha256":  "691F71C3D29C9E268A0EEB0F177DC84F73D1FEAB00E3E8CF171125B4B770C839"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-failure.json",
+        "sha256":  "13F6452F6F95FC2DB3FB3EE436B2590AFCAA2D593AF2F7937A68B92398D89BD9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-failure.json.meta",
+        "sha256":  "0F2CEAB9157D4CF13C9F556B65B22B2638478653D3FF1A3367E95945A1FD8DAF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-paused.json",
+        "sha256":  "296F30A46F6B114090A98E565C955BD6033CCFBF3E9E0BC5B3C0A2A3F9CB188B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-paused.json.meta",
+        "sha256":  "6C4077A5A10C56D3963AC8E633BBC3056B38C0357DE39AA8E7E48C92FFCC0B98"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-start.json",
+        "sha256":  "C4C0E916354FCFD93CF8DBD838D96964E411E722B31FE816E67E3C1D6B4D6CCE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-start.json.meta",
+        "sha256":  "2711EAC0034D153CA0AAC3D38C355A1286D75D70BEC281DE6ECC4FD578F1512F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-strike.json",
+        "sha256":  "0A17A23133D2AE7A7F28758E9ED0104C36F583EE8A1718606945D2D93831A61C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-strike.json.meta",
+        "sha256":  "DA8D34FD7F25F4FF9E6729B6C5E6A11996D9B8873D07B25A0660768C1EB792E7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-success.json",
+        "sha256":  "F9ACB41D0F3E59D23166C48AD9793058E0887E343B1C1A4FF577EEDCC732DBB5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\ritual-success.json.meta",
+        "sha256":  "FD5CAE857344FD249F7F743FE978FC14BD708594C62E5782DDCBD8D6F5132FDD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\success-events.json",
+        "sha256":  "517615A9BAD8C8C967D433546A3EB669B98C18278D2882A2D5C877869C09C958"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\Characters\\success-events.json.meta",
+        "sha256":  "A872070A300DF3A9BA1BB27CB62F8EFC0629EE933BC9F83291124DF2A4377CC8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\buffed.json",
+        "sha256":  "6CB2313442AF930136EE86D2FC6B7DA1C65C96413A101C6EDE34F4CC2B8B8641"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\buffed.json.meta",
+        "sha256":  "B280437D47EA3E01049C5B91D1FB53F4EE884C5027C621C1589D22EB71532FA3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\seconds.json",
+        "sha256":  "38AC0B19ACAB7D1CC93878524C7F726337F5C965BFA95EB9D3567ECF2CBCAEF7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\seconds.json.meta",
+        "sha256":  "236C1D0B7450338090AFAB7F5844ADD3F59A39999FC0D2C1B70C4B70568052B7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\settled.json",
+        "sha256":  "4DC673A057D7B8C827B2730C2EE41245DA7BD80725E6D06469D319A124C99C18"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\settled.json.meta",
+        "sha256":  "36037C1E8734EDED50F6C04F52713B05247E89B68B2AEB3D4B54B12D690B0FE6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\stage.json",
+        "sha256":  "321E9BE55B38367BB4824CD72DADC535EFA93581CAB333ACD25FC0030D8F3BCA"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\stage.json.meta",
+        "sha256":  "059B4B66B61014A4C9966E29831D98F8FBB4420BDB013F19005DDD186AEEB4A0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\streak.json",
+        "sha256":  "88A4E09B73C090A2006BE04EDF4F85BE9E11BB29294C3F33B71528FD603BC0A1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\CultivationLikes\\streak.json.meta",
+        "sha256":  "71A506E8BB497F1475730A1529D99D38814B71FE473B0698E626B0DEF04C82A3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\SectHud\\level1.json",
+        "sha256":  "CB26A34ED01E80489EA609216C5FCE6EC04FDE69A50EE6A2ACE0BB2AE5A82C95"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\SectHud\\level1.json.meta",
+        "sha256":  "4FDDBEFB55E8E8C65F8F28188926E38BC7694E8CBFCC5908C5E931F06FD1312C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\SectHud\\level2.json",
+        "sha256":  "204672AA50CB7E9D6C8944D542FB367BFEC6C3368C195B1F6CBDF8ED9725CEDE"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\SectHud\\level2.json.meta",
+        "sha256":  "045FD5A6CB2387DD3AB984CA3A968120D955136B8A705F158B8226054EF2B1A6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\SectHud\\level3-max.json",
+        "sha256":  "64C724B4E760DCD72B59980EE30437F1B1B0D373FACE5852B5FD47E757CA5772"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\SectHud\\level3-max.json.meta",
+        "sha256":  "2F4CC870BAE06DC9B63270541B8A319038EADE44C92942C28E111002E748715A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\SectHud\\level6.json",
+        "sha256":  "7076CBEF72E0C464AFA48223C78B4A2F2F56F1DBF3190A95443304B772284AD2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\Tests\\Fixtures\\SectHud\\level6.json.meta",
+        "sha256":  "54BA1C89B60A2CAD54F9FA75EA22182117D37E7D0875F7257D86AB3027CBA292"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Fonts.meta",
+        "sha256":  "11E80153FA39B86EFADB8917ECDE12A0402FE0729F2C88F6F8D1999F3FB04748"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources.meta",
+        "sha256":  "167448559DB07C9857B206A0F5A0AEDCD6A6DAD900D618B35B0702D636573805"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders.meta",
+        "sha256":  "C109EB7E331AFFEDB377F7051DF3D4881F8529B65F9593234585713E6E94ED30"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Fonts\\LiberationSans - OFL.txt",
+        "sha256":  "37F8552E9A874EC10710DC0EDE6A9ADF168E6609FBD02A507F35629373B85A48"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Fonts\\LiberationSans - OFL.txt.meta",
+        "sha256":  "5DBEC32C014C17D94674AF5F1494D49B42BA00EDD50397F895F088C868CCBF86"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Fonts\\LiberationSans.ttf",
+        "sha256":  "E5B0AF421EA2BFBC1AC8D251D647268087AE82786234C57F757D1F0B90FA8B49"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Fonts\\LiberationSans.ttf.meta",
+        "sha256":  "E2E35A015703584FB119355FA02631764D111C3E112D32519801D46BD697B596"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Fonts \u0026 Materials.meta",
+        "sha256":  "8917470A9265BEB1EF55A28C6A3718EB12EC8004554499998CC345056247995F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\LineBreaking Following Characters.txt",
+        "sha256":  "3A73E5FFE2510756DD3C2E982FDC1218B4BE82C6E21ABDE88070D6860E1BC8E6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\LineBreaking Following Characters.txt.meta",
+        "sha256":  "D5A86D8B7DB6AA3CA6F4A63750EB94E0C42A64909B47D8C6C6F2565845534490"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\LineBreaking Leading Characters.txt",
+        "sha256":  "62D3F4D5F64AAF885692D2D13A8313F6918E6E4C5AEB3990A43F614652BFD89C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\LineBreaking Leading Characters.txt.meta",
+        "sha256":  "6A925814D5E251A0CED6DE210DB2BACF2DE29B4F0DC2991E85C908632E9565E4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Style Sheets.meta",
+        "sha256":  "1FDF0423552F46284FB97894F36ADCD34D32E595AAF5C7CF1CE38A2349FAAF89"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\TMP Settings.asset",
+        "sha256":  "7BE438062CDC296835A1258B68BCBEB8E9FDC4B01EA27C05A24A1074260F7424"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\TMP Settings.asset.meta",
+        "sha256":  "A65193B095EC3606789A3191751A837704CF52D4F461993AE7903024C6D43F45"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Fonts \u0026 Materials\\LiberationSans SDF - Drop Shadow.mat",
+        "sha256":  "B6B65C34E4907DD3006C2217FC8A4CEF81B6DA24DF0A3DE8E2288199EB6C5A9D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Fonts \u0026 Materials\\LiberationSans SDF - Drop Shadow.mat.meta",
+        "sha256":  "EF2EEE63B288D47823DA38109E3E8C879F4717A82DC662AC2D5E2460DACDE698"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Fonts \u0026 Materials\\LiberationSans SDF - Fallback.asset",
+        "sha256":  "E2D77876F2B90D98BA2424F6FC32B1403EA701DE8FD24A8FE8E571ECC3CDC10A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Fonts \u0026 Materials\\LiberationSans SDF - Fallback.asset.meta",
+        "sha256":  "D6D86504040CF6E736767FDA9BDEF494AFB06D5304384243E2DD703EBA3A4A3D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Fonts \u0026 Materials\\LiberationSans SDF - Outline.mat",
+        "sha256":  "25874340976D40E9F9E8ABF731B7F32E5A478541DEAD9288140BD60C7A3287D9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Fonts \u0026 Materials\\LiberationSans SDF - Outline.mat.meta",
+        "sha256":  "A8CF0EE9888A163E892368B4660B9C62A7375E7F8AFDB8EE02E5C91CA1CDB355"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Fonts \u0026 Materials\\LiberationSans SDF.asset",
+        "sha256":  "C3FF50E3133D989180B187748FFC67903F1FEDE099A5B85B4FCBD8CB6E8BE958"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Fonts \u0026 Materials\\LiberationSans SDF.asset.meta",
+        "sha256":  "37233890984555987CB585551BC885069F2849A9B0D1C2191AF073B9376AA10F"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Style Sheets\\Default Style Sheet.asset",
+        "sha256":  "93E073CDB91B7E3D2FA31E2DD13626D7B9D2F327904BA8C3C2B97A3EECFBABAC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Resources\\Style Sheets\\Default Style Sheet.asset.meta",
+        "sha256":  "B832663CA09EC7AF8C8E816FD91A718B2AF6C21AB4F126FA818871AD53BCE763"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\SDFFunctions.hlsl",
+        "sha256":  "88CF0F62E4000B71750C059D0886B19504CD1CF10F39BB61DDC11B77A882D417"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\SDFFunctions.hlsl.meta",
+        "sha256":  "E1D0C5347B3C55930759F5BC0985E11611A4B2FF22EEF24523EB108687BD1642"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMPro.cginc",
+        "sha256":  "14EDB7D7B88CAF2B82CAE68200ABE895E5B5B3474C3FFFBF0E9B4B09A4E2467E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMPro.cginc.meta",
+        "sha256":  "A9CF9D5431B809E36B8FFFF4377B5EBDA7D386A36D48838CD134BC09F3CAEC6C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMPro_Mobile.cginc",
+        "sha256":  "D9D43DDD9810476162F21B42477D9CE2CDC4E6CC7571D354C3253AAFC6673EAD"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMPro_Mobile.cginc.meta",
+        "sha256":  "2E16FA15EF884A60A402D8B696F8B09E5315CBB468BA223D256030C7FE2B0667"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMPro_Properties.cginc",
+        "sha256":  "66DB1F03E8D7A413EBA79BCB6602FDB2DE710B586F34A6F2584ED6F68F028E90"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMPro_Properties.cginc.meta",
+        "sha256":  "EDACE33591894D86D9A4144466FB3606E538D3341030FE22F908551755120EA5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMPro_Surface.cginc",
+        "sha256":  "244B442520282A66363D121C8D2AEEB30BB1E72CBBADBF41CE68D9100322ADE5"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMPro_Surface.cginc.meta",
+        "sha256":  "247746F3A4E39DD24D1AD99E4FAE03AE8976586307948B2846529A876DCB0A63"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_Bitmap-Custom-Atlas.shader",
+        "sha256":  "42892A52F22BDDE6D482CF2DA5F35E4B813063FC6FE42189EEE5562080079494"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_Bitmap-Custom-Atlas.shader.meta",
+        "sha256":  "91BE1D5618A7DA33C878E20CF2BE3E13B897D4976C70BDE0CDA7A67DBD502CD2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_Bitmap-Mobile.shader",
+        "sha256":  "B50AFC7EDC8A710F8B4159149B2391E7238B5E4076CC0EA2119090ED29E13B4A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_Bitmap-Mobile.shader.meta",
+        "sha256":  "7430F3E97AE1B46F34E1CA75508705BB7B944307C41DC568EA728011F327086D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_Bitmap.shader",
+        "sha256":  "1D32F34C71276C1321AA0540A2410E15808743A38B2026923045A4DEC4A79B58"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_Bitmap.shader.meta",
+        "sha256":  "3D462E6F8BA57F45DC5E6000020DB066C36ED5A1A24F74F749727812373C2325"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF Overlay.shader",
+        "sha256":  "A0D318756CBA0F95A7052C387E629D0ADD3E9A4125C8333F1D1ED591AF5F17CB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF Overlay.shader.meta",
+        "sha256":  "FB8FC84B612E19C169CDF3596195B416E68D227A8987A0EAA90D8C137FB69797"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF SpaceWarp.shader",
+        "sha256":  "CDC87D1DF815B00E49CB2FD3010E872FDF740F89F81C915FD1A3D974BD8A596E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF SpaceWarp.shader.meta",
+        "sha256":  "BC7460EF63F01A2B0B6751D2B884E2FD9722B47154355A8FE3DEB2AE785C41B2"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF SSD SpaceWarp.shader",
+        "sha256":  "40F4D9F424E2B72CB80AF23439F383BC9502582780436222D84806CEDBB8797B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF SSD SpaceWarp.shader.meta",
+        "sha256":  "F7D4082F4E7C62A4DB152EE4C1432F41F53CAAF8D364862215D1AC27DB520B6A"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF SSD.shader",
+        "sha256":  "2A991951B00B0C052363A1025F655450054325437B3D13C2623A987C8EC77C30"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF SSD.shader.meta",
+        "sha256":  "BEA74D576F181A8BB04B8CF02EEDD0136540325ECB2824928A3AA52C75ADCB13"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-HDRP LIT.shadergraph",
+        "sha256":  "BF68062F68B38B588ABD1C354F64E905F824D9A2C47F92EBDD70A32989EB2097"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-HDRP LIT.shadergraph.meta",
+        "sha256":  "D1B70558E8B974D918E13C010DB6D375FEF815BA530BC2421AB031AA3A784EE8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-HDRP UNLIT.shadergraph",
+        "sha256":  "8A969C2D775079CCE4E1C45D5EB6D3964B27D44DC884178363050C74FD5E9742"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-HDRP UNLIT.shadergraph.meta",
+        "sha256":  "8CD498CE8F6ED2E7C0560D605EB912455CD6FDAF09A4D545D9743F63B3426BD0"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile Masking.shader",
+        "sha256":  "41CFF58473557BF760D03513A8C098F43A24E4EEB4C8CCD7D828C045A338A9ED"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile Masking.shader.meta",
+        "sha256":  "3744D078F9A8B6D3C5D9BCA51E43F9223544FCAFAF9396E121F49EA84A0609D3"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile Overlay.shader",
+        "sha256":  "FB286386D0592CE6D63EB736F180B4B0F638EC538B0855AA54767A438EBD1173"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile Overlay.shader.meta",
+        "sha256":  "1EECA1536C7506F79D4D877B866A5FB88DB8F402634E091B6D78AA9D21C9D18B"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile SpaceWarp.shader",
+        "sha256":  "D28725953A5B116C5C2E141BD7FDB8F7FBD3C0157F9DCCF5C88D96B488C969BB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile SpaceWarp.shader.meta",
+        "sha256":  "8F8955CA75950B16C9A6A23F2F37AB3ADA23F3FF2E06F29D9516C617864E573E"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile SSD SpaceWarp.shader",
+        "sha256":  "A9D58993803F78A3288BDA17903C20B3E5EEAF947993F5F9D3C2B783458D668C"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile SSD SpaceWarp.shader.meta",
+        "sha256":  "E0DCD630980B5847605E5C5EC58898BC3D9EEDF17588FC42155CE2AB0D255321"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile SSD.shader",
+        "sha256":  "8B30C140F6AF9134392FE6ECF4C0676DB73F873489AC52ADFB47BBD288CB51B8"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile SSD.shader.meta",
+        "sha256":  "E3412891B9306B017E60CBA4AE4F6D258EE8B161D986DCDE9CEFB3D60345514D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile-2-Pass.shader",
+        "sha256":  "DD92066FCCFF4CE3C49EAA1E13C9FA1A9427E864B2FCB57E1E010C5E47459AC1"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile-2-Pass.shader.meta",
+        "sha256":  "65ECBCE6F1621F2D7DDC5E6004DDA5E55E1F58EC6E01178F3691E1E81E01DE55"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile.shader",
+        "sha256":  "44C39AABC7E88E7E1FEFFC1880DF754F4ADF86B62E9512AA89E9D2D65171AFF4"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Mobile.shader.meta",
+        "sha256":  "F2112F50C72762D4E6731391495EA11F76975D677B698E9BCFDD38275EA18F9D"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Surface-Mobile.shader",
+        "sha256":  "F9FAE5906DD37D89298338953294459975DE58A5421E68DD9E82A79794B95509"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Surface-Mobile.shader.meta",
+        "sha256":  "95AA060F371EE503A22C0A0B018E029C0328BD82B9317FEAA784432B0A787343"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Surface.shader",
+        "sha256":  "5DADB68B56429547918B392626E9AF8FD5173936D20BB43CFCA58DFA00947257"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-Surface.shader.meta",
+        "sha256":  "42439F5AC7491998F562E8EDE73D64C3512953EB99FB1B49E833F5D9999A7660"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-URP Lit.shadergraph",
+        "sha256":  "E0148CE8E5904232A4E711376A45B7AF2A007FB9690C5A69C1CB4952A696CDBF"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-URP Lit.shadergraph.meta",
+        "sha256":  "4C36ABF5F2611C9D2CB04E7DA8C30E42077503A17CB218020E171B6D3FF664F7"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-URP Unlit.shadergraph",
+        "sha256":  "DC15B6819AD87A4B34ED888AE2C274624EFC0ADA902D1A9E7752D87922414DCC"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF-URP Unlit.shadergraph.meta",
+        "sha256":  "F1EF815E2672FD770F47EE424C64F7ECDBDC642B7475828C29DB032586AA10B6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF.shader",
+        "sha256":  "10EFE6D4728474A09970B857FAF37913793E168DC13DBD4D7316B54B37615D97"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_SDF.shader.meta",
+        "sha256":  "0897FB06D170043FFFA2D28783B347BBAEE87A3F09F08374CA44B2C3848697D6"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_Sprite.shader",
+        "sha256":  "AF669BB9AE136C8099F8E0A94A6933FD2F1E1FB0A6842129939A319FAB4B8DBB"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\unity-client\\Assets\\TextMesh Pro\\Shaders\\TMP_Sprite.shader.meta",
+        "sha256":  "9609584C5249687F3765F0018A93DFD6445C7E35D5AEE4E87556F111C8852819"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\public\\assets\\Qua\\10xu.jpg",
+        "sha256":  "8CE648825969D6A261F4E200377F21DE055AB711566480541F1323FBDE4CF8C9"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\public\\assets\\Qua\\1xu.jpg",
+        "sha256":  "85277598638B442D88BD89A3588A18716CE53E787B6658F1011C3B2DFCE1EF23"
+    },
+    {
+        "path":  "C:\\Users\\admin\\Documents\\CODE\\TuTien\\public\\assets\\Qua\\20xu.jpg",
+        "sha256":  "3CA4394D01AD6AAC5C5D655D7819B53E7CAE1C9930E5B375ADFD631624A79F53"
+    }
+]

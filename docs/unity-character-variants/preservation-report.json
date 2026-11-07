@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "protectedFiles": 7,
+  "changedFiles": [],
+  "scenePatch": {
+    "result": "PASS",
+    "change": "Only added CharacterManager.characterVariants, all other scene bytes retained",
+    "before": "0da9ee5427296f1660ee5bd353be86248e41a212f26d5c0223671e1f11eec970",
+    "after": "8c5049572d1557a7e4f0b4795ed6bcfa7d703bd8b1166c34227ae918883dfadd"
+  },
+  "note": "Kept current user edits to all three prefabs, including their scales; only added CharacterManager.characterVariants to the existing scene."
+}

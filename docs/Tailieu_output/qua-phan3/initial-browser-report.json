@@ -1,0 +1,8 @@
+{
+  "result": "FAIL",
+  "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    full: false,\n    level: 6,\n    maxLevel: 6,\n+   power: 14,\n-   power: 15,\n    threshold: 60\n  }\n",
+  "checks": [
+    "Replaced repeating wish panel; added six levels; all five item choices, quantities, all-sect scope; draft survives snapshots/routes; invalid input stays unsaved"
+  ],
+  "errors": []
+}

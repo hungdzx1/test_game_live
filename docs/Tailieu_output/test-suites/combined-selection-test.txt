@@ -1,0 +1,41 @@
+
+> tu-tien-live@0.5.0 test:all
+> node scripts/run-tests.js all --test-name-pattern=05-14
+
+Test suite: all (28 files)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\admin-ui.test.js (554.4302ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\asset-tools.test.js (489.4695ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\battle-integration.test.js (5078.3417ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\battle.test.js (771.4338ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\blessing-api.test.js (5280.5199ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\blessing.test.js (628.8129ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\cultivation-integration.test.js (5786.1318ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\cultivation.test.js (507.277ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\finishing-integration.test.js (5254.0061ms)
+✔ 05-14 Shared audio/display/camera settings reject invalid values (3.6753ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\foundation.test.js (5158.6871ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\gift-settings.test.js (5105.6303ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\launcher.test.js (629.1343ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\legacy\asset-preview.test.js (679.4474ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\legacy\battle-visual.test.js (1235.6529ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\legacy\breakthrough-visual.test.js (882.6781ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\legacy\character-upgrade.test.js (610.9411ms)
+✔ 05-14 Notice priority, TTL and queue bound (4.5943ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\legacy\frontend-integration.test.js (2267.0719ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\legacy\live-overlay.test.js (345.3369ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\legacy\sect-layout.test.js (495.3041ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\legacy\visual-model.test.js (523.9886ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\live-events.test.js (356.0482ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\live-integration.test.js (1960.0846ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\network-client.test.js (230.5238ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\sect-energy-api.test.js (1865.7145ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\sect-energy.test.js (330.9581ms)
+✔ C:\Users\admin\Documents\CODE\TuTien\test\tiktok-adapter.test.js (1579.93ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8096.6528

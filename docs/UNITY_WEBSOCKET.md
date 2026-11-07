@@ -78,3 +78,33 @@ Lỗi đã sửa: test assembly ban đầu thiếu DLL reference Newtonsoft; đ�
 
 **CHƯA KIỂM CHỨNG:** IL2CPP/target khác; HUD GUI/render GPU/OBS; ngâm tải dài, 500 người trong Unity, fault injection queue overflow/peer quá cỡ; LTS; TikTok LIVE thật. Network headless 30s không chứng minh các mục đó. Chưa triển khai nhân vật/cảnh/FX/UI gameplay. Dừng ở bước 02.
 
+## Bổ sung nguyên lực tông môn — 07/11/2026
+
+Theo yêu cầu HUD Concept02, `state:snapshot.payload.interactions` bổ sung trường **tùy chọn** `sectEnergy`:
+
+```json
+{"level":2,"power":1500,"threshold":3000,"maxLevel":3,"full":false}
+```
+
+Node là nơi duy nhất tính/lưu cấp và tim, từ lượng tim sau chống trùng của GameEventBus. Theo phần3 `Qua_Tbao.md`, bảng `config.sectLevels` cấu hình1–50 cấp, mỗi cấp có ngưỡng riêng và phần thưởng toàn tông. Mặc định1000/3000/5000, có thể thêm cấp4 trở lên. Snapshot giữ nguyên năm trường `level/power/threshold/maxLevel/full`; không tính cấp từ số tim ở Unity. Mốc cuối giữ MAX, tim dư chuyển tiếp, quà một lần/cấp. Bảng cấp thay mốc wish lặp cũ; trường `interactions.wish` được giữ tương thích hiển thị, phản chiếu tiến độ cấp, không tạo thêm thưởng lặp. PendingPoints/pendingBlessings cũ vẫn được trả nốt.
+
+Save vẫn schemaVersion2/runtime.interactions.version1; `sectEnergy` mới là `{version:2,totalLikes,completedLevels}`. Restore đọc được `{level,power}` ba cấp cũ, quy đổi theo1000/3000/5000 và không phát lại quà. Mảng `levelRewards` tùy chọn giữ thưởng bị chặn cùng item/quantity/recipients lúc chốt. Đổi ngưỡng giữ tổng tim, tính lại hiển thị và không thưởng hồi tố; DEMO/LIVE giữ engine/file riêng, vẫn commit batch. Tham khảo [hướng dẫn phần3](Tailieu_output/QUA_TBAO_PHAN3.md).
+
+Unity bổ sung model chỉ đọc `SectEnergyState`, kiểm tra kiểu/phạm vi khi trường này có mặt:1≤level≤maxLevel≤50,0≤power≤threshold≤1.000.000.000. Full chỉ đúng khi cấp cuối đầy; cấp chưa cuối phải có power<threshold. Snapshot cũ thiếu maxLevel mặc định3; thiếu sectEnergy vẫn hợp lệ và HUD hiện chờ. Chỉ tính tỉ lệ fill hình ảnh từ power/threshold; không gửi message lên WebSocket hoặc ghi save. Envelope/version/route giữ nguyên. TOP3 cảnh giới chỉ sắp các PlayerState hiện có, không thêm hợp đồng thưởng/xếp hạng backend.
+
+Kiểm thử riêng: test/sect-energy.test.js và test/sect-energy-api.test.js kiểm mốc/dư/MAX, trùng delta/tổng, restore/save cũ, API/WebSocket/commit/restart và tách DEMO/LIVE. Bằng chứng Unity/HUD ở `docs/unity-sect-hud/`; kết quả chi tiết trong PROGRESS.md.
+
+## Bổ sung Ban Phúc — 07/11/2026
+
+Theo `docs/UI_BANPHUC.md`, snapshot bổ sung `interactions.blessing` tùy chọn:
+
+```json
+{"remainingMs":50000,"durationMs":60000,"multiplier":2}
+```
+
+`remainingMs` là thời gian tu luyện còn lại, `durationMs` là tổng thời gian của đợt hiện tại (tăng thêm30.000 khi được gia hạn). Hết đợt thì cả hai bằng0; chỉ có một hệ số Ban Phúc x2. Ban Phúc tiếp theo cộng30 giây, không thêm hệ số. Unity chỉ hiển thị đồng hồ/ratio và ẩn bảng khi hết/mất kết nối; không tự giảm thời gian, không suy ra từ buff riêng của một nhân vật. Snapshot cũ thiếu trường vẫn hợp lệ và bảng ẩn. Typed model `BlessingState` kiểm phạm vi0≤remaining≤duration≤MAX_SAFE_INTEGER và multiplier=2.
+
+Quà đã ánh xạ thành vật phẩm Ban Phúc dùng cùng luồng inventory/activation/chống trùng hiện hữu. Lên cấp tông môn1→2 hoặc2→3 kích hoạt30 giây mỗi cấp; tim làm đầy MAX không thưởng thêm. Ban Phúc từ lên cấp trong battle/pause/stopped giữ thời gian chờ tu luyện; quà/vật phẩm trong battle vẫn chờ theo luật cũ. Điểm nhiệm vụ/cooldown `wish` không đổi. Event mới `blessing:activated` dùng envelope `game:event` hiện hữu, chứa source/count/remainingMs/durationMs/multiplier; client không dùng event để tự tính buff.
+
+Save vẫn schemaVersion2; `runtime.globalBuffs` giữ mảng tương thích, chỉ còn tối đa một Ban Phúc khi tạo/khôi phục, thêm `durationMs` tùy chọn. Save cũ được gộp tổng remaining thành một x2, không bỏ thời gian và không cộng lại thưởng cấp đã đạt. Lưu riêng DEMO/LIVE, restart không giảm thời gian offline. Trà/linh căn/giới hạn tổng multiplier giữ luật cộng nguồn khác nhau. Kiểm thử riêng tại `test/blessing*.test.js`, Unity và ảnh tại `docs/unity-blessing/`.
+

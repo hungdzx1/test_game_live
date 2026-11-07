@@ -1,0 +1,2118 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-07T09:54:27.460Z",
+  "method": "PNG CRC verified; lossless unfiltered 8-bit samples. Bboxes [left,top,right,bottom), alpha32 suppresses low-alpha halos. Edge/color counts are review signals, not automatic matte removal.",
+  "assets": [
+    {
+      "id": "Architecture layers/breakthrough_platform.png",
+      "url": "/assets/02/Architecture%20layers/breakthrough_platform.png",
+      "bytes": 455951,
+      "sha256": "f4138af149257982b4c5cb8c04945b7a48f2461a64230b2e179410ab10672e22",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1383521,
+        "semi": 189631,
+        "opaque": 200,
+        "darkVisible": 6547,
+        "darkSemi": 6547,
+        "edgePixels": 24418,
+        "darkEdge": 6308,
+        "brightEdge": 279,
+        "redEdge": 2677,
+        "blueEdge": 1744,
+        "significantDark": 248,
+        "significantRedEdge": 6,
+        "significantBlueEdge": 135
+      },
+      "alphaBins": {
+        "a1_15": 19336,
+        "a16_63": 2904,
+        "a64_127": 2114,
+        "a128_239": 6379,
+        "a240_254": 158898
+      },
+      "meanVisibleAlpha": 220.1724744641286,
+      "bboxAlpha": [
+        0,
+        31,
+        929,
+        1612
+      ],
+      "bbox32": [
+        51,
+        454,
+        882,
+        837
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Architecture/breakthrough_platform.png"
+    },
+    {
+      "id": "Architecture layers/cherry_branches.png",
+      "url": "/assets/02/Architecture%20layers/cherry_branches.png",
+      "bytes": 195296,
+      "sha256": "f020b47f06d28822f261f4a6e3d75fba40f102dff05ed4918e468bf739d27f2d",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1525125,
+        "semi": 48209,
+        "opaque": 18,
+        "darkVisible": 445,
+        "darkSemi": 445,
+        "edgePixels": 15141,
+        "darkEdge": 426,
+        "brightEdge": 2067,
+        "redEdge": 2480,
+        "blueEdge": 33,
+        "significantDark": 19,
+        "significantRedEdge": 133,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 11490,
+        "a16_63": 2524,
+        "a64_127": 2040,
+        "a128_239": 8334,
+        "a240_254": 23821
+      },
+      "meanVisibleAlpha": 164.6656437265432,
+      "bboxAlpha": [
+        0,
+        89,
+        941,
+        1672
+      ],
+      "bbox32": [
+        0,
+        181,
+        941,
+        1672
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 115,
+        "bottom": 16,
+        "left": 178
+      },
+      "importPath": "Assets/Art/SectConcept02/Architecture/cherry_branches.png"
+    },
+    {
+      "id": "Architecture layers/main_courtyard.png",
+      "url": "/assets/02/Architecture%20layers/main_courtyard.png",
+      "bytes": 1336196,
+      "sha256": "9ed6a27ab30c81cb2cf841da9efff6c244b3fd965d3ed89ae4954f6d37718131",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 878487,
+        "semi": 694476,
+        "opaque": 389,
+        "darkVisible": 3855,
+        "darkSemi": 3855,
+        "edgePixels": 9498,
+        "darkEdge": 3855,
+        "brightEdge": 15,
+        "redEdge": 4,
+        "blueEdge": 2447,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 917
+      },
+      "alphaBins": {
+        "a1_15": 7342,
+        "a16_63": 658,
+        "a64_127": 716,
+        "a128_239": 1885,
+        "a240_254": 683875
+      },
+      "meanVisibleAlpha": 249.4579666553935,
+      "bboxAlpha": [
+        0,
+        21,
+        941,
+        1672
+      ],
+      "bbox32": [
+        0,
+        859,
+        941,
+        1664
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 620,
+        "bottom": 0,
+        "left": 617
+      },
+      "importPath": "Assets/Art/SectConcept02/Architecture/main_courtyard.png"
+    },
+    {
+      "id": "Architecture layers/waterfalls.png",
+      "url": "/assets/02/Architecture%20layers/waterfalls.png",
+      "bytes": 277013,
+      "sha256": "64a02bfa7072e95cfeb7df173701efc2ade0cbd843365f5e99d3c3c60cb9c88f",
+      "width": 941,
+      "height": 1671,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1457880,
+        "semi": 114531,
+        "opaque": 0,
+        "darkVisible": 7169,
+        "darkSemi": 7169,
+        "edgePixels": 45137,
+        "darkEdge": 7169,
+        "brightEdge": 1203,
+        "redEdge": 38,
+        "blueEdge": 3868,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 3
+      },
+      "alphaBins": {
+        "a1_15": 34740,
+        "a16_63": 17677,
+        "a64_127": 12758,
+        "a128_239": 30337,
+        "a240_254": 19019
+      },
+      "meanVisibleAlpha": 110.33833634561822,
+      "bboxAlpha": [
+        0,
+        23,
+        911,
+        1671
+      ],
+      "bbox32": [
+        138,
+        590,
+        787,
+        1671
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 57,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Architecture/waterfalls.png"
+    },
+    {
+      "id": "Background layers/bg_cloud_far.png",
+      "url": "/assets/02/Background%20layers/bg_cloud_far.png",
+      "bytes": 860705,
+      "sha256": "75042b75b39c29947389e4b8db0ef6c8e9f607b4fbc3552bae299602aa6fe205",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1068053,
+        "semi": 505299,
+        "opaque": 0,
+        "darkVisible": 44432,
+        "darkSemi": 44432,
+        "edgePixels": 298896,
+        "darkEdge": 44432,
+        "brightEdge": 10671,
+        "redEdge": 0,
+        "blueEdge": 67573,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 1060
+      },
+      "alphaBins": {
+        "a1_15": 259751,
+        "a16_63": 71361,
+        "a64_127": 55984,
+        "a128_239": 96718,
+        "a240_254": 21485
+      },
+      "meanVisibleAlpha": 62.94995636247054,
+      "bboxAlpha": [
+        0,
+        15,
+        941,
+        1672
+      ],
+      "bbox32": [
+        0,
+        219,
+        941,
+        851
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 253,
+        "bottom": 0,
+        "left": 223
+      },
+      "importPath": "Assets/Art/SectConcept02/Background/bg_cloud_far.png"
+    },
+    {
+      "id": "Background layers/bg_cloud_near.png",
+      "url": "/assets/02/Background%20layers/bg_cloud_near.png",
+      "bytes": 636847,
+      "sha256": "df75acd2cf913578b5f427203cd09a6f48ee0631837cf4d17e4f74c9afd4741b",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1254412,
+        "semi": 318940,
+        "opaque": 0,
+        "darkVisible": 9892,
+        "darkSemi": 9892,
+        "edgePixels": 64973,
+        "darkEdge": 9892,
+        "brightEdge": 2119,
+        "redEdge": 19,
+        "blueEdge": 24694,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 3527
+      },
+      "alphaBins": {
+        "a1_15": 52299,
+        "a16_63": 15087,
+        "a64_127": 12887,
+        "a128_239": 36373,
+        "a240_254": 202294
+      },
+      "meanVisibleAlpha": 187.91101147551262,
+      "bboxAlpha": [
+        0,
+        9,
+        941,
+        1672
+      ],
+      "bbox32": [
+        0,
+        375,
+        941,
+        1672
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 660,
+        "bottom": 941,
+        "left": 627
+      },
+      "importPath": "Assets/Art/SectConcept02/Background/bg_cloud_near.png"
+    },
+    {
+      "id": "Background layers/bg_mountain_far.png",
+      "url": "/assets/02/Background%20layers/bg_mountain_far.png",
+      "bytes": 307591,
+      "sha256": "09928195c7085d38068dc4cb29abfc6dd4c0746c06715146237dc7ec87eeb874",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1432309,
+        "semi": 141013,
+        "opaque": 30,
+        "darkVisible": 9076,
+        "darkSemi": 9076,
+        "edgePixels": 34246,
+        "darkEdge": 9076,
+        "brightEdge": 49,
+        "redEdge": 15,
+        "blueEdge": 8323,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 699
+      },
+      "alphaBins": {
+        "a1_15": 26409,
+        "a16_63": 13146,
+        "a64_127": 11017,
+        "a128_239": 26680,
+        "a240_254": 63761
+      },
+      "meanVisibleAlpha": 161.99734832639692,
+      "bboxAlpha": [
+        0,
+        55,
+        941,
+        1648
+      ],
+      "bbox32": [
+        0,
+        293,
+        941,
+        564
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 47,
+        "bottom": 0,
+        "left": 47
+      },
+      "importPath": "Assets/Art/SectConcept02/Background/bg_mountain_far.png"
+    },
+    {
+      "id": "Background layers/bg_mountain_mid.png",
+      "url": "/assets/02/Background%20layers/bg_mountain_mid.png",
+      "bytes": 436106,
+      "sha256": "50d3bd69cbcd43ac71b94212885563c8a76fd86d097c1a532b1ac5fdde4aa79f",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1366198,
+        "semi": 207064,
+        "opaque": 90,
+        "darkVisible": 13372,
+        "darkSemi": 13372,
+        "edgePixels": 32860,
+        "darkEdge": 13372,
+        "brightEdge": 33,
+        "redEdge": 27,
+        "blueEdge": 11788,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 1919
+      },
+      "alphaBins": {
+        "a1_15": 28800,
+        "a16_63": 2004,
+        "a64_127": 1721,
+        "a128_239": 4380,
+        "a240_254": 170159
+      },
+      "meanVisibleAlpha": 212.74291107099066,
+      "bboxAlpha": [
+        0,
+        39,
+        941,
+        1622
+      ],
+      "bbox32": [
+        0,
+        293,
+        941,
+        884
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 347,
+        "bottom": 0,
+        "left": 431
+      },
+      "importPath": "Assets/Art/SectConcept02/Background/bg_mountain_mid.png"
+    },
+    {
+      "id": "Background layers/bg_sky.png",
+      "url": "/assets/02/Background%20layers/bg_sky.png",
+      "bytes": 1670170,
+      "sha256": "d474d28e4d7a1cfa19662299a6b1fb87e2a319f618fda5cefb790cd3d9c864d6",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 2,
+      "alphaChannel": false,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 0,
+        "semi": 0,
+        "opaque": 1573352,
+        "darkVisible": 0,
+        "darkSemi": 0,
+        "edgePixels": 0,
+        "darkEdge": 0,
+        "brightEdge": 0,
+        "redEdge": 0,
+        "blueEdge": 0,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 0,
+        "a16_63": 0,
+        "a64_127": 0,
+        "a128_239": 0,
+        "a240_254": 0
+      },
+      "meanVisibleAlpha": 255,
+      "bboxAlpha": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "bbox32": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "touchingSides": {
+        "top": 941,
+        "right": 1672,
+        "bottom": 941,
+        "left": 1672
+      },
+      "importPath": "Assets/Art/SectConcept02/Background/bg_sky.png"
+    },
+    {
+      "id": "Characters/Character_1/attack.png",
+      "url": "/assets/02/Characters/Character_1/attack.png",
+      "bytes": 1467301,
+      "sha256": "91c7633720dfed6049dd0770044c3d6bb0550f3f5d917ec1483339aa2b0bd7bb",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 925942,
+        "semi": 645503,
+        "opaque": 1071,
+        "darkVisible": 8083,
+        "darkSemi": 8032,
+        "edgePixels": 48348,
+        "darkEdge": 5937,
+        "brightEdge": 6949,
+        "redEdge": 445,
+        "blueEdge": 11678,
+        "significantDark": 2165,
+        "significantRedEdge": 1,
+        "significantBlueEdge": 2012
+      },
+      "alphaBins": {
+        "a1_15": 37937,
+        "a16_63": 4341,
+        "a64_127": 3657,
+        "a128_239": 9060,
+        "a240_254": 590508
+      },
+      "meanVisibleAlpha": 234.78761905056498,
+      "bboxAlpha": [
+        0,
+        37,
+        1238,
+        1219
+      ],
+      "bbox32": [
+        26,
+        80,
+        1236,
+        1201
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_1/attack.png"
+    },
+    {
+      "id": "Characters/Character_1/celebrate.png",
+      "url": "/assets/02/Characters/Character_1/celebrate.png",
+      "bytes": 1478444,
+      "sha256": "a4b07630f12d8f9fc12fb0b88cfab4b79c43b7a3f2275f546918bcc5fdba2c77",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 911598,
+        "semi": 660214,
+        "opaque": 704,
+        "darkVisible": 7279,
+        "darkSemi": 7279,
+        "edgePixels": 47148,
+        "darkEdge": 6306,
+        "brightEdge": 5646,
+        "redEdge": 435,
+        "blueEdge": 12147,
+        "significantDark": 977,
+        "significantRedEdge": 6,
+        "significantBlueEdge": 1706
+      },
+      "alphaBins": {
+        "a1_15": 37811,
+        "a16_63": 3944,
+        "a64_127": 3303,
+        "a128_239": 7971,
+        "a240_254": 607185
+      },
+      "meanVisibleAlpha": 235.52894610223962,
+      "bboxAlpha": [
+        0,
+        8,
+        1240,
+        1254
+      ],
+      "bbox32": [
+        168,
+        13,
+        1106,
+        1239
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_1/celebrate.png"
+    },
+    {
+      "id": "Characters/Character_1/fly.png",
+      "url": "/assets/02/Characters/Character_1/fly.png",
+      "bytes": 1451581,
+      "sha256": "b049c84693bea5a0c4c52d0461f2f1fe80003614d91116142600ada083bdec5f",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 942096,
+        "semi": 629929,
+        "opaque": 491,
+        "darkVisible": 10774,
+        "darkSemi": 10774,
+        "edgePixels": 52766,
+        "darkEdge": 9871,
+        "brightEdge": 6492,
+        "redEdge": 311,
+        "blueEdge": 11387,
+        "significantDark": 907,
+        "significantRedEdge": 4,
+        "significantBlueEdge": 1879
+      },
+      "alphaBins": {
+        "a1_15": 42796,
+        "a16_63": 4404,
+        "a64_127": 3733,
+        "a128_239": 9407,
+        "a240_254": 569589
+      },
+      "meanVisibleAlpha": 232.25663367278958,
+      "bboxAlpha": [
+        0,
+        15,
+        1240,
+        1230
+      ],
+      "bbox32": [
+        182,
+        18,
+        1096,
+        1225
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_1/fly.png"
+    },
+    {
+      "id": "Characters/Character_1/meditation.png",
+      "url": "/assets/02/Characters/Character_1/meditation.png",
+      "bytes": 1701761,
+      "sha256": "48736c39853d4a30718ce62c0aa5755fdf760d2cbec86e47af140cf413c0485c",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 775289,
+        "semi": 796521,
+        "opaque": 706,
+        "darkVisible": 3337,
+        "darkSemi": 3337,
+        "edgePixels": 109727,
+        "darkEdge": 2475,
+        "brightEdge": 15492,
+        "redEdge": 378,
+        "blueEdge": 17159,
+        "significantDark": 885,
+        "significantRedEdge": 7,
+        "significantBlueEdge": 3267
+      },
+      "alphaBins": {
+        "a1_15": 91909,
+        "a16_63": 16221,
+        "a64_127": 11166,
+        "a128_239": 25586,
+        "a240_254": 651639
+      },
+      "meanVisibleAlpha": 215.0653477616789,
+      "bboxAlpha": [
+        0,
+        21,
+        1224,
+        1254
+      ],
+      "bbox32": [
+        112,
+        46,
+        1155,
+        1200
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_1/meditation.png"
+    },
+    {
+      "id": "Characters/Character_2/attack.png",
+      "url": "/assets/02/Characters/Character_2/attack.png",
+      "bytes": 1768950,
+      "sha256": "b5c42c242c19ffbf1f93fd422eb77695ad818cb60baef4766775dcdec1492784",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 725023,
+        "semi": 847204,
+        "opaque": 289,
+        "darkVisible": 6087,
+        "darkSemi": 6087,
+        "edgePixels": 83756,
+        "darkEdge": 5372,
+        "brightEdge": 28219,
+        "redEdge": 155,
+        "blueEdge": 4798,
+        "significantDark": 715,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 68030,
+        "a16_63": 13535,
+        "a64_127": 10120,
+        "a128_239": 24331,
+        "a240_254": 731188
+      },
+      "meanVisibleAlpha": 225.4624403977378,
+      "bboxAlpha": [
+        0,
+        27,
+        1252,
+        1254
+      ],
+      "bbox32": [
+        24,
+        57,
+        1244,
+        1216
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_2/attack.png"
+    },
+    {
+      "id": "Characters/Character_2/celebrate.png",
+      "url": "/assets/02/Characters/Character_2/celebrate.png",
+      "bytes": 1993017,
+      "sha256": "79b7d8c5b74c2026daa416e0a9526a3ec91e3eac9e6196fe74f2339e53c29770",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 623338,
+        "semi": 948269,
+        "opaque": 909,
+        "darkVisible": 3274,
+        "darkSemi": 3274,
+        "edgePixels": 64850,
+        "darkEdge": 2253,
+        "brightEdge": 14009,
+        "redEdge": 244,
+        "blueEdge": 4722,
+        "significantDark": 1021,
+        "significantRedEdge": 4,
+        "significantBlueEdge": 2
+      },
+      "alphaBins": {
+        "a1_15": 52153,
+        "a16_63": 7392,
+        "a64_127": 5642,
+        "a128_239": 15144,
+        "a240_254": 867938
+      },
+      "meanVisibleAlpha": 235.36293824762058,
+      "bboxAlpha": [
+        0,
+        9,
+        1240,
+        1254
+      ],
+      "bbox32": [
+        24,
+        13,
+        1234,
+        1230
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_2/celebrate.png"
+    },
+    {
+      "id": "Characters/Character_2/fly.png",
+      "url": "/assets/02/Characters/Character_2/fly.png",
+      "bytes": 1639969,
+      "sha256": "f9f0fa728bf8faa8a25ae9a11529ee3415c9921306056fbc6858a56cb585b66a",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 759399,
+        "semi": 812566,
+        "opaque": 551,
+        "darkVisible": 6139,
+        "darkSemi": 6139,
+        "edgePixels": 60491,
+        "darkEdge": 5312,
+        "brightEdge": 14571,
+        "redEdge": 155,
+        "blueEdge": 4018,
+        "significantDark": 827,
+        "significantRedEdge": 5,
+        "significantBlueEdge": 1
+      },
+      "alphaBins": {
+        "a1_15": 47570,
+        "a16_63": 10235,
+        "a64_127": 7641,
+        "a128_239": 15731,
+        "a240_254": 731389
+      },
+      "meanVisibleAlpha": 232.5117418526485,
+      "bboxAlpha": [
+        37,
+        14,
+        1234,
+        1239
+      ],
+      "bbox32": [
+        58,
+        16,
+        1188,
+        1232
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_2/fly.png"
+    },
+    {
+      "id": "Characters/Character_2/meditation.png",
+      "url": "/assets/02/Characters/Character_2/meditation.png",
+      "bytes": 1916363,
+      "sha256": "e51985d61653a8820a932521fc03630566d54ba87656dfcc21c1f9e6ae3408f6",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 641050,
+        "semi": 931127,
+        "opaque": 339,
+        "darkVisible": 5026,
+        "darkSemi": 5026,
+        "edgePixels": 88739,
+        "darkEdge": 4697,
+        "brightEdge": 17974,
+        "redEdge": 224,
+        "blueEdge": 5250,
+        "significantDark": 329,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 2
+      },
+      "alphaBins": {
+        "a1_15": 69033,
+        "a16_63": 19310,
+        "a64_127": 14098,
+        "a128_239": 30773,
+        "a240_254": 797913
+      },
+      "meanVisibleAlpha": 224.74305449688984,
+      "bboxAlpha": [
+        0,
+        17,
+        1230,
+        1254
+      ],
+      "bbox32": [
+        59,
+        25,
+        1184,
+        1225
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_2/meditation.png"
+    },
+    {
+      "id": "Characters/Character_3/attack.png",
+      "url": "/assets/02/Characters/Character_3/attack.png",
+      "bytes": 1674459,
+      "sha256": "cb980b0234cba0d574fd7783f01e8d65ade03f8c4f539498193f403cb3627edf",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 798751,
+        "semi": 773018,
+        "opaque": 747,
+        "darkVisible": 3817,
+        "darkSemi": 3817,
+        "edgePixels": 77488,
+        "darkEdge": 3699,
+        "brightEdge": 18688,
+        "redEdge": 5780,
+        "blueEdge": 78,
+        "significantDark": 118,
+        "significantRedEdge": 34,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 58744,
+        "a16_63": 18791,
+        "a64_127": 11476,
+        "a128_239": 20673,
+        "a240_254": 663334
+      },
+      "meanVisibleAlpha": 224.37577042125193,
+      "bboxAlpha": [
+        0,
+        53,
+        1254,
+        1230
+      ],
+      "bbox32": [
+        13,
+        66,
+        1244,
+        1208
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_3/attack.png"
+    },
+    {
+      "id": "Characters/Character_3/celebrate.png",
+      "url": "/assets/02/Characters/Character_3/celebrate.png",
+      "bytes": 1773322,
+      "sha256": "6cb8dac342a02701d06e0849e4b8b1f0425d601488faed9bf70539a2ebc4286d",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 749887,
+        "semi": 821650,
+        "opaque": 979,
+        "darkVisible": 2147,
+        "darkSemi": 2147,
+        "edgePixels": 67067,
+        "darkEdge": 1845,
+        "brightEdge": 18595,
+        "redEdge": 11362,
+        "blueEdge": 101,
+        "significantDark": 302,
+        "significantRedEdge": 565,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 55384,
+        "a16_63": 5216,
+        "a64_127": 4161,
+        "a128_239": 10694,
+        "a240_254": 746195
+      },
+      "meanVisibleAlpha": 232.86370283566467,
+      "bboxAlpha": [
+        66,
+        0,
+        1214,
+        1254
+      ],
+      "bbox32": [
+        72,
+        7,
+        1174,
+        1237
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_3/celebrate.png"
+    },
+    {
+      "id": "Characters/Character_3/fly.png",
+      "url": "/assets/02/Characters/Character_3/fly.png",
+      "bytes": 1571078,
+      "sha256": "977b623d021110a500e6d756691e8252ec445d8de79a7533698a6e1f56d9c9a9",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 812160,
+        "semi": 760338,
+        "opaque": 18,
+        "darkVisible": 4988,
+        "darkSemi": 4988,
+        "edgePixels": 77851,
+        "darkEdge": 4969,
+        "brightEdge": 23382,
+        "redEdge": 8373,
+        "blueEdge": 74,
+        "significantDark": 19,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 63583,
+        "a16_63": 10861,
+        "a64_127": 8222,
+        "a128_239": 73431,
+        "a240_254": 604241
+      },
+      "meanVisibleAlpha": 221.95696094987085,
+      "bboxAlpha": [
+        0,
+        0,
+        1234,
+        1254
+      ],
+      "bbox32": [
+        119,
+        8,
+        1119,
+        1244
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_3/fly.png"
+    },
+    {
+      "id": "Characters/Character_3/meditation.png",
+      "url": "/assets/02/Characters/Character_3/meditation.png",
+      "bytes": 1968499,
+      "sha256": "05ea5df3dfe95fe9bda9cb52a5ce391662dc95d351921da7fb4a666ff2daedd3",
+      "width": 1254,
+      "height": 1254,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 632175,
+        "semi": 940130,
+        "opaque": 211,
+        "darkVisible": 3870,
+        "darkSemi": 3870,
+        "edgePixels": 99358,
+        "darkEdge": 3822,
+        "brightEdge": 33989,
+        "redEdge": 12496,
+        "blueEdge": 82,
+        "significantDark": 50,
+        "significantRedEdge": 52,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 82993,
+        "a16_63": 12103,
+        "a64_127": 9134,
+        "a128_239": 30687,
+        "a240_254": 805213
+      },
+      "meanVisibleAlpha": 224.12877668845664,
+      "bboxAlpha": [
+        0,
+        0,
+        1238,
+        1254
+      ],
+      "bbox32": [
+        68,
+        5,
+        1207,
+        1235
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Characters/Character_3/meditation.png"
+    },
+    {
+      "id": "FX layers/breakthrough_effect.png",
+      "url": "/assets/02/FX%20layers/breakthrough_effect.png",
+      "bytes": 539140,
+      "sha256": "c8f1202c8b999196da644583cecfe82f6d191beec30ac237b730cae39020a9f3",
+      "width": 941,
+      "height": 1671,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1271852,
+        "semi": 300559,
+        "opaque": 0,
+        "darkVisible": 43683,
+        "darkSemi": 43683,
+        "edgePixels": 153657,
+        "darkEdge": 43683,
+        "brightEdge": 6,
+        "redEdge": 30087,
+        "blueEdge": 0,
+        "significantDark": 0,
+        "significantRedEdge": 3,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 127176,
+        "a16_63": 47352,
+        "a64_127": 27104,
+        "a128_239": 37957,
+        "a240_254": 60970
+      },
+      "meanVisibleAlpha": 89.77232756297433,
+      "bboxAlpha": [
+        0,
+        0,
+        940,
+        1671
+      ],
+      "bbox32": [
+        249,
+        78,
+        695,
+        847
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/breakthrough_effect.png"
+    },
+    {
+      "id": "FX layers/formation_breakthrough.png",
+      "url": "/assets/02/FX%20layers/formation_breakthrough.png",
+      "bytes": 291148,
+      "sha256": "339232e04aa69b539ee1bfaa7b3210f486dadbb374ef5cdb180b2d294fe4f069",
+      "width": 941,
+      "height": 1671,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1465096,
+        "semi": 107315,
+        "opaque": 0,
+        "darkVisible": 2565,
+        "darkSemi": 2565,
+        "edgePixels": 33843,
+        "darkEdge": 2565,
+        "brightEdge": 31,
+        "redEdge": 1402,
+        "blueEdge": 0,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 25582,
+        "a16_63": 12166,
+        "a64_127": 7675,
+        "a128_239": 36196,
+        "a240_254": 25696
+      },
+      "meanVisibleAlpha": 141.30434701579463,
+      "bboxAlpha": [
+        0,
+        57,
+        919,
+        1623
+      ],
+      "bbox32": [
+        112,
+        532,
+        828,
+        686
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/formation_breakthrough.png"
+    },
+    {
+      "id": "FX layers/formation_ground.png",
+      "url": "/assets/02/FX%20layers/formation_ground.png",
+      "bytes": 884511,
+      "sha256": "b1dd22672dcfb5d9c3818ce8d1f7fc42425c15aa3453af40be6bd77df074f571",
+      "width": 941,
+      "height": 1671,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1180743,
+        "semi": 391668,
+        "opaque": 0,
+        "darkVisible": 6056,
+        "darkSemi": 6056,
+        "edgePixels": 169155,
+        "darkEdge": 6056,
+        "brightEdge": 395,
+        "redEdge": 0,
+        "blueEdge": 18246,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 30
+      },
+      "alphaBins": {
+        "a1_15": 130113,
+        "a16_63": 62698,
+        "a64_127": 46067,
+        "a128_239": 117130,
+        "a240_254": 35660
+      },
+      "meanVisibleAlpha": 99.4042147941624,
+      "bboxAlpha": [
+        0,
+        36,
+        941,
+        1671
+      ],
+      "bbox32": [
+        0,
+        844,
+        941,
+        1503
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 93,
+        "bottom": 0,
+        "left": 85
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/formation_ground.png"
+    },
+    {
+      "id": "FX layers/fx_cloud_storm.png",
+      "url": "/assets/02/FX%20layers/fx_cloud_storm.png",
+      "bytes": 1595529,
+      "sha256": "69720906fdc75c867c52b646457c28e47a2accf381f93b468270062b22fa1fae",
+      "width": 1895,
+      "height": 830,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 333013,
+        "semi": 1239837,
+        "opaque": 0,
+        "darkVisible": 345956,
+        "darkSemi": 345956,
+        "edgePixels": 468655,
+        "darkEdge": 345956,
+        "brightEdge": 37,
+        "redEdge": 6,
+        "blueEdge": 97681,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 8299
+      },
+      "alphaBins": {
+        "a1_15": 445484,
+        "a16_63": 35490,
+        "a64_127": 33892,
+        "a128_239": 79152,
+        "a240_254": 645819
+      },
+      "meanVisibleAlpha": 147.63215245229816,
+      "bboxAlpha": [
+        0,
+        0,
+        1895,
+        830
+      ],
+      "bbox32": [
+        19,
+        17,
+        1873,
+        781
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/fx_cloud_storm.png"
+    },
+    {
+      "id": "FX layers/fx_lightning_01.png",
+      "url": "/assets/02/FX%20layers/fx_lightning_01.png",
+      "bytes": 639127,
+      "sha256": "c2bd64d9f319e7fac42bd1b612dc3321db5e9b6b073db55a58157d512a6d1bb3",
+      "width": 1239,
+      "height": 1270,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 869719,
+        "semi": 703811,
+        "opaque": 0,
+        "darkVisible": 395656,
+        "darkSemi": 395656,
+        "edgePixels": 641690,
+        "darkEdge": 395656,
+        "brightEdge": 0,
+        "redEdge": 0,
+        "blueEdge": 106087,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 950
+      },
+      "alphaBins": {
+        "a1_15": 595900,
+        "a16_63": 75489,
+        "a64_127": 20618,
+        "a128_239": 11722,
+        "a240_254": 82
+      },
+      "meanVisibleAlpha": 11.65084234261755,
+      "bboxAlpha": [
+        0,
+        0,
+        1238,
+        1270
+      ],
+      "bbox32": [
+        500,
+        268,
+        772,
+        913
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/fx_lightning_01.png"
+    },
+    {
+      "id": "FX layers/fx_lightning_02.png",
+      "url": "/assets/02/FX%20layers/fx_lightning_02.png",
+      "bytes": 948250,
+      "sha256": "24f8531ddcd8bfa3e50800ff3ad11c4965ed2a76bb843bc6fd7f32c415d48c0b",
+      "width": 941,
+      "height": 1671,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1046315,
+        "semi": 526096,
+        "opaque": 0,
+        "darkVisible": 48934,
+        "darkSemi": 48934,
+        "edgePixels": 251537,
+        "darkEdge": 48934,
+        "brightEdge": 21,
+        "redEdge": 1,
+        "blueEdge": 29864,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 30
+      },
+      "alphaBins": {
+        "a1_15": 194140,
+        "a16_63": 113084,
+        "a64_127": 59992,
+        "a128_239": 80275,
+        "a240_254": 78605
+      },
+      "meanVisibleAlpha": 85.7321325385481,
+      "bboxAlpha": [
+        0,
+        0,
+        941,
+        1671
+      ],
+      "bbox32": [
+        94,
+        0,
+        806,
+        1141
+      ],
+      "touchingSides": {
+        "top": 171,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/fx_lightning_02.png"
+    },
+    {
+      "id": "FX layers/fx_lightning_03.png",
+      "url": "/assets/02/FX%20layers/fx_lightning_03.png",
+      "bytes": 1453017,
+      "sha256": "ac746fb4eb6327d650f082cea08c0794fee4b42ebadd188ae53dc62506ffa628",
+      "width": 941,
+      "height": 1671,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 658931,
+        "semi": 913480,
+        "opaque": 0,
+        "darkVisible": 105222,
+        "darkSemi": 105222,
+        "edgePixels": 332187,
+        "darkEdge": 105222,
+        "brightEdge": 16,
+        "redEdge": 0,
+        "blueEdge": 151701,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 4745
+      },
+      "alphaBins": {
+        "a1_15": 278803,
+        "a16_63": 108908,
+        "a64_127": 77439,
+        "a128_239": 147415,
+        "a240_254": 300915
+      },
+      "meanVisibleAlpha": 126.6232900556115,
+      "bboxAlpha": [
+        0,
+        0,
+        941,
+        1671
+      ],
+      "bbox32": [
+        137,
+        0,
+        865,
+        1565
+      ],
+      "touchingSides": {
+        "top": 110,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/fx_lightning_03.png"
+    },
+    {
+      "id": "FX layers/fx_lightning_04.png",
+      "url": "/assets/02/FX%20layers/fx_lightning_04.png",
+      "bytes": 1676017,
+      "sha256": "7526cb6e4066b4e3767fc82f0eceae63408a88a3f71c051885e7a6bc6fa82b40",
+      "width": 1024,
+      "height": 1536,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 697663,
+        "semi": 875201,
+        "opaque": 0,
+        "darkVisible": 117898,
+        "darkSemi": 117898,
+        "edgePixels": 527870,
+        "darkEdge": 136935,
+        "brightEdge": 0,
+        "redEdge": 0,
+        "blueEdge": 8,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 2
+      },
+      "alphaBins": {
+        "a1_15": 452884,
+        "a16_63": 152301,
+        "a64_127": 81908,
+        "a128_239": 110927,
+        "a240_254": 77181
+      },
+      "meanVisibleAlpha": 61.883988935113194,
+      "bboxAlpha": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "bbox32": [
+        91,
+        135,
+        898,
+        1274
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/fx_lightning_04.png"
+    },
+    {
+      "id": "FX layers/particles_overlay.png",
+      "url": "/assets/02/FX%20layers/particles_overlay.png",
+      "bytes": 1062334,
+      "sha256": "05825428a270ac4d061482339c7a8170f2ea7c2afe6f091f576820a16d568458",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 732305,
+        "semi": 841047,
+        "opaque": 0,
+        "darkVisible": 523803,
+        "darkSemi": 523803,
+        "edgePixels": 823319,
+        "darkEdge": 523803,
+        "brightEdge": 4780,
+        "redEdge": 6852,
+        "blueEdge": 8884,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 793592,
+        "a16_63": 40998,
+        "a64_127": 5138,
+        "a128_239": 1319,
+        "a240_254": 0
+      },
+      "meanVisibleAlpha": 4.138773457369208,
+      "bboxAlpha": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "bbox32": [
+        27,
+        257,
+        913,
+        1594
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/particles_overlay.png"
+    },
+    {
+      "id": "FX layers/petals_overlay.png",
+      "url": "/assets/02/FX%20layers/petals_overlay.png",
+      "bytes": 321294,
+      "sha256": "34af2036bbdefd91561e774d9c2d572f7b35763ae558d488d2fba36d2c96f030",
+      "width": 941,
+      "height": 1671,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1388084,
+        "semi": 184304,
+        "opaque": 23,
+        "darkVisible": 122383,
+        "darkSemi": 122383,
+        "edgePixels": 158132,
+        "darkEdge": 122383,
+        "brightEdge": 3604,
+        "redEdge": 9889,
+        "blueEdge": 74,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 153141,
+        "a16_63": 5085,
+        "a64_127": 3282,
+        "a128_239": 6143,
+        "a240_254": 16653
+      },
+      "meanVisibleAlpha": 32.713026306509626,
+      "bboxAlpha": [
+        21,
+        9,
+        941,
+        1649
+      ],
+      "bbox32": [
+        50,
+        130,
+        882,
+        1583
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/Effects/petals_overlay.png"
+    },
+    {
+      "id": "UI/ui_courtyard_trim.png",
+      "url": "/assets/02/UI/ui_courtyard_trim.png",
+      "bytes": 253273,
+      "sha256": "3ac3813831fa416697c7dd99cb5ac049bc56aceeee05cba7e249029013822e4b",
+      "width": 941,
+      "height": 1671,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1472536,
+        "semi": 99837,
+        "opaque": 38,
+        "darkVisible": 39981,
+        "darkSemi": 39981,
+        "edgePixels": 60393,
+        "darkEdge": 39903,
+        "brightEdge": 64,
+        "redEdge": 4639,
+        "blueEdge": 15,
+        "significantDark": 93,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 57153,
+        "a16_63": 2463,
+        "a64_127": 1142,
+        "a128_239": 2946,
+        "a240_254": 36133
+      },
+      "meanVisibleAlpha": 99.48515644555695,
+      "bboxAlpha": [
+        0,
+        13,
+        941,
+        1659
+      ],
+      "bbox32": [
+        0,
+        1461,
+        941,
+        1635
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 33,
+        "bottom": 0,
+        "left": 36
+      },
+      "importPath": "Assets/Art/SectConcept02/UI/ui_courtyard_trim.png"
+    },
+    {
+      "id": "UI/ui_cultivation_icon.png.png",
+      "url": "/assets/02/UI/ui_cultivation_icon.png.png",
+      "bytes": 110300,
+      "sha256": "601bbaba7fb324026c8179ebea4a958ada62c1703a4a2247bb81f42349002642",
+      "width": 941,
+      "height": 1672,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1550919,
+        "semi": 22433,
+        "opaque": 0,
+        "darkVisible": 938,
+        "darkSemi": 938,
+        "edgePixels": 4434,
+        "darkEdge": 938,
+        "brightEdge": 3,
+        "redEdge": 0,
+        "blueEdge": 751,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 3282,
+        "a16_63": 1557,
+        "a64_127": 1043,
+        "a128_239": 2413,
+        "a240_254": 14138
+      },
+      "meanVisibleAlpha": 187.0856327731467,
+      "bboxAlpha": [
+        11,
+        47,
+        913,
+        1672
+      ],
+      "bbox32": [
+        18,
+        224,
+        179,
+        375
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/UI/ui_cultivation_icon.png"
+    },
+    {
+      "id": "UI/ui_header.png",
+      "url": "/assets/02/UI/ui_header.png",
+      "bytes": 613089,
+      "sha256": "9ded103fef83a3fcd33296cd06002416d977620b077acadd61ad2fed1017ffed",
+      "width": 2172,
+      "height": 724,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1279691,
+        "semi": 292724,
+        "opaque": 113,
+        "darkVisible": 32855,
+        "darkSemi": 32855,
+        "edgePixels": 138950,
+        "darkEdge": 32855,
+        "brightEdge": 210,
+        "redEdge": 20274,
+        "blueEdge": 3208,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 218
+      },
+      "alphaBins": {
+        "a1_15": 118802,
+        "a16_63": 18453,
+        "a64_127": 9441,
+        "a128_239": 23190,
+        "a240_254": 122838
+      },
+      "meanVisibleAlpha": 127.54929534177717,
+      "bboxAlpha": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "bbox32": [
+        0,
+        0,
+        2172,
+        558
+      ],
+      "touchingSides": {
+        "top": 175,
+        "right": 151,
+        "bottom": 0,
+        "left": 148
+      },
+      "importPath": "Assets/Art/SectConcept02/UI/ui_header.png"
+    },
+    {
+      "id": "UI/ui_notice_panel.png",
+      "url": "/assets/02/UI/ui_notice_panel.png",
+      "bytes": 1394181,
+      "sha256": "2151c9818c8abe79bf4ddfbecbf77690270d8c889ef866a0460bcdd0885417fc",
+      "width": 1547,
+      "height": 1017,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 569529,
+        "semi": 1003719,
+        "opaque": 51,
+        "darkVisible": 19172,
+        "darkSemi": 19172,
+        "edgePixels": 77014,
+        "darkEdge": 18814,
+        "brightEdge": 147,
+        "redEdge": 12333,
+        "blueEdge": 1,
+        "significantDark": 358,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 70280,
+        "a16_63": 6032,
+        "a64_127": 2478,
+        "a128_239": 4754,
+        "a240_254": 920175
+      },
+      "meanVisibleAlpha": 233.03867619076084,
+      "bboxAlpha": [
+        0,
+        0,
+        1547,
+        1017
+      ],
+      "bbox32": [
+        159,
+        21,
+        1388,
+        918
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/UI/ui_notice_panel.png"
+    },
+    {
+      "id": "UI/ui_progress_fill.png",
+      "url": "/assets/02/UI/ui_progress_fill.png",
+      "bytes": 666914,
+      "sha256": "97a2f47a2b30e8ae7814b14a3a70478245ec9127ef2fbc2ca6c7720f92cf2d8a",
+      "width": 2172,
+      "height": 724,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1036188,
+        "semi": 536327,
+        "opaque": 13,
+        "darkVisible": 107355,
+        "darkSemi": 107355,
+        "edgePixels": 328521,
+        "darkEdge": 107355,
+        "brightEdge": 0,
+        "redEdge": 0,
+        "blueEdge": 36639,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 291830,
+        "a16_63": 67229,
+        "a64_127": 22740,
+        "a128_239": 14670,
+        "a240_254": 139858
+      },
+      "meanVisibleAlpha": 80.0057072006563,
+      "bboxAlpha": [
+        27,
+        13,
+        2156,
+        724
+      ],
+      "bbox32": [
+        230,
+        265,
+        1958,
+        475
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/UI/ui_progress_fill.png"
+    },
+    {
+      "id": "UI/ui_progress_frame.png",
+      "url": "/assets/02/UI/ui_progress_frame.png",
+      "bytes": 237954,
+      "sha256": "e266eb3852b9457a94f02e6c253eec3aec7d50c8333f9837cc33375bb3b143fc",
+      "width": 2172,
+      "height": 724,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 1399342,
+        "semi": 173166,
+        "opaque": 20,
+        "darkVisible": 6413,
+        "darkSemi": 6413,
+        "edgePixels": 15224,
+        "darkEdge": 6413,
+        "brightEdge": 676,
+        "redEdge": 84,
+        "blueEdge": 1147,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 415
+      },
+      "alphaBins": {
+        "a1_15": 10982,
+        "a16_63": 366,
+        "a64_127": 2984,
+        "a128_239": 1508,
+        "a240_254": 157326
+      },
+      "meanVisibleAlpha": 233.23049207210744,
+      "bboxAlpha": [
+        25,
+        31,
+        2171,
+        676
+      ],
+      "bbox32": [
+        113,
+        320,
+        2059,
+        404
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/UI/ui_progress_frame.png"
+    },
+    {
+      "id": "UI/ui_rank_icons.png",
+      "url": "/assets/02/UI/ui_rank_icons.png",
+      "bytes": 1378635,
+      "sha256": "40b20223c48bbc83998705aff8d6a13ac1e6c0630948c4edb58bcf1a9ed97370",
+      "width": 2206,
+      "height": 713,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 844970,
+        "semi": 727908,
+        "opaque": 0,
+        "darkVisible": 120534,
+        "darkSemi": 120534,
+        "edgePixels": 328157,
+        "darkEdge": 120534,
+        "brightEdge": 114,
+        "redEdge": 34435,
+        "blueEdge": 26012,
+        "significantDark": 0,
+        "significantRedEdge": 10,
+        "significantBlueEdge": 667
+      },
+      "alphaBins": {
+        "a1_15": 281476,
+        "a16_63": 84723,
+        "a64_127": 50995,
+        "a128_239": 85970,
+        "a240_254": 224744
+      },
+      "meanVisibleAlpha": 111.90059458063382,
+      "bboxAlpha": [
+        0,
+        0,
+        2190,
+        713
+      ],
+      "bbox32": [
+        135,
+        146,
+        2078,
+        531
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/UI/ui_rank_icons.png"
+    },
+    {
+      "id": "UI/ui_timer_frame.png",
+      "url": "/assets/02/UI/ui_timer_frame.png",
+      "bytes": 764462,
+      "sha256": "704ee0bb232f6504ece4775d4ae53b7741ee43e6f91e874692ae82bd35576434",
+      "width": 2172,
+      "height": 724,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaChannel": true,
+      "transparencyChunk": false,
+      "counts": {
+        "transparent": 984558,
+        "semi": 587930,
+        "opaque": 40,
+        "darkVisible": 94728,
+        "darkSemi": 94728,
+        "edgePixels": 106809,
+        "darkEdge": 94728,
+        "brightEdge": 133,
+        "redEdge": 2455,
+        "blueEdge": 64,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 102742,
+        "a16_63": 2437,
+        "a64_127": 608,
+        "a128_239": 3786,
+        "a240_254": 478357
+      },
+      "meanVisibleAlpha": 207.246723472286,
+      "bboxAlpha": [
+        0,
+        0,
+        2148,
+        724
+      ],
+      "bbox32": [
+        378,
+        155,
+        1790,
+        534
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "importPath": "Assets/Art/SectConcept02/UI/ui_timer_frame.png"
+    }
+  ],
+  "totals": {
+    "files": 39,
+    "fileBytes": 41409794,
+    "rgbaBytes": 245354132
+  }
+}

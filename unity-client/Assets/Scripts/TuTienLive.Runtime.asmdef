@@ -1,6 +1,6 @@
 {
   "name": "TuTienLive.Runtime",
-  "references": [],
+  "references": ["Unity.TextMeshPro", "UnityEngine.UI"],
   "overrideReferences": true,
   "precompiledReferences": ["Newtonsoft.Json.dll"]
 }

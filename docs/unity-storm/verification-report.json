@@ -1,0 +1,110 @@
+{
+  "result": "PASS within requested scope",
+  "sceneHash": "7c494e0762e561ee13b34e1ef40481efbdcc47ad8d0effdb030d92f03efbfd12",
+  "protectedFiles": 238,
+  "changedProtectedFiles": [],
+  "sceneUpgrade": {
+    "result": "PASS",
+    "changes": [
+      {
+        "id": "1015234908",
+        "scope": "07_UI"
+      },
+      {
+        "id": "1019421683",
+        "scope": "Tribulation PNG references only"
+      },
+      {
+        "id": "1473461023",
+        "scope": "PlatformSeat child reference only"
+      },
+      {
+        "id": "1530429824",
+        "scope": "07_UI"
+      },
+      {
+        "id": "1827460014",
+        "scope": "07_UI"
+      }
+    ],
+    "addedFxDocuments": 17,
+    "otherDocumentsUnchanged": true,
+    "before": "679589b56aec5cd5cea39f5d0302ecbdb0dcf93a6387062ce557620dda25bda3",
+    "after": "7c494e0762e561ee13b34e1ef40481efbdcc47ad8d0effdb030d92f03efbfd12"
+  },
+  "node": {
+    "passed": 96,
+    "failed": 0,
+    "skipped": 1,
+    "total": 97,
+    "evidence": "npm-test.txt"
+  },
+  "unity": {
+    "passed": 45,
+    "failed": 0,
+    "evidence": "editmode.xml",
+    "editorPlayMode": "PASS: Concept02 and storm integration tests enter and exit Play Mode"
+  },
+  "gpu": {
+    "device": "NVIDIA Quadro M1000M",
+    "api": "Direct3D11",
+    "captures": [
+      {
+        "file": "disconnected.png",
+        "sha256": "40fd4d3db88f6a6468df6def7db1a863d19f398375c4a6eb68a6466b1520fcb1"
+      },
+      {
+        "file": "energy-level1.png",
+        "sha256": "8dbf45987bb8ed19f5eacbd07ab719b07d11197ab0a6fc3b3f043f8812846e98"
+      },
+      {
+        "file": "energy-level2.png",
+        "sha256": "fe7bb504b656e48d4605774a135d6da14f9cd842fec6c8dceb1b3515622db813"
+      },
+      {
+        "file": "energy-level3-max.png",
+        "sha256": "fb55b27e980954b70f8002b8b8a7d97a6c1a574c9cee39578597aafb33068ddd"
+      },
+      {
+        "file": "storm-720x1280.png",
+        "sha256": "5f83e21c7bb2f170b739a2be54ad9a1e51fa1c50ccd709e679b0d824c05cee25"
+      },
+      {
+        "file": "storm-between-strikes.png",
+        "sha256": "ddcf4dc45aef9c48f9f3b97b2c5c76642cadf7d688372c4682e3e6fa691cc08c"
+      },
+      {
+        "file": "storm-frame-01-1080x1920.png",
+        "sha256": "c20b6337f8a2499d2c8e4233c548f14ae40f97387c9f40a5051e8057db0c4988"
+      },
+      {
+        "file": "storm-frame-02-1080x1920.png",
+        "sha256": "f5bb4ca67a5f142222a86223cb397271d4a818680898591ba45c81d2a35e635e"
+      },
+      {
+        "file": "storm-frame-03-1080x1920.png",
+        "sha256": "c6bd8f7740083a671f7957c020c2890bcc22bc1551a1d4e6832d5b95298a712a"
+      },
+      {
+        "file": "storm-frame-04-1080x1920.png",
+        "sha256": "0ac34ab44b6fe97093bb55ef173eaa8d9e9acb6a1a721766fe446b8fef5a738b"
+      }
+    ],
+    "visuallyReviewed": true
+  },
+  "priorTestAttempt": {
+    "evidence": "initial-editmode.xml",
+    "passed": 41,
+    "failed": 30,
+    "note": "27 CharacterTests could not set up because SectScene_Editable.unity is absent in the source repository. Three new/Play test failures were corrected; final scoped run passed. Legacy procedural prefab timing was tested directly in the final suite."
+  },
+  "unverified": [
+    "Legacy CharacterTests dependent on absent SectScene_Editable scene (initial setup FAIL)",
+    "Windows build for this change",
+    "Standalone runtime",
+    "OBS",
+    "Real TikTok LIVE",
+    "Load/FPS"
+  ],
+  "unchanged": "Backend/gameplay/protocol/save/player data, existing character prefabs, Main, all artwork PNG bytes and import settings, Unity packages/settings."
+}

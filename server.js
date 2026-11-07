@@ -20,6 +20,7 @@ import {DemoConnection} from './demoConnection.js';
 import {audioSettings,displaySettings,cameraSettings,CAMERA_MODES} from './public/js/settings.js';
 import {DataManager} from './adminData.js';
 import {preserveCorrupt} from './adminDataBackup.js';
+import {sectLevelsFor} from './sectEnergy.js';
 const root = path.dirname(fileURLToPath(import.meta.url));
 export async function createApplication({ dataRoot = root, port,connectorFactory,adapterTimers } = {}) {
   const store = new JsonStore();
@@ -30,7 +31,7 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
   if (!config || Array.isArray(config) || config.schemaVersion !== 1 || !['low','medium','high'].includes(config.graphics) || !CAMERA_MODES.includes(config.camera) || !Number.isInteger(config.port) || config.port < 1 || config.port > 65535) {await preserveCorrupt(configFile);throw new Error('Cấu hình không hợp lệ. Giữ nguyên file để kiểm tra.');}
   try{config.cultivation=rulesFor(config.cultivation);
   Object.assign(config,battleRulesFor(config));
-  config.live=liveRulesFor(config.live);config.giftRules=giftRulesFor(config.giftRules);
+  config.live=liveRulesFor(config.live);config.giftRules=giftRulesFor(config.giftRules);config.sectLevels=sectLevelsFor(config.sectLevels);
   config.audio=audioSettings(config.audio);config.display=displaySettings(config.display);config.cameraDirector=cameraSettings(config.cameraDirector);
   }catch(error){await preserveCorrupt(configFile);throw error;}
   const dataManager=new DataManager(store,dataRoot),telemetry=new Map();
@@ -45,7 +46,7 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
   let mutations=Promise.resolve(),closing=false;const incoming=[];
   const adapter=new TikTokAdapter({factory:connectorFactory,words:filter.words,settings:config.live,...adapterTimers,onEvent:event=>{
     const target=engine;if(target.mode!=='live'||closing||storageError)return;
-    const primary=event.loai==='qua'||event.loai==='binhluan'&&/^\s*[12]\s*$/.test(event.noiDung);
+    const primary=['qua','tim'].includes(event.loai)||event.loai==='binhluan'&&/^\s*[12]\s*$/.test(event.noiDung);
     if(incoming.length>=(primary?50000:1000)){target.liveEvents.diagnostic('Hàng đợi LIVE quá tải; đã giới hạn đầu vào. Sự kiện chưa được chốt.');return;}
     // Drain on the serialized game tick (or before an admin action), at most one disk
     // commit per batch. Network callbacks never enqueue an unbounded series of writes.
@@ -110,7 +111,7 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
     for(const [id,t]of telemetry)if(Date.now()-t.receivedAt>15000)telemetry.delete(id);if(!telemetry.has(v.clientId)&&telemetry.size>=8)return res.status(429).json({error:'Đã đủ nguồn báo cáo.'});if(Date.now()-(telemetry.get(v.clientId)?.receivedAt??0)<1500)return res.status(429).json({error:'Báo cáo tối đa mỗi 2 giây.'});
     telemetry.set(v.clientId,{...Object.fromEntries(['fps','drawCalls','triangles','geometries','textures','rendered','quality'].map(k=>[k,v[k]])),receivedAt:Date.now()});res.json({ok:true});
   });
-  app.get('/api/dashboard',(req,res)=>{const memory=process.memoryUsage();res.json({mode:engine.mode,phase:engine.phase,remainingMs:engine.remainingMs,completedCycles:engine.completedCycles,battlesStarted:engine.battlesStarted,players:engine.players.size,realms:engine.rules.realms.map((r,id)=>({name:r.name,count:[...engine.players.values()].filter(p=>p.realmIndex===id).length})),activeFields:engine.battle.current?.status==='running'?engine.battle.current.fields.filter(f=>f.participantIds.length).length:0,breakthroughQueue:engine.breakthrough.queue.length,events:engine.liveEvents.counters,tiktok:(engine.mode==='demo'?demoConnection.adapter:adapter).snapshot(),load:{...load,rssMB:memory.rss/1048576,heapMB:memory.heapUsed/1048576,queuedEvents:incoming.length,webSockets:wss.clients.size},renderReports:[...telemetry.values()].filter(v=>Date.now()-v.receivedAt<15000),storageError});});
+  app.get('/api/dashboard',(req,res)=>{const memory=process.memoryUsage();res.json({mode:engine.mode,phase:engine.phase,remainingMs:engine.remainingMs,completedCycles:engine.completedCycles,battlesStarted:engine.battlesStarted,players:engine.players.size,realms:engine.rules.realms.map((r,id)=>({name:r.name,count:[...engine.players.values()].filter(p=>p.realmIndex===id).length})),activeFields:engine.battle.current?.status==='running'?engine.battle.current.fields.filter(f=>f.participantIds.length).length:0,breakthroughQueue:engine.breakthrough.queue.length,events:engine.liveEvents.counters,interactionLog:engine.liveEvents.log.slice(-20),tiktok:(engine.mode==='demo'?demoConnection.adapter:adapter).snapshot(),load:{...load,rssMB:memory.rss/1048576,heapMB:memory.heapUsed/1048576,queuedEvents:incoming.length,webSockets:wss.clients.size},renderReports:[...telemetry.values()].filter(v=>Date.now()-v.receivedAt<15000),storageError});});
   app.post('/api/control', (req, res, next) => {
     const job = mutations.then(async () => {
       if (!req.is('application/json') || !req.body || Array.isArray(req.body)) throw new Error('Yêu cầu JSON không hợp lệ.');
@@ -164,6 +165,11 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
           const next=liveRulesFor({...config.live,...value});await store.write(configFile,{...config,live:next});config.live=next;adapter.settings=next;demoConnection.adapter.settings=next;break;
         }
         case 'giftRules': {const next=giftRulesFor(value);await store.write(configFile,{...config,giftRules:next});config.giftRules=next;break;}
+        case 'sectLevels': {
+          const next=sectLevelsFor(value);await store.write(configFile,{...config,sectLevels:next});config.sectLevels=next;
+          for(const target of sessions.values()){target.liveEvents.sectEnergy.configure(next);target.important=true;}
+          break;
+        }
         case 'demoLiveEvent': {
           const result=demo.emit(value);if(result.accepted===false)throw new Error(result.reason??'Sự kiện bị giới hạn tần suất.');break;
         }

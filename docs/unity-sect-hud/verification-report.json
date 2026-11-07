@@ -1,0 +1,67 @@
+{
+  "result": "PASS",
+  "finalSceneHash": "679589b56aec5cd5cea39f5d0302ecbdb0dcf93a6387062ce557620dda25bda3",
+  "node": {
+    "regression": {
+      "passed": 95,
+      "failed": 0,
+      "skipped": 1,
+      "total": 96,
+      "evidence": "npm-test.txt"
+    },
+    "additionalApiTest": {
+      "passed": 1,
+      "failed": 0,
+      "evidence": "api-test.txt"
+    }
+  },
+  "unity": {
+    "passed": 38,
+    "failed": 0,
+    "evidence": "editmode.xml",
+    "editorPlayMode": "PASS with recorded snapshots",
+    "note": "Six UI RectTransform positions refined after tests; final scene compiled and GPU-rendered successfully afterwards."
+  },
+  "gpu": {
+    "result": "PASS",
+    "device": "NVIDIA Quadro M1000M",
+    "api": "Direct3D11",
+    "visuallyReviewed": true,
+    "captures": [
+      {
+        "file": "level1-1080x1920.png",
+        "sha256": "5fe90738c7e2aecfe2eb56b1a57f93457658fdd0ff05b11d2435f1e0e4bc79e2"
+      },
+      {
+        "file": "level2-1080x1920.png",
+        "sha256": "9a105291cbdb722f1d5793313c64b11d63d2eab0e14288e960070eb5b9a70739"
+      },
+      {
+        "file": "level2-720x1280.png",
+        "sha256": "e37376ba93f062f019d02f267e6105b44c98a03994980a1d7da840bdd0a74175"
+      },
+      {
+        "file": "level3-max-1080x1920.png",
+        "sha256": "b72d4b390c038b30d0d9650b34cc447a8f34fb5a0c07ae5645b01bd744a684fa"
+      }
+    ]
+  },
+  "preservation": {
+    "result": "PASS",
+    "protectedFiles": 52,
+    "nonUiDocumentsUnchanged": true,
+    "evidence": [
+      "preservation-report.json",
+      "scene-upgrade-report.json",
+      "row-spacing-report.json"
+    ]
+  },
+  "unverified": [
+    "Windows build for this change",
+    "Standalone executable",
+    "OBS capture",
+    "Real TikTok LIVE",
+    "Load/FPS"
+  ],
+  "scope": "Server-authoritative sect energy, TOP3 realm display; no rewards or community wish rule changes."
+}

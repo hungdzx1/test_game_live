@@ -16,6 +16,7 @@ namespace TuTienLive.Editor
         [MenuItem("Tu Tien LIVE/Stage 04/Import original poses and create prefabs (once)")]
         public static void Create()
         {
+            if(File.Exists(Prefab)){SectSceneAuthoringMigration.Migrate();return;}
             Directory.CreateDirectory("Assets/Resources");Directory.CreateDirectory("Assets/Materials/Characters");
             AssetDatabase.Refresh();
             string[] names={"idle_stand","fly","attack","meditate","celebrate","back_3quarter","meditate_3quarter"};

@@ -38,7 +38,7 @@ test('Actual installed connector event dispatch feeds native v3 payloads through
   c.connect=async()=>({isConnected:true,roomId:'999'});c.disconnect=async()=>{};
   const events=[],adapter=new TikTokAdapter({factory:()=>c,onEvent:e=>events.push(e)});adapter.connect('test_channel');await settle();
   const common={msgId:'1001',roomId:'999'},user={id:'123456',nickname:'Đạo hữu'};
-  await c.processDecodedData({type:'WebcastChatMessage',data:{common,user,comment:'nhập môn'}});
+  await c.processDecodedData({type:'WebcastChatMessage',data:{common,user,content:'nhập môn'}});
   await c.processDecodedData({type:'WebcastGiftMessage',data:{common:{...common,msgId:'1002'},user,giftId:'5655',gift:{type:1,name:'Hồng',diamondCount:1},groupId:'77',repeatCount:3,repeatEnd:1}});
   await c.processDecodedData({type:'WebcastLikeMessage',data:{common:{...common,msgId:'1003'},user,count:5,total:'105'}});
   await c.processDecodedData({type:'WebcastSocialMessage',data:{common:{...common,msgId:'1004',displayText:{key:'pm_main_follow'}},user}});

@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "changes": [
+    {
+      "id": "1015234908",
+      "scope": "07_UI"
+    },
+    {
+      "id": "1019421683",
+      "scope": "Tribulation PNG references only"
+    },
+    {
+      "id": "1473461023",
+      "scope": "PlatformSeat child reference only"
+    },
+    {
+      "id": "1530429824",
+      "scope": "07_UI"
+    },
+    {
+      "id": "1827460014",
+      "scope": "07_UI"
+    }
+  ],
+  "addedFxDocuments": 17,
+  "otherDocumentsUnchanged": true,
+  "before": "679589b56aec5cd5cea39f5d0302ecbdb0dcf93a6387062ce557620dda25bda3",
+  "after": "7c494e0762e561ee13b34e1ef40481efbdcc47ad8d0effdb030d92f03efbfd12"
+}

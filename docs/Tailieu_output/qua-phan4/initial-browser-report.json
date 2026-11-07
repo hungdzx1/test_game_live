@@ -1,0 +1,9 @@
+{
+  "result": "FAIL",
+  "error": "Browser timeout: document.querySelector('#live-event-log').textContent.includes('[Follow]')&&document.querySelector('#live-event-log').textContent.includes('nhap mon')",
+  "errors": [],
+  "checks": [
+    "Three supplied JPGs load locally; exact-ID presets lock prices, keep drafts across routes and save all three rewards",
+    "Reload preserves exact ID and locked prices; switching to manual supports saved price bands; custom ID add/delete works"
+  ]
+}

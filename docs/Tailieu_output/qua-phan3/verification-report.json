@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "protectedFiles": 243,
+  "changed": [],
+  "unity": {
+    "result": "Passed",
+    "total": 53,
+    "passed": 53,
+    "failed": 0,
+    "playMode": "Explicit EnterPlayMode/ExitPlayMode in SectHudTests + existing Concept02/BlessingPanel suites; recorded actual Node snapshot level6"
+  },
+  "node": {
+    "tests": 103,
+    "pass": 102,
+    "skip": 1,
+    "fail": 0
+  },
+  "browsers": {
+    "levels": "PASS",
+    "gift": "PASS",
+    "admin": "PASS"
+  },
+  "realLive": "CHƯA KIỂM CHỨNG",
+  "windowsBuildObsGpu": "CHƯA KIỂM CHỨNG",
+  "checkedAt": "2026-11-07T15:41:10.923Z"
+}

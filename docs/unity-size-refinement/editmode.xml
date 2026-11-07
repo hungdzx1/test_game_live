@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="14" result="Passed" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-07 13:06:50Z" end-time="2026-11-07 13:06:52Z" duration="1.0887409">
+  <test-suite type="TestSuite" id="1000" name="Tu Tien LIVE - Unity Migration" fullname="Tu Tien LIVE - Unity Migration" runstate="Runnable" testcasecount="103" result="Passed" start-time="2026-11-07 13:06:50Z" end-time="2026-11-07 13:06:52Z" duration="1.088741" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1123" name="TuTienLive.Tests.dll" fullname="C:/Users/admin/Documents/CODE/TuTien/test-results/unity-concept02/project/Library/ScriptAssemblies/TuTienLive.Tests.dll" runstate="Runnable" testcasecount="103" result="Passed" start-time="2026-11-07 13:06:51Z" end-time="2026-11-07 13:06:52Z" duration="0.983544" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="21712" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1124" name="TuTienLive" fullname="TuTienLive" runstate="Runnable" testcasecount="103" result="Passed" start-time="2026-11-07 13:06:51Z" end-time="2026-11-07 13:06:52Z" duration="0.981337" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1125" name="Tests" fullname="TuTienLive.Tests" runstate="Runnable" testcasecount="103" result="Passed" start-time="2026-11-07 13:06:51Z" end-time="2026-11-07 13:06:52Z" duration="0.979597" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1044" name="CharacterVariantTests" fullname="TuTienLive.Tests.CharacterVariantTests" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-07 13:06:34Z" end-time="2026-11-07 13:06:37Z" duration="2.642941" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1047" name="AppendingFourthTemplateWorksWithoutCodeChangesAndPreservesItsScale" fullname="TuTienLive.Tests.CharacterVariantTests.AppendingFourthTemplateWorksWithoutCodeChangesAndPreservesItsScale" methodname="AppendingFourthTemplateWorksWithoutCodeChangesAndPreservesItsScale" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" seed="1007503871" result="Passed" start-time="2026-11-07 13:06:34Z" end-time="2026-11-07 13:06:36Z" duration="1.251587" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1046" name="EmptyOrMissingEntriesKeepLegacyPrefabFallback" fullname="TuTienLive.Tests.CharacterVariantTests.EmptyOrMissingEntriesKeepLegacyPrefabFallback" methodname="EmptyOrMissingEntriesKeepLegacyPrefabFallback" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" seed="2005070329" result="Passed" start-time="2026-11-07 13:06:36Z" end-time="2026-11-07 13:06:36Z" duration="0.703859" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1045" name="SavedCatalogSpawnsAllThreeAndKeepsLooksAcrossSnapshotsReconnectAndPooling" fullname="TuTienLive.Tests.CharacterVariantTests.SavedCatalogSpawnsAllThreeAndKeepsLooksAcrossSnapshotsReconnectAndPooling" methodname="SavedCatalogSpawnsAllThreeAndKeepsLooksAcrossSnapshotsReconnectAndPooling" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" seed="1472268596" result="Passed" start-time="2026-11-07 13:06:36Z" end-time="2026-11-07 13:06:37Z" duration="0.655350" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1053" name="Concept02StormTests" fullname="TuTienLive.Tests.Concept02StormTests" classname="TuTienLive.Tests.Concept02StormTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-07 13:06:44Z" end-time="2026-11-07 13:06:45Z" duration="0.914818" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1055" name="EachStrikePlaysAllFourFramesOnceAndKeepsStormBetweenStrikes" fullname="TuTienLive.Tests.Concept02StormTests.EachStrikePlaysAllFourFramesOnceAndKeepsStormBetweenStrikes" methodname="EachStrikePlaysAllFourFramesOnceAndKeepsStormBetweenStrikes" classname="TuTienLive.Tests.Concept02StormTests" runstate="Runnable" seed="1075492141" result="Passed" start-time="2026-11-07 13:06:37Z" end-time="2026-11-07 13:06:38Z" duration="0.335568" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1059" name="EnergyArtDrawsAboveOpaqueFrameAndRetainsLeftEdgeAcrossLevels" fullname="TuTienLive.Tests.Concept02StormTests.EnergyArtDrawsAboveOpaqueFrameAndRetainsLeftEdgeAcrossLevels" methodname="EnergyArtDrawsAboveOpaqueFrameAndRetainsLeftEdgeAcrossLevels" classname="TuTienLive.Tests.Concept02StormTests" runstate="Runnable" seed="2027238638" result="Passed" start-time="2026-11-07 13:06:38Z" end-time="2026-11-07 13:06:38Z" duration="0.343763" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1057" name="IncompleteFrameListFallsBackAndDisablingControllerClearsFx" fullname="TuTienLive.Tests.Concept02StormTests.IncompleteFrameListFallsBackAndDisablingControllerClearsFx" methodname="IncompleteFrameListFallsBackAndDisablingControllerClearsFx" classname="TuTienLive.Tests.Concept02StormTests" runstate="Runnable" seed="89711282" result="Passed" start-time="2026-11-07 13:06:38Z" end-time="2026-11-07 13:06:38Z" duration="0.323968" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1058" name="LegacyPrefabKeepsProceduralCloudsAndServerStrikeTiming" fullname="TuTienLive.Tests.Concept02StormTests.LegacyPrefabKeepsProceduralCloudsAndServerStrikeTiming" methodname="LegacyPrefabKeepsProceduralCloudsAndServerStrikeTiming" classname="TuTienLive.Tests.Concept02StormTests" runstate="Runnable" seed="43992379" result="Passed" start-time="2026-11-07 13:06:38Z" end-time="2026-11-07 13:06:39Z" duration="0.341276" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1056" name="PauseFreezesFrameAndResultBattleDisconnectClearEverySprite" fullname="TuTienLive.Tests.Concept02StormTests.PauseFreezesFrameAndResultBattleDisconnectClearEverySprite" methodname="PauseFreezesFrameAndResultBattleDisconnectClearEverySprite" classname="TuTienLive.Tests.Concept02StormTests" runstate="Runnable" seed="584078052" result="Passed" start-time="2026-11-07 13:06:39Z" end-time="2026-11-07 13:06:39Z" duration="0.298784" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1060" name="PlayFreezesPngStrikeAtServerTimeAndClearsOnResultAndDisconnect" fullname="TuTienLive.Tests.Concept02StormTests.PlayFreezesPngStrikeAtServerTimeAndClearsOnResultAndDisconnect" methodname="PlayFreezesPngStrikeAtServerTimeAndClearsOnResultAndDisconnect" classname="TuTienLive.Tests.Concept02StormTests" runstate="Runnable" seed="1228084919" result="Passed" start-time="2026-11-07 13:06:39Z" end-time="2026-11-07 13:06:45Z" duration="5.982172" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1054" name="SavedSceneUsesLocalStormAndFourOrderedFramesWithoutChangingLegacyPrefab" fullname="TuTienLive.Tests.Concept02StormTests.SavedSceneUsesLocalStormAndFourOrderedFramesWithoutChangingLegacyPrefab" methodname="SavedSceneUsesLocalStormAndFourOrderedFramesWithoutChangingLegacyPrefab" classname="TuTienLive.Tests.Concept02StormTests" runstate="Runnable" seed="769204647" result="Passed" start-time="2026-11-07 13:06:45Z" end-time="2026-11-07 13:06:45Z" duration="0.329680" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1061" name="Concept02Tests" fullname="TuTienLive.Tests.Concept02Tests" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-07 13:06:51Z" end-time="2026-11-07 13:06:52Z" duration="0.949637" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1064" name="OpenExistingSceneNeverRebuildsUserEdits" fullname="TuTienLive.Tests.Concept02Tests.OpenExistingSceneNeverRebuildsUserEdits" methodname="OpenExistingSceneNeverRebuildsUserEdits" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" seed="1624526671" result="Passed" start-time="2026-11-07 13:06:45Z" end-time="2026-11-07 13:06:46Z" duration="0.722046" asserts="0">
+              <properties />
+              <output><![CDATA[CONCEPT02_REFERENCES_PASS
+]]></output>
+            </test-case>
+            <test-case id="1065" name="PlayUsesNewSpritesAndAuthoritativeSnapshotWithoutResettingLayout" fullname="TuTienLive.Tests.Concept02Tests.PlayUsesNewSpritesAndAuthoritativeSnapshotWithoutResettingLayout" methodname="PlayUsesNewSpritesAndAuthoritativeSnapshotWithoutResettingLayout" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" seed="865917136" result="Passed" start-time="2026-11-07 13:06:46Z" end-time="2026-11-07 13:06:51Z" duration="5.250159" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1062" name="SavedSceneUsesLocalArtAndKeepsPortraitSystems" fullname="TuTienLive.Tests.Concept02Tests.SavedSceneUsesLocalArtAndKeepsPortraitSystems" methodname="SavedSceneUsesLocalArtAndKeepsPortraitSystems" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" seed="378941534" result="Passed" start-time="2026-11-07 13:06:51Z" end-time="2026-11-07 13:06:52Z" duration="0.374513" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1063" name="ThreePrefabsHaveExactlyTheSuppliedFourPoses" fullname="TuTienLive.Tests.Concept02Tests.ThreePrefabsHaveExactlyTheSuppliedFourPoses" methodname="ThreePrefabsHaveExactlyTheSuppliedFourPoses" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" seed="1091605034" result="Passed" start-time="2026-11-07 13:06:52Z" end-time="2026-11-07 13:06:52Z" duration="0.006141" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/admin/AppData/LocalLow/TuTienLive/Tu Tien LIVE - Unity Migration\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

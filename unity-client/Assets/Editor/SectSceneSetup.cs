@@ -26,7 +26,7 @@ namespace TuTienLive.Editor
         public static void Create()
         {
             CleanScenes();
-            if (File.Exists(ScenePath)) throw new InvalidOperationException("SectScene already exists; preserve Inspector edits and use Verify/Capture instead.");
+            if (File.Exists(ScenePath)) { SectSceneAuthoringMigration.Migrate(); return; }
             audit = JsonUtility.FromJson<AssetAudit>(File.ReadAllText(ArtRoot + "asset-audit.json"));
             Directory.CreateDirectory(MaterialRoot); AssetDatabase.Refresh();
             foreach (var entry in audit.assets) Import(entry);
@@ -98,11 +98,7 @@ namespace TuTienLive.Editor
         }
         public static void RebuildValidationOnly()
         {
-            string expected=Path.GetFullPath(Path.Combine(RepositoryRoot(),"test-results/unity-stage03/validation-project/Assets"));
-            if(!string.Equals(Path.GetFullPath(Application.dataPath),expected,StringComparison.OrdinalIgnoreCase))
-                throw new InvalidOperationException("Rebuild is restricted to the disposable validation project. Main project edits are preserved.");
-            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
-            AssetDatabase.DeleteAsset(ScenePath);AssetDatabase.DeleteAsset(MaterialRoot.TrimEnd('/'));Create();
+            throw new InvalidOperationException("Rebuild is retired. Use Scene Authoring/Migrate; original scene and prefabs are preserved.");
         }
         private static void Import(AssetEntry entry)
         {

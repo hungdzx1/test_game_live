@@ -1,0 +1,63 @@
+{
+  "installedAt": "2026-11-07T18:45:42.8398935+00:00",
+  "installRoot": "C:\\Users\\admin\\Documents\\CODE\\TuTien\\tools\\tts\\piper",
+  "python": "3.13.17",
+  "piper": "1.8.0",
+  "voices": [
+    "vi_VN-vais1000-medium",
+    "vi_VN-tramvang-medium"
+  ],
+  "voiceSettings": "voice-settings.json",
+  "sources": [
+    "https://www.python.org/ftp/python/3.13.17/python-3.13.17-embed-amd64.zip",
+    "https://pypi.org/project/piper-tts/1.8.0/",
+    "https://huggingface.co/rhasspy/piper-voices/resolve/main/vi/vi_VN/vais1000/medium",
+    "https://huggingface.co/vnhellboy/vietnamese-piper-voices/resolve/df2a53e0b5c8039d17e642cc8d80fa03d59374b7/vits-piper-vi_VN-tramvang-medium"
+  ],
+  "packages": {
+    "flatbuffers": "25.12.19",
+    "numpy": "2.5.4",
+    "onnxruntime": "1.31.1",
+    "packaging": "26.3",
+    "pathvalidate": "3.3.1",
+    "piper-tts": "1.8.0",
+    "protobuf": "7.36.2"
+  },
+  "files": [
+    {
+      "sha256": "302DB8A930FFC2B1C2181DB26DEAF8272116ECA2B08B8F80DA6375B0A994AF7B",
+      "name": "MODEL_CARD",
+      "bytes": 361
+    },
+    {
+      "sha256": "EC7C89E2C85F4D1EDC24B6120C18AAF1BDA614F06B511567EB9C7C0DE15E2DAB",
+      "name": "vi_VN-vais1000-medium.onnx",
+      "bytes": 63201294
+    },
+    {
+      "sha256": "FAFB9DA1354ED4B77C31AF228ED41FB41CD825C14CFFA105454B25E6AE751EE0",
+      "name": "vi_VN-vais1000-medium.onnx.json",
+      "bytes": 4860
+    },
+    {
+      "sha256": "38DB72CD8A7B4CFD3A1D53AF644946496C9F7B221B4F77D69EF7A90712883335",
+      "name": "vi_VN-tramvang-medium\\MODEL_CARD.md",
+      "bytes": 2460
+    },
+    {
+      "sha256": "E8A50AE0C75612D18CFCF3F90800DCA79F961E3ED97F9574F3535194469187FD",
+      "name": "vi_VN-tramvang-medium\\tokens.txt",
+      "bytes": 968
+    },
+    {
+      "sha256": "5E07E420B3F410A72A457FF9472131EDF9AA489DE3596237F3ACED9C4859661A",
+      "name": "vi_VN-tramvang-medium\\vi_VN-tramvang-medium.onnx",
+      "bytes": 63516182
+    },
+    {
+      "sha256": "9E2439FB19B654D5E6288EEB872506F5AD3FBED3EE25D3AC9117B1ED449CF46D",
+      "name": "vi_VN-tramvang-medium\\vi_VN-tramvang-medium.onnx.json",
+      "bytes": 5033
+    }
+  ]
+}

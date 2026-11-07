@@ -1,0 +1,22 @@
+{
+  "files": [
+    {
+      "original": "unity-client/Assets/Scenes/SectScene.unity",
+      "backup": "docs\\unity-scene-authoring\\backup\\SectScene.unity",
+      "sha256": "ffcd52f1d63c3f28658cdafd254fe6419d94d6e23edfa1c2b6bfc950746d0a4a",
+      "byteIdentical": true
+    },
+    {
+      "original": "unity-client/Assets/Resources/CharacterPrefab.prefab",
+      "backup": "docs\\unity-scene-authoring\\backup\\CharacterPrefab.prefab",
+      "sha256": "4e599a571bcb17b2d23b8e722014924975accf2dca3db6769e5b265b09ffe9ba",
+      "byteIdentical": true
+    },
+    {
+      "original": "unity-client/Assets/Resources/TribulationPrefab.prefab",
+      "backup": "docs\\unity-scene-authoring\\backup\\TribulationPrefab.prefab",
+      "sha256": "cb1bde70153cde98692763977538c9d468f5e70d15921cd4b899fceaf88d8aa1",
+      "byteIdentical": true
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import { EventEmitter } from 'node:events';
 import { randomUUID } from 'node:crypto';
 import { rulesFor, STAGES } from './cultivationConfig.js';
 import { migratePlayer } from './playerStore.js';
-import { ItemService } from './itemService.js';
+import { ItemService,normalizeBlessings } from './itemService.js';
 import { CultivationService } from './cultivationService.js';
 import { BreakthroughService, probabilityFor } from './breakthroughService.js';
 import { QuestService } from './questService.js';
@@ -46,7 +46,7 @@ export class GameEngine extends EventEmitter {
   }
   tick(dt) {
     this.events = this.events.filter(e => Date.now() - e.timestamp < 10000);
-    if (!['cultivation', 'battle'].includes(this.phase)) return;
+    if (!['cultivation', 'battle'].includes(this.phase)){this.liveEvents.tick();return;}
     if(!Number.isFinite(dt))return;
     dt = Math.max(0, Math.min(250, dt));this.cycle.tick(dt);this.liveEvents.tick();
     if(this.phase==='battle')return;
@@ -71,10 +71,10 @@ export class GameEngine extends EventEmitter {
     this.phaseStart=r.phaseStart??Date.now();this.elapsedActiveMs=r.elapsedActiveMs??0;
     this.elapsedMs=r.elapsedMs;this.remainingMs=r.remainingMs;this.previousPhase=r.previousPhase;
     // Keep the gameplay session ID to avoid claiming check-in again by restarting the server.
-    this.sessionId=r.sessionId;this.cycleId=r.cycleId;this.globalBuffs=structuredClone(r.globalBuffs);this.breakthrough.queue=[...r.queue];this.breakthrough.active=structuredClone(a);this.breakthrough.lastResult=structuredClone(r.lastResult);this.auditLog=Array.isArray(r.auditLog)?r.auditLog.slice(-100):[];this.animationPreview=r.animationPreview===true;
+    this.sessionId=r.sessionId;this.cycleId=r.cycleId;this.globalBuffs=normalizeBlessings(r.globalBuffs);this.breakthrough.queue=[...r.queue];this.breakthrough.active=structuredClone(a);this.breakthrough.lastResult=structuredClone(r.lastResult);this.auditLog=Array.isArray(r.auditLog)?r.auditLog.slice(-100):[];this.animationPreview=r.animationPreview===true;
   }
   snapshot(admin=false) {
     const players=[...this.players.values()].map(p=>({...p,...this.items.getEffectiveStats(p),realm:this.rules.realms[p.realmIndex].name,stage:STAGES[p.stageIndex],cultivationRequired:this.rules.realms[p.realmIndex].thresholds[p.stageIndex]??null,activeBuffs:[...p.buffs,...this.globalBuffs],breakthroughProbability:probabilityFor(p,this.rules)}));
-    return { type:'state:snapshot',version:1,sessionId:this.transportId,seq:++this.seq,serverTime:Date.now(),payload:{phase:this.phase,effectivePhase:['paused','stopped'].includes(this.phase)?this.previousPhase:this.phase,phaseStart:this.phaseStart,elapsedActiveMs:this.elapsedActiveMs,cycleId:this.cycleId,completedCycles:this.completedCycles,battlesStarted:this.battlesStarted,cameraUserId:this.cameraUserId,battle:this.battle.snapshot(),battleResult:this.battle.result,remainingMs:this.remainingMs,elapsedMs:this.elapsedMs,players,focusedScene:(['paused','stopped'].includes(this.phase)?this.previousPhase:this.phase)==='battle'?'battle':this.breakthrough.active?'breakthrough':'sect',interactions:this.liveEvents.snapshot(admin),config:Object.fromEntries(Object.entries(this.config).filter(([k])=>['schemaVersion','host','port','graphics','camera','cultivation','cycle','skills','boss','combat','rewards','live','giftRules','audio','display','cameraDirector'].includes(k))),mode:this.mode,demoSpeed:this.demoSpeed,animationPreview:this.animationPreview,breakthroughQueueLength:this.breakthrough.queue.length,breakthrough:this.breakthrough.publicState(),breakthroughResult:this.breakthrough.lastResult,...(admin?{auditLog:this.auditLog}:{} )}};
+    return { type:'state:snapshot',version:1,sessionId:this.transportId,seq:++this.seq,serverTime:Date.now(),payload:{phase:this.phase,effectivePhase:['paused','stopped'].includes(this.phase)?this.previousPhase:this.phase,phaseStart:this.phaseStart,elapsedActiveMs:this.elapsedActiveMs,cycleId:this.cycleId,completedCycles:this.completedCycles,battlesStarted:this.battlesStarted,cameraUserId:this.cameraUserId,battle:this.battle.snapshot(),battleResult:this.battle.result,remainingMs:this.remainingMs,elapsedMs:this.elapsedMs,players,focusedScene:(['paused','stopped'].includes(this.phase)?this.previousPhase:this.phase)==='battle'?'battle':this.breakthrough.active?'breakthrough':'sect',interactions:this.liveEvents.snapshot(admin),config:Object.fromEntries(Object.entries(this.config).filter(([k])=>['schemaVersion','host','port','graphics','camera','cultivation','cycle','skills','boss','combat','rewards','live','giftRules','sectLevels','audio','display','cameraDirector'].includes(k))),mode:this.mode,demoSpeed:this.demoSpeed,animationPreview:this.animationPreview,breakthroughQueueLength:this.breakthrough.queue.length,breakthrough:this.breakthrough.publicState(),breakthroughResult:this.breakthrough.lastResult,...(admin?{auditLog:this.auditLog}:{} )}};
   }
 }

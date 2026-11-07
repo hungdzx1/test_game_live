@@ -10,14 +10,13 @@ namespace TuTienLive.Scenes
         public SectLayer[] layers;
         public bool animate = true;
         private int lastWidth, lastHeight;
-        private void OnEnable() { ApplyQuality(); Sample(0); }
+        private void OnEnable() { ApplyQuality(); if(Application.isPlaying)Sample(0); }
         private void Update()
         {
             if (!cameraRig) return;
             if (Screen.width != lastWidth || Screen.height != lastHeight)
             { lastWidth = Screen.width; lastHeight = Screen.height; cameraRig.ConfigureViewport(lastWidth, lastHeight); }
             if (Application.isPlaying) Sample(animate ? Time.timeSinceLevelLoad : 0);
-            else Sample(0);
         }
         [ContextMenu("Apply scene quality")]
         public void ApplyQuality()
@@ -27,14 +26,13 @@ namespace TuTienLive.Scenes
             {
                 var camera = cameraRig.GetComponent<Camera>();
                 camera.allowHDR = false; camera.allowMSAA = false;
-                cameraRig.driftEnabled = quality != SectQuality.Low;
             }
             if (Application.isPlaying) Application.targetFrameRate = quality == SectQuality.Low ? 30 : 60;
         }
         public void Sample(float time)
         {
             if (!cameraRig || layers == null) return;
-            ApplyQuality(); cameraRig.Sample(time);
+            ApplyQuality(); cameraRig.Sample(quality==SectQuality.Low?0:time);
             foreach (var layer in layers) if (layer) layer.Sample(time, cameraRig.CurrentDrift, quality);
             cameraRig.FitBounds();
         }

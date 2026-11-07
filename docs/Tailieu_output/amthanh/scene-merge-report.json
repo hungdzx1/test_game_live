@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "reports": [
+    {
+      "scene": "SectScene_Main",
+      "unchangedExistingObjects": 201,
+      "existingParentOnlyAppendsAudioChild": "946330345",
+      "addedObjects": 5,
+      "before": "71d3eb8948912a288d5d2b60b68650e15526140c60d7a2a81cdb618e878fad20",
+      "after": "8626b243d38418fcf8094396ad582c1915bf5ef80546b1ccfffcf28e36b7824f"
+    },
+    {
+      "scene": "SectScene_Concept02",
+      "unchangedExistingObjects": 331,
+      "existingParentOnlyAppendsAudioChild": "946330345",
+      "addedObjects": 5,
+      "before": "54533bcb615e097e25bcf66e8244ddfec98065738dbac6045dc80af7f9a531cb",
+      "after": "c3bebbd9be543fbcd5d8c15e7aab9ebf194a36e8a0e3e16d09067edf0ffce489"
+    }
+  ]
+}

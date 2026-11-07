@@ -1,0 +1,96 @@
+{
+  "result": "PASS within requested scope",
+  "protectedFiles": 222,
+  "changedProtectedFiles": [],
+  "scene": {
+    "result": "PASS",
+    "changedUiDocuments": [
+      "1015234906",
+      "1015234907"
+    ],
+    "addedUiDocuments": 63,
+    "allNonUiBytesUnchanged": true,
+    "before": "7c494e0762e561ee13b34e1ef40481efbdcc47ad8d0effdb030d92f03efbfd12",
+    "after": "00533aa86da9421200f2c4b554fdfb053cc6ace1e6bdd9fdde4b63adf7c15421"
+  },
+  "art": {
+    "copiedPng": 8,
+    "byteIdentical": true,
+    "texture2D": true,
+    "missingOrnaments": "Native UI diamonds replace absent ui_blessing_ornaments.png"
+  },
+  "node": {
+    "passed": 103,
+    "failed": 0,
+    "skipped": 1,
+    "total": 104,
+    "evidence": "npm-test.txt"
+  },
+  "unity": {
+    "passed": 55,
+    "failed": 0,
+    "evidence": "editmode.xml",
+    "editorPlayMode": "PASS: three integration tests enter/exit Play Mode (BlessingPanel, Concept02, Storm)"
+  },
+  "gpu": {
+    "device": "NVIDIA Quadro M1000M",
+    "api": "Direct3D11",
+    "images": [
+      {
+        "file": "active-30-1080x1920.png",
+        "sha256": "4964a4bb4281f46af8ae15577d86cd0efbaa2118305426bfec44733506d45702"
+      },
+      {
+        "file": "active-30-720x1280.png",
+        "sha256": "456ea20334181ad16f02bcee731ce9dc061e6ec7d07c61ad924f6d4899e0d8b6"
+      },
+      {
+        "file": "battle-1080x1920.png",
+        "sha256": "600f47a7e17def01b30594baed83d8e129c2c914f5c325f076d180361da04051"
+      },
+      {
+        "file": "disconnected.png",
+        "sha256": "40fd4d3db88f6a6468df6def7db1a863d19f398375c4a6eb68a6466b1520fcb1"
+      },
+      {
+        "file": "expired-1080x1920.png",
+        "sha256": "a431ef401f90ec9e8b5b71e76ab57140f8617d79fa1b06de25beea0e29deea6a"
+      },
+      {
+        "file": "idle-1080x1920.png",
+        "sha256": "07a48af844d20d7d12f5dad75005a48eb06bea718039d3d9574c2d725de1803e"
+      },
+      {
+        "file": "level-up-1080x1920.png",
+        "sha256": "403600698c7ba78029e835f83cb3388d47ad6865a76ac518ac4f9624f26210d6"
+      },
+      {
+        "file": "paused-1080x1920.png",
+        "sha256": "90a6545667c35159bffb0ee80ff1c077088dc7aa8c56cbef51f39107fafa7efc"
+      },
+      {
+        "file": "remaining-15-1080x1920.png",
+        "sha256": "04d34b6e573a2a626093bd57bf93dc6ee17b45068396c291134bc13666033629"
+      },
+      {
+        "file": "stacked-50-1080x1920.png",
+        "sha256": "01292710992ac3b5b68e05625144cbfc592bb37b63d14ad2a9b74e42e7a1779f"
+      },
+      {
+        "file": "stacked-50-720x1280.png",
+        "sha256": "0ebd5eee2853ed0f338c5c81894f29474657ea0006a5ef7da12fa4b0ae3531e2"
+      }
+    ],
+    "visuallyReviewed": true
+  },
+  "business": "Ban Phuc x2, +30s duration on item activation or each sect level-up, server countdown/freeze/expiry/persistence; tea/root additive rules and wish points unchanged.",
+  "priorFailures": "Initial Unity 54/55: new PNGs imported as Cubemap. Explicit Texture2D, null texture guard and repaired bindings; final 55/55 passed. One initial Node case accepted null duration; validator corrected and full regression passed.",
+  "unverified": [
+    "Windows build for this change",
+    "Standalone executable",
+    "OBS",
+    "Real TikTok LIVE",
+    "Load/FPS",
+    "Legacy CharacterTests requiring absent SectScene_Editable scene (known from previous task)"
+  ]
+}

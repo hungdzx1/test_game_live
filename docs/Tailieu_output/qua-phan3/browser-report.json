@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "browser": "Chrome/156.0.8078.81",
+  "checks": [
+    "Replaced repeating wish panel; added six levels; all five item choices, quantities, all-sect scope; draft survives snapshots/routes; invalid input stays unsaved",
+    "Actual demo buttons advance six levels, exact per-member items stay pending paused; one Ban Phuc x2; final row rewards once at MAX",
+    "Append after MAX resumes at next level; saving does not grant free gifts; removing final level retains accepted total and inventory",
+    "Desktop/mobile and both themes fit page; reconnect controls remain under Home connection details; no runtime exceptions"
+  ],
+  "errors": [],
+  "realLive": "CHƯA KIỂM CHỨNG; test uses demo events only"
+}

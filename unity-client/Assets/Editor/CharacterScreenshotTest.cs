@@ -16,10 +16,10 @@ namespace TuTienLive.Editor
     {
         public static void Capture()
         {
-            SectSceneSetup.CleanScenes();EditorSceneManager.OpenScene(SectSceneSetup.ScenePath,OpenSceneMode.Single);
+            SectSceneSetup.CleanScenes();EditorSceneManager.OpenScene(SectSceneAuthoringMigration.PreferredScene,OpenSceneMode.Single);
             if(SystemInfo.graphicsDeviceType==GraphicsDeviceType.Null)throw new Exception("Actual GPU required");
             var manager=SectCharacterBootstrap.Install();manager.network.enabled=false;
-            var directory=Path.Combine(SectSceneSetup.RepositoryRoot(),"docs/unity-stage04");Directory.CreateDirectory(directory);
+            var directory=Path.Combine(SectSceneSetup.RepositoryRoot(),"docs/unity-scene-authoring/after");Directory.CreateDirectory(directory);
             var shots=new List<Shot>();
             foreach(var name in new[]{"players-10","players-500","ritual-start","ritual-strike","ritual-success","ritual-failure"})
             {
@@ -39,7 +39,13 @@ namespace TuTienLive.Editor
                         var b=view.pose.Body.bounds;var min=camera.WorldToViewportPoint(b.min);var max=camera.WorldToViewportPoint(b.max);
                         if(min.x<0||min.y<0||max.x>1||max.y>1)throw new Exception("Character clipped: "+view.UserId);
                     }
-                    shots.Add(new Shot{file=path,players=manager.TotalPlayers,visible=manager.Views.Count,created=manager.CreatedCount,lightning=manager.tribulation.LightningVisible,cpuParseSyncMs=timer.Elapsed.TotalMilliseconds});
+                    var labels=manager.Views.Values.Select(v=>
+                    {
+                        v.nameLabel.ForceMeshUpdate();var b=v.nameLabel.GetComponent<MeshRenderer>().bounds;
+                        var min=camera.WorldToViewportPoint(b.min);var max=camera.WorldToViewportPoint(b.max);
+                        return new LabelBounds{x0=min.x,y0=min.y,x1=max.x,y1=max.y};
+                    }).ToArray();
+                    shots.Add(new Shot{file=path,players=manager.TotalPlayers,visible=manager.Views.Count,created=manager.CreatedCount,lightning=manager.tribulation.LightningVisible,cpuParseSyncMs=timer.Elapsed.TotalMilliseconds,nameplates=labels});
                 }
             }
             File.WriteAllText(Path.Combine(directory,"screenshot-report.json"),JsonUtility.ToJson(new Report{device=SystemInfo.graphicsDeviceName,api=SystemInfo.graphicsDeviceType.ToString(),shots=shots.ToArray()},true));
@@ -53,13 +59,14 @@ namespace TuTienLive.Editor
             {
                 foreach(var text in UnityEngine.Object.FindObjectsByType<TextMesh>())text.font.RequestCharactersInTexture(text.text,text.fontSize,FontStyle.Normal);
                 var request=new UniversalRenderPipeline.SingleCameraRequest{destination=target};RenderPipeline.SubmitRenderRequest(camera,request);
-                foreach(var layout in UnityEngine.Object.FindObjectsByType<SectTextLayout>())layout.Fit();
+                foreach(var layout in UnityEngine.Object.FindObjectsByType<SectTextLayout>())if(layout.autoFit)layout.Fit();
                 RenderPipeline.SubmitRenderRequest(camera,request);RenderTexture.active=target;
                 image=new Texture2D(width,height,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,width,height),0,0);image.Apply();File.WriteAllBytes(path,image.EncodeToPNG());
             }
             finally{RenderTexture.active=previous;if(image)UnityEngine.Object.DestroyImmediate(image);target.Release();UnityEngine.Object.DestroyImmediate(target);}
         }
         [Serializable] private class Report{public string device,api;public Shot[] shots;public string note="Actual GPU screenshots with backend fixture replay. cpuParseSyncMs is a one-off CPU parse/sync measurement, not gameplay FPS/GPU timing.";}
-        [Serializable] private class Shot{public string file;public int players,visible,created;public bool lightning;public double cpuParseSyncMs;}
+        [Serializable] private class Shot{public string file;public int players,visible,created;public bool lightning;public double cpuParseSyncMs;public LabelBounds[] nameplates;}
+        [Serializable] private class LabelBounds{public float x0,y0,x1,y1;}
     }
 }

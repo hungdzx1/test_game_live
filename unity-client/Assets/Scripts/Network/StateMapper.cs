@@ -49,6 +49,24 @@ namespace TuTienLive.Network
                     OptionalNumbers(payload, "phaseStart", "elapsedActiveMs", "breakthroughQueueLength");
                     OptionalIntegers(payload, "breakthroughQueueLength");
                     foreach (var key in new[] { "breakthrough", "breakthroughResult", "battle", "battleResult", "config", "interactions", "tiktok" }) OptionalObject(payload, key);
+                    if(payload["interactions"] is JObject interactions)
+                    {
+                        OptionalObject(interactions,"blessing");
+                        if(interactions["blessing"] is JObject blessing)
+                        {
+                            Numeric(blessing,"remainingMs");Numeric(blessing,"durationMs");
+                            double left=(double)blessing["remainingMs"],duration=(double)blessing["durationMs"];
+                            Require(left>=0&&duration>=left&&duration<=9007199254740991d&&Int(blessing,"multiplier")==2,"Blessing range");
+                        }
+                        OptionalObject(interactions,"sectEnergy");
+                        if(interactions["sectEnergy"] is JObject energy)
+                        {
+                            long level=Int(energy,"level"),power=Int(energy,"power"),threshold=Int(energy,"threshold"),maxLevel=energy["maxLevel"]==null?3:Int(energy,"maxLevel");
+                            Require(maxLevel>=1&&maxLevel<=50&&level>=1&&level<=maxLevel&&power>=0&&threshold>0&&threshold<=1000000000&&power<=threshold,"Sect energy range");
+                            Require(energy["full"]?.Type==JTokenType.Boolean,"Sect energy full flag");
+                            Require((bool)energy["full"]==(level==maxLevel&&power==threshold)&&(level==maxLevel||power<threshold),"Sect energy completion");
+                        }
+                    }
                     if (payload["breakthrough"] is JObject b)
                     { Text(b, "id"); Text(b, "userId"); OptionalNumbers(b, "elapsedMs", "durationMs"); OptionalIntegers(b, "realmIndex", "lightningCount"); OptionalBool(b, "guaranteed"); }
                     if (payload["breakthroughResult"] is JObject r)

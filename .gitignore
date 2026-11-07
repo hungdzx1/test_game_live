@@ -6,6 +6,12 @@ data/
 .env
 .env.*
 !.env.example
+
+# Project-local offline speech runtime, downloaded voice model and generated audio.
+/tools/tts/piper/runtime/
+/tools/tts/piper/downloads/
+/tools/tts/piper/models/
+/tools/tts/piper/output/
 *.log
 *.backup
 *.bak
@@ -25,6 +31,7 @@ data/
 /unity-client/*.sln
 /unity-client/*.slnx
 /unity-client/*.user
+/unity-client/SceneAuthoringBackups/
 
 # The user's pre-existing project remains in place; exclude only its generated output.
 /public/unity-client/**/[Ll]ibrary/

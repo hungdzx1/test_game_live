@@ -1,5 +1,7 @@
 # Unity 03 — Tông môn 2.5D từ PNG
 
+**Tài liệu bước03 dưới đây là lịch sử. Scene chỉnh trực quan hiện tại là SectScene_Editable.unity; dùng Transform/MeshRenderer, không dùng Position Pixels. Xem [UNITY_SCENE_AUTHORING.md](UNITY_SCENE_AUTHORING.md). Scene/prefab gốc được giữ nguyên làm bản legacy.**
+
 Scene chính: unity-client/Assets/Scenes/SectScene.unity. Project Unity ở gốc repository, Editor 6000.5.9f1 / URP 17.5.0. Bước này dựng môi trường độc lập; chưa có renderer người chơi, UI gameplay hoặc hệ thống battle Unity. NetworkTest và backend Node.js vẫn là phần bàn giao bước 02.
 
 ## Mở scene và chỉnh trong Inspector

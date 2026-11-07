@@ -2,7 +2,7 @@ export function liveMessage(event){
   if(event.kind==='live:follow')return `${event.name} · cảm ơn đã theo dõi`;
   if(event.kind==='live:join')return `${event.name} · chào mừng vào phòng`;
   if(event.kind==='live:cultivation')return `${event.name} · linh khí hội tụ`;
-  if(event.kind==='live:wish')return `THIÊN ĐẠO BAN PHÚC CỘNG ĐỒNG · +${event.points} điểm nhiệm vụ${event.pending?' sau khi về tông môn':''}`;
+  if(event.kind==='live:wish'){const names={tea:'Trà Ngộ Đạo',pill:'Độ Kiếp Đan',blessing:'Ban Phúc toàn tông',root:'Biến Dị Linh Căn',camera:'Quay Cam'},reward=names[event.reward];return `THIÊN ĐẠO BAN PHÚC CỘNG ĐỒNG · ${reward?`${reward} ×${event.quantity}`:`+${event.points} điểm nhiệm vụ`}${event.pending?' sau khi về tông môn':''}`;}
   if(event.kind==='live:gift')return `${event.name} · ${event.giftName} ×${event.quantity} · ${event.diamonds} kim cương → ${event.itemName} ×${event.itemCount}${event.waiting?' · giữ chờ nhập môn':''}`;
   return null;
 }

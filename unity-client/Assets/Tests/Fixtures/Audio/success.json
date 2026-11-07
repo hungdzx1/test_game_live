@@ -1,0 +1,17 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "998f4f85-484e-4803-a380-043fef60d63d",
+  "seq": 6,
+  "serverTime": 1794069583888,
+  "payload": {
+    "eventId": "bf155d4b-2df2-4001-9864-dea6798bc403",
+    "kind": "breakthrough:completed",
+    "userId": "audio-demo",
+    "timestamp": 1794069583888,
+    "id": "7a571e36-9b74-4740-9db5-8b9ba4114ad6",
+    "outcome": true,
+    "realmIndex": 1,
+    "remainingMs": 3000
+  }
+}

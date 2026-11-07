@@ -39,7 +39,9 @@ export class TikTokAdapter extends EventEmitter{
       const current=()=>generation===this.generation&&this.intent&&this.connection===c;
       const bind=(name,fn)=>c.on(name,fn);
       for(const [name,kind]of [[WebcastEvent.CHAT,'chat'],[WebcastEvent.GIFT,'gift'],[WebcastEvent.LIKE,'like'],[WebcastEvent.FOLLOW,'follow'],[WebcastEvent.MEMBER,'member']])bind(name,data=>{
-        if(!current())return;try{const event=fromTikTok(kind,data,c.roomId,this.words);Promise.resolve(this.onEvent(event)).catch(()=>this.emit('diagnostic','Không thể xử lý sự kiện; kiểm tra nhật ký cục bộ.'));}catch{this.emit('diagnostic','Bỏ qua sự kiện thiếu ID/đơn giá hoặc dữ liệu không hợp lệ.');}
+        if(!current())return;
+        let event;try{event=fromTikTok(kind,data,c.roomId,this.words);}catch(error){this.emit('diagnostic',`Bỏ qua ${kind}: ${error.message}`);return;}
+        try{Promise.resolve(this.onEvent(event)).catch(()=>this.emit('diagnostic','Không thể xử lý sự kiện; kiểm tra nhật ký cục bộ.'));}catch{this.emit('diagnostic','Không thể xử lý sự kiện; kiểm tra nhật ký cục bộ.');}
       });
       bind(ControlEvent.ERROR,error=>{if(current()){const info=liveError(error);this.status(this.state.state,info.message,info.code);}});
       bind(ControlEvent.DISCONNECTED,()=>{if(current())this.lost(c,generation);});

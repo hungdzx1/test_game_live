@@ -339,17 +339,17 @@ Giữ các cảnh giới và chỉ số sau:
 
 | Cảnh giới | HP | ATK | DEF | Tu vi/giây |
 |---|---:|---:|---:|---:|
-| Phàm Nhân | 100 | 10 | 5 | 1 |
-| Luyện Khí | 180 | 18 | 9 | 1.5 |
-| Trúc Cơ | 320 | 32 | 16 | 2.2 |
-| Kim Đan | 560 | 56 | 28 | 3.2 |
-| Nguyên Anh | 980 | 98 | 49 | 4.5 |
-| Hóa Thần | 1720 | 172 | 86 | 6.3 |
-| Luyện Hư | 3010 | 301 | 151 | 8.8 |
-| Hợp Thể | 5270 | 527 | 264 | 12 |
-| Đại Thừa | 9220 | 922 | 461 | 16.5 |
-| Độ Kiếp | 16140 | 1614 | 807 | 22 |
-| Phi Thăng | 28240 | 2824 | 1412 | 30 |
+| Phàm Nhân | 100 | 10 | 5 | 2 |
+| Luyện Khí | 180 | 18 | 9 | 2 |
+| Trúc Cơ | 320 | 32 | 16 | 2 |
+| Kim Đan | 560 | 56 | 28 | 2 |
+| Nguyên Anh | 980 | 98 | 49 | 2 |
+| Hóa Thần | 1720 | 172 | 86 | 2 |
+| Luyện Hư | 3010 | 301 | 151 | 2 |
+| Hợp Thể | 5270 | 527 | 264 | 2 |
+| Đại Thừa | 9220 | 922 | 461 | 2 |
+| Độ Kiếp | 16140 | 1614 | 807 | 2 |
+| Phi Thăng | 28240 | 2824 | 1412 | 2 |
 
 Mỗi cảnh giới thông thường có các mốc:
 
@@ -367,7 +367,7 @@ Trong đó:
 
 Khi đạt Viên Mãn, nhân vật đủ điều kiện độ kiếp để chuyển sang cảnh giới kế tiếp.
 
-Tốc độ tu luyện phụ thuộc cảnh giới, không tự tăng theo tiểu cảnh giới.
+Theo `docs/Tailieu/Logic_Tang_Tu_vi.md` phần1 (07/11/2026), tốc độ gốc là **2 tu vi/giây cho mọi cảnh giới**, không tăng theo tiểu cảnh giới. Cấu hình cũ được đọc với tốc độ mới, giữ chỉ số chiến đấu và ngưỡng nâng tầng.
 
 Phi Thăng là cảnh giới cao nhất ở phiên bản đầu; tu vi tích lũy dùng cho danh hiệu, thành tựu hoặc công pháp, không tăng sang cảnh giới mới.
 
@@ -391,6 +391,15 @@ Các giá trị được lưu thành bảng cấu hình có thể điều chỉn
 Phải tính tu vi theo thời gian thực trên máy chủ, không phụ thuộc FPS của giao diện.
 
 Khi thanh tu vi đầy, tự nâng tiểu cảnh giới. Khi đã Viên Mãn, tự đưa nhân vật vào hàng chờ độ kiếp.
+
+### Tu vi từ tim
+
+- Mỗi tim hợp lệ cộng ngay vào nguyên lực tông môn; đồng thời người thả tim đã có nhân vật nhận **2 tu vi/tim**. Tim của người chưa nhập môn chỉ tăng nguyên lực, không tự tạo nhân vật hoặc giữ tu vi hồi tố.
+- Theo lựa chọn của người dùng, **chỉ tu vi cá nhân được gom chuỗi**: riêng từng người, đủ100 tim thì chốt; phần dư dưới100 chốt khi người đó ngừng thả1 giây. Đầu vào lớn được xử lý theo nhóm100 và giữ phần dư; không nhân lên theo số người trong tông môn.
+- Hệ số Trà, Ban Phúc và Linh Căn hiện hữu áp dụng cho cả tu vi theo giây và theo tim. Ví dụ một Trà x2: **4 tu vi/giây và4 tu vi/tim**. Giữ cách cộng hệ số và giới hạn mặc định x8, Ban Phúc lặp chỉ nối thời gian. Đan/Quay Cam không tăng tu vi.
+- Ghi nhận hệ số tại lúc nhận tim; buff kết thúc hoặc kích hoạt thêm trong khi chờ chốt không tính lại tim cũ. Ban Phúc do chính mốc tim kích hoạt áp dụng từ những tim tiếp theo.
+- Diệt ma/tạm dừng/dừng: nguyên lực vẫn nhận ngay; tu vi cá nhân chốt vào phần chờ, chỉ áp dụng khi trở lại tu luyện, không nhân hệ số thêm lần nữa. Đồng hồ buff và tu vi tự động vẫn đóng băng.
+- Node chịu trách nhiệm đếm/chốt/lưu, chống trùng event và đối chiếu tổng tim phòng như trước. Phần tăng của tổng phòng vượt số tim trong event chỉ tăng nguyên lực, không gán tim không rõ chủ cho nhân vật gửi event. DEMO/LIVE độc lập; chuỗi dở và biên nhận lưu cùng trạng thái, khởi động lại không tính bù tu vi thời gian offline hoặc trả hai lần. Unity chỉ đọc snapshot.
 
 ---
 
@@ -484,9 +493,11 @@ Thiết kế 5 vật phẩm ban đầu.
 
 - Toàn bộ đệ tử được x2 tốc độ tu luyện trong 30 giây.
 - Có hiệu ứng thiên quang chiếu xuống tông môn.
-- Có thể cộng dồn theo quy tắc cộng các hệ số.
+- Theo `docs/UI_BANPHUC.md` (07/11/2026), kích hoạt thêm Ban Phúc **cộng30 giây vào thời gian còn lại**, giữ một hiệu ứng x2, không tạo thêm hệ số x4/x6 từ riêng Ban Phúc. Thời gian chỉ giảm trong tu luyện thực tế; diệt ma, pause và dừng giữ nguyên.
+- Quà được ánh xạ thành vật phẩm Ban Phúc qua bảng quà hiện hữu; vật phẩm chờ/nhập môn vẫn theo luật hiện có. Mỗi lần tông môn tăng cấp1→2 hoặc2→3 tự kích hoạt thêm30 giây; làm đầy MAX của cấp3 không phải lên cấp. Một sự kiện vượt hai cấp cộng60 giây; chống trùng vẫn do backend.
+- Bảng Ban Phúc trong Unity Concept02 nằm ngay dưới Thiên Đạo Thông Cáo, hiện khi còn hiệu lực và tự ẩn khi hết hoặc mất kết nối; chữ “x2 tốc độ tu luyện”, đồng hồ và thanh tiến độ đọc snapshot server. Tách DEMO/LIVE, lưu qua restart và không tính bù thời gian offline. Save cũ nhiều Ban Phúc được gộp thành một hiệu ứng x2 với tổng thời gian còn lại, giữ toàn bộ thời gian và người chơi.
 
-Ví dụ: hai hiệu ứng x2 đồng thời thành x4, không tính theo phép nhân chồng để thành một hệ số ngoài ý muốn.
+Các nguồn khác nhau vẫn theo quy tắc cộng hệ số: ví dụ Trà x2 và Ban Phúc x2 đồng thời thành x4; không nhân chồng tự do. Nhiều Ban Phúc chỉ kéo dài thời gian theo quy tắc trên.
 
 Có giới hạn tổng hệ số mặc định x8 để tránh phá vỡ cân bằng; streamer có thể chỉnh.
 
@@ -515,7 +526,7 @@ Trang cài đặt cho phép streamer lựa chọn:
 
 Cung cấp bảng mặc định dựa trên mức kim cương, có thể thay đổi.
 
-Không hardcode một loại quà cụ thể từ TikTok vì danh sách và giá trị quà có thể thay đổi.
+Giữ bảng dải giá mặc định và quy tắc nhập thủ công. Ngoại lệ theo yêu cầu phần4 `Qua_Tbao.md` (08/11/2026): cung cấp ba lựa chọn quà có sẵn bằng ảnh local như mô tả bên dưới; không thay các quy tắc đã lưu nếu streamer chưa chọn/lưu lại.
 
 Quà combo phải được xử lý để không cộng trùng.
 
@@ -555,6 +566,30 @@ Ví dụ:
 | Đạt cột mốc tim cộng đồng | Toàn tông môn nhận phúc lợi |
 
 Các giá trị phần thưởng và cooldown phải cấu hình được.
+
+### Cài đặt quà tặng — phần 1 và phần 4 `Qua_Tbao.md`, cập nhật 08/11/2026
+
+- Theo xác nhận người dùng ở phần4: bỏ toàn bộ tải danh mục quà từ TikTok, gồm nút tải, hộp tìm danh mục, service/cache runtime và API tải. Cache cũ nếu có được giữ trên đĩa nhưng không đọc/ghi nữa. Không ảnh hưởng kết nối sự kiện LIVE.
+- Thay bằng ba thẻ ảnh local `public/assets/Qua/`: Hoa hồng/Rose (`5655`,1 xu), Cỏ bốn lá/Shamrock (`9875`,10 xu), Má hồng nhỏ xinh/Tiny Blush (`1473096`,20 xu). Mỗi lựa chọn khớp **đúng ID và đơn giá**, không áp dụng cho mọi quà cùng giá; khóa trường dải giá khi chọn. Metadata là bản tra cứu ngày08/11/2026, nguồn và giới hạn tại `docs/Tailieu_output/QUA_TBAO_PHAN4.md`. Không tải icon/asset ngoài vào ứng dụng.
+- Chọn Nhập thủ công để mở lại ID/tên/dải đơn giá. Quy tắc cũ giữ nguyên khi khởi động, không tự gán ba quà hoặc thay vật phẩm/phần thưởng. Vẫn thêm/sửa/xóa/lưu/bật tắt và giữ bản nháp khi đổi trang.
+- Quy tắc đã chọn lưu cả ID và tên hiển thị, xét bằng ID và khoảng đơn giá. Quy tắc cũ chỉ có tên hoặc dải giá vẫn hợp lệ; ưu tiên ID → tên → dải giá, combo/chống trùng không đổi.
+- Bình luận native connector2.5.0 dùng `content` (vẫn hỗ trợ `comment` cũ), chạy qua chuẩn hóa/chống trùng/CommandRouter, `nhập môn` tạo hoặc chào lại đúng user ID. Không có nội dung hợp lệ phải ghi rõ lỗi, không âm thầm coi là bình luận rỗng.
+- Trang chủ → Kết nối → Nhật ký bình luận & follow hiển thị20 bản ghi gần nhất từ dashboard quản trị, cập nhật khoảng2 giây; backend giữ tối đa50 bản ghi trong RAM, có nội dung đã lọc, kết quả lệnh/lý do lỗi/follow có giới hạn tần suất. Không lưu lịch sử bình luận xuống save hoặc gửi qua WebSocket công khai/Unity. Follow không tự tạo nhân vật hoặc phát thêm quà.
+- Phần mốc tim lặp lại/cooldown của phần1 được **thay thế** bằng bảng cấp tông môn ở phần3 bên dưới. Không tiếp tục tự thưởng điểm/phúc lợi lặp từ wishThreshold; các phần thưởng cũ đã chốt và đang chờ vẫn được giữ, dùng khi về tu luyện.
+
+### Nguyên lực và cấp tông môn — phần 3 `Qua_Tbao.md`, 07/11/2026
+
+- Bỏ bảng “Kết nối & Nguyện Lực” và mốc tim lặp lại trong Cài đặt. Thay bằng **Cấp | Số lượng tim | Quà | Số lượng thưởng | Phạm vi**. Cài đặt reconnect chuyển vào thông tin kết nối ở Trang chủ, không bỏ khả năng chỉnh kết nối.
+- Theo lựa chọn người dùng: chọn **trực tiếp vật phẩm game** Trà Ngộ Đạo, Độ Kiếp Đan, Ban Phúc, Biến Dị Linh Căn hoặc Quay Cam; có “Không thưởng”. Chỉ có phạm vi **Toàn tông môn**; không cấp quà TikTok thật và không ràng buộc bảng cấp với giá/ID quà TikTok.
+- Cấu hình `sectLevels` có1–50 dòng liên tiếp, mỗi dòng `{level,likes,reward:{item,quantity}|null,scope:'all'}`. Số tim1–1.000.000.000/cấp, số lượng thưởng1–100. Có thêm cấp và xóa cấp cuối, không đổi thứ tự các mốc đã nhận thưởng.
+- Khởi đầu cấp1. Mỗi dòng quy định số tim **riêng cần để hoàn tất cấp đang hiển thị**: đủ tim thì chốt quà một lần rồi sang cấp tiếp; dòng cuối đủ tim chốt quà một lần và giữ MAX. Tim dư chuyển tiếp qua nhiều cấp. Khi MAX, không tích thêm tim vượt bảng; có thể thêm cấp để tiếp tục.
+- Mặc định giữ ba mốc1.000/3.000/5.000: hoàn tất cấp1 và2 mỗi mốc Ban Phúc×1, cấp3 mặc định Không thưởng; tổng9.000 tim đầy cấp3 như trước. Người dùng có thể đổi mốc, quà và thêm cấp4 trở lên.
+- Trà/Đan/Linh Căn/Quay Cam cấp đúng số lượng cho **từng đệ tử đã có lúc đạt mốc**, qua inbox/túi/ItemService hiện hữu. Không cấp hồi tố cho người nhập môn sau đó; vật phẩm dư/không dùng được giữ trong túi. Battle/paused/stopped giữ vật phẩm, chỉ tự dùng trong cultivation, giữ luật đan/linh căn/camera/buff hiện hữu.
+- Ban Phúc là **một lần toàn tông cho mỗi mốc**, thêm số lượng×30 giây, luôn x2, không nhân theo số đệ tử. Ban Phúc được kích hoạt khi chốt thưởng như cơ chế cấp cũ; countdown/EXP đóng băng ngoài cultivation.
+- Chỉ cộng tim đã được backend xác nhận/đối soát tổng/chống trùng, kể cả khi chiến đấu/tạm dừng. Quà chỉ phát một lần/cấp, không thêm cooldown lặp. Thưởng bị chặn vì inbox đầy giữ hàng chờ với loại/số lượng/người nhận lúc chốt, không thay theo cấu hình mới và giữ qua restart.
+- Lưu tổng tim đã ghi nhận cùng biên nhận cấp đã hoàn tất, tách DEMO/LIVE. Sửa ngưỡng/thêm/xóa cấp giữ tổng tim, **tính lại cấp hiển thị** theo bảng mới (cấp có thể giảm nếu tăng ngưỡng), đánh dấu các mốc đã vượt, không phát thưởng hồi tố hoặc phát lại khi hạ rồi tăng ngưỡng. Không xóa người chơi hoặc đồ đã nhận.
+- Save ba cấp cũ `{level,power}` chuyển thành tổng tim theo đúng mốc cũ1.000/3.000/5.000. Save chưa có nguyên lực khởi đầu cấp1/0. Trường wish cũ chỉ giữ để trả nốt pendingPoints/pendingBlessings, không dùng để tạo thêm thưởng.
+- Unity chỉ đọc `level/power/threshold/maxLevel/full` từ snapshot, nhận được cấp lớn hơn3 (tối đa50), không tính luật cấp/phần thưởng. Snapshot cũ thiếu maxLevel dùng giới hạn3, thiếu sectEnergy hiển thị chờ dữ liệu.
 
 Người chơi có thể tích lũy điểm nhiệm vụ để đổi những vật phẩm tương đương vật phẩm từ quà TikTok.
 
@@ -801,6 +836,8 @@ Có hàng chờ và độ ưu tiên sự kiện, tránh camera đổi liên tụ
 
 ## 19. GIAO DIỆN PHÁT SÓNG
 
+**Bổ sung cho scene Unity Concept02 (07/11/2026):** bảng “THIÊN ĐẠO THÔNG CÁO” hiển thị TOP3 cảnh giới cao nhất của toàn bộ người chơi trong snapshot. Sắp giảm dần theo cảnh giới → tiểu cảnh giới → tu vi; nếu vẫn bằng nhau dùng userId tăng dần để giữ thứ tự ổn định. Hiển thị tên/cảnh giới/tiểu cảnh giới, dùng ba vùng icon1/2/3 từ `ui_rank_icons.png`. Đây là xếp hạng hiển thị, không phát thưởng và không thay TOP sát thương/phần thưởng chiến trường. Thiếu người thì để trống các hạng còn lại; mất kết nối hiển thị chờ dữ liệu. Thanh nguyên lực dùng các mốc cấp tông môn ở mục12.
+
 Trang:
 
 `http://localhost:3000/song`
@@ -892,6 +929,10 @@ Dùng Web Audio API tạo:
 - Âm thanh chúc mừng.
 
 Không cần file MP3 hoặc WAV.
+
+**Âm thanh Unity theo `docs/Tailieu/AMTHANH.md` (07/11/2026):** dùng năm file người dùng đã cung cấp trong `unity-client/Assets/Musics/`, không tải tài nguyên ngoài. GameObject `08_Systems/GameAudioManager` trong SectScene_Main và SectScene_Concept02 có các trường AudioClip kéo thả: `BGM` phát loop; `Sfx_banphuc` khi nhận `blessing:activated`; `sfx_SDokiep` khi `breakthrough:completed` thành công; `sfx_lv_up_TM` khi tông môn thực sự chuyển cấp (đầy MAX không phải lên cấp); `sfx_fly` khi nhân vật hiện trên scene bắt đầu tư thế bay lên hoặc bay trở về, không phát mỗi frame. Clip có thể thay trong Inspector.
+
+Unity đọc cấu hình `config.audio` đã có qua snapshot: bật/tắt tổng, nhạc/hiệu ứng, `masterVolume`, `musicVolume`, `effectsVolume`, `maxVoices`. Âm lượng nhạc = tổng × nhạc, hiệu ứng = tổng × hiệu ứng. Các thanh này nằm tại Cài đặt → Âm thanh → Lưu âm thanh. Không thêm phép tính gameplay hoặc đường ghi save từ Unity. Nhạc bắt đầu sau snapshot hợp lệ, loop cả khi game tạm dừng; mất kết nối/disable/đổi session dừng âm thanh cũ. Không phát lại SFX từ snapshot hoặc từ buff/kết quả đã có lúc reconnect. Giới hạn2–16 giọng theo cấu hình, ưu tiên sự kiện quan trọng và gộp tiếng trùng quá sát để tránh spam âm thanh; không ảnh hưởng phần thưởng. Thiếu clip không lỗi game. Giọng Thiên Đạo/nghe thử ở trang quản trị vẫn là hệ thống trình duyệt hiện hữu, không ánh xạ các clip Unity.
 
 Giọng Thiên Đạo dùng Speech Synthesis của hệ điều hành/trình duyệt.
 

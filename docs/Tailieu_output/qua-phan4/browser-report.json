@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "checks": [
+    "Three supplied JPGs load locally; exact-ID presets lock prices, keep drafts across routes and save all three rewards",
+    "Reload preserves exact ID and locked prices; switching to manual supports saved price bands; custom ID add/delete works",
+    "All three demo gifts grant exact counts; different IDs at the same price are rejected; replay and combo do not double award; comment creates player and follow is visible",
+    "Desktop/mobile and light/dark work; no catalog API calls or external HTTP/artwork requests; old catalog endpoint returns 404; zero LIVE connections/runtime errors"
+  ],
+  "errors": [],
+  "liveCalls": 0,
+  "browser": "Chrome/156.0.8078.81",
+  "realTikTok": "CHƯA KIỂM CHỨNG LIVE THẬT"
+}

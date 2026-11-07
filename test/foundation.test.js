@@ -31,7 +31,7 @@ test('HTTP, validation, WebSocket reload/reconnect, config restart, real-data is
   let app=await createApplication({dataRoot:folder,port:0});let port=await app.listen();t.after(async()=>app.close());
   let base=`http://127.0.0.1:${port}`;
   const post=async(body,headers={})=>fetch(`${base}/api/control`,{method:'POST',headers:{'Content-Type':'application/json',...headers},body:JSON.stringify(body)});
-  for(const route of ['/','/song','/health','/vendor/three/three.module.js','/vendor/three/three.core.js'])assert.equal((await fetch(base+route)).status,200,route);
+  for(const route of ['/','/health'])assert.equal((await fetch(base+route)).status,200,route);
   assert.equal((await post({action:'demo',value:30})).status,200);assert.equal(app.engine.players.size,30);
   assert.equal((await post({action:'demo',value:-1})).status,400);
   assert.equal((await post({action:'graphics',value:'invalid'})).status,400);

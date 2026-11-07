@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "checks": [
+    "Empty catalog is explicit; opening picker does not connect or silently fetch TikTok",
+    "Name search ignores accents/case; ID search, empty results, safe text, Escape close, select/save/navigation draft work",
+    "Demo gift uses selected ID mapping; replay deduplicates; configured likes grant exact item count, stay pending paused, still add sect energy",
+    "Disk/reload retain selected name/ID/price/reward; add/delete mapping works and preserves legacy price rules",
+    "Desktop/mobile picker fits viewport; cache reused, one catalog fetch, zero LIVE connections/runtime errors"
+  ],
+  "errors": [],
+  "catalogCalls": 1,
+  "liveCalls": 0,
+  "browser": "Chrome/156.0.8078.81",
+  "realTikTok": "CHƯA KIỂM CHỨNG: metadata transport fixture, no active LIVE account supplied"
+}

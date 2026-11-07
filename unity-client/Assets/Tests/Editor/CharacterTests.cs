@@ -20,7 +20,7 @@ namespace TuTienLive.Tests
         {Assert.That(StateMapper.TryParse(File.ReadAllText(Fixtures+name+".json"),out var e,out var error),Is.True,error);return e;}
         [SetUp] public void Setup()
         {
-            EditorSceneManager.OpenScene("Assets/Scenes/SectScene.unity",OpenSceneMode.Single);
+            EditorSceneManager.OpenScene("Assets/Scenes/SectScene_Editable.unity",OpenSceneMode.Single);
             manager=SectCharacterBootstrap.Install();manager.network.enabled=false;
         }
         [TearDown] public void Cleanup(){if(manager)Object.DestroyImmediate(manager.gameObject);}

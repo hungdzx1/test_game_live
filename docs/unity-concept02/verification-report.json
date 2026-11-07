@@ -1,0 +1,51 @@
+{
+  "scene": "Assets/Scenes/SectScene_Concept02.unity",
+  "unity": {
+    "version": "6000.5.9f1",
+    "selectedTestsPassed": 28,
+    "selectedTestsFailed": 0,
+    "scope": "4 Concept02 tests including actual Editor Play Mode with recorded snapshots, and 24 existing protocol tests",
+    "finalCompileAndSavedReferences": "PASS"
+  },
+  "node": {
+    "passed": 91,
+    "failed": 0,
+    "skipped": 1,
+    "skip": "TikTok LIVE"
+  },
+  "gpu": {
+    "device": "NVIDIA Quadro M1000M",
+    "api": "Direct3D11",
+    "captures": [
+      "1080x1920",
+      "720x1280",
+      "three local character samples"
+    ],
+    "visuallyReviewed": true
+  },
+  "windowsBuild": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 0,
+    "bytes": 323702586
+  },
+  "preservation": {
+    "result": "PASS",
+    "protectedFiles": 533,
+    "changedFiles": [],
+    "artworkFiles": 39,
+    "artworkMismatch": [],
+    "sourceScene": "unity-client/Assets/Scenes/SectScene_Main.unity",
+    "sourceSceneSha256": "71d3eb8948912a288d5d2b60b68650e15526140c60d7a2a81cdb618e878fad20",
+    "newScene": "unity-client/Assets/Scenes/SectScene_Concept02.unity",
+    "newSceneSha256": "0da9ee5427296f1660ee5bd353be86248e41a212f26d5c0223671e1f11eec970"
+  },
+  "transferredFiles": 161,
+  "notVerified": [
+    "new Windows executable runtime",
+    "OBS capture",
+    "real TikTok LIVE",
+    "FPS/soak",
+    "manual editing in user Editor"
+  ]
+}

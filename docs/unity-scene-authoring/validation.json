@@ -1,0 +1,39 @@
+{
+  "scene": "unity-client/Assets/Scenes/SectScene_Editable.unity",
+  "prefab": "unity-client/Assets/SceneAuthoring/Prefabs/CharacterPrefab.prefab",
+  "npm": {
+    "pass": 91,
+    "fail": 0,
+    "skip": 1
+  },
+  "unityEditMode": {
+    "pass": 68,
+    "fail": 0
+  },
+  "build": {
+    "result": "Succeeded",
+    "bytes": 315858992,
+    "seconds": 21.1794443,
+    "errors": 0,
+    "warnings": 0
+  },
+  "windowsPlayer": {
+    "result": "PASS",
+    "graphics": "Direct3D11",
+    "layoutValid": true,
+    "sessions": 2,
+    "maxCreated": 10
+  },
+  "screenshots": 12,
+  "maxChangedPercent": 0.8230251736111112,
+  "maxOutsideNameplateChangedPixels": 1,
+  "protectedUnchanged": true,
+  "unverified": [
+    "manual mouse operations in user Editor",
+    "OBS",
+    "IL2CPP",
+    "LTS",
+    "sustained FPS and GPU residency",
+    "real TikTok LIVE"
+  ]
+}

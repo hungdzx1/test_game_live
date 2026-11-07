@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "browser": "Chrome/156.0.8078.81",
+  "checks": [
+    "Existing Demo buttons: 10 hearts increase energy immediately; only selected character receives 20 pending EXP after idle",
+    "Resume applies pending EXP once; Tea shows 4/s; 100 hearts settle 400 EXP immediately; switching selection routes hearts to the second character"
+  ],
+  "errors": [],
+  "realLive": "CHƯA KIỂM CHỨNG"
+}

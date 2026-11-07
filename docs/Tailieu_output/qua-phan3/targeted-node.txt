@@ -1,0 +1,46 @@
+✔ Ban Phuc level activation is durable via API/WS, deduplicated, and isolated across mode/restart (222.7146ms)
+✔ Ban Phuc refresh extends time by 30s and stays x2; tea/root remain additive (14.9968ms)
+✔ Sect promotion gives 30s per actual level, reconciled likes and MAX do not repeat blessing (9.4942ms)
+✔ Mapped gift combos extend once at final count; before-join and battle gifts retain existing pending flow (7.6649ms)
+✔ Countdown freezes in battle/pause/stopped, expires exactly, and restart has no offline gain (10.042ms)
+✔ Legacy parallel Ban Phuc merges remaining time without losing players; malformed extension refuses restore (6.107ms)
+✔ Sect gifts and level blessings in separate DEMO/LIVE engines have independent timers (1.7791ms)
+✔ Installed connector 2.5.0 gift HTTP route returns documented id/name/diamond_count; room ID required (7.125ms)
+✔ Catalog validates metadata, strips external artwork, deduplicates, rejects empty/malformed responses (0.6745ms)
+✔ Catalog refresh is single flight, throttled, atomic, cached across restart and retained on network failure (46.042ms)
+✔ ID+name catalog mappings match by ID; old ID-only, name-only and price ranges remain compatible (2.2757ms)
+✔ All item rewards from likes respect battle lock, persist, auto-use through item service and deduplicate (24.2897ms)
+✔ Level Ban Phuc is once for the sect, freezes in battle/pause, survives configuration change/restart (6.1457ms)
+✔ Community item overflow is retained without losing awards or partially granting rewards (1.8523ms)
+✔ Settings/catalog API persist and restart, keep DEMO/LIVE separate, no real connection for catalog (285.7211ms)
+✔ Native 2.5.0/v3 normalization: stable user.id, gift.type/name, count/total; no avatars/raw leak (7.4644ms)
+✔ 04-05/15 exact commands, stable identity, same name distinct IDs, XSS/word filter/length (10.1933ms)
+✔ 04-06/07 comments invoke existing combat only in battle, no implicit join or arbitrary chat damage (5.8886ms)
+✔ 04-08/11 all five mapped items use cultivation services; battle gifts keep EXP/buffs/realm frozen (19.0944ms)
+✔ 04-09/10 combo 1→3→5 only grants final total; duplicate finals/reconnect/restart never grant twice (9.1855ms)
+✔ Malformed gift/unfinished/inconsistent combos never guess value or settle early (2.8295ms)
+✔ Gift before join survives restart and is received once; inventory full retains overflow; root/camera limits (7.437ms)
+✔ Mapping precedence, overlap/duplicates/bounds rejected and all item/effect choices available (1.3159ms)
+✔ 04-13 likes reconcile and settle each configured level once; battle items wait and old repeating wish is retired (6.8644ms)
+✔ 04-14 per-user/global flooding, one follow/join notice per cooldown, no auto accounts (44.1842ms)
+✔ Mixed delta-only and cumulative likes reconcile after restart instead of counting twice (2.0033ms)
+✔ Public interaction snapshot has minimal fields and no receipt/inbox/raw/comment history (3.6597ms)
+✔ Deferred battle pill is applied before a newly queued breakthrough roll on returning to sect (2.3426ms)
+✔ Sect energy is committed through API/WebSocket and restored separately for DEMO/LIVE (239.1583ms)
+✔ Sect levels use per-level 1000/3000/5000, carry overflow, cap at full level3 (10.8357ms)
+✔ Sect energy uses reconciled/deduplicated likes and survives restart without double counting (15.2731ms)
+✔ Legacy saves initialize only new sect energy; invalid new progress is rejected (6.5271ms)
+✔ Energy tracks accepted likes in battle/paused and DEMO/LIVE stay separate; no repeating wish rewards (3.4008ms)
+✔ Configurable levels carry through six thresholds, award final row once and continue when a new level is appended (2.5592ms)
+✔ Changing thresholds preserves accepted total and receipts, including lowering then raising thresholds (1.0451ms)
+✔ Legacy fixed-level saves migrate against original thresholds and never replay their completed rewards (6.7115ms)
+✔ Level settings reject sparse/invalid rows, unsafe rewards and scopes without mutating caller data (1.1578ms)
+✔ Existing wish pending points and Ban Phuc survive migration; future likes only award configured levels (9.0238ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1697.8462

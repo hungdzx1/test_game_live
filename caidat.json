@@ -3,7 +3,7 @@
   "host": "127.0.0.1",
   "port": 3000,
   "graphics": "high",
-  "camera": "auto",
+  "camera": "overview",
   "cultivation": {
     "realms": [
       {
@@ -11,7 +11,7 @@
         "hp": 100,
         "atk": 10,
         "def": 5,
-        "rate": 1,
+        "rate": 2,
         "thresholds": [
           100,
           150,
@@ -25,7 +25,7 @@
         "hp": 180,
         "atk": 18,
         "def": 9,
-        "rate": 1.5,
+        "rate": 2,
         "thresholds": [
           180,
           270,
@@ -39,7 +39,7 @@
         "hp": 320,
         "atk": 32,
         "def": 16,
-        "rate": 2.2,
+        "rate": 2,
         "thresholds": [
           320,
           480,
@@ -53,7 +53,7 @@
         "hp": 560,
         "atk": 56,
         "def": 28,
-        "rate": 3.2,
+        "rate": 2,
         "thresholds": [
           560,
           840,
@@ -67,7 +67,7 @@
         "hp": 980,
         "atk": 98,
         "def": 49,
-        "rate": 4.5,
+        "rate": 2,
         "thresholds": [
           900,
           1350,
@@ -81,7 +81,7 @@
         "hp": 1720,
         "atk": 172,
         "def": 86,
-        "rate": 6.3,
+        "rate": 2,
         "thresholds": [
           1450,
           2175,
@@ -95,7 +95,7 @@
         "hp": 3010,
         "atk": 301,
         "def": 151,
-        "rate": 8.8,
+        "rate": 2,
         "thresholds": [
           2300,
           3450,
@@ -109,7 +109,7 @@
         "hp": 5270,
         "atk": 527,
         "def": 264,
-        "rate": 12,
+        "rate": 2,
         "thresholds": [
           3700,
           5550,
@@ -123,7 +123,7 @@
         "hp": 9220,
         "atk": 922,
         "def": 461,
-        "rate": 16.5,
+        "rate": 2,
         "thresholds": [
           6000,
           9000,
@@ -137,7 +137,7 @@
         "hp": 16140,
         "atk": 1614,
         "def": 807,
-        "rate": 22,
+        "rate": 2,
         "thresholds": [
           9600,
           14400,
@@ -151,7 +151,7 @@
         "hp": 28240,
         "atk": 2824,
         "def": 1412,
-        "rate": 30,
+        "rate": 2,
         "thresholds": []
       }
     ],
@@ -234,7 +234,7 @@
     "endgamePointsPerStage": 10
   },
   "live": {
-    "username": "",
+    "username": "baronline04",
     "reconnectSeconds": 5,
     "maxReconnectAttempts": 10,
     "eventsPerSecond": 200,
@@ -242,15 +242,16 @@
     "noticeCooldownMs": 10000,
     "wishThreshold": 1000,
     "wishCooldownMs": 60000,
-    "wishPoints": 1
+    "wishPoints": 1,
+    "wishReward": "points"
   },
   "giftRules": [
     {
       "id": "small",
-      "giftId": "",
-      "giftName": "",
+      "giftId": "5655",
+      "giftName": "Rose",
       "minDiamonds": 1,
-      "maxDiamonds": 9,
+      "maxDiamonds": 1,
       "item": "tea",
       "quantity": 1,
       "effect": "item",
@@ -258,10 +259,10 @@
     },
     {
       "id": "medium",
-      "giftId": "",
-      "giftName": "",
+      "giftId": "9875",
+      "giftName": "Shamrock",
       "minDiamonds": 10,
-      "maxDiamonds": 99,
+      "maxDiamonds": 10,
       "item": "pill",
       "quantity": 1,
       "effect": "item",
@@ -269,13 +270,24 @@
     },
     {
       "id": "large",
-      "giftId": "",
-      "giftName": "",
-      "minDiamonds": 100,
-      "maxDiamonds": 1000000,
-      "item": "blessing",
+      "giftId": "1473096",
+      "giftName": "Tiny Blush",
+      "minDiamonds": 20,
+      "maxDiamonds": 20,
+      "item": "root",
       "quantity": 1,
       "effect": "sect",
+      "enabled": true
+    },
+    {
+      "id": "e698eb84-4af9-466b-8fcb-747ca81ffbbc",
+      "giftId": "",
+      "giftName": "",
+      "minDiamonds": 50,
+      "maxDiamonds": 10000,
+      "item": "blessing",
+      "quantity": 3,
+      "effect": "item",
       "enabled": true
     }
   ],
@@ -285,7 +297,7 @@
     "effects": true,
     "speech": true,
     "masterVolume": 0.5,
-    "musicVolume": 0.2,
+    "musicVolume": 0.18,
     "effectsVolume": 0.7,
     "speechVolume": 0.8,
     "maxVoices": 8,
@@ -308,5 +320,34 @@
       "gift": 3,
       "join": 1
     }
-  }
+  },
+  "sectLevels": [
+    {
+      "level": 1,
+      "likes": 1000,
+      "reward": {
+        "item": "blessing",
+        "quantity": 1
+      },
+      "scope": "all"
+    },
+    {
+      "level": 2,
+      "likes": 3000,
+      "reward": {
+        "item": "blessing",
+        "quantity": 1
+      },
+      "scope": "all"
+    },
+    {
+      "level": 3,
+      "likes": 5000,
+      "reward": {
+        "item": "blessing",
+        "quantity": 1
+      },
+      "scope": "all"
+    }
+  ]
 }

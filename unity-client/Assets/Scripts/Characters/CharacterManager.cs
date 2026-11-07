@@ -11,19 +11,23 @@ namespace TuTienLive.Characters
     public sealed class CharacterManager : MonoBehaviour
     {
         public CharacterView characterPrefab;
+        [Tooltip("Random appearance choices, stable per player seed. Add more prefabs here. Empty list uses Character Prefab.")]
+        public CharacterView[] characterVariants = Array.Empty<CharacterView>();
         public UnityWebSocketClient network;
         public SectSceneController scene;
         public Transform[] seats;
         public TribulationController tribulation;
         public CameraDirector director;
+        public Transform characterPool;
         public int TotalPlayers { get; private set; }
         public int HiddenPlayers => Mathf.Max(0, TotalPlayers - active.Count);
         public int CreatedCount { get; private set; }
-        public int PooledCount => pool.Count;
+        public int PooledCount => pools.Values.Sum(p => p.Count);
         public IReadOnlyDictionary<string, CharacterView> Views => active;
         public int AcceptedEffects { get; private set; }
         private readonly Dictionary<string, CharacterView> active = new Dictionary<string, CharacterView>(StringComparer.Ordinal);
-        private readonly Stack<CharacterView> pool = new Stack<CharacterView>();
+        private readonly Dictionary<CharacterView, Stack<CharacterView>> pools = new Dictionary<CharacterView, Stack<CharacterView>>();
+        private readonly Dictionary<CharacterView, CharacterView> instancePrefabs = new Dictionary<CharacterView, CharacterView>();
         private readonly Dictionary<string, PlayerState> selected = new Dictionary<string, PlayerState>(StringComparer.Ordinal);
         private readonly HashSet<string> seen = new HashSet<string>(StringComparer.Ordinal);
         private readonly Queue<string> seenOrder = new Queue<string>();
@@ -88,9 +92,13 @@ namespace TuTienLive.Characters
             {
                 var player=snapshot.Players[choice.Key]; selected[choice.Key]=player;
                 var seat=seats[choice.Value%seats.Length].position;
+                var prefab=PrefabFor(player);
+                if(!prefab)throw new InvalidOperationException("Assign Character Prefab or at least one Character Variant.");
+                if(active.TryGetValue(choice.Key,out var previous)&&instancePrefabs[previous]!=prefab)Release(choice.Key);
                 if(!active.TryGetValue(choice.Key,out var view))
                 {
-                    view=pool.Count>0?pool.Pop():Create(); view.Bind(player,seat);
+                    if(!pools.TryGetValue(prefab,out var pool)){pool=new Stack<CharacterView>();pools.Add(prefab,pool);}
+                    view=pool.Count>0?pool.Pop():Create(prefab); view.Bind(player,seat);
                     active.Add(choice.Key,view); view.gameObject.SetActive(true); view.Effect("appearance");
                 }
                 view.Seat=seat;
@@ -99,10 +107,22 @@ namespace TuTienLive.Characters
                 view.LastAnimation=player.Animation;
             }
         }
-        private CharacterView Create()
-        { CreatedCount++; return Instantiate(characterPrefab, transform); }
+        public CharacterView PrefabFor(PlayerState player)
+        {
+            int count=0;
+            if(characterVariants!=null)foreach(var variant in characterVariants)if(variant)count++;
+            if(count==0)return characterPrefab;
+            // Seed already comes from the server's stable user identity. No gameplay or save mutation.
+            uint hash=player.Seed;
+            unchecked{hash^=hash>>16;hash*=0x7feb352d;hash^=hash>>15;hash*=0x846ca68b;hash^=hash>>16;}
+            int index=(int)(hash%(uint)count);
+            foreach(var variant in characterVariants)if(variant&&index--==0)return variant;
+            return characterPrefab;
+        }
+        private CharacterView Create(CharacterView prefab)
+        { CreatedCount++;var view=Instantiate(prefab,characterPool ? characterPool : transform);instancePrefabs.Add(view,prefab);return view; }
         private void Release(string id)
-        { var view=active[id];active.Remove(id);view.ResetVisual();view.gameObject.SetActive(false);pool.Push(view); }
+        { var view=active[id];active.Remove(id);view.ResetVisual();view.gameObject.SetActive(false);pools[instancePrefabs[view]].Push(view); }
         private void ReleaseAll() { foreach(var id in active.Keys.ToArray())Release(id); }
         public void Sample(float offsetMs, float delta)
         {

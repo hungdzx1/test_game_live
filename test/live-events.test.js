@@ -73,14 +73,14 @@ test('Mapping precedence, overlap/duplicates/bounds rejected and all item/effect
   assert.throws(()=>giftRulesFor([...base,{...base[0],id:'overlap'}]),/chồng/);assert.throws(()=>giftRulesFor([exact,{...exact,id:'duplicate'}]),/Trùng/);assert.throws(()=>giftRulesFor([{...exact,item:'unknown'}]));
   assert.throws(()=>liveRulesFor({signApiKey:'secret'}));assert.throws(()=>liveRulesFor({wishThreshold:0}));
 });
-test('04-13 likes exact deltas/cumulative totals/dedup, bounded wish cooldown and battle pending points',()=>{
-  const e=make({live:{wishThreshold:10,wishCooldownMs:1000}});join(e);e.setPhase('battle');let now=1000;e.liveEvents.now=()=>now;const p=e.getPlayer('guest'),initial=p.questState.points;
-  const first=input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:105}});e.liveEvents.accept(first);e.liveEvents.accept(first);assert.equal(e.liveEvents.wish.power,5);
-  e.liveEvents.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:105}}));assert.equal(e.liveEvents.wish.power,5);
-  e.liveEvents.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:110}}));assert.equal(e.liveEvents.wish.awards,1);assert.equal(p.questState.points,initial);
-  e.liveEvents.accept(input('tim',{soLuong:1000}));assert.equal(e.liveEvents.wish.power,10);assert.equal(e.liveEvents.wish.awards,1);
-  now+=1000;e.liveEvents.accept(input('tim',{soLuong:1}));assert.equal(e.liveEvents.wish.awards,2);assert.equal(p.questState.points,initial);
-  e.setPhase('cultivation');e.tick(0);assert.equal(p.questState.points,initial+2);assert.equal(e.liveEvents.wish.pendingPoints.length,0);
+test('04-13 likes reconcile and settle each configured level once; battle items wait and old repeating wish is retired',()=>{
+  const e=make({sectLevels:[{level:1,likes:10,reward:{item:'tea',quantity:1},scope:'all'},{level:2,likes:1000,reward:null,scope:'all'}]});join(e);e.setPhase('battle');const p=e.getPlayer('guest'),initial=p.questState.points;
+  const first=input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:105}});e.liveEvents.accept(first);e.liveEvents.accept(first);assert.equal(e.liveEvents.sectEnergy.power,5);
+  e.liveEvents.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:105}}));assert.equal(e.liveEvents.sectEnergy.power,5);
+  e.liveEvents.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:110}}));assert.equal(e.liveEvents.sectEnergy.completed.size,1);assert.equal(p.inventory.tea,1);
+  e.liveEvents.accept(input('tim',{soLuong:1000}));assert.equal(e.liveEvents.sectEnergy.snapshot().full,true);
+  e.liveEvents.accept(input('tim',{soLuong:1}));assert.equal(e.liveEvents.sectEnergy.completed.size,2);assert.equal(p.inventory.tea,1);assert.equal(p.questState.points,initial);assert.equal(e.liveEvents.wish.awards,0);
+  e.setPhase('cultivation');e.tick(0);assert.equal(p.inventory.tea,0);assert.equal(p.buffs.length,1);
 });
 test('04-14 per-user/global flooding, one follow/join notice per cooldown, no auto accounts',()=>{
   const e=make();for(let i=0;i<20;i++)e.liveEvents.accept(input('vao'));
@@ -90,12 +90,12 @@ test('04-14 per-user/global flooding, one follow/join notice per cooldown, no au
 });
 test('Mixed delta-only and cumulative likes reconcile after restart instead of counting twice',()=>{
   const e=make({live:{wishThreshold:1000}});const bus=e.liveEvents;
-  bus.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:105}}));bus.accept(input('tim',{soLuong:5}));assert.equal(bus.wish.power,10);
-  const saved=JSON.parse(JSON.stringify(e.exportState())),restored=new GameEngine(saved.players,e.config,{saved});restored.liveEvents.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:110}}));assert.equal(restored.liveEvents.wish.power,10);
-  restored.liveEvents.accept(input('tim',{soLuong:3,rawMeta:{streamId:'room1',likeTotal:113}}));assert.equal(restored.liveEvents.wish.power,13);
+  bus.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:105}}));bus.accept(input('tim',{soLuong:5}));assert.equal(bus.sectEnergy.power,10);
+  const saved=JSON.parse(JSON.stringify(e.exportState())),restored=new GameEngine(saved.players,e.config,{saved});restored.liveEvents.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:110}}));assert.equal(restored.liveEvents.sectEnergy.power,10);
+  restored.liveEvents.accept(input('tim',{soLuong:3,rawMeta:{streamId:'room1',likeTotal:113}}));assert.equal(restored.liveEvents.sectEnergy.power,13);
 });
 test('Public interaction snapshot has minimal fields and no receipt/inbox/raw/comment history',()=>{
-  const e=make();join(e);e.liveEvents.accept(gift());const publicState=e.snapshot().payload.interactions;assert.deepEqual(Object.keys(publicState).sort(),['giftBanner','wish']);const json=JSON.stringify(publicState);for(const key of ['rawMeta','noiDung','inbox','activations','seen'])assert.equal(json.includes(key),false);
+  const e=make();join(e);e.liveEvents.accept(gift());const publicState=e.snapshot().payload.interactions;assert.deepEqual(Object.keys(publicState).sort(),['blessing','giftBanner','sectEnergy','wish']);const json=JSON.stringify(publicState);for(const key of ['rawMeta','noiDung','inbox','activations','seen'])assert.equal(json.includes(key),false);
 });
 test('Deferred battle pill is applied before a newly queued breakthrough roll on returning to sect',()=>{
   const e=make();join(e);const p=e.getPlayer('guest');p.stageIndex=3;e.setPhase('battle');

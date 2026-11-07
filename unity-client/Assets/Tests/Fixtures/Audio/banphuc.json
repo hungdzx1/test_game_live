@@ -1,0 +1,18 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "998f4f85-484e-4803-a380-043fef60d63d",
+  "seq": 2,
+  "serverTime": 1794069583314,
+  "payload": {
+    "eventId": "c5118e48-45bb-489d-90e9-0381e19c488d",
+    "kind": "blessing:activated",
+    "userId": null,
+    "timestamp": 1794069583314,
+    "source": "item",
+    "count": 1,
+    "remainingMs": 30000,
+    "durationMs": 30000,
+    "multiplier": 2
+  }
+}

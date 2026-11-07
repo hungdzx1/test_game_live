@@ -1,5 +1,7 @@
 using UnityEngine;
 using TuTienLive.Models;
+using TuTienLive.Presentation;
+using TMPro;
 
 namespace TuTienLive.Characters
 {
@@ -8,6 +10,8 @@ namespace TuTienLive.Characters
         public CharacterPoseController pose;
         public RealmAuraController aura;
         public TextMesh nameplate;
+        [Tooltip("Preferred scene-authored nameplate. Font, size, bounds and position are edited in the prefab.")]
+        public TMP_Text nameLabel;
         public LineRenderer burst;
         public string UserId { get; private set; }
         public int EffectCount { get; private set; }
@@ -20,6 +24,9 @@ namespace TuTienLive.Characters
         public Vector3 ReturnFrom { get; set; }
         private float effectRemaining;
         private string label;
+        private readonly TransformOffset burstPose=new TransformOffset();
+        private void OnEnable(){if(burst)burstPose.Capture(burst.transform);}
+        private void OnDisable(){burstPose.Restore();}
         public void Bind(PlayerState player, Vector3 seat)
         {
             UserId = player.UserId; Seat = seat; EffectCount = 0; LastEffect = null;
@@ -34,24 +41,21 @@ namespace TuTienLive.Characters
             string text = player.Name + "\n" + player.Realm;
             if (label != text)
             {
-                label = text; nameplate.text = text;
-                nameplate.font.RequestCharactersInTexture(text, nameplate.fontSize, FontStyle.Normal);
-                var bounds = nameplate.GetComponent<MeshRenderer>().localBounds;
-                float scale = Mathf.Min(.035f, 1.5f / Mathf.Max(.001f, bounds.size.x));
-                nameplate.transform.localScale = Vector3.one * scale;
+                label = text;
+                if(nameLabel)nameLabel.text=text;
+                else if(nameplate)nameplate.text=text;
             }
-            nameplate.transform.localPosition = new Vector3(0, 1.6f, 0);
             effectRemaining = Mathf.Max(0, effectRemaining - delta);
             burst.enabled = effectRemaining > 0;
             if (burst.enabled)
             {
                 float progress = 1 - effectRemaining / 1.2f;
-                burst.transform.localScale = Vector3.one * (1 + progress * .9f);
+                burstPose.Apply(burst.transform,Vector3.zero,Quaternion.identity,1+progress*.9f);
                 Color color = LastEffect == "failure" ? new Color(.85f,.4f,.6f,1-progress) : new Color(1,.85f,.45f,1-progress);
                 burst.startColor = burst.endColor = color;
             }
         }
         public void ResetVisual()
-        { UserId = null; WasOnPlatform = false; ReturnSeconds = 0; burst.enabled = false; nameplate.text = ""; }
+        { UserId = null; LastAnimation=null; WasOnPlatform = false; ReturnSeconds = 0; burst.enabled = false;burstPose.Restore();if(nameLabel)nameLabel.text="";if(nameplate)nameplate.text = ""; }
     }
 }

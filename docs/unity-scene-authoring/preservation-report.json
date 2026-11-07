@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "baselineFiles": 418,
+  "changedInScope": [
+    "unity-client/Assets/Editor/CharacterPlayProbe.cs",
+    "unity-client/Assets/Editor/CharacterSceneSetup.cs",
+    "unity-client/Assets/Editor/CharacterScreenshotTest.cs",
+    "unity-client/Assets/Editor/SectLayerEditor.cs",
+    "unity-client/Assets/Editor/SectPlayModeTest.cs",
+    "unity-client/Assets/Editor/SectSceneSetup.cs",
+    "unity-client/Assets/Scripts/TuTienLive.Runtime.asmdef",
+    "unity-client/Assets/Tests/Editor/CharacterTests.cs",
+    "unity-client/Assets/Tests/Editor/SectSceneTests.cs",
+    "unity-client/Assets/Tests/Editor/TuTienLive.Tests.asmdef",
+    "unity-client/Assets/Scripts/Characters/CharacterManager.cs",
+    "unity-client/Assets/Scripts/Characters/CharacterPoseController.cs",
+    "unity-client/Assets/Scripts/Characters/CharacterView.cs",
+    "unity-client/Assets/Scripts/Characters/RealmAuraController.cs",
+    "unity-client/Assets/Scripts/Effects/TribulationController.cs",
+    "unity-client/Assets/Scripts/Scenes/CameraRig.cs",
+    "unity-client/Assets/Scripts/Scenes/SectCharacterBootstrap.cs",
+    "unity-client/Assets/Scripts/Scenes/SectLayer.cs",
+    "unity-client/Assets/Scripts/Scenes/SectSceneController.cs",
+    "unity-client/Assets/Scripts/Scenes/SectTextLayout.cs",
+    "unity-client/Packages/manifest.json",
+    "unity-client/Packages/packages-lock.json",
+    "unity-client/ProjectSettings/EditorBuildSettings.asset"
+  ],
+  "unexpected": [],
+  "originalSceneAndPrefabsUnchanged": true,
+  "originalPngsBackendAndDataUnchanged": true,
+  "preexistingProjectAuditorBytesUnchanged": true
+}

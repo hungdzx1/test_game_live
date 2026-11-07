@@ -1,4 +1,5 @@
 using UnityEngine;
+using TuTienLive.Presentation;
 
 namespace TuTienLive.Characters
 {
@@ -8,6 +9,9 @@ namespace TuTienLive.Characters
         private static readonly string[] Colors = {"#668b98","#83ceca","#72d8c6","#ecc66f","#c49aec","#91cbe8","#a69fe2","#e39dd2","#f3bb7c","#abc9ff","#ffe7a3"};
         public LineRenderer[] rings;
         public int Realm { get; private set; }
+        private TransformOffset[] poses;
+        private void OnEnable(){if(rings==null)return;poses=new TransformOffset[rings.Length];for(int i=0;i<rings.Length;i++){poses[i]=new TransformOffset();if(rings[i])poses[i].Capture(rings[i].transform);}}
+        private void OnDisable(){if(poses!=null)foreach(var pose in poses)pose.Restore();}
         public void Sample(int realm, float time, bool low)
         {
             Realm = Mathf.Clamp(realm, 0, 10); ColorUtility.TryParseHtmlString(Colors[Realm], out var color);
@@ -16,7 +20,8 @@ namespace TuTienLive.Characters
                 var line = rings[r]; line.enabled = r == 0 || !low && r <= Realm / 4;
                 color.a = .50f; line.startColor = line.endColor = color;
                 line.widthMultiplier = .018f + Realm * .001f;
-                line.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Sin(time * .3f + r) * 2);
+                if(poses==null||poses.Length!=rings.Length)OnEnable();
+                poses[r].Apply(line.transform,Vector3.zero,Quaternion.Euler(0,0,Mathf.Sin(time*.3f+r)*2));
             }
         }
     }

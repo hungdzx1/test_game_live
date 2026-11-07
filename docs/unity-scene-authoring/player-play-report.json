@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "graphics": "Direct3D11",
+  "completed": true,
+  "layoutValid": true,
+  "spritesValid": true,
+  "sawRitual": true,
+  "sawDisconnected": true,
+  "synchronized": true,
+  "players": 51,
+  "views": 10,
+  "maxEffects": 3,
+  "maxViews": 10,
+  "maxCreated": 10,
+  "sessions": 2,
+  "errors": 0,
+  "frames": 151,
+  "seconds": 3.7832295,
+  "mode": "player",
+  "live": false,
+  "webRoutes": "PASS",
+  "temporaryData": "C:\\Users\\admin\\Documents\\CODE\\TuTien\\test-results\\unity-scene-authoring\\demo-AmbsR6"
+}

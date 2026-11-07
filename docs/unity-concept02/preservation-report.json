@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "protectedFiles": 533,
+  "changedFiles": [],
+  "artworkFiles": 39,
+  "artworkMismatch": [],
+  "sourceScene": "unity-client/Assets/Scenes/SectScene_Main.unity",
+  "sourceSceneSha256": "71d3eb8948912a288d5d2b60b68650e15526140c60d7a2a81cdb618e878fad20",
+  "newScene": "unity-client/Assets/Scenes/SectScene_Concept02.unity",
+  "newSceneSha256": "0da9ee5427296f1660ee5bd353be86248e41a212f26d5c0223671e1f11eec970"
+}

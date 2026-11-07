@@ -8,7 +8,9 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "node --test",
+    "test": "node scripts/run-tests.js core",
+    "test:legacy": "node scripts/run-tests.js legacy",
+    "test:all": "node scripts/run-tests.js all",
     "test:ui": "node scripts/ui-browser-smoke.js"
   },
   "dependencies": {

@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "graphics": "Null",
+  "completed": true,
+  "layoutValid": true,
+  "spritesValid": true,
+  "sawRitual": true,
+  "sawDisconnected": true,
+  "synchronized": true,
+  "players": 51,
+  "views": 10,
+  "maxEffects": 3,
+  "maxViews": 10,
+  "maxCreated": 10,
+  "sessions": 2,
+  "errors": 0,
+  "frames": 99,
+  "seconds": 3.3664664,
+  "mode": "editor",
+  "live": false,
+  "webRoutes": "PASS",
+  "temporaryData": "C:\\Users\\admin\\Documents\\CODE\\TuTien\\test-results\\unity-scene-authoring\\demo-5v90Ga"
+}
