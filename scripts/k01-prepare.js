@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';import {createHash} from 'node:crypto';
+const root='unity-client/',validation='test-results/unity-concept02/project/',out='test-results/k01/';
+await fs.mkdir(out,{recursive:true});
+async function walk(p){const files=[];for(const e of await fs.readdir(p,{withFileTypes:true})){const f=p+'/'+e.name;if(e.isDirectory())files.push(...await walk(f));else files.push(f);}return files;}
+if(process.argv.includes('--baseline')){
+ const files=[...await walk(root+'Assets'),...await walk(root+'Packages'),...await walk(root+'ProjectSettings'),...(await fs.readdir('.')).filter(f=>f.endsWith('.js')),'package.json','package-lock.json','caidat.json','public/song.html'];
+ const hashes=Object.fromEntries(await Promise.all(files.map(async f=>[f,createHash('sha256').update(await fs.readFile(f)).digest('hex')])));
+ await fs.writeFile(out+'baseline.json',JSON.stringify(hashes,null,2),{flag:'wx'});await fs.copyFile(root+'Assets/Scenes/SectScene_Concept02.unity',out+'original-scene.unity');console.log('K01 baseline recorded; live player files excluded.');
+}else{
+ for(const dir of ['Assets','Packages','ProjectSettings'])await fs.cp(root+dir,validation+dir,{recursive:true,preserveTimestamps:true});
+ console.log('Synchronized K01 into isolated validation project.');
+}

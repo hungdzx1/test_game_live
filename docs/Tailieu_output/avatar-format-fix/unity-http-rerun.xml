@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-09 09:41:30Z" end-time="2026-11-09 09:41:36Z" duration="5.7434761">
+  <test-suite type="TestSuite" id="1000" name="Tu Tien LIVE - Unity Migration" fullname="Tu Tien LIVE - Unity Migration" runstate="Runnable" testcasecount="180" result="Passed" start-time="2026-11-09 09:41:30Z" end-time="2026-11-09 09:41:36Z" duration="5.743476" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1212" name="TuTienLive.Tests.dll" fullname="C:/Users/admin/Documents/CODE/TuTien/test-results/unity-concept02/project/Library/ScriptAssemblies/TuTienLive.Tests.dll" runstate="Runnable" testcasecount="180" result="Passed" start-time="2026-11-09 09:41:32Z" end-time="2026-11-09 09:41:36Z" duration="3.513975" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="22092" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1213" name="TuTienLive" fullname="TuTienLive" runstate="Runnable" testcasecount="180" result="Passed" start-time="2026-11-09 09:41:32Z" end-time="2026-11-09 09:41:36Z" duration="3.484282" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1214" name="Tests" fullname="TuTienLive.Tests" runstate="Runnable" testcasecount="180" result="Passed" start-time="2026-11-09 09:41:32Z" end-time="2026-11-09 09:41:36Z" duration="3.451132" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1013" name="BlessingReceiptTests" fullname="TuTienLive.Tests.BlessingReceiptTests" classname="TuTienLive.Tests.BlessingReceiptTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-09 09:41:33Z" end-time="2026-11-09 09:41:36Z" duration="3.407981" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1020" name="ActualHttpBlessingActivationUsesServerEventAndAudio" fullname="TuTienLive.Tests.BlessingReceiptTests.ActualHttpBlessingActivationUsesServerEventAndAudio" methodname="ActualHttpBlessingActivationUsesServerEventAndAudio" classname="TuTienLive.Tests.BlessingReceiptTests" runstate="Runnable" seed="1182049813" result="Passed" start-time="2026-11-09 09:41:16Z" end-time="2026-11-09 09:41:36Z" duration="20.045806" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/admin/AppData/LocalLow/TuTienLive/Tu Tien LIVE - Unity Migration\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

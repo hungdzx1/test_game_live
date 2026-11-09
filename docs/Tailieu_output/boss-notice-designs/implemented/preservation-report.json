@@ -1,0 +1,61 @@
+{
+  "result": "PASS",
+  "protectedFiles": 1061,
+  "originalSceneDocuments": 713,
+  "addedSceneDocuments": 60,
+  "changedDocuments": [
+    "1015234907",
+    "216482912"
+  ],
+  "existingObjects": "all preserved; only Canvas child list and four SFX references changed",
+  "cameraPoseAndViewport": "unchanged",
+  "selected": "TB02 / warning-TB02",
+  "sounds": "four canonical WAVs in Assets/Musics/SFX/Boss; same SHA256 as approved previews",
+  "unity": {
+    "passed": 74,
+    "failed": 0,
+    "skipped": 0,
+    "finalWarningRecheck": 5
+  },
+  "node": {
+    "passed": 133,
+    "failed": 0,
+    "skipped": 1
+  },
+  "sourceHashes": {
+    "unity-client/Assets/Scenes/SectScene_Concept02.unity": "ca7b71295fc8877f01aa6d01940ee93539d6c522227fa8962f0aa2fdaf7f14e5",
+    "bossService.js": "7c0af6c8d59341b52b91c4f66339a02d34ec287fb8e61855733f75f2670c2aea",
+    "public/js/battleScene.js": "56606aea12cc161b79a46271705853bbe3d0f019626484a11a79d2fbc9c6665d",
+    "unity-client/Assets/Scripts/Audio/GameAudioManager.cs": "9be88177e0f795e2bd85595de8f2f28d0ab13ecfbf5af8cc8fde4179a23a00ac",
+    "unity-client/Assets/Scripts/Models/GameModels.cs": "fc47c76abee5af6d67ec64045af62346a514d826d5b994afeb1d60c0460c36b8",
+    "unity-client/Assets/Scripts/Network/StateMapper.cs": "cda7b715c547a347b3a520ec7a645514cc5cc20aa0673f22a3344bd2c64a5410",
+    "unity-client/Assets/Scripts/Characters/CharacterManager.cs": "efcccd49d575659a4cd71901c98cc7337f4bb157d2102e48b3a51fc485b9653a",
+    "unity-client/Assets/Scripts/Scenes/CameraRig.cs": "1cc97d5b76068a035a16fa5d40abb21fec97358e9bb27f7576679157ca34e9f1",
+    "unity-client/Assets/Scripts/Effects/BossBattlePresenter.cs": "ed36833ef91d10fff66c4d2de262570becd7985aedb91ad3c36e988ed1ea87ae",
+    "unity-client/Assets/Scripts/UI/Concept02Hud.cs": "3510a699c768d836d38b5789ff2e8e126d38d2c81bb3cb55acc29b7ab7232dd4",
+    "unity-client/Assets/Scripts/UI/BossWarningSigil.cs": "879cfc5df6560d830cc6ad7f9f2a9bdcde237d7870116269634cbcae862da785",
+    "unity-client/Assets/Scripts/Effects/BossWarningPresenter.cs": "2ba5382a9b3921c4cb9b52c4e9a400339fc3fc18df17b3d9b5186f53ab00b635",
+    "unity-client/Assets/Editor/BossWarningSetup.cs": "422ace4d0dc3fc85484b657ad59111066573130d36b00a354a5421760475fda9",
+    "unity-client/Assets/Tests/Editor/BossWarningTests.cs": "21649698a045fc0dbecb144b39cbf85e0d72ab505c5dab0c62cb22cc2acfe31e",
+    "unity-client/Assets/Scripts/UI/BossWarningSigil.cs.meta": "ebf77c2999a829ed9f0d4fafa032d4e7dea0a1eab11fb858254bfa9f67fe00c1",
+    "unity-client/Assets/Scripts/Effects/BossWarningPresenter.cs.meta": "c8c20f4b1fcca8d65f68a8f6098af63627a3f6d5c18f7ac100c4a6b0f5f66692",
+    "unity-client/Assets/Editor/BossWarningSetup.cs.meta": "838993bd89b79e286fc09fa4079da13eb0e1a7c268ab74ce756d52de20d266c6",
+    "unity-client/Assets/Tests/Editor/BossWarningTests.cs.meta": "b57470b026d12854e45869ad2e16fb337b6b1873302adc5b61f2cd33f8fb90bc",
+    "unity-client/Assets/Musics/SFX/Boss/warning-TB02.wav.meta": "187bdc70a9ec9ae8ded1cb62563cd0d15f2bd4ce27230a96fa8013501bc1163b",
+    "unity-client/Assets/Musics/SFX/Boss/attack-normal.wav.meta": "9c5933187c64e800d3d330006daa2387c361af1bedb06add164caeeab3e1e492",
+    "unity-client/Assets/Musics/SFX/Boss/attack-skill1.wav.meta": "c6c9b717cbd60cf90bd038f87d4a575b89ee040d44f4aa6da1508f8d4198396f",
+    "unity-client/Assets/Musics/SFX/Boss/attack-skill2.wav.meta": "81377bdd9fabc8b24b6bbe25e625e59370293d63c92e0e087655e3153dd74966",
+    "unity-client/Assets/Musics/SFX.meta": "5fd4bde119fdbccb66f564c9fdc7928d256fc8bbd01da3387fc5e8d963b52abe",
+    "unity-client/Assets/Musics/SFX/Boss.meta": "82c4179bd38944972192ce5aabb801449f7aea4a50b8443f635e18129d78da4c",
+    "unity-client/Assets/Musics/SFX/Boss/warning-TB02.wav": "547b33a280375cbdc7562ac029640bfa947072818399317459d557592c7fc740",
+    "unity-client/Assets/Musics/SFX/Boss/attack-normal.wav": "767864dedfbd816aee326a4dcefbd32e33c92996002b05f91a34f74d310ce87d",
+    "unity-client/Assets/Musics/SFX/Boss/attack-skill1.wav": "18cba4123faf279bc0cfa2e914edc3bdd006c08df90d75f323cd6849042e9f33",
+    "unity-client/Assets/Musics/SFX/Boss/attack-skill2.wav": "75ce94f176d2f30238efd11138aec2d0a40034f30dad09b967a5d60151daa70a"
+  },
+  "unverified": [
+    "Windows build",
+    "OBS",
+    "real LIVE",
+    "subjective listening/mix"
+  ]
+}

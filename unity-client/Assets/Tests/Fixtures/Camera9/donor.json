@@ -1,0 +1,23 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "da6affa4-dd57-4dd2-92e3-2bded4b8cc62",
+  "seq": 7,
+  "serverTime": 1794171754085,
+  "payload": {
+    "eventId": "camera9-blessing:activated-7",
+    "kind": "blessing:activated",
+    "userId": null,
+    "timestamp": 1794171754085,
+    "source": "viewer_gift",
+    "count": 3,
+    "remainingMs": 90000,
+    "durationMs": 90000,
+    "multiplier": 2,
+    "donor": {
+      "userId": "cam:12",
+      "name": "Đạo hữu ban phúc",
+      "avatar": null
+    }
+  }
+}

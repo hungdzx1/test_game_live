@@ -49,6 +49,8 @@ namespace TuTienLive.Network
                     OptionalNumbers(payload, "phaseStart", "elapsedActiveMs", "breakthroughQueueLength");
                     OptionalIntegers(payload, "breakthroughQueueLength");
                     foreach (var key in new[] { "breakthrough", "breakthroughResult", "battle", "battleResult", "config", "interactions", "tiktok" }) OptionalObject(payload, key);
+                    if(payload["config"] is JObject config)
+                    {OptionalObject(config,"live");if(config["live"] is JObject live)OptionalBool(live,"avatarTestEnabled");}
                     if(payload["interactions"] is JObject interactions)
                     {
                         OptionalObject(interactions,"blessing");
@@ -78,6 +80,18 @@ namespace TuTienLive.Network
                 {
                     Text(payload, "eventId"); Text(payload, "kind"); Int(payload, "timestamp");
                     Require(Absent(payload["userId"]) || payload["userId"].Type == JTokenType.String, "Event userId");
+                    if((string)payload["kind"]=="avatar:test")
+                    {
+                        Require(Text(payload,"userId").StartsWith("tt:",StringComparison.Ordinal)&&Text(payload,"source")=="tiktok"&&Int(payload,"durationMs")==10000,"LIVE avatar test source/duration");
+                        string name=Text(payload,"name");Require(name.Length>0&&name.Length<=100,"Avatar test name");
+                        Require(Absent(payload["avatar"])||payload["avatar"].Type==JTokenType.String&&((string)payload["avatar"]).Length<=2048,"Avatar test image");
+                    }
+                    if((string)payload["kind"]=="blessing:activated"&&payload["donor"]!=null)
+                    {
+                        Require(payload["donor"] is JObject,"Donor object");var donor=(JObject)payload["donor"];
+                        Require(Text(donor,"userId").Length<=100&&Text(donor,"name").Length<=100,"Donor text length");
+                        Require(Absent(donor["avatar"])||donor["avatar"].Type==JTokenType.String&&((string)donor["avatar"]).Length<=2048,"Donor avatar");
+                    }
                     gameEvent = new GameEvent(payload);
                 }
                 envelope = new Envelope(type, session, seq, time, snapshot, gameEvent); return true;
@@ -88,6 +102,22 @@ namespace TuTienLive.Network
         private static void ValidateBattle(JObject b)
         {
             Text(b, "id"); Text(b, "status"); OptionalNumbers(b, "elapsedMs", "durationMs"); OptionalIntegers(b, "viewId", "manualView");
+            if((string)b["format"]=="shared-boss-v1")
+            {
+                long index=Int(b,"bossIndex");Require(index>=0&&index<=2,"Boss sequence index");
+                Require(b["fields"] is JArray fields&&fields.Count==1,"Shared boss arena count");
+                var active=b["view"]?["activeBoss"] as JObject;Require(active!=null,"Shared boss missing");
+                Numeric(active,"hp");Numeric(active,"maxHp");Numeric(active,"elapsedMs");Numeric(active,"durationMs");
+                OptionalBool(b,"endOnKill");OptionalBool(active,"endOnKill");bool untimed=(bool?)b["endOnKill"]==true;
+                Require(Int(active,"type")==index&&(double)active["maxHp"]>0&&(double)active["hp"]>=0&&(double)active["hp"]<=(double)active["maxHp"]&&(double)active["elapsedMs"]>=0,"Shared boss ranges");
+                Require(untimed?(bool?)active["endOnKill"]==true&&(double)active["durationMs"]==0&&(double?)b["durationMs"]==0:(double)active["durationMs"]>0&&(double)active["elapsedMs"]<=(double)active["durationMs"],"Shared boss duration");
+                if(active["warningDurationMs"]!=null||active["warningElapsedMs"]!=null)
+                {
+                    Numeric(active,"warningDurationMs");Numeric(active,"warningElapsedMs");
+                    Require((double)active["warningDurationMs"]==3000&&(double)active["warningElapsedMs"]>=0&&(double)active["warningElapsedMs"]<=3000,"Boss warning ranges");
+                    Require((double)active["warningElapsedMs"]>=3000||(double)active["elapsedMs"]==0,"Combat before boss warning ended");
+                }
+            }
             ObjectList(b, "fields", f => { OptionalIntegers(f, "id", "count"); });
             OptionalObject(b, "view");
             if (!(b["view"] is JObject view)) return;

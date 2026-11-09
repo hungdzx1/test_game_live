@@ -13,7 +13,7 @@ async function until(fn,timeout=5000){const start=Date.now();while(Date.now()-st
 test('02-14 HTTP -> engine -> durable start -> WS; restart active ceremony and preserve real data',async t=>{
   const root=await temporary(),file=path.join(root,'data/demo/players.json'),real=path.join(root,'data/players.json');await writeFile(real,'{"doNotTouch":true}');
   let app=await createApplication({dataRoot:root,port:0}),port=await app.listen(),base=`http://127.0.0.1:${port}`;t.after(async()=>app.close());
-  assert.equal((await post(base,'demo',10)).status,200);assert.equal((await post(base,'grantItem','tea')).status,200);assert.equal((await post(base,'useItem','tea')).status,200);
+  assert.equal((await post(base,'demo',10)).status,200);assert.equal((await post(base,'grantItem','tea')).status,200);assert.equal(app.engine.getPlayer('demo-1').buffs.length,1);assert.equal((await post(base,'useItem','tea')).status,400);
   assert.equal((await post(base,'command',{eventId:'join-again',text:'NHAP MON',name:'Other'})).status,200);assert.equal(app.engine.players.size,10);
   assert.equal((await post(base,'command',{eventId:'checkin',text:'điểm danh'})).status,200);
   assert.equal((await post(base,'cultivationSettings',{maxMultiplier:6,fateFailures:6})).status,200);

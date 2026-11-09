@@ -1,4 +1,4 @@
-### 1. Chỉnh logic
+*### 1. Chỉnh logic*
 Sửa logic tăng tuvi theo thời gian về 2 điểm / 1s cho toàn bộ cảnh giới
 Khi người chơi thả tim thì sẽ cộng vào nguyên lực cho tông môn đồng thời cộng 2 điểm / 1 tim cho nhân vật của người đó
 

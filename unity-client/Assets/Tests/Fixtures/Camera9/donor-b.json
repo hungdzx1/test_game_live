@@ -1,0 +1,23 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "da6affa4-dd57-4dd2-92e3-2bded4b8cc62",
+  "seq": 8,
+  "serverTime": 1794171754086,
+  "payload": {
+    "eventId": "camera9-blessing:activated-8",
+    "kind": "blessing:activated",
+    "userId": null,
+    "timestamp": 1794171754086,
+    "source": "viewer_gift",
+    "count": 1,
+    "remainingMs": 120000,
+    "durationMs": 120000,
+    "multiplier": 2,
+    "donor": {
+      "userId": "cam:13",
+      "name": "Tiên hữu thứ hai",
+      "avatar": null
+    }
+  }
+}

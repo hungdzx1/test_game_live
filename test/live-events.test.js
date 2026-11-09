@@ -29,7 +29,7 @@ test('04-05/15 exact commands, stable identity, same name distinct IDs, XSS/word
   const decomposed=validateEvent(input('vao',{ten:'bậy'.normalize('NFD')}),['bậy']);assert.equal(decomposed.ten,'***');
 });
 test('04-06/07 comments invoke existing combat only in battle, no implicit join or arbitrary chat damage',()=>{
-  const e=make();join(e);assert.equal(e.liveEvents.accept(input('binhluan',{noiDung:'1'})).accepted,false);e.setPhase('battle');const f=e.battle.current.fields[0],p=f.participants.guest;
+  const e=make();join(e);assert.equal(e.liveEvents.accept(input('binhluan',{noiDung:'1'})).accepted,false);e.setPhase('battle');advance(e,3000);const f=e.battle.current.fields[0],p=f.participants.guest;
   assert.equal(e.liveEvents.accept(input('binhluan',{userId:'not-joined',noiDung:'1'})).accepted,false);assert.equal(e.players.size,1);
   e.liveEvents.accept(input('binhluan',{noiDung:'đánh 1 nhé'}));assert.equal(p.damage,0);
   e.liveEvents.accept(input('binhluan',{noiDung:'1'}));assert.equal(p.damage,20);assert.equal(p.cooldowns['1'],10000);
@@ -40,18 +40,18 @@ test('04-08/11 all five mapped items use cultivation services; battle gifts keep
   const e=make();join(e);const p=e.getPlayer('guest');e.setPhase('battle');const before={exp:p.cultivation,realm:p.realmIndex,buffs:p.buffs.length};
   for(const [i,item]of ['tea','pill','blessing','root','camera'].entries()){
     e.config.giftRules=giftRulesFor([{id:'exact',giftId:'5655',giftName:'',minDiamonds:1,maxDiamonds:100,item,quantity:1,effect:'item',enabled:true}]);
-    assert.equal(e.liveEvents.accept(gift()).accepted,true);assert.equal(p.inventory[item],1);
+    assert.equal(e.liveEvents.accept(gift()).accepted,true);assert.equal(p.inventory[item],['tea','root','blessing'].includes(item)?0:1);
   }
-  advance(e,60000);assert.equal(p.cultivation,before.exp);assert.equal(p.realmIndex,before.realm);assert.equal(p.buffs.length,before.buffs);assert.equal(p.spiritualRootMultiplier,1);
-  e.setPhase('cultivation');e.tick(0);assert.equal(p.buffs.length,1);assert.equal(e.globalBuffs.length,1);assert.equal(p.spiritualRootMultiplier,2);assert.equal(p.breakthrough.pillCount,1);assert.equal(p.focusCooldownMs,10000);assert.equal(p.cultivation,before.exp);
+  advance(e,60000);assert.equal(p.cultivation,before.exp);assert.equal(p.realmIndex,before.realm);assert.equal(p.buffs.length,1);assert.equal(p.buffs[0].remainingMs,60000);assert.equal(p.spiritualRootMultiplier,3);
+  e.setPhase('cultivation');e.tick(0);assert.equal(p.buffs.length,1);assert.equal(e.globalBuffs.length,1);assert.equal(p.spiritualRootMultiplier,3);assert.equal(p.breakthrough.pillCount,0);assert.equal(p.inventory.pill,1);assert.equal(p.focusCooldownMs,10000);assert.equal(p.cultivation,before.exp);
 });
 test('04-09/10 combo 1→3→5 only grants final total; duplicate finals/reconnect/restart never grant twice',()=>{
   const e=make();join(e);e.setPhase('battle');const rawMeta={streamId:'room1',giftType:1,repeatEnd:false,comboId:'combo-a'};
   for(const n of [1,3,5])e.liveEvents.accept(gift({soLuong:n,rawMeta}));assert.equal(e.getPlayer('guest').inventory.tea,0);
-  const final=gift({soLuong:5,rawMeta:{...rawMeta,repeatEnd:true}});e.liveEvents.accept(final);assert.equal(e.getPlayer('guest').inventory.tea,5);
-  e.liveEvents.accept(final);e.liveEvents.accept({...final,eventId:'different-final-message'});assert.equal(e.getPlayer('guest').inventory.tea,5);
-  const saved=JSON.parse(JSON.stringify(e.exportState())),restored=new GameEngine(saved.players,e.config,{saved});restored.setPhase('resume');restored.liveEvents.accept({...final,eventId:'after-restart'});assert.equal(restored.getPlayer('guest').inventory.tea,5);
-  restored.liveEvents.accept({...final,eventId:'separate-combo',rawMeta:{...final.rawMeta,comboId:'combo-b'}});assert.equal(restored.getPlayer('guest').inventory.tea,10);
+  const final=gift({soLuong:5,rawMeta:{...rawMeta,repeatEnd:true}});e.liveEvents.accept(final);assert.equal(e.getPlayer('guest').buffs.length,5);
+  e.liveEvents.accept(final);e.liveEvents.accept({...final,eventId:'different-final-message'});assert.equal(e.getPlayer('guest').buffs.length,5);
+  const saved=JSON.parse(JSON.stringify(e.exportState())),restored=new GameEngine(saved.players,e.config,{saved});restored.setPhase('resume');restored.liveEvents.accept({...final,eventId:'after-restart'});assert.equal(restored.getPlayer('guest').buffs.length,5);
+  restored.liveEvents.accept({...final,eventId:'separate-combo',rawMeta:{...final.rawMeta,comboId:'combo-b'}});assert.equal(restored.getPlayer('guest').buffs.length,10);
 });
 test('Malformed gift/unfinished/inconsistent combos never guess value or settle early',()=>{
   const e=make();join(e);e.setPhase('battle');let now=1000;e.liveEvents.now=()=>now;
@@ -62,10 +62,10 @@ test('Malformed gift/unfinished/inconsistent combos never guess value or settle 
 });
 test('Gift before join survives restart and is received once; inventory full retains overflow; root/camera limits',()=>{
   const e=make();e.setPhase('battle');e.liveEvents.accept(gift({soLuong:3}));assert.equal(e.players.size,0);assert.equal(e.liveEvents.inbox.get('guest').items.tea,3);
-  const saved=JSON.parse(JSON.stringify(e.exportState())),restored=new GameEngine(saved.players,e.config,{saved});restored.setPhase('resume');join(restored);const p=restored.getPlayer('guest');assert.equal(p.inventory.tea,3);assert.equal(restored.liveEvents.inbox.size,0);
+  const saved=JSON.parse(JSON.stringify(e.exportState())),restored=new GameEngine(saved.players,e.config,{saved});restored.setPhase('resume');join(restored);const p=restored.getPlayer('guest');assert.equal(p.inventory.tea,0);assert.equal(p.buffs.length,3);assert.equal(restored.liveEvents.inbox.size,0);
   p.inventory.tea=100000;restored.liveEvents.accept(gift({soLuong:2}));assert.equal(restored.liveEvents.inbox.get('guest').items.tea,2);
   restored.setPhase('cultivation');restored.tick(250);assert.ok(p.buffs.length>0);assert.ok(p.inventory.tea<=100000);
-  const rootRule=[{id:'root',giftId:'',giftName:'',minDiamonds:1,maxDiamonds:100,item:'root',quantity:1,effect:'item',enabled:true}];restored.config.giftRules=giftRulesFor(rootRule);restored.liveEvents.accept(gift({soLuong:3}));assert.equal(p.spiritualRootMultiplier,2);assert.equal(p.inventory.root,2);
+  const rootRule=[{id:'root',giftId:'',giftName:'',minDiamonds:1,maxDiamonds:100,item:'root',quantity:1,effect:'item',enabled:true}];restored.config.giftRules=giftRulesFor(rootRule);restored.liveEvents.accept(gift({soLuong:3}));assert.equal(p.spiritualRootMultiplier,3);assert.equal(p.inventory.root,2);
 });
 test('Mapping precedence, overlap/duplicates/bounds rejected and all item/effect choices available',()=>{
   const base=giftRulesFor(),exact={...base[0],id:'exact',giftId:'5655',item:'root'},named={...base[0],id:'named',giftName:'Hồng',item:'camera'};
@@ -77,9 +77,9 @@ test('04-13 likes reconcile and settle each configured level once; battle items 
   const e=make({sectLevels:[{level:1,likes:10,reward:{item:'tea',quantity:1},scope:'all'},{level:2,likes:1000,reward:null,scope:'all'}]});join(e);e.setPhase('battle');const p=e.getPlayer('guest'),initial=p.questState.points;
   const first=input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:105}});e.liveEvents.accept(first);e.liveEvents.accept(first);assert.equal(e.liveEvents.sectEnergy.power,5);
   e.liveEvents.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:105}}));assert.equal(e.liveEvents.sectEnergy.power,5);
-  e.liveEvents.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:110}}));assert.equal(e.liveEvents.sectEnergy.completed.size,1);assert.equal(p.inventory.tea,1);
+  e.liveEvents.accept(input('tim',{soLuong:5,rawMeta:{streamId:'room1',likeTotal:110}}));assert.equal(e.liveEvents.sectEnergy.completed.size,1);assert.equal(p.inventory.tea,0);assert.equal(p.buffs.length,1);
   e.liveEvents.accept(input('tim',{soLuong:1000}));assert.equal(e.liveEvents.sectEnergy.snapshot().full,true);
-  e.liveEvents.accept(input('tim',{soLuong:1}));assert.equal(e.liveEvents.sectEnergy.completed.size,2);assert.equal(p.inventory.tea,1);assert.equal(p.questState.points,initial);assert.equal(e.liveEvents.wish.awards,0);
+  e.liveEvents.accept(input('tim',{soLuong:1}));assert.equal(e.liveEvents.sectEnergy.completed.size,2);assert.equal(p.inventory.tea,0);assert.equal(p.buffs.length,1);assert.equal(p.questState.points,initial);assert.equal(e.liveEvents.wish.awards,0);
   e.setPhase('cultivation');e.tick(0);assert.equal(p.inventory.tea,0);assert.equal(p.buffs.length,1);
 });
 test('04-14 per-user/global flooding, one follow/join notice per cooldown, no auto accounts',()=>{
@@ -100,5 +100,5 @@ test('Public interaction snapshot has minimal fields and no receipt/inbox/raw/co
 test('Deferred battle pill is applied before a newly queued breakthrough roll on returning to sect',()=>{
   const e=make();join(e);const p=e.getPlayer('guest');p.stageIndex=3;e.setPhase('battle');
   e.liveEvents.accept(gift({soKimCuong:10}));assert.equal(p.inventory.pill,1);assert.equal(p.breakthrough.pillCount,0);
-  e.setPhase('cultivation');assert.equal(p.inventory.pill,0);assert.equal(p.breakthrough.pillCount,1);advance(e,250);assert.equal(e.breakthrough.active.probability,100);assert.equal(p.breakthrough.pillCount,0);
+  e.setPhase('cultivation');assert.equal(p.inventory.pill,1);assert.equal(p.breakthrough.pillCount,0);advance(e,250);assert.equal(e.breakthrough.active.probability,100);assert.equal(e.breakthrough.active.usedPills,1);assert.equal(p.inventory.pill,0);assert.equal(p.breakthrough.pillCount,0);
 });

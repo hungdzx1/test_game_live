@@ -152,7 +152,9 @@ Khi camera theo người chơi, hiển thị thanh tu vi, tu vi/giây, buff còn
 - Cơ chế Thiên Mệnh từ nhiệm vụ miễn phí: **đề xuất V1** mặc định sau 5 lần thất bại cùng một mốc, có thể dùng một nghi thức độ kiếp đảm bảo; cấu hình chỉnh được. Nghi thức đảm bảo là ngoại lệ có điều kiện, không phải sửa Pmax âm thầm.
 - Nhiều người đủ điều kiện: đưa vào hàng chờ, chống lặp, không chiếu trùng một người. Nếu tới pha chiến đấu giữa chừng, hoàn tất hoặc tạm hoãn theo chính sách đã cấu hình; tuyệt đối không phát thưởng tu vi hoặc đột phá trong trận chiến.
 
-### 5.2 Hoạt cảnh 3D (10–20 giây)
+### 5.2 Hoạt cảnh 3D (mặc định8 giây)
+
+Theo xác nhận09/11/2026: `breakthroughDurationMs=8000`, cấu hình/save nhận8–20 giây. Nghi thức cũ đang dở giữ thời lượng/tiến độ đã lưu; chỉ lượt mới dùng8 giây. Unity nhận duration từ Node, giữ mốc mây1,5 giây/sét1,8 giây. Không đổi xác suất/Đan/Thiên Mệnh/cooldown. Kết quả: `docs/Tailieu_output/breakthrough-8s/README.md`.
 
 - Tạo đài đá bay/đài độ kiếp độc lập, dùng geometry tự dựng.
 - Camera bay tới nhân vật, tên/cảnh giới hiện rõ.
@@ -166,7 +168,7 @@ Khi camera theo người chơi, hiển thị thanh tu vi, tu vi/giây, buff còn
 | Vật phẩm | Tác dụng | Thời hạn / hạn chế |
 |---|---|---|
 | Trà Ngộ Đạo | Tăng x2 tốc độ tu luyện | 30 giây tu luyện thực tế |
-| Biến Dị Linh Căn | Linh căn biến dị, x2 EXP cơ bản | Vĩnh viễn; **đề xuất V1** chỉ kích hoạt một lần/người |
+| Biến Dị Linh Căn | Linh căn biến dị, x3 EXP cơ bản (xác nhận Khung.md08/11/2026) | Vĩnh viễn; chỉ kích hoạt một lần/người, save x2 cũ nâng khi nạp |
 | Độ Kiếp Đan | Cộng +10 điểm % xác suất | Có thể tích lũy; không vượt giới hạn cảnh giới; nếu P gốc <50%, tổng hỗ trợ vật phẩm tối đa tới 85% theo thiết kế, nhưng vẫn chịu Pmax |
 | Ban Phúc | Tăng x2 EXP toàn bộ đệ tử | 30 giây tu luyện thực tế; cộng dồn theo luật hệ số |
 | Quay Cam | Tập trung camera vào nhân vật người kích hoạt | 3 giây, có hàng chờ và giới hạn spam |

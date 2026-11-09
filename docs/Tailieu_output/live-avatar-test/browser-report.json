@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "checks": [
+    "Default off; actual checkbox saves boolean setting",
+    "Reload restores enabled state",
+    "Toggle off persists without changing connection or player data"
+  ],
+  "errors": [],
+  "browser": "Chrome/156.0.8078.81"
+}

@@ -1,4 +1,11 @@
 
+Thư mục chứa tài nguyên
+C:\Users\admin\Documents\CODE\TuTien\unity-client\Assets\Art\Characters\LVUP
+
+Hình mẫu: concept
+
+Yêu cầu: Tạo hiệu ứng tăng lv cho nhân vật sử dụng các tài nguyên bên dưới đây
+Hiệu ứng này sẽ kịch hoạt khi nhân vật thăng cấp (kể cả tiểu cảnh giới)
 
 CÁI NÀO KHÔNG CÓ THÌ BỎ QUA NHA
 ÁNH XẠ

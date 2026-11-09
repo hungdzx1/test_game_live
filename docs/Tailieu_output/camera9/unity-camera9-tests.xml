@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="7" result="Passed" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 21:26:44Z" end-time="2026-11-08 21:26:48Z" duration="4.3801573">
+  <test-suite type="TestSuite" id="1000" name="Tu Tien LIVE - Unity Migration" fullname="Tu Tien LIVE - Unity Migration" runstate="Runnable" testcasecount="173" result="Passed" start-time="2026-11-08 21:26:44Z" end-time="2026-11-08 21:26:48Z" duration="4.380157" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1204" name="TuTienLive.Tests.dll" fullname="C:/Users/admin/Documents/CODE/TuTien/test-results/unity-concept02/project/Library/ScriptAssemblies/TuTienLive.Tests.dll" runstate="Runnable" testcasecount="173" result="Passed" start-time="2026-11-08 21:26:44Z" end-time="2026-11-08 21:26:48Z" duration="4.207199" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="2084" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1205" name="TuTienLive" fullname="TuTienLive" runstate="Runnable" testcasecount="173" result="Passed" start-time="2026-11-08 21:26:44Z" end-time="2026-11-08 21:26:48Z" duration="4.204423" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1206" name="Tests" fullname="TuTienLive.Tests" runstate="Runnable" testcasecount="173" result="Passed" start-time="2026-11-08 21:26:44Z" end-time="2026-11-08 21:26:48Z" duration="4.202269" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1035" name="Camera9Tests" fullname="TuTienLive.Tests.Camera9Tests" classname="TuTienLive.Tests.Camera9Tests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-08 21:26:44Z" end-time="2026-11-08 21:26:48Z" duration="4.191894" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1039" name="BattleDefersBothGiftsAndArrivalsPauseFreezesAndReconnectDoesNotReplayEntry" fullname="TuTienLive.Tests.Camera9Tests.BattleDefersBothGiftsAndArrivalsPauseFreezesAndReconnectDoesNotReplayEntry" methodname="BattleDefersBothGiftsAndArrivalsPauseFreezesAndReconnectDoesNotReplayEntry" classname="TuTienLive.Tests.Camera9Tests" runstate="Runnable" seed="588818045" result="Passed" start-time="2026-11-08 21:26:34Z" end-time="2026-11-08 21:26:35Z" duration="1.222484" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1040" name="DonorPopupHasNameAndAvatarFallbackKeepsAnonymousRewardsAndQueuesDifferentDonors" fullname="TuTienLive.Tests.Camera9Tests.DonorPopupHasNameAndAvatarFallbackKeepsAnonymousRewardsAndQueuesDifferentDonors" methodname="DonorPopupHasNameAndAvatarFallbackKeepsAnonymousRewardsAndQueuesDifferentDonors" classname="TuTienLive.Tests.Camera9Tests" runstate="Runnable" seed="97943637" result="Passed" start-time="2026-11-08 21:26:35Z" end-time="2026-11-08 21:26:36Z" duration="0.668618" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1038" name="GiftTakesCameraDirectlyFromRandomOrArrivalAndReceiptsRemainFIFO" fullname="TuTienLive.Tests.Camera9Tests.GiftTakesCameraDirectlyFromRandomOrArrivalAndReceiptsRemainFIFO" methodname="GiftTakesCameraDirectlyFromRandomOrArrivalAndReceiptsRemainFIFO" classname="TuTienLive.Tests.Camera9Tests" runstate="Runnable" seed="606946485" result="Passed" start-time="2026-11-08 21:26:36Z" end-time="2026-11-08 21:26:37Z" duration="0.620721" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1037" name="NewcomersFlyConcurrentlyForThreeSecondsNewestGetsCameraAndRosterStaysBounded" fullname="TuTienLive.Tests.Camera9Tests.NewcomersFlyConcurrentlyForThreeSecondsNewestGetsCameraAndRosterStaysBounded" methodname="NewcomersFlyConcurrentlyForThreeSecondsNewestGetsCameraAndRosterStaysBounded" classname="TuTienLive.Tests.Camera9Tests" runstate="Runnable" seed="1605239693" result="Passed" start-time="2026-11-08 21:26:37Z" end-time="2026-11-08 21:26:37Z" duration="0.675358" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1042" name="PlayNewestArrivalYieldsToGiftAndDisconnectRestoresOriginalCamera" fullname="TuTienLive.Tests.Camera9Tests.PlayNewestArrivalYieldsToGiftAndDisconnectRestoresOriginalCamera" methodname="PlayNewestArrivalYieldsToGiftAndDisconnectRestoresOriginalCamera" classname="TuTienLive.Tests.Camera9Tests" runstate="Runnable" seed="587395185" result="Passed" start-time="2026-11-08 21:26:37Z" end-time="2026-11-08 21:26:47Z" duration="9.430483" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1036" name="RandomWaitsFifteenSecondsChoosesAllEligibleKindsAndRitualNeverForcesFollow" fullname="TuTienLive.Tests.Camera9Tests.RandomWaitsFifteenSecondsChoosesAllEligibleKindsAndRitualNeverForcesFollow" methodname="RandomWaitsFifteenSecondsChoosesAllEligibleKindsAndRitualNeverForcesFollow" classname="TuTienLive.Tests.Camera9Tests" runstate="Runnable" seed="1669750317" result="Passed" start-time="2026-11-08 21:26:47Z" end-time="2026-11-08 21:26:48Z" duration="0.826368" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="SavedInstallerAddsOnlyOneDonorPanelAndNoRaycastTargets" fullname="TuTienLive.Tests.Camera9Tests.SavedInstallerAddsOnlyOneDonorPanelAndNoRaycastTargets" methodname="SavedInstallerAddsOnlyOneDonorPanelAndNoRaycastTargets" classname="TuTienLive.Tests.Camera9Tests" runstate="Runnable" seed="1423459725" result="Passed" start-time="2026-11-08 21:26:48Z" end-time="2026-11-08 21:26:48Z" duration="0.724187" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/admin/AppData/LocalLow/TuTienLive/Tu Tien LIVE - Unity Migration\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -1,0 +1,17 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "85574b6e-175c-49e1-b357-5b32568087e0",
+  "seq": 8,
+  "serverTime": 1794177808328,
+  "payload": {
+    "eventId": "59339658-0d1d-4b90-9b18-6c4519436db9",
+    "kind": "avatar:test",
+    "userId": "tt:789",
+    "timestamp": 1794177808328,
+    "name": "Đạo hữu thử ảnh",
+    "source": "tiktok",
+    "avatar": null,
+    "durationMs": 10000
+  }
+}

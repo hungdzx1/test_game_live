@@ -132,6 +132,9 @@ namespace TuTienLive.Models
     }
     public sealed class BattleState : JsonModel
     {
+        public bool SharedBoss => Text("format") == "shared-boss-v1";
+        public bool EndOnKill => Flag("endOnKill")??false;
+        public int? BossIndex => (int?)Number("bossIndex");
         public string Id => Text("id");
         public string Status => Text("status");
         public double? ElapsedMs => Number("elapsedMs");
@@ -187,6 +190,14 @@ namespace TuTienLive.Models
     }
     public sealed class MonsterState : JsonModel
     {
+        public bool EndOnKill => Flag("endOnKill")??false;
+        public int? Type => (int?)Number("type");
+        public string AssetId => Text("assetId");
+        public double WarningDurationMs => Number("warningDurationMs")??0;
+        public double WarningElapsedMs => Number("warningElapsedMs")??0;
+        public bool IsWarning => WarningElapsedMs < WarningDurationMs;
+        public double? ElapsedMs => Number("elapsedMs");
+        public double? DurationMs => Number("durationMs");
         public string Id => Text("id");
         public string Kind => Text("kind");
         public string Name => Text("name");

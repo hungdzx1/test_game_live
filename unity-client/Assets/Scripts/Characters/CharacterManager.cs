@@ -16,6 +16,8 @@ namespace TuTienLive.Characters
         public UnityWebSocketClient network;
         public SectSceneController scene;
         public Transform[] seats;
+        [Min(1), Tooltip("Maximum visible characters at High quality, bounded by the assigned seats.")]
+        public int visibleCharacterLimit = 12;
         public TribulationController tribulation;
         public CameraDirector director;
         public Transform characterPool;
@@ -25,6 +27,32 @@ namespace TuTienLive.Characters
         public int PooledCount => pools.Values.Sum(p => p.Count);
         public IReadOnlyDictionary<string, CharacterView> Views => active;
         public int AcceptedEffects { get; private set; }
+        public string ItemFocusUserId { get; private set; }
+        public void SetItemFocus(string userId) { ItemFocusUserId=userId; SyncRoster(); }
+        public bool arrivalFlights=false;
+        public string AmbientFocusUserId { get; private set; }
+        public void SetAmbientFocus(string userId){if(AmbientFocusUserId==userId)return;AmbientFocusUserId=userId;SyncRoster();}
+        private sealed class Arrival { public float elapsed;public bool started,positioned;public long order;public Vector3 start;public float received; }
+        private readonly Dictionary<string,Arrival> arrivals=new Dictionary<string,Arrival>(StringComparer.Ordinal);
+        private long arrivalOrder;
+        public int ArrivalCount=>arrivals.Count;
+        public string NewestArrivalUserId=>arrivals.Where(p=>p.Value.started).OrderByDescending(p=>p.Value.order).Select(p=>p.Key).FirstOrDefault();
+        public bool IsArriving(string id)=>id!=null&&arrivals.TryGetValue(id,out var a)&&a.started;
+        public float ArrivalElapsed(string id)=>id!=null&&arrivals.TryGetValue(id,out var a)?a.elapsed:-1;
+        private void AdvanceArrivals(float delta)
+        {
+            if(!arrivalFlights||snapshot?.EffectivePhase!="cultivation"||snapshot.Phase=="paused"||snapshot.Phase=="stopped")return;
+            bool changed=false;
+            foreach(var pair in arrivals.ToArray())
+            {
+                if(!snapshot.Players.ContainsKey(pair.Key)){if(Time.realtimeSinceStartup-pair.Value.received>2){arrivals.Remove(pair.Key);changed=true;}continue;}
+                var a=pair.Value;
+                if(!a.started){a.started=true;changed=true;}
+                else a.elapsed+=Mathf.Max(0,delta);
+                if(a.elapsed>=3){arrivals.Remove(pair.Key);changed=true;}
+            }
+            if(changed)SyncRoster();
+        }
         private readonly Dictionary<string, CharacterView> active = new Dictionary<string, CharacterView>(StringComparer.Ordinal);
         private readonly Dictionary<CharacterView, Stack<CharacterView>> pools = new Dictionary<CharacterView, Stack<CharacterView>>();
         private readonly Dictionary<CharacterView, CharacterView> instancePrefabs = new Dictionary<CharacterView, CharacterView>();
@@ -58,34 +86,44 @@ namespace TuTienLive.Characters
         public void ApplySnapshot(Snapshot value, string newSession)
         {
             if (session != newSession)
-            { ReleaseAll(); seen.Clear(); seenOrder.Clear(); director.ResetFocus(); session = newSession; AcceptedEffects = 0; }
+            { ReleaseAll(); seen.Clear(); seenOrder.Clear(); arrivals.Clear(); director.ResetFocus(); ItemFocusUserId=AmbientFocusUserId=null; session = newSession; AcceptedEffects = 0; }
             snapshot = value; TotalPlayers = value?.Players.Count ?? 0;
             if(value!=null)frozenTime=(float)value.ElapsedMs;
-            if (value == null) { ReleaseAll(); selected.Clear(); tribulation.Sample(null,0); return; }
+            if (value == null) { arrivals.Clear();AmbientFocusUserId=null;ReleaseAll(); selected.Clear(); tribulation.Sample(null,0); return; }
             tribulation.Sample(value, 0);
             director.Sample(tribulation.UserId, value.CameraUserId, 0);
             SyncRoster();
         }
-        private int Limit => scene && scene.quality == SectQuality.Low ? 6 : TotalPlayers >= 500 ? 8 : scene && scene.quality == SectQuality.Medium || TotalPlayers >= 100 ? 10 : 12;
+        private int Limit => Mathf.Min(seats?.Length ?? 0, scene && scene.quality == SectQuality.Low ? 6 : TotalPlayers >= 500 ? 8 : scene && scene.quality == SectQuality.Medium || TotalPlayers >= 100 ? 10 : Mathf.Max(1, visibleCharacterLimit));
         private void SyncRoster()
         {
             selected.Clear();
             if (snapshot == null) return;
-            // No battle visuals in this phase. Keep server roster, release sect visuals during battle.
-            if (snapshot.EffectivePhase == "battle") { ReleaseAll(); return; }
+            if (Limit == 0) { ReleaseAll(); return; }
+            // Old arena fixtures/scenes retain their fallback. Shared bosses fight on the existing sect podium.
+            if (snapshot.EffectivePhase == "battle" && snapshot.Battle?.SharedBoss != true) { ReleaseAll(); return; }
             var players = snapshot.Players.Values.ToArray();
             var chosen = new Dictionary<string,int>(StringComparer.Ordinal);
             for (int i=0;i<Mathf.Min(Limit,players.Length);i++) chosen[players[i].UserId]=i;
-            // A hidden followed player occupies their modulo-12 seat, replacing its illustrative occupant.
-            foreach (string priorityId in new[]{director.FollowUserId, tribulation.UserId})
+            // Priority players use the current visible seat budget, including expanded scene layouts.
+            var protectedPlayers=new HashSet<string>(StringComparer.Ordinal);
+            foreach (string priorityId in new[]{director.FollowUserId, tribulation.UserId, AmbientFocusUserId, NewestArrivalUserId, ItemFocusUserId})
             {
                 int index = Array.FindIndex(players,p=>p.UserId==priorityId);
-                if (index<0 || chosen.ContainsKey(priorityId)) continue;
-                int slot=index%12;
+                if (index<0) continue;
+                if(chosen.ContainsKey(priorityId)){protectedPlayers.Add(priorityId);continue;}
+                int slot=index%Limit;
                 var occupant=chosen.FirstOrDefault(p=>p.Value==slot);
+                if(occupant.Key!=null&&protectedPlayers.Contains(occupant.Key))
+                {
+                    occupant=chosen.FirstOrDefault(p=>!protectedPlayers.Contains(p.Key));
+                    if(occupant.Key==null)continue;
+                    slot=occupant.Value;
+                }
                 if(occupant.Key!=null) chosen.Remove(occupant.Key);
                 else if(chosen.Count>=Limit) chosen.Remove(chosen.Last().Key);
                 chosen[priorityId]=slot;
+                protectedPlayers.Add(priorityId);
             }
             foreach(var id in active.Keys.Where(id=>!chosen.ContainsKey(id)).ToArray()) Release(id);
             foreach(var choice in chosen)
@@ -129,6 +167,7 @@ namespace TuTienLive.Characters
             if(snapshot==null)return;
             if(snapshot.Phase=="paused"||snapshot.Phase=="stopped") { offsetMs=0;delta=0; }
             else frozenTime=(float)snapshot.ElapsedMs+offsetMs;
+            AdvanceArrivals(delta);
             tribulation.Sample(snapshot,offsetMs);
             director.Sample(tribulation.UserId,snapshot.CameraUserId,delta);
             // Selection is snapshot/event driven, never Instantiate/Destroy per frame.
@@ -136,7 +175,21 @@ namespace TuTienLive.Characters
             {
                 var view=pair.Value;var p=selected[pair.Key];
                 string pose=p.Animation??"idle";
-                if(pair.Key==tribulation.UserId)
+                if(snapshot.EffectivePhase=="battle"&&snapshot.Battle?.SharedBoss==true)
+                {
+                    view.transform.position=view.Seat;view.WasOnPlatform=false;view.ReturnSeconds=0;pose=snapshot.Battle.View?.ActiveBoss?.IsWarning==true?"idle":"attack";
+                }
+                else if(arrivalFlights&&arrivals.TryGetValue(pair.Key,out var arrival)&&arrival.started)
+                {
+                    if(!arrival.positioned)
+                    {
+                        var rig=scene.cameraRig;float half=rig.OverviewHalfHeight;var origin=rig.OverviewPosition;
+                        float side=(p.Seed&1)==0?-1:1;arrival.start=new Vector3(origin.x+side*(half*CameraRig.PortraitAspect+1.5f),view.Seat.y+2.8f,view.Seat.z);
+                        arrival.positioned=true;
+                    }
+                    float t=Mathf.SmoothStep(0,1,arrival.elapsed/3);view.transform.position=Vector3.Lerp(arrival.start,view.Seat,t)+Vector3.up*Mathf.Sin(t*Mathf.PI)*.8f;pose="fly";
+                }
+                else if(pair.Key==tribulation.UserId)
                 {
                     view.transform.position=tribulation.Position(view.Seat);view.WasOnPlatform=true;view.ReturnSeconds=0;
                     pose=tribulation.Pose;
@@ -156,6 +209,8 @@ namespace TuTienLive.Characters
         {
             if(snapshot==null||e==null||string.IsNullOrEmpty(e.EventId)||!seen.Add(e.EventId))return;
             seenOrder.Enqueue(e.EventId);if(seenOrder.Count>200)seen.Remove(seenOrder.Dequeue());
+            if(arrivalFlights&&e.Kind=="player:joined"&&e.UserId!=null&&!arrivals.ContainsKey(e.UserId)&&arrivals.Count<500)
+                arrivals.Add(e.UserId,new Arrival{order=++arrivalOrder,received=Time.realtimeSinceStartup});
             string effect=null;int priority=1;
             switch(e.Kind)
             {

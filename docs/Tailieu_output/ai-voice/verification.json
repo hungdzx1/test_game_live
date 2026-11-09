@@ -1,0 +1,112 @@
+{
+  "result": "PASS",
+  "protectedFiles": 1971,
+  "concurrentDataChanges": [],
+  "changed": [
+    "server.js",
+    "GAME_DESIGN.md",
+    "PROGRESS.md",
+    "docs/Tailieu/AMTHANH.md",
+    "unity-client/Assets/Scripts/Audio/GameAudioManager.cs"
+  ],
+  "added": [
+    "voiceCache.js",
+    "voiceService.js",
+    "tools/tts/piper/worker.py",
+    "test/ai-voice.test.js",
+    "scripts/ai-voice-benchmark.js",
+    "scripts/ai-voice-test-server.js",
+    "scripts/Run-AiVoiceUnity.ps1",
+    "scripts/ai-voice-verify.js",
+    "unity-client/Assets/Scripts/Audio/ThienDaoVoicePlayer.cs",
+    "unity-client/Assets/Scripts/Audio/ThienDaoVoicePlayer.cs.meta",
+    "unity-client/Assets/Tests/Editor/ThienDaoVoiceTests.cs",
+    "unity-client/Assets/Tests/Editor/ThienDaoVoiceTests.cs.meta",
+    "unity-client/Assets/Editor/AiVoiceVerification.cs",
+    "unity-client/Assets/Editor/AiVoiceVerification.cs.meta",
+    "docs/Tailieu_output/ai-voice/README.md"
+  ],
+  "sourceHashes": {
+    "server.js": "89eff524e5e6fa76b0add40e22c812e9462d785c2b8e5987b89e9e8009e63fc2",
+    "GAME_DESIGN.md": "ff4245b869b11a1ed343b17dd7fec54d0dd0887d2cff37ba66dbc7068522b3bf",
+    "PROGRESS.md": "48bf3293d1a69a133980b763fd36063d2d7133f9b71936dd3d1d8fbe2588128c",
+    "docs/Tailieu/AMTHANH.md": "7b0eb4fd1d049680387a7c75df1440cf6ac2abf9f221699f5d92044d83d6cd6a",
+    "unity-client/Assets/Scripts/Audio/GameAudioManager.cs": "0e743672274bfdb360fd626bcd3c47f78ce2dece676f7ee041f79503828f0d59",
+    "voiceCache.js": "a9b45e0be13d71d8c4ec49263870594f6aed2f0478123a3a4afd307c948166c1",
+    "voiceService.js": "102746b280d6d78bde5718af855286d66277c8eb787176c4fe0f86afb15531f0",
+    "tools/tts/piper/worker.py": "16621009258f9c14fb62abe8099ac10ab00ded8481df1df1b4f9e90b4787404a",
+    "test/ai-voice.test.js": "1b7efb6aadc53d8592281e74225065f75f45bb3a8e3e9454471f58957bb9ddc2",
+    "scripts/ai-voice-benchmark.js": "76e94ed77472bf862f6a52c838cb5872e89fb7ba9b85e52bac813dadd0df2dfc",
+    "scripts/ai-voice-test-server.js": "4aee6eab8541a81546ca45e43f668c3c904d8bb04a12f16fc10e748eab543b2e",
+    "scripts/Run-AiVoiceUnity.ps1": "77da20e9d0d43a5e1903a76b3768fbb505f21caf944f605de429ddd1a59fd3c5",
+    "scripts/ai-voice-verify.js": "04d1575ef2eb8c9c76d57c2f6458ec947f0798c99d1782c0693883125266718b",
+    "unity-client/Assets/Scripts/Audio/ThienDaoVoicePlayer.cs": "ac53a84ebec7a39a06eed04664e9c5831773769a3753f4a2764b153c0e47b6c4",
+    "unity-client/Assets/Scripts/Audio/ThienDaoVoicePlayer.cs.meta": "1c21cf5f62135ce4937223790d8f38efc55db558db46b1292a4d1d1ba4e2da40",
+    "unity-client/Assets/Tests/Editor/ThienDaoVoiceTests.cs": "d4642de469c2f358a7af19f8c239fe3ac4b985fc27a830bde229ca80670c6ad2",
+    "unity-client/Assets/Tests/Editor/ThienDaoVoiceTests.cs.meta": "652718a0adeb87c70743b41aebe07e7c49e4551e8b895cd578c67b40d2aad715",
+    "unity-client/Assets/Editor/AiVoiceVerification.cs": "c612e87979dc5d45c838b998778c4eaa1d58f12b2bc9624fe8cbe30bde8401b3",
+    "unity-client/Assets/Editor/AiVoiceVerification.cs.meta": "2166a7fc9b0f50a91b19ec2d87d525d3837e1eb795d06bcc9b66db77e73ecd40",
+    "docs/Tailieu_output/ai-voice/README.md": "547f5e66dab01270c106494ed903718234939af0bab53b3643adb81290e5170d"
+  },
+  "node": {
+    "passed": 159,
+    "failed": 0,
+    "skipped": 1
+  },
+  "unity": {
+    "passed": 105,
+    "failed": 0,
+    "skipped": 0,
+    "baseline": 95,
+    "voiceTests": 10,
+    "platform": "6000.5.9f1 EditMode + EnterPlayMode; nographics; real local HTTP/WebSocket/Piper WAV"
+  },
+  "benchmark": {
+    "modelLoadMs": 10617.6067,
+    "runs": [
+      {
+        "text": "Thanh Vân",
+        "wasCached": false,
+        "ms": 135.3837999999996,
+        "seconds": 0.6834467120181406,
+        "cacheHitMs": 0.12260000000060245
+      },
+      {
+        "text": "Nguyễn Minh",
+        "wasCached": false,
+        "ms": 116.09169999999904,
+        "seconds": 0.653015873015873,
+        "cacheHitMs": 0.12150000000110595
+      },
+      {
+        "text": "Đạo Hữu Mới",
+        "wasCached": false,
+        "ms": 105.71419999999853,
+        "seconds": 0.9102494331065759,
+        "cacheHitMs": 0.12659999999959837
+      }
+    ],
+    "groupSample": {
+      "text": "Chào mừng đạo hữu Thanh Vân cùng mười người khác gia nhập tông môn!",
+      "seconds": 4.262086167800454,
+      "file": "tools/tts/piper/output/ai-voice-nhap-mon.wav"
+    },
+    "listening": "CHƯA KIỂM CHỨNG",
+    "liveLatency": "CHƯA KIỂM CHỨNG: synthesis/cache benchmark does not measure Unity playback or TikTok LIVE"
+  },
+  "build": {
+    "result": "Succeeded",
+    "path": "C:\\Users\\admin\\Documents\\CODE\\TuTien\\test-results/ai-voice/build/TuTienLive.exe",
+    "errors": 0,
+    "warnings": 2,
+    "bytes": 607000597
+  },
+  "windowsSmoke": "PASS booted for 12 seconds; nographics/noaudio; no exception in player log; does not verify rendering, audio playback or OBS",
+  "unverified": [
+    "Subjective listening and naturalness of joins",
+    "OBS audio capture",
+    "Real TikTok LIVE latency and sustained load",
+    "Visual subtitle layout on GPU",
+    "Windows player GPU/audio end-to-end"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "result": "PASS",
+  "protectedFiles": 1092,
+  "originalSceneDocuments": 773,
+  "addedSceneDocuments": 18,
+  "changedDocuments": [
+    "1480919777",
+    "916708748",
+    "1602267271",
+    "77049902"
+  ],
+  "existingObjects": "all kept; four documents updated for idle/arrival/donor UI",
+  "cameraPoseAndViewport": "unchanged",
+  "modules": "only builtin imageconversion/unitywebrequest 1.0.0 added; all older package versions and lock entries unchanged",
+  "unity": {
+    "passed": 87,
+    "failed": 0,
+    "skipped": 0,
+    "finalCameraChecks": 7
+  },
+  "node": {
+    "passed": 137,
+    "failed": 0,
+    "skipped": 1
+  },
+  "sourceHashes": {
+    "unity-client/Assets/Scenes/SectScene_Concept02.unity": "38d98dbce640f49141a91e9de10703f923e4e38c38e294a262f0eb802affc15b",
+    "normalizeEvent.js": "2ddae544957c29ef5d6cbf328b9fc1f155cb88360e5144eac243fe724c3f19e3",
+    "gameEventBus.js": "e441f76a763d4d84e84d5dc2dd6777f10c32993c2bae97075b69506cb638dfb9",
+    "itemService.js": "0c9ec89121360afaddbcb5b41cedbe9e4093a61f917264e073dcbc4199b95e01",
+    "unity-client/Assets/Scripts/Effects/IdleCameraPresenter.cs": "8d2cd6e0f6b63a9df1ec5941837e163809d8b5b71b8a3be5d0350bf96722daf2",
+    "unity-client/Assets/Scripts/Effects/IdleCameraPresenter.cs.meta": "a233692f0a7401d4a6c6a2e5de94166f2a7794fafb320dcd7e512b4a1cde1632",
+    "unity-client/Assets/Scripts/Effects/ItemReceiptPresenter.cs": "4b7cad98d98dfccc64ec7881b86f41fb8c8223b811f73c7e8e50e246d12dfe0b",
+    "unity-client/Assets/Scripts/Effects/ItemReceiptPresenter.cs.meta": "886e675f1e3509eeaffece220db46b4d270cfe4b8314729b2734ca54480e14d0",
+    "unity-client/Assets/Scripts/Effects/BlessingReceiptPresenter.cs": "ff32cde0d89d9f086533cc79c9b2057876336ccebe61d29aa129775e8caf3d4e",
+    "unity-client/Assets/Scripts/Effects/BlessingReceiptPresenter.cs.meta": "8ede463ab4266948306cac5d1a7fd908b69c0ebf9c069f51ce179804ad692c61",
+    "unity-client/Assets/Scripts/Characters/CharacterManager.cs": "11bd212b39033c5559fc78c154ea6af8a7c5d5756c9f929b19854eb8cb46fe3e",
+    "unity-client/Assets/Scripts/Characters/CharacterManager.cs.meta": "fcbcf4fd60663490d82d1483694e67c4895ac3e1f2d651b660a18624696f3ab4",
+    "unity-client/Assets/Scripts/Scenes/CameraRig.cs": "0fd955c2141eb7fab345381d1f653efdbdd864a7dc48e120dcea86bd1e96789e",
+    "unity-client/Assets/Scripts/Scenes/CameraRig.cs.meta": "1ec153d04373fa5009ebd663843f5c37885ba56ce0d1b11095c1143f91965621",
+    "unity-client/Assets/Scripts/Network/StateMapper.cs": "c53ec7a9064eeba2c77ca55dcaebfdd26dcb03d75ef9b9ffd534cdd35d114d5a",
+    "unity-client/Assets/Scripts/Network/StateMapper.cs.meta": "f57016a5a389eca7898d9d0fcfabd8fc5e3e29730838d299cf527bc92456f737",
+    "unity-client/Assets/Tests/Editor/Qua78Tests.cs": "7e3a874815564f302f6dcf52a34db48fd00a94147d8b9924eef7006626862e43",
+    "unity-client/Assets/Tests/Editor/Qua78Tests.cs.meta": "4f70c7b530d0a8b7330f4feba6538402b367ace0b5de1d184ac7ad2debb2f6ef",
+    "unity-client/Assets/Scripts/Effects/DonorAvatarView.cs": "8f0fc743999820f8f006c0efd45994045d778526e9e606ce354e41ea852a2269",
+    "unity-client/Assets/Scripts/Effects/DonorAvatarView.cs.meta": "e54964b9d1c86091bd6ff2e6c6ef07c17b186cd880d576b9f522588be27b2d10",
+    "unity-client/Assets/Editor/Camera9Setup.cs": "08dbc711ed0ef368ec52e652d6249b2a7430640e30114b21601ace909a933cf2",
+    "unity-client/Assets/Editor/Camera9Setup.cs.meta": "1c89e51abace5f59ecd63bfb98bc6b77c68e40bf53e81809b923cb56a998155d",
+    "unity-client/Assets/Tests/Editor/Camera9Tests.cs": "ec95d9e08d7bd77b5557d18bed18d8c663f500dfe5a74ef930e34de55dc064ad",
+    "unity-client/Assets/Tests/Editor/Camera9Tests.cs.meta": "8cbda3c6650a66041c891e4405f4dccf6c8b2fdecae65d9d4cd617db2b1b4105",
+    "unity-client/Packages/manifest.json": "117ebd5b77e688be5a7ff21fb47159d5af4e1ac176644385ca1d7ad4cb4dd822",
+    "unity-client/Packages/packages-lock.json": "eb1325fbd408e8f1a07809112554b498b0ff53fcfe1f9bcbb24a7b52a294e13f"
+  },
+  "unverified": [
+    "real TikTok avatar CDN/real LIVE",
+    "Windows build",
+    "OBS",
+    "subjective listening/FPS stream"
+  ],
+  "finalAudit": "Original objects/camera/viewport kept; only arrival flag, idle interval and donor UI wiring changed"
+}

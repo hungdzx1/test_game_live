@@ -34,10 +34,11 @@ namespace TuTienLive.UI
             rendered=snapshot;hasRendered=true;
             bool connected = snapshot != null;
             phaseLabel.text = !connected ? "CHỜ MÁY CHỦ" : snapshot.Phase == "paused" ? "TẠM DỪNG" :
-                snapshot.Phase == "stopped" ? "ĐÃ DỪNG" : snapshot.EffectivePhase == "battle" ? "DIỆT MA" : "TU LUYỆN";
+                snapshot.Phase == "stopped" ? "ĐÃ DỪNG" : snapshot.EffectivePhase == "battle" ? snapshot.Battle?.SharedBoss==true?snapshot.Battle.View?.ActiveBoss?.IsWarning==true?"CẢNH BÁO BOSS":"ĐÁNH BOSS":"DIỆT MA" : "TU LUYỆN";
             if (connected)
             {
-                var seconds = Math.Max(0, (long)Math.Ceiling(snapshot.RemainingMs / 1000));
+                bool untimed=snapshot.EffectivePhase=="battle"&&snapshot.Battle?.EndOnKill==true&&snapshot.Battle.View?.ActiveBoss?.IsWarning!=true;
+                var seconds = Math.Max(0, untimed?(long)Math.Floor((snapshot.Battle.View?.ActiveBoss?.ElapsedMs??0)/1000):(long)Math.Ceiling(snapshot.RemainingMs / 1000));
                 timerLabel.text = (seconds / 60).ToString("00") + ":" + (seconds % 60).ToString("00");
             }
             else timerLabel.text = "--:--";

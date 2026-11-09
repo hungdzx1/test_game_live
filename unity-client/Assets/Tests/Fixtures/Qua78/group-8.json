@@ -1,0 +1,18 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "4aa5f9c9-40d8-447a-90ae-589add29e111",
+  "seq": 11,
+  "serverTime": 1794135246497,
+  "payload": {
+    "eventId": "a7728173-88c2-48f0-ab37-13ce56a781e4",
+    "kind": "item:received",
+    "userId": "qua:8",
+    "timestamp": 1794135246497,
+    "item": "pill",
+    "itemName": "Độ Kiếp Đan",
+    "count": 2,
+    "source": "boss_reward",
+    "scope": "all"
+  }
+}

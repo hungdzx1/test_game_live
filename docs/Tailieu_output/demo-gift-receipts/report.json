@@ -1,0 +1,55 @@
+{
+  "result": "PASS",
+  "checks": [
+    "1 xu -> 5655/Rose -> tea x1 -> item:received over WebSocket",
+    "10 xu -> 9875/Shamrock -> pill x1 -> item:received over WebSocket",
+    "20 xu -> 1473096/Tiny Blush -> root x1 -> item:received over WebSocket",
+    "10 xu combo grants five pills once; replay does not repeat receipt/award",
+    "100 xu manual mode preserves custom ID/name; saved reward rules unchanged"
+  ],
+  "receipts": [
+    {
+      "eventId": "c39d3a3c-790c-4cd7-9b73-36ad18293347",
+      "kind": "item:received",
+      "userId": "demo-1",
+      "timestamp": 1794087612879,
+      "item": "tea",
+      "itemName": "Trà Ngộ Đạo",
+      "count": 1,
+      "source": "viewer_gift"
+    },
+    {
+      "eventId": "b15e3f44-4400-4ca1-a5f5-8b17605e8f46",
+      "kind": "item:received",
+      "userId": "demo-1",
+      "timestamp": 1794087613400,
+      "item": "pill",
+      "itemName": "Độ Kiếp Đan",
+      "count": 1,
+      "source": "viewer_gift"
+    },
+    {
+      "eventId": "92ff84e4-471c-4c1a-8a85-638f538ba118",
+      "kind": "item:received",
+      "userId": "demo-1",
+      "timestamp": 1794087614033,
+      "item": "root",
+      "itemName": "Biến Dị Linh Căn",
+      "count": 1,
+      "source": "viewer_gift"
+    },
+    {
+      "eventId": "26bec5bb-81c8-4675-93d6-9970214f54fb",
+      "kind": "item:received",
+      "userId": "demo-1",
+      "timestamp": 1794087615658,
+      "item": "pill",
+      "itemName": "Độ Kiếp Đan",
+      "count": 5,
+      "source": "viewer_gift"
+    }
+  ],
+  "errors": [],
+  "unity": "Uses existing item:received presenter; no Unity changes",
+  "dataRoot": "C:\\Users\\admin\\AppData\\Local\\Temp\\tutien-demo-receipts-V9K0xs"
+}

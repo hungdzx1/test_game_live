@@ -21,6 +21,7 @@ try {
   let state=null,quality='',last=performance.now(),received=last,renderPlayers=[];
   const pendingEvents=[];
   function showEvent(e){
+    if(e.kind==='item:received')return true; // Unity receipt presentation; legacy already renders live:gift/item:used.
     if(state&&(e.fieldId===undefined||e.fieldId===state.battle?.viewId))audio.event(e,state);
     if(e.kind.startsWith('live:')){
       const message=liveMessage(e);if(message)overlay.event(message);

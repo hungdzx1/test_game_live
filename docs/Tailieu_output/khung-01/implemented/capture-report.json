@@ -1,0 +1,17 @@
+{
+  "gpu": "NVIDIA Quadro M1000M",
+  "samples": [
+    {
+      "width": 1080,
+      "height": 1920,
+      "labels": 34,
+      "raycastTargets": 0
+    },
+    {
+      "width": 720,
+      "height": 1280,
+      "labels": 34,
+      "raycastTargets": 0
+    }
+  ]
+}

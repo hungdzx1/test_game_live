@@ -1,4 +1,5 @@
-import {ITEM_NAMES} from './cultivationConfig.js';
+import {ITEM_NAMES,SPIRITUAL_ROOT_MULTIPLIER} from './cultivationConfig.js';
+import {safeAvatar} from './normalizeEvent.js';
 export const BLESSING_DURATION_MS=30000;
 export function normalizeBlessings(buffs){
   let remainingMs=0,durationMs=0;
@@ -12,42 +13,58 @@ export function normalizeBlessings(buffs){
 }
 export function totalMultiplier(player,globalBuffs,rules){
   const temporary=[...player.buffs,...globalBuffs].filter(b=>b.remainingMs>0).reduce((sum,b)=>sum+b.multiplier,0);
-  const permanent=player.spiritualRootMultiplier===2?2:0;
+  const permanent=[2,SPIRITUAL_ROOT_MULTIPLIER].includes(player.spiritualRootMultiplier)?SPIRITUAL_ROOT_MULTIPLIER:0;
   return Math.min(rules.maxMultiplier,Math.max(1,permanent+temporary));
 }
 export class ItemService {
   constructor(engine){this.engine=engine;}
-  activateBlessing(count=1,source='item'){
+  activateBlessing(count=1,source='item',donor=null){
     if(!Number.isSafeInteger(count)||count<1||count>Number.MAX_SAFE_INTEGER/BLESSING_DURATION_MS)throw new Error('Số lần Ban Phúc không hợp lệ.');
     const current=this.blessingSnapshot(),added=count*BLESSING_DURATION_MS;
     const remainingMs=current.remainingMs+added,durationMs=current.durationMs+added;
     if(remainingMs>Number.MAX_SAFE_INTEGER||durationMs>Number.MAX_SAFE_INTEGER)throw new Error('Thời gian Ban Phúc vượt giới hạn an toàn.');
     this.engine.globalBuffs=[{kind:'blessing',multiplier:2,remainingMs,durationMs}];
-    this.engine.event('blessing:activated',null,{source,count,remainingMs,durationMs,multiplier:2});this.engine.important=true;
+    const attribution=donor&&typeof donor.userId==='string'&&typeof donor.name==='string'?{donor:{userId:donor.userId,name:donor.name.slice(0,100),avatar:safeAvatar(donor.avatar)}}:{};
+    this.engine.event('blessing:activated',null,{source,count,remainingMs,durationMs,multiplier:2,...attribution});this.engine.important=true;
   }
   blessingSnapshot(){
     const buff=normalizeBlessings(this.engine.globalBuffs)[0];
     return {remainingMs:buff?.remainingMs??0,durationMs:buff?.durationMs??0,multiplier:2};
   }
-  grantItem(p,item,count=1,source='admin_demo'){
+  grantItem(p,item,count=1,source='admin_demo',context={}){
     if(!Object.hasOwn(ITEM_NAMES,item)||!Number.isInteger(count)||count<1||count>100||p.inventory[item]+count>100000)throw new Error('Vật phẩm hoặc số lượng không hợp lệ.');
-    p.inventory[item]+=count;this.engine.audit('item:granted',{userId:p.userId,item,count,source});this.engine.important=true;
+    p.inventory[item]+=count;this.engine.audit('item:granted',{userId:p.userId,item,count,source});
+    this.engine.event('item:received',p.userId,{item,itemName:ITEM_NAMES[item],count,source,scope:context.scope??(source==='boss_reward'?'all':'personal')});this.engine.important=true;
   }
-  useItem(p,item){
+  receiveItem(p,item,count=1,source='admin_demo',context={}){
+    if(item==='blessing'&&this.blessingSnapshot().durationMs+count*BLESSING_DURATION_MS>Number.MAX_SAFE_INTEGER)throw new Error('Thời gian Ban Phúc vượt giới hạn an toàn.');
+    this.grantItem(p,item,count,source,context);
+    if(!['tea','root','blessing'].includes(item))return;
+    if(item==='blessing'){this.activateBlessing(count,source,context.donor);p.inventory.blessing-=count;this.engine.event('item:used',p.userId,{item,count,name:ITEM_NAMES[item]});return;}
+    let pending=count;
+    while(pending>0){
+      if(item==='root'&&p.spiritualRootMultiplier>1)return;
+      if(item==='tea'&&p.buffs.length>=100)break;
+      this.useItem(p,item,{received:true});pending--;
+    }
+    if(pending){const bus=this.engine.liveEvents,items=bus.activations.get(p.userId)??Object.fromEntries(Object.keys(ITEM_NAMES).map(k=>[k,0]));items[item]+=pending;bus.activations.set(p.userId,items);}
+  }
+  useItem(p,item,{received=false}={}){
     const e=this.engine,r=e.rules;if(!Object.hasOwn(ITEM_NAMES,item)||!p.inventory[item])throw new Error('Không có vật phẩm trong túi.');
-    if(e.phase!=='cultivation')throw new Error('Vật phẩm được giữ trong túi. Chỉ dùng khi đang tu luyện.');
-    if(item==='root'&&p.spiritualRootMultiplier===2)throw new Error('Linh căn đã biến dị; không tiêu hao thêm vật phẩm.');
+    if(item==='pill')throw new Error('Đan tự dùng vừa đủ khi bắt đầu độ kiếp; phần dư giữ trong túi.');
+    if(e.phase!=='cultivation'&&!(received&&['tea','root','blessing'].includes(item)))throw new Error('Vật phẩm được giữ trong túi. Chỉ dùng khi đang tu luyện.');
+    if(item==='root'&&p.spiritualRootMultiplier>1)throw new Error('Linh căn đã biến dị; không tiêu hao thêm vật phẩm.');
     if(item==='pill'&&(p.realmIndex===10||e.breakthrough.active?.userId===p.userId||p.breakthrough.pillCount>=r.maxPills))throw new Error('Không thể chuẩn bị thêm đan lúc này.');
     if(item==='camera'&&p.focusCooldownMs>0)throw new Error('Quay Cam đang hồi chiêu.');
     if(item==='tea'&&p.buffs.length>=100)throw new Error('Đã đạt giới hạn hiệu ứng đang chờ.');
     if(item==='blessing')this.activateBlessing();
     p.inventory[item]--;
     if(item==='tea')p.buffs.push({kind:'tea',multiplier:2,remainingMs:r.buffDurationMs});
-    if(item==='root')p.spiritualRootMultiplier=2;
+    if(item==='root')p.spiritualRootMultiplier=SPIRITUAL_ROOT_MULTIPLIER;
     if(item==='pill')p.breakthrough.pillCount++;
     if(item==='camera'){p.focusCooldownMs=r.focusCooldownMs;e.animate(p,'celebrate',3000);e.event('camera:focus',p.userId,{durationMs:3000,priority:2});}
     if(p.pendingBlessings>0)e.rewards?.drain(p);
-    e.event('item:used',p.userId,{item,name:ITEM_NAMES[item]});e.important=true;
+    e.event('item:used',p.userId,{item,name:ITEM_NAMES[item]});e.battle?.drainPills(p);e.important=true;
   }
   expireBuff(dt){
     const expire=list=>list.map(b=>({...b,remainingMs:Math.max(0,b.remainingMs-dt)})).filter(b=>b.remainingMs>0);

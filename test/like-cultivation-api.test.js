@@ -28,7 +28,7 @@ test('Like cultivation API/WS: immediate energy, idle personal EXP is durable, b
   assert.equal(p.cultivation,before);assert.equal(p.pendingExp,0);assert.equal(app.engine.liveEvents.sectEnergy.power,10);
   await until(async()=>JSON.parse(await readFile(file,'utf8')).players[0].pendingExp===20);
   await until(()=>snapshots.some(s=>s.players[0].pendingExp===20&&s.interactions.sectEnergy.power===10));
-  await post(base,'phase','cultivation');await post(base,'grantItem','tea',p.userId);await post(base,'useItem','tea',p.userId);
+  await post(base,'phase','cultivation');await post(base,'grantItem','tea',p.userId);assert.equal(p.buffs.length,1);
   const start={exp:p.cultivation,elapsed:app.engine.elapsedMs};await until(()=>app.engine.elapsedMs>=start.elapsed+500);
   const delta=p.cultivation-start.exp;assert.ok(Math.abs(delta-4*(app.engine.elapsedMs-start.elapsed)/1000)<1e-7);
   await post(base,'phase','paused');await post(base,'demoLiveEvent',{loai:'tim',eventId:'buffed-100',userId:p.userId,soLuong:100});assert.equal(p.pendingExp,400);

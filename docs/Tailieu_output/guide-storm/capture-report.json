@@ -1,0 +1,52 @@
+{
+  "gpu": "NVIDIA Quadro M1000M",
+  "guideRight": 404.4,
+  "guideWidth": 392.4,
+  "timeline": [
+    {
+      "elapsedMs": 0,
+      "frame": 0,
+      "visible": true
+    },
+    {
+      "elapsedMs": 45,
+      "frame": 1,
+      "visible": true
+    },
+    {
+      "elapsedMs": 90,
+      "frame": 2,
+      "visible": true
+    },
+    {
+      "elapsedMs": 135,
+      "frame": 3,
+      "visible": true
+    },
+    {
+      "elapsedMs": 180,
+      "frame": 0,
+      "visible": true
+    },
+    {
+      "elapsedMs": 2200,
+      "frame": 0,
+      "visible": true
+    },
+    {
+      "elapsedMs": 8000,
+      "frame": 1,
+      "visible": true
+    },
+    {
+      "elapsedMs": 11999,
+      "frame": 2,
+      "visible": true
+    },
+    {
+      "elapsedMs": 12000,
+      "frame": -1,
+      "visible": false
+    }
+  ]
+}

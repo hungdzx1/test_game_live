@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="42" result="Passed" total="42" passed="42" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 09:47:40Z" end-time="2026-11-08 09:47:48Z" duration="7.8457055">
+  <test-suite type="TestSuite" id="1000" name="Tu Tien LIVE - Unity Migration" fullname="Tu Tien LIVE - Unity Migration" runstate="Runnable" testcasecount="149" result="Passed" start-time="2026-11-08 09:47:40Z" end-time="2026-11-08 09:47:48Z" duration="7.845706" total="42" passed="42" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1176" name="TuTienLive.Tests.dll" fullname="C:/Users/admin/Documents/CODE/TuTien/test-results/unity-concept02/project/Library/ScriptAssemblies/TuTienLive.Tests.dll" runstate="Runnable" testcasecount="149" result="Passed" start-time="2026-11-08 09:47:40Z" end-time="2026-11-08 09:47:48Z" duration="7.479698" total="42" passed="42" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="11848" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1177" name="TuTienLive" fullname="TuTienLive" runstate="Runnable" testcasecount="149" result="Passed" start-time="2026-11-08 09:47:40Z" end-time="2026-11-08 09:47:48Z" duration="7.464253" total="42" passed="42" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1178" name="Tests" fullname="TuTienLive.Tests" runstate="Runnable" testcasecount="149" result="Passed" start-time="2026-11-08 09:47:40Z" end-time="2026-11-08 09:47:48Z" duration="7.445601" total="42" passed="42" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1060" name="CharacterVariantTests" fullname="TuTienLive.Tests.CharacterVariantTests" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-08 09:46:16Z" end-time="2026-11-08 09:46:18Z" duration="1.803346" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1065" name="AppendingAnotherTemplateWorksWithoutCodeChangesAndPreservesItsScale" fullname="TuTienLive.Tests.CharacterVariantTests.AppendingAnotherTemplateWorksWithoutCodeChangesAndPreservesItsScale" methodname="AppendingAnotherTemplateWorksWithoutCodeChangesAndPreservesItsScale" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" seed="188227249" result="Passed" start-time="2026-11-08 09:45:59Z" end-time="2026-11-08 09:46:02Z" duration="2.285697" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1064" name="EmptyOrMissingEntriesKeepLegacyPrefabFallback" fullname="TuTienLive.Tests.CharacterVariantTests.EmptyOrMissingEntriesKeepLegacyPrefabFallback" methodname="EmptyOrMissingEntriesKeepLegacyPrefabFallback" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" seed="1657748692" result="Passed" start-time="2026-11-08 09:46:02Z" end-time="2026-11-08 09:46:03Z" duration="1.351254" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1061" name="GridShows25UniqueSeatsAndHiddenPriorityPlayerReusesItsSeat" fullname="TuTienLive.Tests.CharacterVariantTests.GridShows25UniqueSeatsAndHiddenPriorityPlayerReusesItsSeat" methodname="GridShows25UniqueSeatsAndHiddenPriorityPlayerReusesItsSeat" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" seed="544122710" result="Passed" start-time="2026-11-08 09:46:03Z" end-time="2026-11-08 09:46:05Z" duration="1.635025" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1062" name="PlayShows25CharactersWithFourAppearances" fullname="TuTienLive.Tests.CharacterVariantTests.PlayShows25CharactersWithFourAppearances" methodname="PlayShows25CharactersWithFourAppearances" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" seed="929057713" result="Passed" start-time="2026-11-08 09:46:05Z" end-time="2026-11-08 09:46:18Z" duration="12.763176" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1063" name="SavedCatalogSpawnsAllFourAndKeepsLooksAcrossSnapshotsReconnectAndPooling" fullname="TuTienLive.Tests.CharacterVariantTests.SavedCatalogSpawnsAllFourAndKeepsLooksAcrossSnapshotsReconnectAndPooling" methodname="SavedCatalogSpawnsAllFourAndKeepsLooksAcrossSnapshotsReconnectAndPooling" classname="TuTienLive.Tests.CharacterVariantTests" runstate="Runnable" seed="447029173" result="Passed" start-time="2026-11-08 09:46:18Z" end-time="2026-11-08 09:46:18Z" duration="0.727207" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1079" name="Concept02Tests" fullname="TuTienLive.Tests.Concept02Tests" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-08 09:46:49Z" end-time="2026-11-08 09:46:53Z" duration="4.698979" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1081" name="FourPrefabsHaveExactlyTheSuppliedFourPoses" fullname="TuTienLive.Tests.Concept02Tests.FourPrefabsHaveExactlyTheSuppliedFourPoses" methodname="FourPrefabsHaveExactlyTheSuppliedFourPoses" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" seed="1600616986" result="Passed" start-time="2026-11-08 09:46:18Z" end-time="2026-11-08 09:46:18Z" duration="0.009523" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1082" name="OpenExistingSceneNeverRebuildsUserEdits" fullname="TuTienLive.Tests.Concept02Tests.OpenExistingSceneNeverRebuildsUserEdits" methodname="OpenExistingSceneNeverRebuildsUserEdits" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" seed="267173593" result="Passed" start-time="2026-11-08 09:46:18Z" end-time="2026-11-08 09:46:20Z" duration="1.430965" asserts="0">
+              <properties />
+              <output><![CDATA[CONCEPT02_REFERENCES_PASS
+]]></output>
+            </test-case>
+            <test-case id="1083" name="PlayUsesNewSpritesAndAuthoritativeSnapshotWithoutResettingLayout" fullname="TuTienLive.Tests.Concept02Tests.PlayUsesNewSpritesAndAuthoritativeSnapshotWithoutResettingLayout" methodname="PlayUsesNewSpritesAndAuthoritativeSnapshotWithoutResettingLayout" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" seed="635479583" result="Passed" start-time="2026-11-08 09:46:20Z" end-time="2026-11-08 09:46:34Z" duration="14.149126" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1080" name="SavedSceneUsesLocalArtAndKeepsPortraitSystems" fullname="TuTienLive.Tests.Concept02Tests.SavedSceneUsesLocalArtAndKeepsPortraitSystems" methodname="SavedSceneUsesLocalArtAndKeepsPortraitSystems" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" seed="364784243" result="Passed" start-time="2026-11-08 09:46:34Z" end-time="2026-11-08 09:46:35Z" duration="1.047307" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1084" name="ServerCultivationAndLikeStreaksReachConceptHudInPlayMode" fullname="TuTienLive.Tests.Concept02Tests.ServerCultivationAndLikeStreaksReachConceptHudInPlayMode" methodname="ServerCultivationAndLikeStreaksReachConceptHudInPlayMode" classname="TuTienLive.Tests.Concept02Tests" runstate="Runnable" seed="1929327393" result="Passed" start-time="2026-11-08 09:46:35Z" end-time="2026-11-08 09:46:53Z" duration="18.455545" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1101" name="LevelUpTests" fullname="TuTienLive.Tests.LevelUpTests" classname="TuTienLive.Tests.LevelUpTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-11-08 09:47:40Z" end-time="2026-11-08 09:47:47Z" duration="6.943183" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1109" name="ActualHttpPreparationAndWebSocketShowSubStageAndSuccessfulRealmPromotions" fullname="TuTienLive.Tests.LevelUpTests.ActualHttpPreparationAndWebSocketShowSubStageAndSuccessfulRealmPromotions" methodname="ActualHttpPreparationAndWebSocketShowSubStageAndSuccessfulRealmPromotions" classname="TuTienLive.Tests.LevelUpTests" runstate="Runnable" seed="1860989105" result="Passed" start-time="2026-11-08 09:46:54Z" end-time="2026-11-08 09:47:22Z" duration="28.748040" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1106" name="BurstPoolAndQueueAreBoundedAndLowQualityUsesTwoFourLayerCelebrations" fullname="TuTienLive.Tests.LevelUpTests.BurstPoolAndQueueAreBoundedAndLowQualityUsesTwoFourLayerCelebrations" methodname="BurstPoolAndQueueAreBoundedAndLowQualityUsesTwoFourLayerCelebrations" classname="TuTienLive.Tests.LevelUpTests" runstate="Runnable" seed="1063663117" result="Passed" start-time="2026-11-08 09:47:22Z" end-time="2026-11-08 09:47:24Z" duration="1.356298" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1105" name="ConsecutiveSubStagesMergeWithoutExtendingLifetimeAndHiddenRecipientUsesExistingRosterPriority" fullname="TuTienLive.Tests.LevelUpTests.ConsecutiveSubStagesMergeWithoutExtendingLifetimeAndHiddenRecipientUsesExistingRosterPriority" methodname="ConsecutiveSubStagesMergeWithoutExtendingLifetimeAndHiddenRecipientUsesExistingRosterPriority" classname="TuTienLive.Tests.LevelUpTests" runstate="Runnable" seed="1611802644" result="Passed" start-time="2026-11-08 09:47:24Z" end-time="2026-11-08 09:47:25Z" duration="1.255741" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1107" name="PauseFreezesAndSessionDisconnectOrBattleClearsVisualsWithoutReplayingLevels" fullname="TuTienLive.Tests.LevelUpTests.PauseFreezesAndSessionDisconnectOrBattleClearsVisualsWithoutReplayingLevels" methodname="PauseFreezesAndSessionDisconnectOrBattleClearsVisualsWithoutReplayingLevels" classname="TuTienLive.Tests.LevelUpTests" runstate="Runnable" seed="1345783097" result="Passed" start-time="2026-11-08 09:47:25Z" end-time="2026-11-08 09:47:27Z" duration="1.794572" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1108" name="PlayProtocolPromotionDisableAndReconnectNeverReplayOldLevelEffects" fullname="TuTienLive.Tests.LevelUpTests.PlayProtocolPromotionDisableAndReconnectNeverReplayOldLevelEffects" methodname="PlayProtocolPromotionDisableAndReconnectNeverReplayOldLevelEffects" classname="TuTienLive.Tests.LevelUpTests" runstate="Runnable" seed="772651524" result="Passed" start-time="2026-11-08 09:47:27Z" end-time="2026-11-08 09:47:44Z" duration="17.801353" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1104" name="PopFadeAndLayersFollowActualMovingRecipientWithoutChangingSnapshotOrCamera" fullname="TuTienLive.Tests.LevelUpTests.PopFadeAndLayersFollowActualMovingRecipientWithoutChangingSnapshotOrCamera" methodname="PopFadeAndLayersFollowActualMovingRecipientWithoutChangingSnapshotOrCamera" classname="TuTienLive.Tests.LevelUpTests" runstate="Runnable" seed="179907251" result="Passed" start-time="2026-11-08 09:47:45Z" end-time="2026-11-08 09:47:45Z" duration="0.800955" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1102" name="SevenSuppliedLayersAndOptionalMissingBeamAreSavedWithoutGeneratedTextures" fullname="TuTienLive.Tests.LevelUpTests.SevenSuppliedLayersAndOptionalMissingBeamAreSavedWithoutGeneratedTextures" methodname="SevenSuppliedLayersAndOptionalMissingBeamAreSavedWithoutGeneratedTextures" classname="TuTienLive.Tests.LevelUpTests" runstate="Runnable" seed="941613801" result="Passed" start-time="2026-11-08 09:47:45Z" end-time="2026-11-08 09:47:46Z" duration="1.104731" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1103" name="StageAndSuccessfulRealmEventsTriggerOnceWhileFailuresAndSnapshotsNeverDo" fullname="TuTienLive.Tests.LevelUpTests.StageAndSuccessfulRealmEventsTriggerOnceWhileFailuresAndSnapshotsNeverDo" methodname="StageAndSuccessfulRealmEventsTriggerOnceWhileFailuresAndSnapshotsNeverDo" classname="TuTienLive.Tests.LevelUpTests" runstate="Runnable" seed="1686948224" result="Passed" start-time="2026-11-08 09:47:46Z" end-time="2026-11-08 09:47:47Z" duration="0.962696" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1110" name="NetworkProtocolTests" fullname="TuTienLive.Tests.NetworkProtocolTests" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-11-08 09:47:47Z" end-time="2026-11-08 09:47:48Z" duration="0.285537" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1120" name="DynamicBattleAndRitualSchema" fullname="TuTienLive.Tests.NetworkProtocolTests.DynamicBattleAndRitualSchema" methodname="DynamicBattleAndRitualSchema" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="691751744" result="Passed" start-time="2026-11-08 09:47:47Z" end-time="2026-11-08 09:47:47Z" duration="0.012520" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1136" name="EventHistoryIsBoundedAndBackoffCapped" fullname="TuTienLive.Tests.NetworkProtocolTests.EventHistoryIsBoundedAndBackoffCapped" methodname="EventHistoryIsBoundedAndBackoffCapped" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1020341169" result="Passed" start-time="2026-11-08 09:47:47Z" end-time="2026-11-08 09:47:48Z" duration="0.176443" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1134" name="ImmutableStateCannotBeChangedByConsumers" fullname="TuTienLive.Tests.NetworkProtocolTests.ImmutableStateCannotBeChangedByConsumers" methodname="ImmutableStateCannotBeChangedByConsumers" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1524213784" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.003243" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1125" name="MalformedPacketCannotPoisonSessionOrSequence" fullname="TuTienLive.Tests.NetworkProtocolTests.MalformedPacketCannotPoisonSessionOrSequence" methodname="MalformedPacketCannotPoisonSessionOrSequence" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1379722146" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.003454" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1121" name="NumericPrecisionOptionalAndUnknownFields" fullname="TuTienLive.Tests.NetworkProtocolTests.NumericPrecisionOptionalAndUnknownFields" methodname="NumericPrecisionOptionalAndUnknownFields" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="882034542" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.006898" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1135" name="OwnerThreadIsEnforced" fullname="TuTienLive.Tests.NetworkProtocolTests.OwnerThreadIsEnforced" methodname="OwnerThreadIsEnforced" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="536734206" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.002586" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1118" name="ParsesActualEngineSnapshots" fullname="TuTienLive.Tests.NetworkProtocolTests.ParsesActualEngineSnapshots" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.019039" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1111" name="ParsesActualEngineSnapshots(&quot;stopped&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.ParsesActualEngineSnapshots(&quot;stopped&quot;)" methodname="ParsesActualEngineSnapshots" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1899784826" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.004362" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1112" name="ParsesActualEngineSnapshots(&quot;cultivation&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.ParsesActualEngineSnapshots(&quot;cultivation&quot;)" methodname="ParsesActualEngineSnapshots" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="729362762" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.001146" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1113" name="ParsesActualEngineSnapshots(&quot;breakthrough&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.ParsesActualEngineSnapshots(&quot;breakthrough&quot;)" methodname="ParsesActualEngineSnapshots" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="13519315" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.001141" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1114" name="ParsesActualEngineSnapshots(&quot;breakthrough-result&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.ParsesActualEngineSnapshots(&quot;breakthrough-result&quot;)" methodname="ParsesActualEngineSnapshots" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="286750009" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.001557" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1115" name="ParsesActualEngineSnapshots(&quot;battle&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.ParsesActualEngineSnapshots(&quot;battle&quot;)" methodname="ParsesActualEngineSnapshots" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1976553968" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.001767" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1116" name="ParsesActualEngineSnapshots(&quot;paused-battle&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.ParsesActualEngineSnapshots(&quot;paused-battle&quot;)" methodname="ParsesActualEngineSnapshots" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1933413591" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.002208" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1117" name="ParsesActualEngineSnapshots(&quot;battle-result&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.ParsesActualEngineSnapshots(&quot;battle-result&quot;)" methodname="ParsesActualEngineSnapshots" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="559075742" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.002042" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1119" name="ParsesAllActualEvents" fullname="TuTienLive.Tests.NetworkProtocolTests.ParsesAllActualEvents" methodname="ParsesAllActualEvents" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="95940770" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.001738" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1123" name="ReconnectWaitsForFullSnapshotAndRetainsDedup" fullname="TuTienLive.Tests.NetworkProtocolTests.ReconnectWaitsForFullSnapshotAndRetainsDedup" methodname="ReconnectWaitsForFullSnapshotAndRetainsDedup" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="108049852" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.005899" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1132" name="RejectsMalformedEnvelope" fullname="TuTienLive.Tests.NetworkProtocolTests.RejectsMalformedEnvelope" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.018168" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1126" name="RejectsMalformedEnvelope(&quot;version&quot;,&quot;2&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.RejectsMalformedEnvelope(&quot;version&quot;,&quot;2&quot;)" methodname="RejectsMalformedEnvelope" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1671983999" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.003574" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1127" name="RejectsMalformedEnvelope(&quot;seq&quot;,&quot;-1&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.RejectsMalformedEnvelope(&quot;seq&quot;,&quot;-1&quot;)" methodname="RejectsMalformedEnvelope" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1916035501" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.002030" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1128" name="RejectsMalformedEnvelope(&quot;serverTime&quot;,&quot;1.5&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.RejectsMalformedEnvelope(&quot;serverTime&quot;,&quot;1.5&quot;)" methodname="RejectsMalformedEnvelope" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="771408676" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.001989" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1129" name="RejectsMalformedEnvelope(&quot;payload&quot;,&quot;null&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.RejectsMalformedEnvelope(&quot;payload&quot;,&quot;null&quot;)" methodname="RejectsMalformedEnvelope" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1725104674" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.001308" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1130" name="RejectsMalformedEnvelope(&quot;sessionId&quot;,&quot;\&quot;\&quot;&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.RejectsMalformedEnvelope(&quot;sessionId&quot;,&quot;\&quot;\&quot;&quot;)" methodname="RejectsMalformedEnvelope" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1773171328" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.001695" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1131" name="RejectsMalformedEnvelope(&quot;type&quot;,&quot;\&quot;unknown\&quot;&quot;)" fullname="TuTienLive.Tests.NetworkProtocolTests.RejectsMalformedEnvelope(&quot;type&quot;,&quot;\&quot;unknown\&quot;&quot;)" methodname="RejectsMalformedEnvelope" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1260319431" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.001428" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1133" name="RejectsMalformedNestedData" fullname="TuTienLive.Tests.NetworkProtocolTests.RejectsMalformedNestedData" methodname="RejectsMalformedNestedData" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="942373952" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.015273" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1122" name="ReplayAndEventDuplicateDoNotDispatchTwice" fullname="TuTienLive.Tests.NetworkProtocolTests.ReplayAndEventDuplicateDoNotDispatchTwice" methodname="ReplayAndEventDuplicateDoNotDispatchTwice" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="105294313" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.003530" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1124" name="SessionResetClearsOldRosterAndEventState" fullname="TuTienLive.Tests.NetworkProtocolTests.SessionResetClearsOldRosterAndEventState" methodname="SessionResetClearsOldRosterAndEventState" classname="TuTienLive.Tests.NetworkProtocolTests" runstate="Runnable" seed="1366058993" result="Passed" start-time="2026-11-08 09:47:48Z" end-time="2026-11-08 09:47:48Z" duration="0.004363" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/admin/AppData/LocalLow/TuTienLive/Tu Tien LIVE - Unity Migration\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

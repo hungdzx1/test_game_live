@@ -77,12 +77,11 @@ namespace TuTienLive.Editor
             bindings.cameraRig.autoFitBounds=false;bindings.cameraRig.driftEnabled=false;bindings.cameraRig.MarkSceneAuthored();bindings.cameraRig.ConfigureViewport(1080,1920);
             bindings.cameraRig.protectedLayers=layers.Where(l=>l.protectFromClipping).ToArray();
             bindings.environment.layers=layers.ToArray();bindings.environment.quality=SectQuality.High;
-            var points=new[]{new Vector2(250,1195),new Vector2(440,1170),new Vector2(640,1170),new Vector2(830,1195),new Vector2(175,1350),new Vector2(905,1350),new Vector2(240,1510),new Vector2(440,1550),new Vector2(640,1550),new Vector2(840,1510),new Vector2(140,1650),new Vector2(940,1650)};
-            for(int i=0;i<points.Length;i++)bindings.characters.seats[i].position=World(points[i],8);
+            Concept02CharacterGridSetup.ConfigureSeats(bindings.characters);
             bindings.tribulation.platformSeat.position=World(new Vector2(540,665),8);
-            // Three new prefab variants; only four supplied poses. Meditation is the documented idle/rear fallback.
+            // Four prefab variants; meditation is the documented idle/rear fallback.
             var variants=new List<CharacterView>();
-            for(int i=1;i<=3;i++)
+            for(int i=1;i<=4;i++)
             {
                 var prefab=CreateCharacter(i);
                 variants.Add(prefab);
@@ -211,7 +210,7 @@ namespace TuTienLive.Editor
         public static void Verify()
         {
             var b=UnityEngine.Object.FindAnyObjectByType<SectSceneBindings>();
-            if(!b||!b.network||!b.characters||!b.tribulation||b.characters.seats.Length!=12)throw new InvalidOperationException("Missing inherited systems.");
+            if(!b||!b.network||!b.characters||!b.tribulation||b.characters.seats.Length!=25)throw new InvalidOperationException("Missing inherited systems.");
             if(b.environment.layers.Length!=15)throw new InvalidOperationException("Expected 15 independent artwork layers.");
             foreach(var layer in b.environment.layers)if(!layer||!layer.sourceSprite||!layer.bakedGeometry||!layer.sceneAuthored)throw new InvalidOperationException("Missing scene artwork.");
             foreach(var t in b.GetComponentsInChildren<Transform>(true))if(GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)>0)throw new InvalidOperationException("Missing script: "+t.name);

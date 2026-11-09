@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "browser": "Chrome/156.0.8078.81",
+  "checks": [
+    "All three HP/time/blessing/pill controls and cultivation duration save through the real API and survive reload; removed eleven-arena/solo-K controls",
+    "Draft survives navigation and invalid HP is rejected without changing saved configuration",
+    "DEMO skill button targets the single shared boss; saving settings mid-fight preserves active HP and round identity"
+  ],
+  "errors": []
+}

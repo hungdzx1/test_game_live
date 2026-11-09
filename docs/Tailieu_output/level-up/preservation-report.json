@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "protectedFiles": 903,
+  "originalSceneDocuments": 421,
+  "addedSceneDocuments": 3,
+  "changedOriginalDocuments": "one child appended to Systems only",
+  "cameraViewportAndPoses": "preserved",
+  "pngBytesAndGUIDs": "preserved",
+  "missingLayer": "levelup_light_beams.png skipped",
+  "validatedCode": [
+    "Assets/Scripts/Effects/LevelUpPresenter.cs",
+    "Assets/Editor/LevelUpSetup.cs",
+    "Assets/Tests/Editor/LevelUpTests.cs"
+  ],
+  "sceneSha256": "5c775d9c1a6fdf30ee7f224d60258b4f7613256eb89be3e194a6d26e38626526",
+  "sourceCodeSha256": {
+    "Assets/Scripts/Effects/LevelUpPresenter.cs": "7724ec172b2c74c5a0f601b84f975764deb587f53664f95ec6e6acf9cac1800e",
+    "Assets/Editor/LevelUpSetup.cs": "2c5dea085bc21a404989ef25c950adbc8e51996e64e27769eb32d9d10c93b2cd",
+    "Assets/Tests/Editor/LevelUpTests.cs": "d263c426b205e59209c4fbb4c643447b9ee8bb64bad6934434b7390944ff783a"
+  },
+  "nodeGameplay": "unchanged; integration server uses a disposable dataRoot",
+  "unity": {
+    "passed": 42,
+    "failed": 0,
+    "skipped": 0
+  },
+  "unverified": [
+    "new Windows build",
+    "OBS",
+    "real LIVE"
+  ]
+}

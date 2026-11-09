@@ -8,6 +8,9 @@ export class RewardService{
     }return true;
   }
   apply(b){
+    // New boss loot is committed once at each kill. Only drain already-earned legacy stage rewards.
+    if(!b)b=this.engine.battle.legacy;
+    if(b?.format==='shared-boss-v1'){if(this.engine.battle.legacy)this.apply(this.engine.battle.legacy);return;}
     const e=this.engine;if(e.phase!=='cultivation'||b?.status!=='finished')return;
     for(const f of b.fields){if(f.rewardState==='applied')continue;
       for(const r of f.results??[]){const p=e.players.get(r.userId);if(!p||p.lastBattleRewardId===b.id)continue;
@@ -18,6 +21,7 @@ export class RewardService{
   }
   drain(p){
     const e=this.engine;if(e.phase!=='cultivation')return;
+    e.battle.drainPills(p);
     const blessings=Math.min(p.pendingBlessings,Math.max(0,100000-p.inventory.blessing));
     if(blessings>0){p.inventory.blessing+=blessings;p.pendingBlessings-=blessings;e.audit('item:granted',{userId:p.userId,item:'blessing',count:blessings,source:'battle'});e.important=true;}
     while(p.pendingStageRewards>0){

@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "protectedFiles": 865,
+  "validatedCodeFiles": [
+    "Assets/Scripts/Scenes/CameraRig.cs",
+    "Assets/Scripts/Effects/BlessingReceiptPresenter.cs",
+    "Assets/Editor/BlessingReceiptSetup.cs",
+    "Assets/Tests/Editor/BlessingReceiptTests.cs"
+  ],
+  "existingSceneDocuments": 384,
+  "addedDocuments": 15,
+  "changedParents": [
+    "946330345",
+    "1015234907"
+  ],
+  "allOtherSceneDocuments": "byte-identical",
+  "cameraViewport": "original preserved",
+  "sourcePng": "byte-identical",
+  "backend": "unchanged",
+  "finalSceneSha256": "0d59ca4dc033fa842dad1121867a8e720f843e84ea1c54528ad1eb100e405f93",
+  "popupAnchor": {
+    "x": 0,
+    "y": 280
+  },
+  "sourceAndValidationNewObjectsEqual": true
+}

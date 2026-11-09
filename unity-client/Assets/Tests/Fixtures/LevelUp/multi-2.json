@@ -1,0 +1,14 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "28759c22-eab9-44c1-bb07-a81ebe178b7c",
+  "seq": 5,
+  "serverTime": 1794130620057,
+  "payload": {
+    "eventId": "4be5ac6f-3e27-4d24-a5c3-9e4e263f622d",
+    "kind": "stage:up",
+    "userId": "level:12",
+    "timestamp": 1794130620055,
+    "stageIndex": 3
+  }
+}

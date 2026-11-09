@@ -17,23 +17,26 @@ export const DEFAULT_RULES = {
     {name:'Độ Kiếp',hp:16140,atk:1614,def:807,rate:2,thresholds:[9600,14400,19200],min:20,max:60},
     {name:'Phi Thăng',hp:28240,atk:2824,def:1412,rate:2,thresholds:[]}
   ],
-  maxMultiplier:8, buffDurationMs:30000, pillPoints:10, maxPills:10,
-  breakthroughDurationMs:12000, breakthroughCooldownMs:60000,
+  maxMultiplier:8, buffDurationMs:60000, pillPoints:10, maxPills:10,
+  breakthroughDurationMs:8000, breakthroughCooldownMs:60000,
   protectionPerFailure:8, protectionCap:24, fateFailures:5, focusCooldownMs:10000,
   quests:{cultivateExp:5,cooldownMs:30000,perCycleLimit:10,checkInPoints:3,cultivatePoints:1,
     passiveIntervalMs:60000,passivePoints:1, costs:{tea:2,pill:3,blessing:6,root:20,camera:2}}
 };
+export const SPIRITUAL_ROOT_MULTIPLIER=3;
 export const ITEM_NAMES={tea:'Trà Ngộ Đạo',root:'Biến Dị Linh Căn',pill:'Độ Kiếp Đan',blessing:'Ban Phúc',camera:'Quay Cam'};
 export const STAGES=['Sơ Kỳ','Trung Kỳ','Hậu Kỳ','Viên Mãn'];
 export function rulesFor(input={}) {
   const r={...structuredClone(DEFAULT_RULES),...input,quests:{...DEFAULT_RULES.quests,...input.quests,costs:{...DEFAULT_RULES.quests.costs,...input.quests?.costs}}};
   const number=(v,min,max)=>Number.isFinite(v)&&v>=min&&v<=max;
   if(!Array.isArray(r.realms)||r.realms.length!==11||r.realms.some((v,i)=>!v||typeof v.name!=='string'||v.name.length>30||!['hp','atk','def','rate'].every(k=>number(v[k],.01,1e8))||!Array.isArray(v.thresholds)||v.thresholds.length!==(i===10?0:3)||v.thresholds.some(n=>!number(n,1,1e9))||(i<10&&(!number(v.min,0,100)||!number(v.max,v.min,100)))))throw new Error('Bảng cảnh giới không hợp lệ.');
-  for(const [key,min,max] of [['maxMultiplier',1,100],['buffDurationMs',1000,3600000],['pillPoints',1,100],['maxPills',1,100],['breakthroughDurationMs',10000,20000],['breakthroughCooldownMs',1000,3600000],['protectionPerFailure',0,100],['protectionCap',0,100],['fateFailures',1,100],['focusCooldownMs',1000,3600000]])if(!number(r[key],min,max))throw new Error(`Cấu hình ${key} không hợp lệ.`);
+  for(const [key,min,max] of [['maxMultiplier',1,100],['buffDurationMs',1000,3600000],['pillPoints',1,100],['maxPills',1,100],['breakthroughDurationMs',8000,20000],['breakthroughCooldownMs',1000,3600000],['protectionPerFailure',0,100],['protectionCap',0,100],['fateFailures',1,100],['focusCooldownMs',1000,3600000]])if(!number(r[key],min,max))throw new Error(`Cấu hình ${key} không hợp lệ.`);
   for(const k of ['maxPills','fateFailures'])if(!Number.isInteger(r[k]))throw new Error('Giới hạn phải là số nguyên.');
   for(const k of ['cultivateExp','cooldownMs','perCycleLimit','checkInPoints','cultivatePoints','passiveIntervalMs','passivePoints'])if(!number(r.quests[k],1,1e6))throw new Error(`Cấu hình nhiệm vụ ${k} không hợp lệ.`);
   for(const k of Object.keys(ITEM_NAMES))if(!Number.isInteger(r.quests.costs[k])||!number(r.quests.costs[k],1,10000))throw new Error('Giá đổi vật phẩm không hợp lệ.');
   // Old caidat files contain realm-specific rates; the new rule replaces those rates only.
   r.realms=r.realms.map(realm=>({...realm,rate:BASE_CULTIVATION_RATE}));
+  // Qua_Tbao section 7: new tea lasts exactly one minute. Existing saved buffs keep their remaining time.
+  r.buffDurationMs=60000;
   return r;
 }

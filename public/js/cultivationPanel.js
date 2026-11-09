@@ -13,7 +13,7 @@ export function createCultivationPanel(log){
     <p id="breakthrough-detail"></p>
     </section><section class="panel" data-mount="demo-items"><h2>Túi đồ & điểm nhiệm vụ</h2><p id="inventory-detail"></p>
     <label>Vật phẩm <select id="item-choice"><option value="tea">Trà Ngộ Đạo</option><option value="root">Biến Dị Linh Căn</option><option value="pill">Độ Kiếp Đan</option><option value="blessing">Ban Phúc</option><option value="camera">Quay Cam</option></select></label>
-    <div class="row"><button id="grant-item">Cấp 1 vật phẩm (demo)</button><button id="use-item">Dùng vật phẩm</button><button id="redeem-item">Đổi bằng điểm nhiệm vụ</button></div>
+    <div class="row"><button id="grant-item">Cấp 1 vật phẩm (demo)</button><button id="use-item">Dùng đồ cũ trong túi</button><button id="redeem-item">Đổi bằng điểm nhiệm vụ</button></div>
     <p id="quest-costs"></p>
     </section><section class="panel" data-mount="demo-comments"><h2>Thử bình luận nhập môn</h2>
     <label>User ID <input id="join-id" maxlength="100" value="demo-khach"></label>
@@ -22,7 +22,7 @@ export function createCultivationPanel(log){
     <p>Lệnh: nhập môn · tu luyện · điểm danh · dùng trà. User ID là định danh, không phải tên hiển thị.</p>
     </section><section class="panel" data-mount="settings-cultivation"><h2>Giới hạn tu luyện</h2><label>Hệ số tối đa <input id="max-multiplier" type="number" min="1" max="100" step="1"></label>
     <label>Thất bại để đảm bảo <input id="fate-failures" type="number" min="1" max="100" step="1"></label><button id="save-cultivation">Lưu giới hạn</button>
-    <p>Trà/Ban Phúc đếm 30 giây tu luyện. Diệt ma và tạm dừng đóng băng tu vi, buff, hồi độ kiếp. Nghi thức Thiên Mệnh tự kích hoạt khi đủ số thất bại tại cùng cảnh giới. Đổi cấu hình không đổi kết quả độ kiếp đã chốt.</p></section>`;
+    <p>Quà mới tự kích hoạt: Trà x2 trong 60 giây, Ban Phúc x2 trong 30 giây, Linh Căn x3 vĩnh viễn. Đồng hồ buff chỉ giảm khi tu luyện. Đan tự lấy vừa đủ khi bắt đầu độ kiếp; phần dư giữ trong túi. Đồ cũ còn trong túi vẫn có thể dùng thủ công, trừ Đan. Thiên Mệnh và kết quả đã chốt giữ nguyên.</p></section>`;
   mountBlocks(panel);
   const $=id=>document.getElementById(id),selected=()=>$('player').value;
   async function send(action,value,id=selected()){try{await control(action,value,id);log('Đã áp dụng thao tác tu luyện.');}catch(e){log(e.message,'error');throw e;}}
@@ -33,6 +33,7 @@ export function createCultivationPanel(log){
   $('quest-cultivate').onclick=()=>command('tu luyện');$('quest-checkin').onclick=()=>command('điểm danh');
   $('grant-item').onclick=()=>send('grantItem',$('item-choice').value);
   $('use-item').onclick=()=>send('useItem',$('item-choice').value);
+  $('item-choice').onchange=()=>{$('use-item').disabled=$('item-choice').value==='pill';$('use-item').textContent=$('item-choice').value==='pill'?'Đan tự dùng khi độ kiếp':'Dùng đồ cũ trong túi';};
   $('redeem-item').onclick=()=>send('redeem',$('item-choice').value);
   $('send-command').onclick=()=>command($('command-text').value,$('join-id').value,$('join-name').value);
   $('save-cultivation').onclick=()=>saveFields('cultivationSettings',{maxMultiplier:'max-multiplier',fateFailures:'fate-failures'},send);
@@ -45,6 +46,6 @@ export function createCultivationPanel(log){
     $('cultivation-progress').max=p.cultivationRequired??1;$('cultivation-progress').value=p.cultivationRequired?Math.min(p.cultivation,p.cultivationRequired):1;
     $('inventory-detail').textContent=Object.entries(names).map(([key,name])=>`${name}: ${p.inventory[key]}`).join(' · ')+` | Điểm nhiệm vụ: ${p.questState.points} | Linh căn ×${p.spiritualRootMultiplier} | Buff: ${p.activeBuffs.map(b=>`${names[b.kind]} ${Math.ceil(b.remainingMs/1000)}s`).join(', ')||'không'}`;
     $('quest-costs').textContent=r?'Giá đổi: '+Object.entries(r.quests.costs).map(([key,cost])=>`${names[key]} ${cost} điểm`).join(' · '):'';
-    const b=p.breakthrough;$('breakthrough-detail').textContent=`Hàng chờ: ${state.breakthroughQueueLength} · ${state.breakthrough?.userId===p.userId?'ĐANG ĐỘ KIẾP · ':''}Xác suất chuẩn bị: ${p.breakthroughProbability}% · Bảo hộ +${b.protectionPoints}% · Đan đã dùng: ${b.pillCount} · Thiên Mệnh ${b.heavenlyFate}/${r?.fateFailures} · Hồi: ${Math.ceil(b.cooldownRemainingCultivationMs/1000)}s tu luyện`;
+    const b=p.breakthrough,active=state.breakthrough?.userId===p.userId?state.breakthrough:null;$('breakthrough-detail').textContent=`Hàng chờ: ${state.breakthroughQueueLength} · ${active?'ĐANG ĐỘ KIẾP · ':''}Tỷ lệ trước Đan tự dùng: ${p.breakthroughProbability}% · Bảo hộ +${b.protectionPoints}% · Đan nghi thức này: ${(active?.usedPills??0)+(active?.preparedPills??0)} · Đan chuẩn bị cũ: ${b.pillCount} · Thiên Mệnh ${b.heavenlyFate}/${r?.fateFailures} · Hồi: ${Math.ceil(b.cooldownRemainingCultivationMs/1000)}s tu luyện`;
   }};
 }

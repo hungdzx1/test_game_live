@@ -1,0 +1,30 @@
+{
+  "gpu": "NVIDIA Quadro M1000M",
+  "syntheticImageOnly": true,
+  "states": [
+    {
+      "sample": "missing",
+      "status": "Missing",
+      "text": "Không có ảnh",
+      "visible": true
+    },
+    {
+      "sample": "loading",
+      "status": "Loading",
+      "text": "Đang tải",
+      "visible": true
+    },
+    {
+      "sample": "ready",
+      "status": "Ready",
+      "text": "Đã tải ảnh",
+      "visible": true
+    },
+    {
+      "sample": "error",
+      "status": "Failed",
+      "text": "Tải lỗi · URL ảnh không hợp lệ",
+      "visible": true
+    }
+  ]
+}

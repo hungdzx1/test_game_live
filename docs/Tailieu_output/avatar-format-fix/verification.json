@@ -1,0 +1,57 @@
+{
+  "result": "PASS",
+  "protectedFiles": 1181,
+  "concurrentDataChanges": [
+    {
+      "path": "data/players.json",
+      "before": "e139eb9a2a8337959186ae86a190325f667973169f62367a24b8425c1bf7688c",
+      "current": "e0e547d0e1607533a2516e7b74d0d670642d8cad47ac3e3cf56c533bc36ed0ab",
+      "handling": "Current bytes retained; test helpers use disposable data roots. Change origin unverified."
+    }
+  ],
+  "changed": [
+    "server.js",
+    "package.json",
+    "package-lock.json",
+    "unity-client/Assets/Scripts/Effects/DonorAvatarView.cs",
+    "unity-client/Assets/Tests/Editor/LiveAvatarTestTests.cs",
+    "unity-client/Assets/Tests/Editor/BlessingReceiptTests.cs"
+  ],
+  "added": [
+    "avatarImage.js",
+    "test/avatar-image.test.js",
+    "scripts/avatar-format-test-server.js",
+    "scripts/Run-AvatarFormatUnity.ps1"
+  ],
+  "sourceHashes": {
+    "server.js": "8c6add64a1a6e412bb8e24e0058a2ea333740a819c9f2ec395dec70b0d951432",
+    "package.json": "b3a2a874681b13ab1467286258ff0fe9cca152c8e6eb254c7e64537d0aa4d800",
+    "package-lock.json": "713119982ef704dd0f73ffa35a59d96cc97e67d8d11bc7ab8e36a950595de645",
+    "unity-client/Assets/Scripts/Effects/DonorAvatarView.cs": "70c6bd38ba2dc675f1d3a1678406b6c004cbfd61b6c40f4218f0fdc082e91978",
+    "unity-client/Assets/Tests/Editor/LiveAvatarTestTests.cs": "3416714acbe8a93c1a5c4395102667d10cbd88b424cf272bec569cbff5bab89a",
+    "unity-client/Assets/Tests/Editor/BlessingReceiptTests.cs": "d348eeac03dec1b4450b8122cad470d58b83b648feaccebb5e5bc8cf389f9bf0",
+    "avatarImage.js": "ab03140302544e01131faa5ff2b70ba5cfc0a552443d031038d1ea987456971d",
+    "test/avatar-image.test.js": "768c9f218fb6b3867e7414c1b760b77c1eaa01838bd0188f7823319b3e3dd7c2",
+    "scripts/avatar-format-test-server.js": "ba4337a80f3d389325b9fc6aa29374a17ef06237640883348c1b85879c704c95",
+    "scripts/Run-AvatarFormatUnity.ps1": "22a1ca5bd7f9dbc29e9d307247c379fb45e620ca4cc28b6bf78eb7b16c9c61ec"
+  },
+  "sceneAndConfig": "Unchanged from this task baseline, including current avatar flag and duration8000",
+  "unity": {
+    "passed": 95,
+    "failed": 0,
+    "skipped": 0,
+    "runs": "94/95 initial regression passed; stale HTTP blessing test fixed for immediate activation and 1/1 targeted rerun passed; 95 distinct cases passed across both runs",
+    "actualHttp": "Generated 1200x600 WebP/AVIF -> local Node -> PNG256x128 -> Unity Ready for preview and Ban Phuc loader"
+  },
+  "node": {
+    "passed": 148,
+    "failed": 0,
+    "skipped": 1
+  },
+  "unverified": [
+    "Original failing LIVE image bytes/format",
+    "Real TikTok CDN after fix",
+    "New Windows build",
+    "OBS/FPS stream"
+  ]
+}

@@ -19,7 +19,7 @@ namespace TuTienLive.Tests
         [Test] public void SavedSceneUsesLocalArtAndKeepsPortraitSystems()
         {
             EditorSceneManager.OpenScene(ScenePath);var b=UnityEngine.Object.FindAnyObjectByType<SectSceneBindings>();
-            Assert.That(b.groups.Length,Is.EqualTo(9));Assert.That(b.characters.seats.Length,Is.EqualTo(12));
+            Assert.That(b.groups.Length,Is.EqualTo(9));Assert.That(b.characters.seats.Length,Is.EqualTo(25));
             Assert.That(b.environment.layers.Length,Is.EqualTo(15));Assert.That(b.network.enabled,Is.True);
             Assert.That(b.cameraRig.autoFitBounds,Is.False);Assert.That(b.cameraRig.GetComponent<Camera>().orthographicSize,Is.EqualTo(9.6f));
             Assert.That(b.environment.layers.All(l=>l.sceneAuthored&&l.bakedGeometry&&AssetDatabase.GetAssetPath(l.sourceSprite).StartsWith("Assets/Art/SectConcept02/")),Is.True);
@@ -28,15 +28,16 @@ namespace TuTienLive.Tests
             var hud=UnityEngine.Object.FindAnyObjectByType<Concept02Hud>();hud.Render(null);
             Assert.That(hud.timerLabel.text,Is.EqualTo("--:--"));Assert.That(hud.breakthroughBeam.activeSelf,Is.False);
         }
-        [Test] public void ThreePrefabsHaveExactlyTheSuppliedFourPoses()
+        [Test] public void FourPrefabsHaveExactlyTheSuppliedFourPoses()
         {
-            for(int i=1;i<=3;i++)
+            for(int i=1;i<=4;i++)
             {
                 var view=AssetDatabase.LoadAssetAtPath<CharacterView>("Assets/SectConcept02/Prefabs/Character_"+i+".prefab");
                 Assert.That(view,Is.Not.Null);var p=view.pose;
                 Assert.That(p.fly&&p.attack&&p.meditate&&p.celebrate,Is.True);
                 Assert.That(p.idleStand,Is.SameAs(p.meditate));Assert.That(p.backThreeQuarter,Is.SameAs(p.meditate));
                 Assert.That(new[]{p.fly,p.attack,p.meditate,p.celebrate}.Select(AssetDatabase.GetAssetPath).Distinct().Count(),Is.EqualTo(4));
+                Assert.That(new[]{p.fly,p.attack,p.meditate,p.celebrate}.All(s=>AssetDatabase.GetAssetPath(s).StartsWith("Assets/Art/SectConcept02/Characters/Character_"+i+"/")),Is.True);
             }
         }
         [Test] public void OpenExistingSceneNeverRebuildsUserEdits()
@@ -56,7 +57,7 @@ namespace TuTienLive.Tests
             while((b.characters.TotalPlayers!=10||UnityEngine.Object.FindAnyObjectByType<Concept02Hud>().rankRows[0].text.Contains("Đang chờ"))&&EditorApplication.timeSinceStartup<deadline)yield return null;
             bool roster=b.characters.TotalPlayers==10&&b.characters.Views.Count==10;
             bool sprites=b.characters.Views.Values.All(v=>AssetDatabase.GetAssetPath(v.pose.Body.sprite).StartsWith("Assets/Art/SectConcept02/Characters/"))
-                &&b.characters.Views.Values.Select(v=>v.pose.meditate).Distinct().Count()==3;
+                &&b.characters.Views.Values.Select(v=>v.pose.meditate).Distinct().Count()==4;
             var floor=b.environment.layers.Single(l=>l.name=="MainCourtyard");var pos=floor.transform.position;
             b.environment.Sample(30);b.environment.Sample(0);bool layout=Vector3.Distance(pos,floor.transform.position)<.0001f;
             var hud=UnityEngine.Object.FindAnyObjectByType<Concept02Hud>();bool text=hud.rankRows.All(t=>t.text.Contains("Disciple"));

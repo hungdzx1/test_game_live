@@ -43,7 +43,7 @@ test('Tu vi part 1: new streak after idle, zero counts and duplicate receipts do
 test('Tu vi part 1: tea, blessing, root and cap affect seconds and hearts consistently; capture buffs at receipt',()=>{
   for(const items of [[],['tea'],['blessing'],['root'],['tea','blessing'],['tea','blessing','root'],['tea','tea','blessing','root','tea']]){
     const {e,p,time}=setup();for(const item of items){e.items.grantItem(p,item);e.items.useItem(p,item);}
-    const rate=items.length?2*Math.min(8,items.length*2):2;
+    const rate=items.length?2*Math.min(8,items.reduce((sum,item)=>sum+(item==='root'?3:2),0)):2;
     assert.equal(e.items.getEffectiveStats(p).cultivationPerSecond,rate);
     send(e,10);e.tick(250);assert.equal(p.cultivation,rate*.25);
     p.buffs=[];e.globalBuffs=[];p.spiritualRootMultiplier=1;
@@ -57,7 +57,7 @@ test('Tu vi part 1: battle/pause/stopped retain personal EXP until cultivation a
   for(const phase of ['battle','paused','stopped']){
     const {e,p,time}=setup();e.items.grantItem(p,'tea');e.items.useItem(p,'tea');e.setPhase(phase);
     send(e,101);assert.equal(e.liveEvents.sectEnergy.power,101);assert.equal(p.cultivation,0);assert.equal(p.pendingExp,400);
-    time(11000);e.tick(250);assert.equal(p.pendingExp,404);assert.equal(p.cultivation,0);assert.equal(p.buffs[0].remainingMs,30000);
+    time(11000);e.tick(250);assert.equal(p.pendingExp,404);assert.equal(p.cultivation,0);assert.equal(p.buffs[0].remainingMs,60000);
     e.setPhase('cultivation');assert.equal(p.pendingExp,0);assert.equal(p.cultivation,404);e.liveEvents.tick();assert.equal(p.cultivation,404);
   }
 });

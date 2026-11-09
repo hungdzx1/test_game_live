@@ -1,0 +1,59 @@
+{
+  "gpu": "NVIDIA Quadro M1000M",
+  "samples": [
+    {
+      "fixture": "boss1",
+      "visible": true,
+      "boss": 0,
+      "frame": 0,
+      "fraction": 1.0,
+      "projectiles": 25,
+      "visibleCharacters": 25
+    },
+    {
+      "fixture": "half",
+      "visible": true,
+      "boss": 0,
+      "frame": 2,
+      "fraction": 0.5,
+      "projectiles": 25,
+      "visibleCharacters": 25
+    },
+    {
+      "fixture": "boss2",
+      "visible": true,
+      "boss": 1,
+      "frame": 0,
+      "fraction": 1.0,
+      "projectiles": 25,
+      "visibleCharacters": 25
+    },
+    {
+      "fixture": "boss3",
+      "visible": true,
+      "boss": 2,
+      "frame": 0,
+      "fraction": 1.0,
+      "projectiles": 25,
+      "visibleCharacters": 25
+    },
+    {
+      "fixture": "paused",
+      "visible": true,
+      "boss": 2,
+      "frame": 1,
+      "fraction": 1.0,
+      "projectiles": 25,
+      "visibleCharacters": 25
+    },
+    {
+      "fixture": "cultivation",
+      "visible": false,
+      "boss": -1,
+      "frame": -1,
+      "fraction": 1.0,
+      "projectiles": 0,
+      "visibleCharacters": 25
+    }
+  ]
+}

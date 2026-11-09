@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "visibleCharacters": 25,
+  "variants": 4,
+  "uniqueSeats": 25,
+  "visibleHeights": [
+    1.33721912,
+    1.33721912,
+    1.33721912,
+    1.33721912
+  ],
+  "gpu": "NVIDIA Quadro M1000M"
+}

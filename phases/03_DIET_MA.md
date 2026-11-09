@@ -1,5 +1,7 @@
 # GIAI ĐOẠN 03 — CHIẾN TRƯỜNG DIỆT MA, QUÁI, 3 BOSS VÀ PHẦN THƯỞNG
 
+> **Lịch sử, cập nhật08/11/2026:** cơ chế11 chiến trường, quái thường, boss trong tổng5 phút và thưởng TOP ở tài liệu này đã được thay thế bởi `docs/Tailieu/BOSS.md` cùng xác nhận người dùng. Luật hiện hành ở đầu `GAME_DESIGN.md`: một boss chung, ba boss nối tiếp,5 phút riêng từng boss, thưởng Ban Phúc/Đan khi hạ boss. Giữ tài liệu cũ để đối chiếu save/migration và các pending rewards đã chốt.
+
 > **Mục tiêu:** Hoàn thành vòng chơi **10 phút tu luyện → 5 phút diệt ma → quay về tông môn**; phân người chơi vào 11 chiến trường theo cảnh giới; đánh tự động, dùng kỹ năng qua bình luận demo `1`/`2`, xuất hiện ba boss, chấm đóng góp và phát thưởng không bỏ qua điều kiện độ kiếp. **Chưa cần** kết nối TikTok LIVE thật — sự kiện phải đi qua cổng lệnh chung để Giai đoạn 4 gắn vào.
 
 ## 0. Quy tắc không được vi phạm

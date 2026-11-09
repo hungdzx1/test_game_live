@@ -21,8 +21,10 @@ import {audioSettings,displaySettings,cameraSettings,CAMERA_MODES} from './publi
 import {DataManager} from './adminData.js';
 import {preserveCorrupt} from './adminDataBackup.js';
 import {sectLevelsFor} from './sectEnergy.js';
+import {createAvatarImages,AvatarImageError} from './avatarImage.js';
+import {VoiceService} from './voiceService.js';
 const root = path.dirname(fileURLToPath(import.meta.url));
-export async function createApplication({ dataRoot = root, port,connectorFactory,adapterTimers } = {}) {
+export async function createApplication({ dataRoot = root, port,connectorFactory,adapterTimers,avatarFetch,voiceWorker } = {}) {
   const store = new JsonStore();
   const configFile = path.join(dataRoot, 'caidat.json'), demoFile = path.join(dataRoot, 'data/demo/players.json');
   const config = await store.read(configFile, { schemaVersion: 1, host: '127.0.0.1', port: 3000, graphics: 'medium', camera: 'auto' });
@@ -36,7 +38,12 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
   }catch(error){await preserveCorrupt(configFile);throw error;}
   const dataManager=new DataManager(store,dataRoot),telemetry=new Map();
   const load={tickMs:0,commitMs:0,maxTickMs:0,ticks:0};
-  async function restoreEngine(saved,file){try{return new GameEngine(saved.players,config,{saved});}catch(error){await preserveCorrupt(file);throw error;}}
+  async function restoreEngine(saved,file){try{
+    const target=new GameEngine(saved.players,config,{saved});
+    if(target.battle.migratedLegacy)try{await copyFile(file,file+'.pre-boss.backup',constants.COPYFILE_EXCL);}catch(error){if(!['ENOENT','EEXIST'].includes(error.code))throw error;}
+    if(target.battle.migratedAdaptive)try{await copyFile(file,file+'.pre-adaptive-boss.backup',constants.COPYFILE_EXCL);}catch(error){if(!['ENOENT','EEXIST'].includes(error.code))throw error;}
+    return target;
+  }catch(error){await preserveCorrupt(file);throw error;}}
   let engine = await restoreEngine(saved,demoFile), demo = new DemoEventSource(engine);
   const filter=await store.read(path.join(root,'tucngu.json'),{words:[]});
   engine.liveEvents.words=filter.words;engine.liveEvents.commands.words=filter.words;
@@ -62,6 +69,12 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
     res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'"); next();
   });
   app.use(express.json({ limit: '20mb' }));
+  const avatarImages=createAvatarImages({fetchImage:avatarFetch});
+  app.get('/api/avatar',async(req,res)=>{
+    res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');
+    try{const image=await avatarImages.get(req.query.url);res.setHeader('X-Avatar-Source-Format',image.format);res.type('png').send(image.bytes);}
+    catch(error){const known=error instanceof AvatarImageError;res.setHeader('X-Avatar-Error',known?error.code:'internal');res.status(known?error.status:500).json({error:known?error.code:'avatar_failed'});}
+  });
   const csrfToken=randomBytes(32).toString('hex');
   app.get('/api/admin-session',(req,res)=>{res.setHeader('Cache-Control','no-store');res.json({token:csrfToken});});
   app.use('/api/control',(req,res,next)=>{
@@ -75,15 +88,27 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
   const broadcast = message => {
     if(message.type==='game:event'){
       const t=performance.now();while(effectTimes.length&&effectTimes[0]<=t-1000)effectTimes.shift();
-      const high=/^(breakthrough:|boss:|battle:(?:prepare|result|return)|live:gift)/.test(message.payload.kind);
+      const high=/^(voice:|breakthrough:|boss:|blessing:activated|battle:(?:prepare|result|return)|live:gift|item:received)/.test(message.payload.kind);
       if(effectTimes.length>=(high?80:60))return;effectTimes.push(t);
     }
     const data = JSON.stringify(message);for(const client of wss.clients)if(client.readyState===WebSocket.OPEN&&client.bufferedAmount<1024*1024)client.send(data);
   };
   let committed=engine.snapshot(),pendingEvents=[],storageError=null;
+  const voice=new VoiceService({directory:dataRoot===root?undefined:path.join(dataRoot,'voice-cache'),worker:voiceWorker,emit:payload=>{
+    if(closing||storageError)return;
+    broadcast({type:'game:event',version:1,sessionId:engine.transportId,seq:++engine.seq,serverTime:Date.now(),payload});
+  }});
+  voice.configure(engine);
+  app.get('/api/voice/manifest',(req,res)=>{res.setHeader('Cache-Control','no-store');res.json(voice.manifest());});
+  app.get('/api/voice/clip/:key.wav',async(req,res)=>{
+    res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');
+    const bytes=await voice.cache?.get(req.params.key);if(!bytes)return res.status(404).json({error:'voice_clip_unavailable'});
+    res.type('audio/wav').send(bytes);
+  });
   const freshCommitted = () => ({...committed,seq:++engine.seq,serverTime:Date.now()});
   const snapshot = () => {if(performance.now()-lastSnapshotAt<100)return;lastSnapshotAt=performance.now();broadcast(freshCommitted());};
-  function attach(target){target.on('event',payload=>{if(engine!==target)return;pendingEvents.push(payload);if(pendingEvents.length>1000)pendingEvents.shift();});}
+  const eventPriority=e=>e.kind.startsWith('breakthrough:')||e.kind.startsWith('boss:')||e.kind==='blessing:activated'||e.kind==='battle:result'?5:['live:gift','item:received'].includes(e.kind)?4:e.kind==='battle:hit'?0:1;
+  function attach(target){target.on('event',payload=>{if(engine!==target)return;pendingEvents.push(payload);if(pendingEvents.length>1000){const lower=pendingEvents.findIndex(e=>eventPriority(e)<5);pendingEvents.splice(lower<0?0:lower,1);}});}
   attach(engine);
   server.on('upgrade', (req, socket, head) => {
     if (!allowed(req) || req.url !== '/ws') return socket.destroy();
@@ -95,8 +120,10 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
   const saveDemo = async () => {try{await store.write(engine.mode==='live'?realFile:demoFile,engine.exportState());}catch(e){stopOnStorageFailure();throw e;}engine.important=false;lastSaved=performance.now();};
   async function commit(force=false){
     if(force||engine.important||performance.now()-lastSaved>=5000)await saveDemo();
-    const priority=e=>e.kind.startsWith('breakthrough:')||e.kind==='boss:killed'||e.kind==='battle:result'?5:e.kind==='live:gift'?4:e.kind==='battle:hit'?0:1;
-    for(const payload of pendingEvents.splice(0).sort((a,b)=>priority(b)-priority(a)))broadcast({type:'game:event',version:1,sessionId:engine.transportId,seq:++engine.seq,serverTime:Date.now(),payload});
+    const events=pendingEvents.splice(0);voice.configure(engine);
+    for(const payload of events)voice.accept(payload,engine);
+    voice.observe(engine);
+    for(const payload of events.sort((a,b)=>eventPriority(b)-eventPriority(a)))broadcast({type:'game:event',version:1,sessionId:engine.transportId,seq:++engine.seq,serverTime:Date.now(),payload});
     committed=engine.snapshot();committed.payload.tiktok=(engine.mode==='demo'?demoConnection.adapter:adapter).snapshot();
   }
   adapter.on('status',()=>{if(engine.mode==='live'){committed={...committed,payload:{...committed.payload,tiktok:adapter.snapshot()}};snapshot();}});
@@ -111,7 +138,7 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
     for(const [id,t]of telemetry)if(Date.now()-t.receivedAt>15000)telemetry.delete(id);if(!telemetry.has(v.clientId)&&telemetry.size>=8)return res.status(429).json({error:'Đã đủ nguồn báo cáo.'});if(Date.now()-(telemetry.get(v.clientId)?.receivedAt??0)<1500)return res.status(429).json({error:'Báo cáo tối đa mỗi 2 giây.'});
     telemetry.set(v.clientId,{...Object.fromEntries(['fps','drawCalls','triangles','geometries','textures','rendered','quality'].map(k=>[k,v[k]])),receivedAt:Date.now()});res.json({ok:true});
   });
-  app.get('/api/dashboard',(req,res)=>{const memory=process.memoryUsage();res.json({mode:engine.mode,phase:engine.phase,remainingMs:engine.remainingMs,completedCycles:engine.completedCycles,battlesStarted:engine.battlesStarted,players:engine.players.size,realms:engine.rules.realms.map((r,id)=>({name:r.name,count:[...engine.players.values()].filter(p=>p.realmIndex===id).length})),activeFields:engine.battle.current?.status==='running'?engine.battle.current.fields.filter(f=>f.participantIds.length).length:0,breakthroughQueue:engine.breakthrough.queue.length,events:engine.liveEvents.counters,interactionLog:engine.liveEvents.log.slice(-20),tiktok:(engine.mode==='demo'?demoConnection.adapter:adapter).snapshot(),load:{...load,rssMB:memory.rss/1048576,heapMB:memory.heapUsed/1048576,queuedEvents:incoming.length,webSockets:wss.clients.size},renderReports:[...telemetry.values()].filter(v=>Date.now()-v.receivedAt<15000),storageError});});
+  app.get('/api/dashboard',(req,res)=>{const memory=process.memoryUsage();res.json({mode:engine.mode,phase:engine.phase,remainingMs:engine.remainingMs,bossEndOnKill:engine.battle.current?.endOnKill===true&&engine.battle.current?.status==='running',bossElapsedMs:engine.battle.current?.fields[0].activeBoss?.elapsedMs??0,completedCycles:engine.completedCycles,battlesStarted:engine.battlesStarted,players:engine.players.size,realms:engine.rules.realms.map((r,id)=>({name:r.name,count:[...engine.players.values()].filter(p=>p.realmIndex===id).length})),activeFields:engine.battle.current?.status==='running'?engine.battle.current.fields.filter(f=>f.participantIds.length).length:0,breakthroughQueue:engine.breakthrough.queue.length,events:engine.liveEvents.counters,interactionLog:engine.liveEvents.log.slice(-20),tiktok:(engine.mode==='demo'?demoConnection.adapter:adapter).snapshot(),load:{...load,rssMB:memory.rss/1048576,heapMB:memory.heapUsed/1048576,queuedEvents:incoming.length,webSockets:wss.clients.size},renderReports:[...telemetry.values()].filter(v=>Date.now()-v.receivedAt<15000),storageError});});
   app.post('/api/control', (req, res, next) => {
     const job = mutations.then(async () => {
       if (!req.is('application/json') || !req.body || Array.isArray(req.body)) throw new Error('Yêu cầu JSON không hợp lệ.');
@@ -133,7 +160,9 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
         case 'cameraFocus': {
           const p=engine.getPlayer(userId);engine.cameraUserId=p.userId;engine.event('camera:focus',p.userId,{durationMs:3000,priority:config.cameraDirector.priorities.gift});break;
         }
-        case 'endCycle': engine.setPhase(engine.phase==='battle'||engine.previousPhase==='battle'?'cultivation':'battle');break;
+        case 'endCycle':
+          if(engine.battle.current?.endOnKill&&engine.battle.current.status==='running')throw new Error('Phải hạ boss mới kết thúc đợt đánh. Có thể tạm dừng trận.');
+          engine.setPhase(engine.phase==='battle'||engine.previousPhase==='battle'?'cultivation':'battle');break;
         case 'restoreData': case 'resetData': {
           const purpose=action==='restoreData'?'restore':'reset';let target;
           if(purpose==='restore')target=dataManager.validate(value?.bundle,engine.mode,config);else {target=new GameEngine([],config);target.mode=engine.mode;}
@@ -175,14 +204,16 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
         }
         case 'demoConnection': await demoConnection.simulate(value);break;
         case 'demo': demo.spawn(value); break;
-        case 'clearDemo': engine.clearDemo(); break;
-        case 'phase': engine.setPhase(value); break;
+        case 'clearDemo': engine.clearDemo();voice.reset(engine); break;
+        case 'phase':
+          if(value==='cultivation'&&engine.battle.current?.endOnKill&&engine.battle.current.status==='running')throw new Error('Phải hạ boss mới chuyển về tu luyện.');
+          engine.setPhase(value); break;
         case 'event': demo.send(value, userId); break;
         case 'command': {
           if(!value||typeof value!=='object')throw new Error('Lệnh không hợp lệ.');
           const result=demo.emit({eventId:value.eventId,userId,ten:value.name??engine.players.get(userId)?.name,loai:'binhluan',noiDung:value.text},{admin:true});if(result.accepted===false)throw new Error(result.reason??'Lệnh bị giới hạn.');break;
         }
-        case 'grantItem': engine.items.grantItem(engine.getPlayer(userId),value,1,'admin_demo');break;
+        case 'grantItem': engine.items.receiveItem(engine.getPlayer(userId),value,1,'admin_demo');break;
         case 'useItem': engine.items.useItem(engine.getPlayer(userId),value);break;
         case 'redeem': engine.quests.redeem(engine.getPlayer(userId),value);break;
         case 'prepareBreakthrough': engine.prepareBreakthrough(userId);break;
@@ -196,9 +227,17 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
             const p=createPlayer(id,`Đạo hữu ${realm+1}.${i+1}`,engine.players.size);p.realmIndex=realm;engine.join(p);
           }engine.setPhase('battle');break;
         }
+        case 'bossSettings': {
+          if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).length!==1||!Object.hasOwn(value,'targetSeconds'))throw new Error('Boss mới tự cân bằng HP, không có hạn giờ và thưởng cố định. Chỉ chỉnh targetSeconds.');
+          const rules=battleRulesFor({...config,boss:{...config.boss,targetSeconds:value.targetSeconds}});
+          await store.write(configFile,{...config,boss:rules.boss});config.boss=rules.boss;for(const target of sessions.values())target.battleRules=rules;break;
+        }
         case 'battleSettings': {
           if(!value||typeof value!=='object'||Object.keys(value).some(k=>!['cultivationSeconds','battleSeconds'].includes(k)))throw new Error('Cấu hình chu kỳ không hợp lệ.');
-          const updated={...config,cycle:{...config.cycle,...value}},rules=battleRulesFor(updated);
+          if(Object.hasOwn(value,'battleSeconds'))throw new Error('Đợt boss không có hạn giờ; chỉnh thời gian hạ mục tiêu trong Boss & chu kỳ.');
+          const updated={...config,cycle:{...config.cycle,...value}};
+          if(value.battleSeconds!==undefined)updated.boss={...config.boss,encounters:config.boss.encounters.map(b=>({...b,durationSeconds:value.battleSeconds}))};
+          const rules=battleRulesFor(updated);
           await store.write(configFile,updated);Object.assign(config,updated);for(const target of sessions.values())target.battleRules=rules;break;
         }
         case 'demoSpeed': if(![1,10].includes(value))throw new Error('Tốc độ demo phải là 1 hoặc 10.');engine.demoSpeed=value;break;
@@ -231,7 +270,7 @@ export async function createApplication({ dataRoot = root, port,connectorFactory
       const job=mutations.then(async()=>{if(storageError)return;const start=performance.now();processIncoming();for(let i=0;i<engine.demoSpeed;i++)engine.tick(dt);load.tickMs=performance.now()-start;load.maxTickMs=Math.max(load.maxTickMs,load.tickMs);load.ticks++;const saveStart=performance.now();await commit();load.commitMs=performance.now()-saveStart;});
       mutations=job.catch(e=>{stopOnStorageFailure();console.error(storageError,e.message);}).finally(()=>{busy=false;});
     },50);sync=setInterval(snapshot,250);return actualPort;
-  },async close(){closing=true;clearInterval(tick);clearInterval(sync);await adapter.disconnect();await demoConnection.adapter.disconnect();await mutations;if(!storageError){processIncoming(Infinity);await saveDemo();}for(const c of wss.clients)c.terminate();wss.close();await new Promise(resolve=>server.close(resolve));}};
+  },async close(){closing=true;clearInterval(tick);clearInterval(sync);voice.close();await adapter.disconnect();await demoConnection.adapter.disconnect();await mutations;if(!storageError){processIncoming(Infinity);await saveDemo();}for(const c of wss.clients)c.terminate();wss.close();await new Promise(resolve=>server.close(resolve));}};
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   let instance;

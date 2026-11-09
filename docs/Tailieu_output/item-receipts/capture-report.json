@@ -1,0 +1,49 @@
+{
+  "result": "PASS",
+  "gpu": "NVIDIA Quadro M1000M",
+  "timeline": [
+    {
+      "time": 0.0,
+      "orthographicSize": 9.6,
+      "iconAlpha": 0.0,
+      "count": 3
+    },
+    {
+      "time": 0.4,
+      "orthographicSize": 6.0,
+      "iconAlpha": 0.0,
+      "count": 3
+    },
+    {
+      "time": 0.8,
+      "orthographicSize": 2.4,
+      "iconAlpha": 1.0,
+      "count": 3
+    },
+    {
+      "time": 1.2,
+      "orthographicSize": 2.4,
+      "iconAlpha": 1.0,
+      "count": 3
+    },
+    {
+      "time": 1.7,
+      "orthographicSize": 2.4,
+      "iconAlpha": 0.5,
+      "count": 3
+    },
+    {
+      "time": 2.6,
+      "orthographicSize": 5.99999857,
+      "iconAlpha": 0.0,
+      "count": 3
+    },
+    {
+      "time": 3.0,
+      "orthographicSize": 9.6,
+      "iconAlpha": 0.0,
+      "count": 0
+    }
+  ],
+  "cameraRestored": true
+}

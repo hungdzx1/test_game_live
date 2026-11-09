@@ -1,0 +1,37 @@
+{
+  "result": "PASS",
+  "protectedFiles": 1046,
+  "originalSceneDocuments": 442,
+  "addedSceneDocuments": 271,
+  "changedParent": "1015234907",
+  "existingDocuments": "byte-identical except UI_Canvas child list",
+  "cameraPosesAndViewport": "preserved",
+  "localGiftImages": "byte-identical to public/assets/Qua",
+  "code": [
+    "Assets/Scripts/UI/GuidePanelGraphic.cs",
+    "Assets/Editor/K01GuideSetup.cs",
+    "Assets/Tests/Editor/K01GuideTests.cs"
+  ],
+  "sourceHashes": {
+    "unity-client/Assets/Scenes/SectScene_Concept02.unity": "66abf59a75a9cd11a229c004415218223d3377b6eeacb4e8eb8ede3f27bdc6ed",
+    "unity-client/Assets/Scripts/UI/GuidePanelGraphic.cs": "c8b5eabbbc4d4f74d040e39463c8e80a18705be2c928fb57e947cf9d011ca121",
+    "unity-client/Assets/Scripts/UI/GuidePanelGraphic.cs.meta": "96b27aa5a9c866fa3d5b4fe49863e54d89e37f4ee160141c148bb6d6e6afb821",
+    "unity-client/Assets/Editor/K01GuideSetup.cs": "7f8d1554e62e791da8d9c9de4825197b560735f17e6a20a479a60a295be5313e",
+    "unity-client/Assets/Editor/K01GuideSetup.cs.meta": "de6e92c6ba13227d5fa936dbf6a36db65ef22c75b3e4f99d77e09d981c3afeb2",
+    "unity-client/Assets/Tests/Editor/K01GuideTests.cs": "16ce273ab5878d79d1fb0b6c9f0861bafd226d94bd4c51ca4dcb67a240bb9bd0",
+    "unity-client/Assets/Tests/Editor/K01GuideTests.cs.meta": "4c5d7c8e436b1f62f08f2bb5b034eed215877583863d9c13e3a746f60463f21e",
+    "unity-client/Assets/Art/K01Guide/1xu.jpg.meta": "4edb9d4586df9d4d6f2fad417ee2c9ddee49b14977fcbf22485ebd12041ffe52",
+    "unity-client/Assets/Art/K01Guide/10xu.jpg.meta": "2f9e2b717696c077cdf7c92a1b598aa0b336fdb9bd03afe38707fcdc0636f805",
+    "unity-client/Assets/Art/K01Guide/20xu.jpg.meta": "5c64ddaab7ec75698f424c1157410fe13c80425db4199824bf1b8218ef075077",
+    "unity-client/Assets/Art/K01Guide/1xu.jpg": "85277598638b442d88bd89a3588a18716ce53e787b6658f1011c3b2dfce1ef23",
+    "unity-client/Assets/Art/K01Guide/10xu.jpg": "8ce648825969d6a261f4e200377f21de055ab711566480541f1323fbde4cf8c9",
+    "unity-client/Assets/Art/K01Guide/20xu.jpg": "3ca4394d01ad6aac5c5d655d7819b53e7cae1c9930e5b375adfd631624a79f53"
+  },
+  "unityTests": 49,
+  "backend": "unchanged this turn",
+  "unverified": [
+    "Windows build",
+    "OBS",
+    "real LIVE"
+  ]
+}

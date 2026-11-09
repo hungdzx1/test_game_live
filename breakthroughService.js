@@ -20,10 +20,20 @@ export class BreakthroughService {
       const p=e.players.get(this.queue.shift());if(!p)continue;p.breakthrough.queued=false;
       if(p.stageIndex!==3||p.realmIndex>=10||p.breakthrough.cooldownRemainingCultivationMs>0)continue;
       const guaranteed=p.breakthrough.heavenlyFate>=e.rules.fateFailures;
-      const probability=probabilityFor(p,e.rules),roll=this.rng();
+      // Roll validation happens before inventory changes; preserve already-paid legacy prepared pills.
+      const roll=this.rng();
       if(!Number.isFinite(roll)||roll<0||roll>=1)throw new Error('RNG không hợp lệ.');
-      this.active={id:randomUUID(),userId:p.userId,realmIndex:p.realmIndex,probability,roll,outcome:guaranteed||roll*100<probability,guaranteed,elapsedMs:0,durationMs:e.rules.breakthroughDurationMs,lightningCount:p.realmIndex+1};
+      let usedPills=0,prepared=p.breakthrough.pillCount;
+      const baseline=probabilityFor(p,e.rules);
+      while(!guaranteed&&usedPills<p.inventory.pill&&p.breakthrough.pillCount<e.rules.maxPills){
+        const before=probabilityFor(p,e.rules);p.breakthrough.pillCount++;
+        if(probabilityFor(p,e.rules)<=before){p.breakthrough.pillCount--;break;}usedPills++;
+      }
+      const probability=probabilityFor(p,e.rules);p.inventory.pill-=usedPills;
+      if(!Number.isFinite(roll)||roll<0||roll>=1)throw new Error('RNG không hợp lệ.');
+      this.active={id:randomUUID(),userId:p.userId,realmIndex:p.realmIndex,probability,roll,outcome:guaranteed||roll*100<probability,guaranteed,usedPills,preparedPills:prepared,elapsedMs:0,durationMs:e.rules.breakthroughDurationMs,lightningCount:p.realmIndex+1};
       p.breakthrough.pillCount=0;e.animate(p,'cast',e.rules.breakthroughDurationMs);
+      if(usedPills){e.audit('item:auto-pills',{userId:p.userId,count:usedPills,prepared,baseline,probability});e.event('item:used',p.userId,{item:'pill',count:usedPills,source:'breakthrough'});e.battle?.drainPills(p);}
       e.audit('breakthrough:roll',{...this.active});e.event('breakthrough:started',p.userId,{id:this.active.id,realmIndex:p.realmIndex,durationMs:this.active.durationMs,lightningCount:this.active.lightningCount,guaranteed});e.important=true;break;
     }
   }

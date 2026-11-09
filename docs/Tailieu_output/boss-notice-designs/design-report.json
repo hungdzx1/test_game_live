@@ -1,0 +1,159 @@
+{
+  "result": "PASS",
+  "scope": "HTML designs and procedural audio previews only; not installed in Unity or Node",
+  "resolution": [
+    1080,
+    1920
+  ],
+  "variants": [
+    {
+      "id": "TB01",
+      "layout": {
+        "x": 76,
+        "y": 513,
+        "width": 928,
+        "height": 342,
+        "headingOverflow": false
+      },
+      "before3s": "warning visible, boss hidden",
+      "at3s": "warning hidden, boss visible",
+      "names": "all three fit"
+    },
+    {
+      "id": "TB02",
+      "layout": {
+        "x": 234,
+        "y": 393,
+        "width": 612,
+        "height": 513,
+        "headingOverflow": false
+      },
+      "before3s": "warning visible, boss hidden",
+      "at3s": "warning hidden, boss visible",
+      "names": "all three fit"
+    },
+    {
+      "id": "TB03",
+      "layout": {
+        "x": 111,
+        "y": 554,
+        "width": 858,
+        "height": 263,
+        "headingOverflow": false
+      },
+      "before3s": "warning visible, boss hidden",
+      "at3s": "warning hidden, boss visible",
+      "names": "all three fit"
+    }
+  ],
+  "warningSeconds": 3,
+  "sounds": [
+    {
+      "file": "warning-TB01.wav",
+      "seconds": 3,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak": 0.68,
+      "rms": 0.13095527540262517,
+      "sha256": "1381528a0998c1ab1f55d4d0a9f7df6642ebacd3b18f6be60a1b4d3c203b702d"
+    },
+    {
+      "file": "warning-TB02.wav",
+      "seconds": 3,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak": 0.68,
+      "rms": 0.14846215491583614,
+      "sha256": "547b33a280375cbdc7562ac029640bfa947072818399317459d557592c7fc740"
+    },
+    {
+      "file": "warning-TB03.wav",
+      "seconds": 3,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak": 0.68,
+      "rms": 0.1250188901816916,
+      "sha256": "2ae7fb6d1f7d3aa406b1674a92fe88620b1af119ddc17a2e38c813e2c4df51c8"
+    },
+    {
+      "file": "attack-normal.wav",
+      "seconds": 0.2,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak": 0.68,
+      "rms": 0.16027501275510164,
+      "sha256": "767864dedfbd816aee326a4dcefbd32e33c92996002b05f91a34f74d310ce87d"
+    },
+    {
+      "file": "attack-skill1.wav",
+      "seconds": 0.3,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak": 0.68,
+      "rms": 0.1363639490695219,
+      "sha256": "18cba4123faf279bc0cfa2e914edc3bdd006c08df90d75f323cd6849042e9f33"
+    },
+    {
+      "file": "attack-skill2.wav",
+      "seconds": 0.6,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak": 0.68,
+      "rms": 0.1870305960893703,
+      "sha256": "75ce94f176d2f30238efd11138aec2d0a40034f30dad09b967a5d60151daa70a"
+    }
+  ],
+  "browserDecoded": [
+    {
+      "file": "warning-TB01.wav",
+      "seconds": 3,
+      "channels": 1,
+      "sampleRate": 44100
+    },
+    {
+      "file": "warning-TB02.wav",
+      "seconds": 3,
+      "channels": 1,
+      "sampleRate": 44100
+    },
+    {
+      "file": "warning-TB03.wav",
+      "seconds": 3,
+      "channels": 1,
+      "sampleRate": 44100
+    },
+    {
+      "file": "attack-normal.wav",
+      "seconds": 0.2,
+      "channels": 1,
+      "sampleRate": 44100
+    },
+    {
+      "file": "attack-skill1.wav",
+      "seconds": 0.3,
+      "channels": 1,
+      "sampleRate": 44100
+    },
+    {
+      "file": "attack-skill2.wav",
+      "seconds": 0.6,
+      "channels": 1,
+      "sampleRate": 44100
+    }
+  ],
+  "sourceHashes": {
+    "docs/Tailieu_output/guide-storm/guide-1080.png": "cf2e3536abfd5d6c54672cff0980cf344686b72fa8ba41567205957a2ab11dbb",
+    "unity-client/Assets/Art/Boss/Boss_1.png": "b9c661daaca19197988a2e25092eb78bb9e0e4eec19849249d8feeb03ce7b0fa",
+    "unity-client/Assets/Art/Boss/Boss_2.png": "c86f718855409e2449cb719488046cc4e2551cf838483ad743fd4927e500cec3",
+    "unity-client/Assets/Art/Boss/Boss_3.png": "639deed54fdb753f60df7abedad6f81a45903aea552ff103727860f02727ba49"
+  },
+  "protectedGameFiles": 35,
+  "protectedGameFilesChanged": [],
+  "audioListening": "Subjective speaker/headphone listening and stream mix not yet verified"
+}

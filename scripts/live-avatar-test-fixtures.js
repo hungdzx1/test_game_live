@@ -1,0 +1,13 @@
+import fs from 'node:fs/promises';import {createHash} from 'node:crypto';import {GameEngine} from '../gameEngine.js';import {createPlayer} from '../playerStore.js';import {fromTikTok} from '../normalizeEvent.js';
+const folder='unity-client/Assets/Tests/Fixtures/LiveAvatarTest';await fs.mkdir(folder,{recursive:true});
+const e=new GameEngine(Array.from({length:30},(_,i)=>createPlayer('avatar:'+i,'Đạo hữu '+i,i)),{live:{avatarTestEnabled:true}});e.mode='live';e.setPhase('cultivation');
+async function write(name,value){await fs.writeFile(folder+'/'+name+'.json',JSON.stringify(value,null,2)+'\n');}
+await write('initial-live',e.snapshot());e.config.live.avatarTestEnabled=false;await write('disabled-live',e.snapshot());e.config.live.avatarTestEnabled=true;e.mode='demo';await write('initial-demo',e.snapshot());e.mode='live';e.setPhase('paused');await write('paused-live',e.snapshot());e.setPhase('cultivation');e.setPhase('battle');await write('battle-live',e.snapshot());e.setPhase('cultivation');
+let id=1;for(const [name,user,avatar]of [['event-missing','123',null],['event-url','456','https://p16.tiktokcdn.com/avatar.jpeg'],['event-b','789',null]]){
+ const event=fromTikTok('chat',{common:{msgId:String(id++),roomId:'999'},user:{id:user,nickname:'Đạo hữu thử ảnh',avatarThumb:avatar?{urlList:[avatar]}:undefined},content:'test avt'},'999');e.liveEvents.accept(event);const payload=e.events.findLast(v=>v.kind==='avatar:test');if(!payload)throw Error('Missing avatar event');await write(name,{type:'game:event',version:1,sessionId:e.transportId,seq:++e.seq,serverTime:Date.now(),payload});
+}
+const meta=p=>'fileFormatVersion: 2\nguid: '+createHash('md5').update('tutien-live-avatar-test:'+p).digest('hex')+'\n';
+await fs.writeFile(folder+'.meta',meta(folder)+'folderAsset: yes\nDefaultImporter:\n  externalObjects: {}\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n');
+for(const name of await fs.readdir(folder))if(name.endsWith('.json'))await fs.writeFile(folder+'/'+name+'.meta',meta(folder+'/'+name)+'TextScriptImporter:\n  externalObjects: {}\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n');
+for(const p of ['Assets/Scripts/Effects/LiveAvatarTestPresenter.cs','Assets/Editor/LiveAvatarTestSetup.cs','Assets/Tests/Editor/LiveAvatarTestTests.cs'])await fs.writeFile('unity-client/'+p+'.meta',meta(p)+'MonoImporter:\n  externalObjects: {}\n  serializedVersion: 2\n  defaultReferences: []\n  executionOrder: 0\n  icon: {instanceID: 0}\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n');
+console.log('Generated native LIVE avatar fixtures without real network/data.');

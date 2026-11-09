@@ -1,5 +1,111 @@
 # PROMPT XÂY DỰNG GAME TU TIÊN TƯƠNG TÁC TIKTOK LIVE 3D
 
+## Cập nhật chuẩn — giọng Thiên Đạo Piper/Unity, 09/11/2026
+
+Người dùng đã duyệt toàn bộ `docs/Tailieu/AMTHANH.md` mục2.1 và yêu cầu triển khai. Unity dùng Piper tiếng Việt offline đã cài, một worker thường trực nạp model sẵn; backend chọn mẫu và tra cache, Unity chỉ trình diễn. Phần này thay mô tả giọng Speech Synthesis cũ **trong Unity**; renderer Three.js/trang quản trị vẫn giữ đường chạy hiện hữu. Không đổi phép tính gameplay, player save, dữ liệu DEMO/LIVE hoặc TB02.
+
+- Nhập môn lần đầu gom trong cửa sổ cố định1 giây; một người đọc tên người đó, nhiều người đọc “Chào mừng đạo hữu {người đầu} cùng {N−1} người khác gia nhập tông môn!”. A+10 người khác là11 người, không đọc lại từng người. Đếm theo userId hợp lệ/thứ tự backend, không tính trở lại/reconnect/trùng event.
+- Đọc kết quả độ kiếp sau server xác nhận/cảnh giới mới, cảm ơn đúng donor tại `blessing:activated`, cảnh báo chuyển pha khi đồng hồ tu luyện đi qua10 giây. Cảnh báo phải kết thúc trước battle; không thay intro boss3 giây và không đọc bù sau reconnect.
+- Cache cụm cố định/câu dự phòng/cảnh giới/số1–100; phần động dùng khóa hash nội dung+model+cấu hình. Cache riêng tối đa200MB,32 clip động RAM ở Unity, không lưu vào player save. Tên đọc giữ dấu, bỏ emoji/định dạng, tối đa40 ký tự; không thay tên hiển thị.
+- Chỉ bắt đầu câu khi đủ clip; hết hạn cá nhân hóa2 giây thì dùng câu dự phòng hoàn chỉnh, kết quả tới muộn chỉ vào cache. Piper chưa sẵn sàng/lỗi vẫn gửi thông báo chữ. Một câu đọc mỗi lúc, tối đa20 câu chờ/15 giây; ưu tiên boss→donor→kết quả độ kiếp→nhập môn. Pause/stopped giữ vị trí lời đang đọc; mute/disable/mất kết nối/đổi phiên dọn đúng quy tắc đã duyệt. Nhạc nền giảm nhẹ khi đang đọc; âm lượng dùng `config.audio` hiện hữu.
+- API chỉ đọc cùng nguồn loopback: `/api/voice/manifest`, `/api/voice/clip/{sha256}.wav`. Thêm event tùy chọn `voice:announcement`/`voice:notice` trong envelope v1, không đổi schema player hoặc phát lại lịch sử từ snapshot. Worker khởi tạo khi Unity yêu cầu manifest, không chặn game; trong thời gian khởi động dùng chữ.
+- Mốc phản hồi1–2 giây là mục tiêu cần đo, không bảo đảm khi quá tải. Bằng chứng và giới hạn: `docs/Tailieu_output/ai-voice/README.md`, đầu `PROGRESS.md`; Editor/Play/build/OBS/LIVE/nghe thực tế là kết quả riêng.
+
+---
+
+## Sửa tải avatar không tương thích định dạng — 09/11/2026
+
+Theo báo lỗi LIVE “Tải lỗi — định dạng hoặc kích thước ảnh”, avatar trong thẻ thử/Ban Phúc được tải qua API nội bộ `/api/avatar`, backend chuẩn hóa WebP/AVIF/JPEG/PNG thành PNG tối đa256×256 rồi Unity giải mã. Giữ nguyên URL có chữ ký; không đoán hoặc thay đuôi URL. Chỉ URL HTTPS thuộc CDN TikTok đã kiểm tra, tải không redirect, tối đa512KiB đầu vào, giới hạn16MP giải mã và xử lý2 giây; timeout tải nguồn5 giây, client8 giây. Backend có tối đa2 tác vụ đồng thời,8 yêu cầu mới/giây và cache RAM8 ảnh/60 giây; không lưu ảnh/URL xuống đĩa hay player save. Đây là cập nhật có giới hạn cho ảnh viewer runtime, không đổi gameplay, event v1, scene hay tài nguyên game. Thẻ vẫn10 giây, không zoom/nhập môn/cấp đồ. Xem `docs/Tailieu_output/avatar-format-fix/README.md`; LIVE thật sau sửa phải ghi riêng, không suy từ ảnh kiểm thử.
+
+## Bổ sung — thử avatar trên LIVE thật, 09/11/2026
+
+Theo ba lựa chọn người dùng, thêm công tắc **Thử avatar LIVE** trong khung **Kết nối TikTok LIVE** trên trang chủ quản trị. `live.avatarTestEnabled` là boolean, mặc địnhfalse, lưu qua lần mở lại; tắt công tắc thì thẻ đang hiện phải ẩn ngay. Chỉ xử lý nguồn TikTok trong bộ dữ liệu LIVE, không kích hoạt từ lệnh DEMO.
+
+Khi bật, mọi người xem kể cả chưa nhập môn có thể bình luận đúng **test avt** (bỏ khoảng trắng thừa/không phân biệt hoa thường). Hiện thẻ nhỏ góc phải dưới Unity Concept02 trong10 giây, có avatar/tên/trạng thái **Đang tải / Đã tải ảnh / Không có ảnh / Tải lỗi**. Người thử mới nhất thay thẻ cũ, không xếp hàng; lệnh thử không tạo nhân vật, cấp quà, cộng tu vi hoặc tác động camera. Thẻ chẩn đoán vẫn dùng được khi boss/pause; đồng hồ10 giây của thẻ tính thời gian thực.
+
+Ảnh đi qua cùng bộ chọn URL và loader của Ban Phúc: lấy các URL hợp lệ từ `user.avatarThumb/Medium/Large.urlList` của native event, HTTPS thuộc CDN được kiểm tra; giới hạn tải/chuyển PNG theo mục sửa định dạng phía trên, Unity cache RAM tối đa8 ảnh. “Đã tải ảnh” chỉ sau khi Unity giải mã và hiển thị texture, không suy ra thành công từ việc có URL. Thiếu ảnh/tải lỗi dùng chữ đầu tên. Test chỉ gửi metadata tối thiểu bằng event tùy chọn `avatar:test`, không lưu ảnh/URL chẩn đoán hoặc raw profile vào dữ liệu người chơi; không thêm asset Internet vào scene. Giữ envelope v1/player schema/gameplay và duration độ kiếp8 giây.
+
+Hướng dẫn/kiểm chứng và giới hạn LIVE thật: `docs/Tailieu_output/live-avatar-test/README.md`.
+
+---
+
+## Cập nhật chuẩn — độ kiếp8 giây, 09/11/2026
+
+Theo lựa chọn mới của người dùng, **nghi thức độ kiếp mới mặc định8 giây** ở mọi cảnh giới, thay12 giây trước đây. `cultivation.breakthroughDurationMs=8000`; giới hạn cấu hình/save hợp lệ là8–20 giây. Giữ mốc tới đài1,5 giây, mây bật khi tới đài và sét bắt đầu tại1,8 giây, còn6,2 giây trình diễn sét theo vòng40 frame tham chiếu60 FPS.
+
+Không đổi xác suất, roll, Đan, bảo hộ, Thiên Mệnh, cooldown, phần thưởng hoặc camera. Nghi thức đang dở đã lưu giữ nguyên thời lượng/tiến độ/kết quả đã chốt (kể cả save12/20 giây); lượt mới dùng8 giây. Không sửa hàng loạt dữ liệu người chơi. Hướng dẫn/kiểm chứng: `docs/Tailieu_output/breakthrough-8s/README.md`.
+
+---
+
+## Cập nhật chuẩn — mốc mây/sét và thời lượng camera, 09/11/2026
+
+Theo ba lựa chọn mới của người dùng, phần này thay nhịp sét45ms/frame và thời lượng chung8 giây của camera ngẫu nhiên trong các mục cũ:
+
+- Giữ bốn PNG sét hiện hữu. Một vòng tương đương **40 frame ở60 FPS**, tức **2/3 giây**; mỗi ảnh giữ1/6 giây. Lấy tiến độ từ thời gian nghi thức server, không phụ thuộc FPS máy và không tạo thêm ảnh hoặc đợt sét gameplay.
+- Trong đường bay lên đài (trước mốc1,5 giây), mây đen và sét đều ẩn. **Chạm đài ở1,5 giây mới bật mây; sau0,3 giây, tại1,8 giây mới bật sét**, bắt đầu ảnh đầu rồi lặp đến hết nghi thức. Pause/stopped giữ đúng trạng thái/frame, reconnect lấy đúng tiến độ đang có; kết thúc/kết quả/battle/disconnect/disable dọn hiệu ứng. Không đổi thời lượng nghi thức, số đợt sét, SFX, xác suất, kết quả hoặc dữ liệu gameplay Node.
+- Camera ngẫu nhiên giữ góc zoom **đủ5 giây**, đi qua lại **đủ20 giây**, cộng riêng **0,8 giây chuyển vào và0,8 giây về**: tổng lượt zoom6,6 giây, pan21,6 giây. Follow độ kiếp vẫn tổng8 giây, chờ15 giây kể từ khi hoạt cảnh kết thúc. Ưu tiên/hàng đợi quà và nhập môn3 giây giữ theo mục9. Thời lượng mới không kéo dài camera nhận quà.
+
+Kiểm chứng/hướng dẫn của lượt sửa này: `docs/Tailieu_output/storm-camera-timing/README.md` và đầu `PROGRESS.md`.
+
+---
+
+## Cập nhật chuẩn — camera mục9 và nhập môn, 09/11/2026
+
+Theo sáu lựa chọn đã xác nhận, các quy tắc này thay cơ chế camera mục8 cũ trong Unity Concept02:
+
+- Chỉ sau15 giây kể từ khi hoạt cảnh camera trước kết thúc mới chọn ngẫu nhiên đều trong các kiểu đủ điều kiện: zoom một tu sĩ bất kỳ, đi qua lại, theo người đang độ kiếp. Mỗi lượt khoảng8 giây, về toàn cảnh rồi chờ lại15 giây. Không có người độ kiếp thì bỏ kiểu follow; tim/bình luận thường không reset đồng hồ. Độ kiếp tự bắt đầu không ép camera follow.
+- Ưu tiên camera: quà cá nhân/Quay Cam → người mới nhập môn → ngẫu nhiên. Quà ngắt chuyển động ưu tiên thấp bằng chuyển thẳng mượt tới người nhận, không bắt buộc về gốc trước. Quà A đang chiếu thì xong3 giây mới tới B theo FIFO; gộp quà cùng người/vật phẩm khi phù hợp theo giới hạn hiện hữu.
+- Chỉ người nhập môn lần đầu bay từ ngoài sân vào ghế trong3 giây; người cũ quay lại, mở client hoặc reconnect không bay lại. Nhiều người mới bay đồng thời, camera theo người mới nhất. Quà xen vào thì đường bay vẫn tiếp tục; hết quà chỉ theo lại người mới còn đang bay, không phát lại đường bay đã xong. Hiệu ứng chỉ trình diễn, không đổi vị trí/số ghế hoặc tiến trình server.
+- Chỉ hoạt cảnh zoom quà/nhập môn khi tu luyện. Sự kiện tới trong pha boss/TB02 giữ chờ tới tu luyện; pause/stopped đóng băng camera và đường bay. Quà vẫn được tính/dùng theo luật server cũ ngay khi nhận, chỉ hoạt cảnh camera chờ. Không phát lại quà/nhập môn cũ sau reconnect.
+- Ban Phúc toàn tông giữ camera như cũ; nếu do người donate thì popup2 giây kèm tên và ảnh đại diện người đó. Thưởng boss/cấp tông vẫn vô danh theo nguồn, không zoom từng người. Người donate khác nhau được trình diễn riêng theo thứ tự, không gán tổng phúc nhiều người cho một tên.
+- Thông tin donor là metadata trình diễn tùy chọn trên `blessing:activated` (userId/name/avatar), không đổi envelope v1 hoặc schema player. Chỉ nhận URL HTTPS CDN ảnh TikTok được kiểm tra; ảnh giữ cache bộ nhớ có giới hạn trong Unity, không ghi vào asset hoặc file người chơi. Thiếu ảnh/tải lỗi dùng chữ đầu tên. Backend không tải ảnh và không công khai toàn bộ profile/raw TikTok.
+
+---
+
+## Cập nhật chuẩn — cảnh báo boss TB02, 09/11/2026
+
+Theo Khung.md mục2 và lựa chọn **TB02 / warning-TB02**, mỗi boss mới có **3 giây cảnh báo trước khi xuất hiện**. Node giữ `warningDurationMs=3000` và `warningElapsedMs` trên boss. Trong cảnh báo, chưa nhận sát thương/kỹ năng, không trừ cooldown, thời gian đánh boss, tu vi hoặc buff; kỹ năng bị từ chối không mất lượt/cooldown. Hết cảnh báo mới bắt đầu đủ thời gian đánh đã cấu hình; đòn tự động đầu tiên theo nhịp ATK hiện hữu. Boss chết/hết giờ chuyển sang cảnh báo boss tiếp theo; vẫn giữ HP, phần thưởng, xác suất và quy tắc chu kỳ khác.
+
+Pause/stopped giữ tiến độ cảnh báo; save/restart tiếp tục đúng thời gian còn lại, không phát lại toàn bộ 3 giây hoặc cấp thưởng. Save shared-boss cũ thiếu hai trường cảnh báo tiếp tục trận hiện có, không chèn lại intro; boss mới vẫn có cảnh báo. Giữ envelope WebSocket v1/schema save hiện hữu, chỉ thêm trường tùy chọn và sự kiện `boss:appeared` sau cảnh báo. `remainingMs` là thời gian cảnh báo khi đang intro, sau đó là thời gian đánh; `battle.bossRemainingMs` luôn là thời gian đánh còn lại và `bossWarningRemainingMs` là thời gian cảnh báo còn lại.
+
+Unity Concept02 trình diễn TB02 bằng UI/geometry code, đếm3→2→1, SFX warning-TB02 và rung camera nhẹ; ẩn sprite/HP/projectile boss và cho tu sĩ giữ tư thế chờ trong cảnh báo. Chỉ hiện boss sau snapshot server xác nhận kết thúc intro. Pause giữ số đếm và tạm dừng SFX/rung; reconnect đang intro lấy thời gian hiện tại và seek SFX. Ba WAV attack phát theo sự kiện hit server, dùng giới hạn voice/mute/âm lượng hiện hữu. Bốn WAV tự tạo đã chuyển vào `unity-client/Assets/Musics/SFX/Boss/`; không dùng tài nguyên tải ngoài. Build Windows/OBS/LIVE và nghe/cân âm thực tế cần kiểm chứng riêng.
+
+---
+
+## Cập nhật chuẩn — Linh Căn x3 và Khung.md mục1, 08/11/2026
+
+Cập nhật trình diễn theo yêu cầu tiếp theo: K01 thu90%, trái12px để bớt che đài. Trong Unity Concept02, bốn PNG tia chớp lặp45ms/frame suốt duration nghi thức, lấy vị trí từ elapsed server; pause/stopped giữ frame, hết duration/kết quả/battle/disconnect/disable tắt. Chỉ thay hình ảnh, không đổi số đợt sét/SFX, thời gian, xác suất hay kết quả ở server. Renderer legacy/fallback giữ nhịp cũ. Kết quả/hướng dẫn: `docs/Tailieu_output/guide-storm/README.md`.
+
+Theo xác nhận mới của người dùng, **Biến Dị Linh Căn tăng x3 tốc độ tu luyện vĩnh viễn**, thay hệ số x2 trước đây. Dùng một lần cho mỗi tu sĩ; vật phẩm dư giữ trong túi. Khi nạp, dữ liệu đã kích hoạt Linh Căn x2 được nâng thành x3 trong bộ nhớ, không trừ thêm đồ hoặc mất tiến trình. Giữ cách cộng hệ số với Trà/Ban Phúc và trần x8 hiện hữu; chỉ Linh Căn là6 tu vi/giây và6 tu vi/tim với tốc độ gốc2. Không tăng hồi tố tu vi. Người dùng đã chọn **K01 Kim Vân**, khung hướng dẫn và bảng quà đã triển khai trong Unity Concept02; giữ nội dung mẫu đã chọn, không thay quy tắc giá Ban Phúc của server. Hướng dẫn/kết quả tại `docs/Tailieu_output/khung-01/implemented/README.md`.
+
+---
+
+## Cập nhật chuẩn — Qua_Tbao phần7–8, 08/11/2026
+
+Theo yêu cầu và ba lựa chọn đã xác nhận, các luật sau thay mô tả cũ về quà phải chờ tu luyện/chuẩn bị Đan thủ công và camera cố định trong Concept02:
+
+- Quà **mới nhận** qua người xem, cấp tông môn, boss, đổi nhiệm vụ và cấp DEMO: Ban Phúc kích hoạt ngay (một x2 toàn tông, số lượng×30 giây); Trà kích hoạt ngay x2 trong60 giây; Linh Căn kích hoạt ngay x3 vĩnh viễn (cập nhật theo xác nhận Khung.md). Áp dụng cả battle/paused/stopped, đồng hồ buff vẫn chỉ giảm khi cultivation. Giữ hệ số cộng/giới hạn cũ. Không quét dùng hàng loạt đồ đã có trong túi, không đổi thời gian còn lại của buff đã lưu. Linh Căn dư giữ túi, Trà bị giới hạn100 buff giữ phần mới chờ và trả khi có chỗ, lưu qua restart.
+- Đan chỉ tự lấy từ túi lúc bắt đầu nghi thức, dùng số viên tối thiểu còn giúp tăng tới trần hiện tại Pmax/85% và maxPills, chỉ trừ số đã dùng. Tính cả bảo hộ và số Đan đã chuẩn bị trong save cũ. Thiên Mệnh bảo đảm thành công không lấy thêm Đan, Phi Thăng không dùng; nhận giữa nghi thức giữ cho lần sau. Không sửa roll, cooldown, kết quả hoặc lấy lại Đan sau restart.
+- Receipt v1 thêm scope personal/all. Boss và thưởng tông môn giữ all kể cả khi túi đầy/đợi nhận qua restart. Quà toàn tông không tạo chuỗi zoom từng người: Concept02 hiện icon/số lượng trên các thành viên đang render, giữ góc camera. Ban Phúc tiếp tục popup toàn tông cũ; Quay Cam thưởng toàn tông giữ trong túi và hiện chữ khi thiếu icon, không tự gây zoom.
+- Concept02 sau30 giây không có hoạt cảnh camera tự pan/zoom nhẹ trong8 giây rồi về đúng góc gốc; theo tu sĩ đang bay/lên đài và quay về. Quà cá nhân/Quay Cam được ưu tiên: trả góc gốc khoảng0,35 giây rồi mới thực hiện hoạt cảnh mới. Tên/cảnh giới trên đầu vẫn hiện khi zoom, bù scale tạm và trả chính xác. Không ghi ngược gameplay từ Unity. Hướng dẫn/giới hạn: `docs/Tailieu_output/qua78/README.md`.
+
+---
+
+## Cập nhật chuẩn — Boss chung theo BOSS.md, 08/11/2026
+
+Theo `docs/Tailieu/BOSS.md` và ba xác nhận của người dùng, cơ chế dưới đây **thay thế toàn bộ quy định cũ về11 chiến trường, quái thường, HP boss thích ứng, lịch ba boss trong tổng5 phút và thưởng TOP/tăng tiểu cảnh giới** ở các mục bên dưới. Các đoạn cũ đó chỉ còn giá trị lịch sử/migration. Vẫn giữ11 cảnh giới của người chơi, tu luyện, độ kiếp, TikTok, lưu tiến trình và tách DEMO/LIVE.
+
+- Một lôi đài chung, mọi cảnh giới cùng đánh. Trong Unity Concept02 boss xuất hiện trên đài độ kiếp, tu sĩ giữ chỗ và thực hiện attack; chiêu bay tạo bằng code. Dùng6 frame đã cắt trong mỗi `Assets/Art/Boss/Boss_1.png`, `Boss_2.png`, `Boss_3.png`, không tải tài nguyên ngoài.
+- Boss1 **Vua Rồng Xương Lam Hỏa**,10.000 HP; boss2 **Hổ Lôi Vương**,20.000 HP; boss3 **Nữ Hoàng Hồ Ly Cửu Vĩ**,50.000 HP. HP cố định, không nhân theo số tu sĩ/cảnh giới. Boss không đánh trả, tu sĩ không bị hạ/hồi sinh trong cơ chế mới.
+- Tu sĩ tự đánh bằng ATK hiện hữu, nhịp mặc định1 giây/đòn. Giữ bình luận1/2 với sát thương x2/x3 và hồi10/25 giây theo từng người, tính ở Node; sát thương chặn tại HP còn lại, không tính overkill. Unity không tính damage hoặc quyết định boss chết.
+- Tự lặp **600 giây tu luyện → Boss1 → Boss2 → Boss3 → tu luyện**. Mỗi boss có tối đa300 giây riêng; chết chuyển ngay, hết giờ đánh dấu timeout và chuyển tiếp không thưởng. Đánh xong/hết giờ boss3 về tu luyện. Pause/stopped đóng băng thời gian trận/kỹ năng. Tu vi, buff và độ kiếp vẫn đóng băng suốt pha boss; đồ/tu vi đang chờ giữ luật cũ.
+- Chỉ boss bị hạ mới thưởng. Boss1: Ban Phúc×1 toàn tông; boss2: Ban Phúc×2 toàn tông và Độ Kiếp Đan×1 cho từng người; boss3: Ban Phúc×5 toàn tông và Độ Kiếp Đan×2 cho từng người. Không thưởng TOP hoặc tăng tầng mới từ trận boss. Danh sách nhận Đan là mọi tu sĩ đã nhập môn đúng lúc boss chết, kể cả người chưa gây damage; người vào sau không nhận hồi tố. Ban Phúc kích hoạt một lần toàn tông theo số lượng, luôn x2 và cộng thời gian; đồng hồ chỉ giảm khi về tu luyện. Đan đầy túi giữ phần chờ, lưu qua restart và qua trận mới.
+- Cài đặt → **Boss & chu kỳ** chỉnh thời gian tu luyện và HP/thời gian/Ban Phúc/Đan của từng boss. Kiểm tra hợp lệ ở server, lưu `boss.encounters` trong `caidat.json`; trận hiện tại giữ bản cấu hình đã chốt, trận tiếp theo dùng giá trị mới. Không có hệ số solo/K theo số người trong cơ chế mới.
+- Khung thông tin dùng `in4_boss_1/2/3`, thanh đỏ `fill_hp`, tham chiếu `concept_in4`. Trong Concept02 khung đè vùng nguyên lực khi đánh boss; tên/HP phải khớp boss, fill neo trái giảm đúng tỉ lệ snapshot, về tu luyện/mất kết nối khôi phục nguyên lực.
+- Trận mới lưu `format:'shared-boss-v1'`, một arena trong hợp đồng `battle.fields/view` tương thích renderer cũ, thêm `bossIndex/bossRemainingMs`. Lưu HP/thời gian/cooldown/biên nhận thưởng để reload/restart không nhân thưởng. Trận11 chiến trường đã lưu được kiểm tra rồi lưu vào `legacyBattle/legacyBattleResult`, tạo bản sao nguyên byte `.pre-boss.backup` một lần trước khi chuyển dữ liệu; trận cũ dở trở về tu luyện. Giữ người chơi, túi/buff, pending rewards cũ đã chốt và file DEMO/LIVE độc lập. Không xóa renderer Three.js hoặc project Unity riêng của người dùng.
+
+---
+
 ## 1. VAI TRÒ VÀ MỤC TIÊU
 
 Bạn là một lập trình viên game senior, chuyên về Three.js, Node.js, hệ thống sự kiện thời gian thực, đồ họa 3D procedural và tối ưu hiệu năng cho livestream.
@@ -405,7 +511,7 @@ Khi thanh tu vi đầy, tự nâng tiểu cảnh giới. Khi đã Viên Mãn, t�
 
 ## 9. ĐỘ KIẾP
 
-Mỗi lần độ kiếp có một hoạt cảnh khoảng 10–20 giây.
+Mỗi lần độ kiếp mới có hoạt cảnh mặc định **8 giây**, theo lựa chọn09/11/2026; cấu hình/save hỗ trợ8–20 giây, giữ nghi thức cũ đang dở theo thời lượng đã lưu.
 
 ### Tỷ lệ thành công
 
@@ -478,7 +584,7 @@ Thiết kế 5 vật phẩm ban đầu.
 
 ### Biến Dị Linh Căn
 
-- Tăng x2 tốc độ tu luyện cơ bản vĩnh viễn cho nhân vật.
+- Tăng x3 tốc độ tu luyện cơ bản vĩnh viễn cho nhân vật (xác nhận Khung.md,08/11/2026).
 - Mỗi người chỉ nhận hiệu ứng vĩnh viễn này một lần trong V1.
 - Hiệu ứng: cột sáng đổi màu và vòng linh căn xuất hiện.
 
@@ -496,6 +602,7 @@ Thiết kế 5 vật phẩm ban đầu.
 - Theo `docs/UI_BANPHUC.md` (07/11/2026), kích hoạt thêm Ban Phúc **cộng30 giây vào thời gian còn lại**, giữ một hiệu ứng x2, không tạo thêm hệ số x4/x6 từ riêng Ban Phúc. Thời gian chỉ giảm trong tu luyện thực tế; diệt ma, pause và dừng giữ nguyên.
 - Quà được ánh xạ thành vật phẩm Ban Phúc qua bảng quà hiện hữu; vật phẩm chờ/nhập môn vẫn theo luật hiện có. Mỗi lần tông môn tăng cấp1→2 hoặc2→3 tự kích hoạt thêm30 giây; làm đầy MAX của cấp3 không phải lên cấp. Một sự kiện vượt hai cấp cộng60 giây; chống trùng vẫn do backend.
 - Bảng Ban Phúc trong Unity Concept02 nằm ngay dưới Thiên Đạo Thông Cáo, hiện khi còn hiệu lực và tự ẩn khi hết hoặc mất kết nối; chữ “x2 tốc độ tu luyện”, đồng hồ và thanh tiến độ đọc snapshot server. Tách DEMO/LIVE, lưu qua restart và không tính bù thời gian offline. Save cũ nhiều Ban Phúc được gộp thành một hiệu ứng x2 với tổng thời gian còn lại, giữ toàn bộ thời gian và người chơi.
+- Thông báo nhận Ban Phúc trong Unity Concept02 theo mục6 `docs/Tailieu/Qua_Tbao.md` (08/11/2026): ảnh local `Assets/Art/Items/tbao_ban_phuc.png` bật ở giữa phía trên màn hình, hiện số lượt kích hoạt từ `blessing:activated.count`, rung camera nhẹ khoảng0,28 giây và tự ẩn sau2 giây (tăng từ1 giây theo yêu cầu tiếp theo của người dùng). Dùng SFX Ban Phúc hiện hữu đúng một luồng, tuân thủ cấu hình âm thanh. Các lượt tới trong cùng popup cộng số lượng nhưng không kéo dài thời hạn; chống trùng event, không phát lại từ snapshot/reconnect. Low bỏ rung; pause/battle vẫn cho popup tự hết theo thời gian thực, không thay thời gian buff hoặc gameplay. Vị trí/thời lượng đã được người dùng xác nhận.
 
 Các nguồn khác nhau vẫn theo quy tắc cộng hệ số: ví dụ Trà x2 và Ban Phúc x2 đồng thời thành x4; không nhân chồng tự do. Nhiều Ban Phúc chỉ kéo dài thời gian theo quy tắc trên.
 
@@ -900,6 +1007,8 @@ Không che gameplay bằng quá nhiều thông báo.
 Tất cả được tạo bằng code.
 
 ### Hiệu ứng
+
+**Unity Concept02 theo `docs/Tailieu/LV_UP.md` (08/11/2026):** dùng7 PNG người dùng đã cung cấp trong `Assets/Art/Characters/LVUP/` cho hiệu ứng LV UP quanh đúng tu sĩ khi nhận `stage:up` (kể cả tiểu cảnh giới) hoặc `breakthrough:completed` thành công. Bỏ qua `levelup_light_beams.png` còn thiếu; concept chỉ tham chiếu. Thời lượng mặc định2 giây, gộp các tầng liên tiếp cùng người và giới hạn pool/hàng chờ; Low giảm lớp và số người đồng thời. Chỉ trình diễn sự kiện, không tính cấp hoặc phát lại từ snapshot/reconnect, không thay gameplay/backend/save. Hướng dẫn: `docs/Tailieu_output/level-up/README.md`.
 
 - Sương mù và mây chuyển động.
 - Linh khí bay quanh nhân vật.

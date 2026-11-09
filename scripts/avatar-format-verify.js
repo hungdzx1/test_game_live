@@ -1,0 +1,24 @@
+import fs from 'node:fs/promises';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
+const output='test-results/avatar-format-fix/',docs='docs/Tailieu_output/avatar-format-fix/';await fs.mkdir(docs,{recursive:true});
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const changed=['server.js','package.json','package-lock.json','unity-client/Assets/Scripts/Effects/DonorAvatarView.cs','unity-client/Assets/Tests/Editor/LiveAvatarTestTests.cs','unity-client/Assets/Tests/Editor/BlessingReceiptTests.cs'];
+const added=['avatarImage.js','test/avatar-image.test.js','scripts/avatar-format-test-server.js','scripts/Run-AvatarFormatUnity.ps1'];
+const before=JSON.parse(await fs.readFile(output+'baseline.json','utf8'));let protectedFiles=0;const concurrentDataChanges=[];
+for(const[p,old]of Object.entries(before)){
+ if(changed.includes(p))continue;const current=hash(await fs.readFile(p));
+ if(current!==old&&p.startsWith('data/')){concurrentDataChanges.push({path:p,before:old,current,handling:'Current bytes retained; test helpers use disposable data roots. Change origin unverified.'});continue;}
+ assert.equal(current,old,'Unexpected change '+p);protectedFiles++;
+}
+for(const p of changed.filter(p=>p.endsWith('.cs')))assert.equal(hash(await fs.readFile(p)),hash(await fs.readFile(p.replace('unity-client/','test-results/unity-concept02/project/'))),'Untested Unity source '+p);
+const xml=await fs.readFile(output+'test-tests.xml','utf8');assert.match(xml,/<test-run[^>]*total="95"[^>]*passed="94"[^>]*failed="1"[^>]*skipped="0"/);
+const tags=[...xml.matchAll(/<test-case [^>]*>/g)].map(m=>m[0]),failed=tags.filter(s=>s.includes('result="Failed"'));assert.equal(failed.length,1);assert.ok(failed[0].includes('fullname="TuTienLive.Tests.BlessingReceiptTests.ActualHttpBlessingActivationUsesServerEventAndAudio"'));
+const http=await fs.readFile(output+'blessinghttp-tests.xml','utf8');assert.match(http,/<test-run[^>]*result="Passed"[^>]*total="1"[^>]*passed="1"[^>]*failed="0"[^>]*skipped="0"/);
+const cases=[...tags.filter(s=>s.includes('result="Passed"')).map(s=>s.match(/fullname="([^"]*)"/)[1]),...[...http.matchAll(/<test-case [^>]*fullname="([^"]*)"/g)].map(m=>m[1])];assert.equal(new Set(cases).size,95);for(const m of (await fs.readFile('test-results/camera9/tests.xml','utf8')).matchAll(/<test-case [^>]*fullname="([^"]*)"/g))assert.ok(cases.includes(m[1]),'Missing baseline '+m[1]);assert.equal(cases.filter(c=>c.startsWith('TuTienLive.Tests.LiveAvatarTestTests.')).length,7);
+assert.ok(cases.includes('TuTienLive.Tests.LiveAvatarTestTests.ActualHttpWebpAndAvifBecomePngAndReachUnityReadyIncludingBanPhucLoader'));
+const bytes=await fs.readFile(output+'node-core.log');const core=(bytes[0]===255&&bytes[1]===254?bytes.toString('utf16le'):bytes.toString('utf8')).replace(/^\uFEFF/,'');assert.match(core,/tests 149/);assert.match(core,/pass 148/);assert.match(core,/fail 0/);assert.match(core,/skipped 1/);
+const runtime=[...changed,...added];const hashes=Object.fromEntries(await Promise.all(runtime.map(async p=>[p,hash(await fs.readFile(p))])));
+const newestCs=Math.max(...await Promise.all(changed.filter(p=>p.endsWith('.cs')&&!p.endsWith('/BlessingReceiptTests.cs')).map(async p=>(await fs.stat(p)).mtimeMs)));assert.ok((await fs.stat(output+'test-tests.xml')).mtimeMs>=newestCs);assert.ok((await fs.stat(output+'blessinghttp-tests.xml')).mtimeMs>=(await fs.stat('unity-client/Assets/Tests/Editor/BlessingReceiptTests.cs')).mtimeMs);
+const newestNode=Math.max(...await Promise.all(['server.js','avatarImage.js','test/avatar-image.test.js'].map(async p=>(await fs.stat(p)).mtimeMs)));assert.ok((await fs.stat(output+'node-core.log')).mtimeMs>=newestNode);
+const pkg=JSON.parse(await fs.readFile('package.json','utf8'));assert.equal(pkg.dependencies.sharp,'0.35.5');
+const report={result:'PASS',protectedFiles,concurrentDataChanges,changed,added,sourceHashes:hashes,sceneAndConfig:'Unchanged from this task baseline, including current avatar flag and duration8000',unity:{passed:95,failed:0,skipped:0,runs:'94/95 initial regression passed; stale HTTP blessing test fixed for immediate activation and 1/1 targeted rerun passed; 95 distinct cases passed across both runs',actualHttp:'Generated 1200x600 WebP/AVIF -> local Node -> PNG256x128 -> Unity Ready for preview and Ban Phuc loader'},node:{passed:148,failed:0,skipped:1},unverified:['Original failing LIVE image bytes/format','Real TikTok CDN after fix','New Windows build','OBS/FPS stream']};
+await fs.writeFile(docs+'verification.json',JSON.stringify(report,null,2)+'\n');await fs.copyFile(output+'test-tests.xml',docs+'unity-initial-regression.xml');await fs.copyFile(output+'blessinghttp-tests.xml',docs+'unity-http-rerun.xml');await fs.writeFile(docs+'node-core.log',core);console.log('PASS avatar format fix: Unity95 distinct across 2 runs; Node148+1skip; protected '+protectedFiles+' files; concurrent data '+concurrentDataChanges.length+'.');

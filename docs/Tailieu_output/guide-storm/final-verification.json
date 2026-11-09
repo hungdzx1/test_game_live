@@ -1,0 +1,40 @@
+{
+  "result": "PASS",
+  "protectedFiles": 1055,
+  "sceneDocuments": 713,
+  "changedSceneDocument": "626421966",
+  "originalObjects": "all preserved; only K01 root position/scale changed",
+  "cameraViewportAndPoses": "unchanged",
+  "guide": {
+    "left": 12,
+    "scale": 0.9,
+    "width": 392.4,
+    "right": 404.4
+  },
+  "lightning": "four 45ms frames loop until server duration; pause freezes; result/battle/disconnect clear; legacy fallback preserved",
+  "sourceHashes": {
+    "unity-client/Assets/Scenes/SectScene_Concept02.unity": "702bf0fe052221d9f0cdd2fc1bf30a127811974ec7418aa20e3eefd9a2b8a71c",
+    "unity-client/Assets/Editor/K01GuideSetup.cs": "15dad583d7bc02bb7db1cbbf0fb5eaf46799951b9b22d1c1e163a8b46e92af36",
+    "unity-client/Assets/Editor/K01GuideSetup.cs.meta": "de6e92c6ba13227d5fa936dbf6a36db65ef22c75b3e4f99d77e09d981c3afeb2",
+    "unity-client/Assets/Scripts/Effects/TribulationController.cs": "4ab432f5523a2e3c8a183dc95b9c714c6ee613de4a54a819801cecacf7e03d1a",
+    "unity-client/Assets/Scripts/Effects/TribulationController.cs.meta": "ba5fc0509df7964bc7e937790abd7f590b3519b920c1c28f3a21efad14f5fd26",
+    "unity-client/Assets/Tests/Editor/K01GuideTests.cs": "7407d859e7a7fbb6b5e8a1d0e861a659d87ad76eade78a64ccd18e6c493464bd",
+    "unity-client/Assets/Tests/Editor/K01GuideTests.cs.meta": "4c5d7c8e436b1f62f08f2bb5b034eed215877583863d9c13e3a746f60463f21e",
+    "unity-client/Assets/Tests/Editor/Concept02StormTests.cs": "b4ba030b4f3c266bcc7f10899f83449f73201bd2f9c7aba3d1a62cfab7d9138c",
+    "unity-client/Assets/Tests/Editor/Concept02StormTests.cs.meta": "d6faf8cd1b69dc721a5ae42cc09a46bf73df2bdbfc8acd730bf8b66b82c2b6e7",
+    "unity-client/Assets/Editor/GuideStormAdjustment.cs": "bdebbe044a47a53cba6a35cf24edc26d9cb747538fe14e4455584cc6af02cb2d",
+    "unity-client/Assets/Editor/GuideStormAdjustment.cs.meta": "ea088e3f5d11297db8abc1f786dafb19c50670f97dfb10bcf35174fe3bf7b38b"
+  },
+  "unity": {
+    "passed": 58,
+    "failed": 0,
+    "skipped": 0
+  },
+  "backend": "unchanged",
+  "unverified": [
+    "Windows build",
+    "OBS",
+    "real LIVE"
+  ],
+  "finalAudit": "All original documents retained; only K01 root layout updated"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "da6affa4-dd57-4dd2-92e3-2bded4b8cc62",
+  "seq": 4,
+  "serverTime": 1794171754082,
+  "payload": {
+    "eventId": "camera9-player:returned-4",
+    "kind": "player:returned",
+    "userId": "cam:26",
+    "timestamp": 1794171754082
+  }
+}

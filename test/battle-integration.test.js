@@ -1,26 +1,33 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import {mkdtemp,mkdir,readFile,writeFile} from 'node:fs/promises';
-import os from 'node:os';
-import path from 'node:path';
-import {WebSocket} from 'ws';
-import {createApplication} from '../server.js';
-async function post(base,action,value,userId='battle-demo-0-0'){return fetch(base+'/api/control',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,value,userId})});}
-async function snapshot(port){const ws=new WebSocket(`ws://127.0.0.1:${port}/ws`);try{return await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(new Error('WS timeout')),3000);ws.on('error',reject);ws.on('message',raw=>{const m=JSON.parse(raw);if(m.type==='state:snapshot'){clearTimeout(timer);resolve(m.payload);}});});}finally{ws.terminate();}}
-test('03-20 HTTP/WS reload preserves battle, disk restart preserves boss/cooldowns/IDs and rewards',async t=>{
-  const root=await mkdtemp(path.join(os.tmpdir(),'tutien-phase3-'));await mkdir(path.join(root,'data/demo'),{recursive:true});const file=path.join(root,'data/demo/players.json'),real=path.join(root,'data/players.json');await writeFile(real,'{"untouched":"phase3"}');
-  let app=await createApplication({dataRoot:root,port:0}),port=await app.listen(),base=`http://127.0.0.1:${port}`;t.after(()=>app.close());
-  for(const url of ['/','/js/battlePanel.js'])assert.equal((await fetch(base+url)).status,200);
-  assert.equal((await post(base,'battleSettings',{cultivationSeconds:10,battleSeconds:15})).status,200);assert.equal((await post(base,'battleSettings',{battleSeconds:0})).status,400);
-  assert.equal((await post(base,'battleDemo')).status,200);assert.equal(app.engine.players.size,44);assert.equal((await post(base,'battleDemo')).status,400);
-  assert.equal((await post(base,'command',{text:'1',eventId:'persistent-skill'})).status,200);assert.equal((await post(base,'phase','paused')).status,200);
-  const first=await snapshot(port),second=await snapshot(port);assert.equal(first.battle.id,second.battle.id);assert.deepEqual(first.battle.view,second.battle.view);assert.equal(first.remainingMs,second.remainingMs);assert.equal(first.battle.fields.filter(f=>f.count).length,11);
-  const disk=JSON.parse(await readFile(file,'utf8'));assert.equal(disk.runtime.battle.id,first.battle.id);assert.equal(disk.runtime.battle.fields[0].participants['battle-demo-0-0'].skillCount,1);
-  await app.close();app=await createApplication({dataRoot:root,port:0});port=await app.listen();base=`http://127.0.0.1:${port}`;assert.equal(app.engine.phase,'stopped');assert.equal(app.engine.battle.current.id,first.battle.id);
-  assert.equal(app.engine.battle.current.fields[0].activeBoss.hp,disk.runtime.battle.fields[0].activeBoss.hp);assert.equal(app.engine.battle.current.fields[0].activeBoss,app.engine.battle.current.fields[0].bossHistory[0]);
-  await post(base,'phase','resume');await post(base,'command',{text:'1',eventId:'persistent-skill'});await post(base,'phase','paused');assert.equal(app.engine.battle.current.fields[0].participants['battle-demo-0-0'].skillCount,1);
-  await post(base,'battleView',10);assert.equal(app.engine.battle.current.viewId,10);assert.equal(app.engine.battle.current.id,first.battle.id);
-  await post(base,'phase','cultivation');await post(base,'phase','paused');const before=app.engine.exportState().players;app.engine.rewards.apply(app.engine.battle.current);assert.deepEqual(app.engine.exportState().players,before);
-  const saved=JSON.parse(await readFile(file,'utf8'));assert.ok(saved.players.some(p=>p.lastBattleRewardId===first.battle.id));assert.ok(saved.runtime.battle.fields.every(f=>f.rewardState==='applied'));
-  const config=JSON.parse(await readFile(path.join(root,'caidat.json'),'utf8'));assert.equal(config.cycle.battleSeconds,15);assert.equal(config.cultivation.realms.length,11);assert.equal(config.graphics,'medium');assert.equal(await readFile(real,'utf8'),'{"untouched":"phase3"}');
+import test from 'node:test';import assert from 'node:assert/strict';import{mkdtemp,mkdir,readFile,writeFile}from'node:fs/promises';import os from'node:os';import path from'node:path';import{WebSocket}from'ws';
+import{createApplication}from'../server.js';import{GameEngine}from'../gameEngine.js';import{createPlayer}from'../playerStore.js';import{BattleService as LegacyBattleService}from'../battleService.js';
+const post=(base,action,value,userId='p')=>fetch(base+'/api/control',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,value,userId})});
+async function state(port){const ws=new WebSocket(`ws://127.0.0.1:${port}/ws`);try{return await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('WS timeout')),4000);ws.on('error',reject);ws.on('message',bytes=>{const m=JSON.parse(bytes);if(m.type==='state:snapshot'){clearTimeout(timer);resolve(m.payload);}});});}finally{ws.terminate();}}
+test('Adaptive boss HTTP/WS/save/restart: untimed one boss, phase skip rejected, fixed rewards and isolated LIVE data',async t=>{
+ const dataRoot=await mkdtemp(path.join(os.tmpdir(),'tutien-adaptive-http-'));await mkdir(path.join(dataRoot,'data/demo'),{recursive:true});const real=path.join(dataRoot,'data/players.json');await writeFile(real,'{"untouched":"adaptive-boss"}');let app=await createApplication({dataRoot,port:0});let port=await app.listen(),base='http://127.0.0.1:'+port;t.after(()=>app.close());
+ for(const value of [[],null,{targetSeconds:0},{targetSeconds:240,unknown:1}])assert.equal((await post(base,'bossSettings',value)).status,400);assert.equal((await post(base,'bossSettings',{targetSeconds:240})).status,200);assert.equal((await post(base,'battleSettings',{battleSeconds:10})).status,400);assert.equal((await post(base,'battleSettings',{cultivationSeconds:10})).status,200);
+ await post(base,'command',{text:'nhap mon',name:'Đạo hữu',eventId:'join'});await post(base,'phase','battle');assert.equal((await post(base,'command',{text:'1',eventId:'too-early'})).status,400);assert.equal((await post(base,'endCycle')).status,400);assert.equal((await post(base,'phase','cultivation')).status,400);for(let i=0;i<12;i++)app.engine.tick(250);await post(base,'phase','paused');
+ const first=await state(port);assert.equal(first.battle.endOnKill,true);assert.equal(first.battle.durationMs,0);assert.equal(first.battle.view.bossHistory.length,1);const hp=first.battle.view.activeBoss.hp,index=first.battle.bossIndex,id=first.battle.id;
+ const savedFile=path.join(dataRoot,'data/demo/players.json');await app.close();app=await createApplication({dataRoot,port:0});port=await app.listen();base='http://127.0.0.1:'+port;assert.equal(app.engine.battle.current.id,id);assert.equal(app.engine.battle.current.fields[0].activeBoss.hp,hp);assert.equal(app.engine.battle.current.bossIndex,index);assert.equal(app.engine.battle.balance.lastBossIndex,index);
+ await post(base,'phase','resume');app.engine.battle.current.fields[0].participants.p.atk=1e15;assert.equal((await post(base,'command',{text:'1',eventId:'kill'})).status,200);await post(base,'phase','paused');const after=await state(port);assert.equal(after.effectivePhase,'cultivation');assert.equal(after.players[0].inventory.pill,2);assert.equal(app.engine.items.blessingSnapshot().durationMs,90000);await post(base,'command',{text:'1',eventId:'kill'});assert.equal(app.engine.getPlayer('p').inventory.pill,2);
+ assert.equal(JSON.parse(await readFile(savedFile,'utf8')).runtime.battle.fields[0].bossHistory[0].rewarded,true);assert.equal(JSON.parse(await readFile(path.join(dataRoot,'caidat.json'),'utf8')).boss.targetSeconds,240);assert.equal(await readFile(real,'utf8'),'{"untouched":"adaptive-boss"}');
+});
+test('Boss eleven-field migration still writes exact pre-boss backup without losing players',async t=>{
+ const dataRoot=await mkdtemp(path.join(os.tmpdir(),'tutien-boss-old-'));await mkdir(path.join(dataRoot,'data/demo'),{recursive:true});const e=new GameEngine([createPlayer('legacy','Cũ')]);e.battle=new LegacyBattleService(e);e.phase=e.previousPhase='battle';e.battle.start();e.getPlayer('legacy').inventory.pill=17;const original=JSON.stringify(e.exportState(),null,2)+'\n',file=path.join(dataRoot,'data/demo/players.json');await writeFile(file,original);const app=await createApplication({dataRoot,port:0});await app.listen();t.after(()=>app.close());assert.equal(await readFile(file+'.pre-boss.backup','utf8'),original);assert.equal(app.engine.getPlayer('legacy').inventory.pill,17);assert.equal(app.engine.battle.legacy.id,e.battle.current.id);
+});
+
+test('Active sequential save gets exact backup, keeps earned rewards and current boss HP; reload never re-awards',async t=>{
+ const dataRoot=await mkdtemp(path.join(os.tmpdir(),'tutien-active-boss-old-'));await mkdir(path.join(dataRoot,'data/demo'),{recursive:true});
+ const e=new GameEngine([createPlayer('old','Đạo hữu cũ')]);e.battle.rng=()=>0;e.setPhase('battle');e.getPlayer('old').inventory.pill=17;e.items.activateBlessing(1,'earned');
+ const saved=structuredClone(e.exportState()),b=saved.runtime.battle,f=b.fields[0],rows=b.rules.boss.encounters;
+ delete b.endOnKill;delete b.selectionMode;delete b.scaling;delete saved.runtime.bossBalance;b.bossIndex=1;b.durationMs=900000;b.elapsedMs=1012.5;
+ const first=f.bossHistory[0];Object.assign(first,{hp:0,maxHp:rows[0].hp,durationMs:300000,elapsedMs:1000,warningElapsedMs:3000,status:'dead',rewarded:true,reward:rows[0].reward});delete first.endOnKill;
+ const active={...structuredClone(first),id:b.id+':'+rows[1].id,assetId:rows[1].id,type:1,name:rows[1].name,hp:19990,maxHp:rows[1].hp,elapsedMs:12.5,status:'alive',rewarded:false,reward:rows[1].reward};
+ f.bossHistory.push(active);f.activeBoss=structuredClone(active);saved.runtime.remainingMs=299987.5;
+ const file=path.join(dataRoot,'data/demo/players.json'),original=JSON.stringify(saved,null,2)+'\n';await writeFile(file,original);
+ let app=await createApplication({dataRoot,port:0});let base='http://127.0.0.1:'+await app.listen();t.after(()=>app.close());
+ assert.equal(await readFile(file+'.pre-adaptive-boss.backup','utf8'),original);assert.equal(app.engine.getPlayer('old').inventory.pill,17);assert.equal(app.engine.items.blessingSnapshot().durationMs,30000);
+ const restored=app.engine.battle.current;assert.equal(restored.bossIndex,1);assert.equal(restored.fields[0].activeBoss.hp,19990);assert.equal(restored.fields[0].activeBoss.elapsedMs,12.5);assert.equal(restored.fields[0].bossHistory[0].rewarded,true);
+ await post(base,'phase','resume');app.engine.battle.current.fields[0].participants.old.atk=1e15;assert.equal((await post(base,'command',{text:'1',eventId:'finish-old'},'old')).status,200);await post(base,'phase','paused');
+ assert.equal(app.engine.previousPhase,'cultivation');assert.equal(restored.fields[0].bossHistory.length,2);assert.equal(app.engine.getPlayer('old').inventory.pill,19);assert.equal(app.engine.items.blessingSnapshot().durationMs,120000);
+ await app.close();app=await createApplication({dataRoot,port:0});base='http://127.0.0.1:'+await app.listen();assert.equal(app.engine.getPlayer('old').inventory.pill,19);assert.equal(await readFile(file+'.pre-adaptive-boss.backup','utf8'),original);assert.equal(app.engine.battle.current.fields[0].activeBoss.status,'dead');
 });

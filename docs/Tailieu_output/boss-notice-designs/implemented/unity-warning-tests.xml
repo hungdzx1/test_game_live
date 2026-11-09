@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="5" result="Passed" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-08 20:19:33Z" end-time="2026-11-08 20:19:37Z" duration="3.7358705">
+  <test-suite type="TestSuite" id="1000" name="Tu Tien LIVE - Unity Migration" fullname="Tu Tien LIVE - Unity Migration" runstate="Runnable" testcasecount="166" result="Passed" start-time="2026-11-08 20:19:33Z" end-time="2026-11-08 20:19:37Z" duration="3.735871" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1196" name="TuTienLive.Tests.dll" fullname="C:/Users/admin/Documents/CODE/TuTien/test-results/unity-concept02/project/Library/ScriptAssemblies/TuTienLive.Tests.dll" runstate="Runnable" testcasecount="166" result="Passed" start-time="2026-11-08 20:19:33Z" end-time="2026-11-08 20:19:37Z" duration="3.598720" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="18336" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1197" name="TuTienLive" fullname="TuTienLive" runstate="Runnable" testcasecount="166" result="Passed" start-time="2026-11-08 20:19:33Z" end-time="2026-11-08 20:19:37Z" duration="3.595447" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1198" name="Tests" fullname="TuTienLive.Tests" runstate="Runnable" testcasecount="166" result="Passed" start-time="2026-11-08 20:19:33Z" end-time="2026-11-08 20:19:37Z" duration="3.592803" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1029" name="BossWarningTests" fullname="TuTienLive.Tests.BossWarningTests" classname="TuTienLive.Tests.BossWarningTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-08 20:19:33Z" end-time="2026-11-08 20:19:37Z" duration="3.582196" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1031" name="AuthoritativeThreeSecondWarningHidesBossAndAttacksThenRestoresAndKeepsSnapshotImmutable" fullname="TuTienLive.Tests.BossWarningTests.AuthoritativeThreeSecondWarningHidesBossAndAttacksThenRestoresAndKeepsSnapshotImmutable" methodname="AuthoritativeThreeSecondWarningHidesBossAndAttacksThenRestoresAndKeepsSnapshotImmutable" classname="TuTienLive.Tests.BossWarningTests" runstate="Runnable" seed="1216530389" result="Passed" start-time="2026-11-08 20:19:23Z" end-time="2026-11-08 20:19:24Z" duration="1.683241" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1033" name="GeneratedClipsAreCanonicalPCMAndOptionalWarningProtocolIsValidated" fullname="TuTienLive.Tests.BossWarningTests.GeneratedClipsAreCanonicalPCMAndOptionalWarningProtocolIsValidated" methodname="GeneratedClipsAreCanonicalPCMAndOptionalWarningProtocolIsValidated" classname="TuTienLive.Tests.BossWarningTests" runstate="Runnable" seed="634365776" result="Passed" start-time="2026-11-08 20:19:24Z" end-time="2026-11-08 20:19:25Z" duration="0.776880" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1032" name="PauseReconnectDisableAndCultivationClearOnlyWarningShakeAndPreserveCameraPose" fullname="TuTienLive.Tests.BossWarningTests.PauseReconnectDisableAndCultivationClearOnlyWarningShakeAndPreserveCameraPose" methodname="PauseReconnectDisableAndCultivationClearOnlyWarningShakeAndPreserveCameraPose" classname="TuTienLive.Tests.BossWarningTests" runstate="Runnable" seed="367269108" result="Passed" start-time="2026-11-08 20:19:25Z" end-time="2026-11-08 20:19:26Z" duration="0.773178" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1034" name="PlayWarningAudioSeeksPausesRevealsAndDisconnectsWithoutDuplicatingSources" fullname="TuTienLive.Tests.BossWarningTests.PlayWarningAudioSeeksPausesRevealsAndDisconnectsWithoutDuplicatingSources" methodname="PlayWarningAudioSeeksPausesRevealsAndDisconnectsWithoutDuplicatingSources" classname="TuTienLive.Tests.BossWarningTests" runstate="Runnable" seed="169969748" result="Passed" start-time="2026-11-08 20:19:26Z" end-time="2026-11-08 20:19:36Z" duration="10.027768" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1030" name="SavedTB02MatchesSelectedLayoutDoesNotBlockInputAndInstallerIsIdempotent" fullname="TuTienLive.Tests.BossWarningTests.SavedTB02MatchesSelectedLayoutDoesNotBlockInputAndInstallerIsIdempotent" methodname="SavedTB02MatchesSelectedLayoutDoesNotBlockInputAndInstallerIsIdempotent" classname="TuTienLive.Tests.BossWarningTests" runstate="Runnable" seed="1230872471" result="Passed" start-time="2026-11-08 20:19:36Z" end-time="2026-11-08 20:19:37Z" duration="0.900634" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/admin/AppData/LocalLow/TuTienLive/Tu Tien LIVE - Unity Migration\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

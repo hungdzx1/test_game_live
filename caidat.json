@@ -156,10 +156,10 @@
       }
     ],
     "maxMultiplier": 8,
-    "buffDurationMs": 30000,
+    "buffDurationMs": 60000,
     "pillPoints": 10,
     "maxPills": 10,
-    "breakthroughDurationMs": 12000,
+    "breakthroughDurationMs": 8000,
     "breakthroughCooldownMs": 60000,
     "protectionPerFailure": 8,
     "protectionCap": 24,
@@ -216,7 +216,40 @@
       0.85,
       1
     ],
-    "soloFactor": 0.65
+    "soloFactor": 0.65,
+    "targetSeconds": 240,
+    "encounters": [
+      {
+        "id": "Boss_1",
+        "name": "Vua Rồng Xương Lam Hỏa",
+        "hp": 10000,
+        "durationSeconds": 300,
+        "reward": {
+          "blessings": 1,
+          "pills": 0
+        }
+      },
+      {
+        "id": "Boss_2",
+        "name": "Hổ Lôi Vương",
+        "hp": 20000,
+        "durationSeconds": 300,
+        "reward": {
+          "blessings": 2,
+          "pills": 1
+        }
+      },
+      {
+        "id": "Boss_3",
+        "name": "Nữ Hoàng Hồ Ly Cửu Vĩ",
+        "hp": 50000,
+        "durationSeconds": 300,
+        "reward": {
+          "blessings": 5,
+          "pills": 2
+        }
+      }
+    ]
   },
   "combat": {
     "attackIntervalMs": 1000,
@@ -234,7 +267,7 @@
     "endgamePointsPerStage": 10
   },
   "live": {
-    "username": "baronline04",
+    "username": "tanpm.vn",
     "reconnectSeconds": 5,
     "maxReconnectAttempts": 10,
     "eventsPerSecond": 200,
@@ -243,7 +276,8 @@
     "wishThreshold": 1000,
     "wishCooldownMs": 60000,
     "wishPoints": 1,
-    "wishReward": "points"
+    "wishReward": "points",
+    "avatarTestEnabled": true
   },
   "giftRules": [
     {
@@ -297,8 +331,8 @@
     "effects": true,
     "speech": true,
     "masterVolume": 0.5,
-    "musicVolume": 0.18,
-    "effectsVolume": 0.7,
+    "musicVolume": 0.41,
+    "effectsVolume": 0.19,
     "speechVolume": 0.8,
     "maxVoices": 8,
     "speechQueue": 8
@@ -346,6 +380,15 @@
       "reward": {
         "item": "blessing",
         "quantity": 1
+      },
+      "scope": "all"
+    },
+    {
+      "level": 4,
+      "likes": 10000,
+      "reward": {
+        "item": "blessing",
+        "quantity": 2
       },
       "scope": "all"
     }

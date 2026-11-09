@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "protectedFiles": 1132,
+  "configChange": "Only cultivation.breakthroughDurationMs 12000 -> 8000",
+  "playerData": "All baseline files unchanged",
+  "unityRuntimeSceneAssetsPackages": "unchanged",
+  "node": {
+    "total": 141,
+    "passed": 140,
+    "failed": 0,
+    "skipped": 1
+  },
+  "unity": {
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "Editor 8/10/12/20-second FX sampling and existing Play Mode regression"
+  },
+  "sourceHashes": {
+    "cultivationConfig.js": "583c5d9f3f5a01a6722e058e78b45e2568a8d03e91e8636a4712a6d01358984f",
+    "gameEngine.js": "94377c018d1d98b5b045aa9fc8733a01ee538004fefcc0ecde5dfc3e7612b5cc",
+    "caidat.json": "a828baed79d17cec46c0c3c3ef8c74ed94b255211e0c1f622af957c8eed05d37",
+    "unity-client/Assets/Tests/Editor/Concept02StormTests.cs": "a1328cb8e7925ed9e93cd7a283c6a631838eda3633a2620f91f99d596d14cb9c",
+    "test/breakthrough-8s.test.js": "eef7cc64f8f5255d8d868a93ce109efd78a00a80236513d59e1caa689e7adc46",
+    "test/cultivation.test.js": "280a9000807bafa7f9c64dd59e44a0083581d607351da42f2dbb7dd06ca9aa96",
+    "scripts/Run-StormCameraTimingUnity.ps1": "987132d3007ff446e84c6e1e81091e30ce4ee0f34d6a9318b8d0fc0941fc4e4c"
+  },
+  "unverified": [
+    "Full eight-second ritual on real LIVE",
+    "new Windows build",
+    "OBS"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "preserved": [
+    "Assets/Scenes/SectScene_Main.unity",
+    "Assets/SectConcept02/Prefabs/Character_1.prefab",
+    "Assets/SectConcept02/Prefabs/Character_2.prefab",
+    "Assets/SectConcept02/Prefabs/Character_3.prefab",
+    "Assets/SectConcept02/Prefabs/Character_4.prefab",
+    "Assets/Art/Items/tra_ngo_dao.png",
+    "Assets/Art/Items/do_kiep_dan.png",
+    "Assets/Art/Items/bien_di_linh_can.png",
+    "Assets/Art/Items/tbao_ban_phuc.png"
+  ],
+  "existingSceneDocuments": 363,
+  "addedSceneDocuments": 21,
+  "changedExistingDocuments": [
+    "946330345",
+    "1015234907"
+  ],
+  "cameraViewport": "original preserved",
+  "pngBytes": "unchanged",
+  "backendAwards": "unchanged; additive item:received presentation event"
+}

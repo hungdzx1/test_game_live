@@ -1,5 +1,5 @@
 import {ITEM_NAMES} from './cultivationConfig.js';
-export const LIVE_DEFAULTS={username:'',reconnectSeconds:5,maxReconnectAttempts:10,eventsPerSecond:200,userEventsPerSecond:12,noticeCooldownMs:10000,wishThreshold:1000,wishCooldownMs:60000,wishPoints:1,wishReward:'points'};
+export const LIVE_DEFAULTS={username:'',reconnectSeconds:5,maxReconnectAttempts:10,eventsPerSecond:200,userEventsPerSecond:12,noticeCooldownMs:10000,wishThreshold:1000,wishCooldownMs:60000,wishPoints:1,wishReward:'points',avatarTestEnabled:false};
 export const DEFAULT_GIFT_RULES=[
   {id:'small',giftId:'',giftName:'',minDiamonds:1,maxDiamonds:9,item:'tea',quantity:1,effect:'item',enabled:true},
   {id:'medium',giftId:'',giftName:'',minDiamonds:10,maxDiamonds:99,item:'pill',quantity:1,effect:'item',enabled:true},
@@ -9,6 +9,7 @@ export function usernameFor(value){if(typeof value!=='string')throw new Error('T
 export function liveRulesFor(input={}){
   if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(k=>!Object.hasOwn(LIVE_DEFAULTS,k)))throw new Error('Cấu hình LIVE không hợp lệ; không lưu khóa ký trong JSON.');
   const r={...LIVE_DEFAULTS,...input};if(r.username)r.username=usernameFor(r.username);
+  if(typeof r.avatarTestEnabled!=='boolean')throw new Error('Cấu hình thử avatar LIVE phải là bật/tắt.');
   if(r.wishReward!=='points'&&!Object.hasOwn(ITEM_NAMES,r.wishReward))throw new Error('Phần thưởng mốc tim không hợp lệ.');
   for(const [key,min,max]of [['reconnectSeconds',1,60],['maxReconnectAttempts',0,30],['eventsPerSecond',10,1000],['userEventsPerSecond',2,100],['noticeCooldownMs',1000,60000],['wishThreshold',10,1000000],['wishCooldownMs',1000,3600000],['wishPoints',1,100]])if(!Number.isInteger(r[key])||r[key]<min||r[key]>max)throw new Error(`Cấu hình LIVE ${key} không hợp lệ.`);
   return r;

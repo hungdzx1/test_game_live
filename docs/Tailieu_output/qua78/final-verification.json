@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "protectedFiles": 957,
+  "originalSceneDocuments": 424,
+  "addedSceneDocuments": 18,
+  "pngPrefabsCameraPoses": "preserved",
+  "newCodeAndObjects": "match tested project",
+  "concurrentFiles": {
+    "unity-client/Assets/SceneAuthoring/Nameplate SDF.asset": "732c4eca0b05baae0bb16204178a135b68d6fd914e6f776e225b00e3814ca857"
+  },
+  "concurrentFileNote": "Source TMP font feature records changed after baseline; retained without overwriting. This font change was not part of the isolated test.",
+  "node": {
+    "passed": 126,
+    "failed": 0,
+    "skipped": 1
+  },
+  "unity": {
+    "passed": 47,
+    "failed": 0,
+    "skipped": 0
+  },
+  "unverified": [
+    "Windows build",
+    "OBS",
+    "real LIVE"
+  ]
+}

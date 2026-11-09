@@ -6,7 +6,7 @@ import {updateRealmTable} from './ui/pages/settings.js';
 import {installFormState,syncField,ackFields} from './ui/forms.js';
 import {$,text} from './ui/dom.js';
 import {createStreamerPanel} from './streamerPanel.js';
-import {createBattlePanel} from './battlePanel.js';
+import {createBattlePanel} from './bossPanel.js';
 import {createLivePanel} from './livePanel.js';
 import {createCultivationPanel} from './cultivationPanel.js';
 import {connect,control} from './network.js';

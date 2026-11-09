@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "protectedFiles": 903,
+  "originalSceneDocuments": 421,
+  "newSceneDocuments": 3,
+  "allNewObjectsAndCode": "match isolated tested project",
+  "pngAndGuids": "preserved",
+  "unityTests": {
+    "passed": 42,
+    "failed": 0,
+    "skipped": 0
+  },
+  "unverified": [
+    "new Windows build",
+    "OBS",
+    "real LIVE"
+  ]
+}

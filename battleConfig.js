@@ -1,3 +1,5 @@
+import {encountersFor,DEFAULT_BOSS_TARGET_SECONDS} from './bossConfig.js';
+// Retained only to validate/archive saves made before BOSS.md. New battles have one shared arena.
 export const FIELD_NAMES=['Phàm Giới','Luyện Khí Cốc','Trúc Cơ Trận','Kim Đan Vực','Nguyên Anh Cảnh','Hóa Thần Chiến Trường','Luyện Hư Ma Vực','Hợp Thể Thiên Vực','Đại Thừa Ma Giới','Độ Kiếp Chiến Trường','Phi Thăng Thần Vực'];
 export const BATTLE_DEFAULTS={
   cycle:{cultivationSeconds:600,battleSeconds:300},
@@ -18,5 +20,8 @@ export function battleRulesFor(input={}){
   check(r.combat.attackIntervalMs,250,5000);check(r.combat.reviveMs,8000,15000);check(r.combat.maxActiveMobs,3,300);if(!Number.isInteger(r.combat.maxActiveMobs))throw new Error('Giới hạn quái phải nguyên.');
   check(r.combat.moveSpeed,1,10);check(r.combat.cameraDwellMs,5000,10000);
   for(const v of Object.values(r.rewards)){check(v,1,100);if(!Number.isInteger(v))throw new Error('Thưởng phải là số nguyên.');}
+  r.boss.encounters=encountersFor(input.boss?.encounters,r.cycle.battleSeconds);
+  r.boss.targetSeconds=input.boss?.targetSeconds===undefined?DEFAULT_BOSS_TARGET_SECONDS:input.boss.targetSeconds;
+  if(!Number.isInteger(r.boss.targetSeconds)||r.boss.targetSeconds<181||r.boss.targetSeconds>3600)throw new Error('Thời gian hạ boss mục tiêu phải từ181 đến3600 giây. Đây không phải hạn giờ trận.');
   return r;
 }

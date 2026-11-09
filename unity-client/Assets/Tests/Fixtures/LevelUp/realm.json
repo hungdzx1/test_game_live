@@ -1,0 +1,17 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "7f74596c-5393-44ea-a901-cf9be99f8aff",
+  "seq": 1,
+  "serverTime": 1794130620066,
+  "payload": {
+    "eventId": "e9d8669f-cc04-4d9e-b557-3bf39587a4c7",
+    "kind": "breakthrough:completed",
+    "userId": "level:29",
+    "timestamp": 1794130620066,
+    "id": "16376910-e217-40cd-a6cc-5589459cfdd5",
+    "outcome": true,
+    "realmIndex": 1,
+    "remainingMs": 3000
+  }
+}

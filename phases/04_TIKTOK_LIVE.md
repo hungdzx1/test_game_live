@@ -1,5 +1,9 @@
 # GIAI ĐOẠN 04 — KẾT NỐI TIKTOK LIVE VÀ TƯƠNG TÁC NGƯỜI XEM
 
+> **Sửa định dạng avatar09/11/2026:** sau báo lỗi giải mã LIVE, backend tải avatar qua HTTPS/CDN đã kiểm tra và chuyển PNG tạm trong RAM cho Unity bằng API nội bộ; không lưu ảnh/URL vào player save hoặc thành asset game. Không đổi gameplay/event schema. Quy tắc tải trực tiếp từ Unity trước đây được thay bằng mục sửa định dạng ở GAME_DESIGN.md. Kiểm chứng: `docs/Tailieu_output/avatar-format-fix/README.md`.
+
+> **Bổ sung đã xác nhận09/11/2026:** công tắc “Thử avatar LIVE” ở khung Kết nối, mặc định tắt/lưu cấu hình; chỉ nguồn TikTok trong LIVE, bình luận `test avt` hiện thẻ avatar+tên+trạng thái10 giây ở Unity, kể cả người chưa nhập môn. Tính năng này là yêu cầu riêng cho ảnh viewer runtime, không dùng ảnh tải ngoài làm asset scene3D; không tự lên LIVE/gửi bình luận. Quy tắc mới trong GAME_DESIGN.md và kiểm chứng tại `docs/Tailieu_output/live-avatar-test/README.md`.
+
 > **Mục tiêu:** Thay đầu vào demo bằng sự kiện TikTok LIVE thật **mà không viết lại logic game**. Khán giả bình luận `nhập môn`, `1`, `2` để tham gia; thả tim/ theo dõi/ vào phòng tạo phản hồi; quà tặng kích hoạt vật phẩm qua bảng ánh xạ streamer chỉnh được. Bắt buộc giữ **Thử không cần LIVE** để chạy mọi luồng ngay cả khi không có kênh đang phát.
 
 ## 0. Nguyên tắc tích hợp

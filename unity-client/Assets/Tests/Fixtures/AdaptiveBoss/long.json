@@ -1,0 +1,153 @@
+{
+  "type": "state:snapshot",
+  "version": 1,
+  "sessionId": "24c2ec5d-154b-4790-814f-d08348248f84",
+  "seq": 1,
+  "serverTime": 1794244052626,
+  "payload": {
+    "phase": "battle",
+    "effectivePhase": "battle",
+    "phaseStart": 1794244052618,
+    "elapsedActiveMs": 1203000,
+    "cycleId": "3f508e86-0eb5-4cd5-b0af-e5c6a1e1222c",
+    "completedCycles": 0,
+    "battlesStarted": 1,
+    "cameraUserId": null,
+    "battle": {
+      "format": "shared-boss-v1",
+      "id": "6b660ce3-9587-4411-9ee7-164ca57f2dfe",
+      "status": "running",
+      "elapsedMs": 1200000,
+      "durationMs": 0,
+      "endOnKill": true,
+      "selectionMode": "random-adaptive-v1",
+      "targetDurationMs": 240000,
+      "bossIndex": 2,
+      "bossRemainingMs": 0,
+      "bossWarningRemainingMs": 0,
+      "viewId": 0,
+      "manualView": null,
+      "viewSince": 0,
+      "focusReason": "boss",
+      "focusAt": 0,
+      "fields": [
+        {
+          "id": 0,
+          "name": "Lôi đài tông môn",
+          "count": 0,
+          "status": "running",
+          "bossName": "Nữ Hoàng Hồ Ly Cửu Vĩ",
+          "bossStatus": "alive"
+        }
+      ],
+      "view": {
+        "id": 0,
+        "name": "Lôi đài tông môn",
+        "realmIndex": null,
+        "battleId": "6b660ce3-9587-4411-9ee7-164ca57f2dfe",
+        "participantIds": [],
+        "participants": {},
+        "joinedAtByUser": {},
+        "mobs": [],
+        "activeBoss": {
+          "id": "6b660ce3-9587-4411-9ee7-164ca57f2dfe:Boss_3",
+          "assetId": "Boss_3",
+          "kind": "boss",
+          "type": 2,
+          "name": "Nữ Hoàng Hồ Ly Cửu Vĩ",
+          "hp": 2400,
+          "maxHp": 2400,
+          "atk": 0,
+          "def": 0,
+          "x": 0,
+          "z": -3,
+          "status": "alive",
+          "spawnTime": 0,
+          "elapsedMs": 1200000,
+          "durationMs": 0,
+          "endOnKill": true,
+          "warningDurationMs": 3000,
+          "warningElapsedMs": 3000,
+          "attackAt": 0,
+          "animation": "idle",
+          "animationUntil": 0,
+          "rewarded": false,
+          "reward": {
+            "blessings": 3,
+            "pills": 2
+          },
+          "lastHit": null
+        },
+        "bossHistory": [
+          {
+            "id": "6b660ce3-9587-4411-9ee7-164ca57f2dfe:Boss_3",
+            "assetId": "Boss_3",
+            "kind": "boss",
+            "type": 2,
+            "name": "Nữ Hoàng Hồ Ly Cửu Vĩ",
+            "hp": 2400,
+            "maxHp": 2400,
+            "atk": 0,
+            "def": 0,
+            "x": 0,
+            "z": -3,
+            "status": "alive",
+            "spawnTime": 0,
+            "elapsedMs": 1200000,
+            "durationMs": 0,
+            "endOnKill": true,
+            "warningDurationMs": 3000,
+            "warningElapsedMs": 3000,
+            "attackAt": 0,
+            "animation": "idle",
+            "animationUntil": 0,
+            "rewarded": false,
+            "reward": {
+              "blessings": 3,
+              "pills": 2
+            },
+            "lastHit": null
+          }
+        ],
+        "damageByUser": {},
+        "rewardState": "applied",
+        "status": "running",
+        "top": []
+      }
+    },
+    "battleResult": null,
+    "remainingMs": 0,
+    "elapsedMs": 1203000,
+    "players": [],
+    "focusedScene": "battle",
+    "interactions": {
+      "wish": {
+        "power": 0,
+        "threshold": 1000,
+        "cooldownUntil": 0,
+        "awards": 0,
+        "pending": 0
+      },
+      "sectEnergy": {
+        "level": 1,
+        "power": 0,
+        "threshold": 1000,
+        "maxLevel": 3,
+        "full": false
+      },
+      "blessing": {
+        "remainingMs": 0,
+        "durationMs": 0,
+        "multiplier": 2
+      },
+      "giftBanner": null
+    },
+    "config": {},
+    "mode": "demo",
+    "demoSpeed": 1,
+    "animationPreview": false,
+    "breakthroughQueueLength": 0,
+    "breakthrough": null,
+    "breakthroughResult": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "result": "PASS",
+  "scope": "Three design proofs; no runtime HUD installation",
+  "resolution": [
+    1080,
+    1920
+  ],
+  "rootMultiplier": 3,
+  "blessingPriceLabel": ">50 xu (Khung.md; configured rule remains >=50)",
+  "sourceHashes": {
+    "docs/Tailieu_output/shared-boss/cultivation-1080.png": "0e8951fb5f3bec8d1b4ace958d76f4a9c35faadbb09d74d48d1b6d5a42b72dd7",
+    "public/assets/Qua/1xu.jpg": "85277598638b442d88bd89a3588a18716ce53e787b6658f1011c3b2dfce1ef23",
+    "public/assets/Qua/10xu.jpg": "8ce648825969d6a261f4e200377f21de055ab711566480541f1323fbde4cf8c9",
+    "public/assets/Qua/20xu.jpg": "3ca4394d01ad6aac5c5d655d7819b53e7cae1c9930e5b375adfd631624a79f53",
+    "unity-client/Assets/Art/Items/tra_ngo_dao.png": "94608d006179cd6e339930f906ea229e88a35d8fb51c129037c5b696aac7a850",
+    "unity-client/Assets/Art/Items/do_kiep_dan.png": "b1f4e1d26cf513ecb47ff3995feae7f2839fca39c29f38b9939303c3b5e057b2",
+    "unity-client/Assets/Art/Items/bien_di_linh_can.png": "1afabc381df5821ee44a06cb52361ba960592410fa3a346603d449e585634e6c"
+  },
+  "checks": [
+    {
+      "id": "K01",
+      "name": "KIM VÂN",
+      "tag": "Viền vàng · nền xanh trầm",
+      "x": 24,
+      "y": 322,
+      "right": 460,
+      "bottom": 933,
+      "overflow": [],
+      "images": 7
+    },
+    {
+      "id": "K02",
+      "name": "NGỌC THANH",
+      "tag": "Thẻ gọn · điểm nhấn ngọc",
+      "x": 24,
+      "y": 322,
+      "right": 460,
+      "bottom": 929,
+      "overflow": [],
+      "images": 7
+    },
+    {
+      "id": "K03",
+      "name": "CỔ QUYỂN",
+      "tag": "Nền ngà · nét mực cổ điển",
+      "x": 24,
+      "y": 322,
+      "right": 460,
+      "bottom": 933,
+      "overflow": [],
+      "images": 7
+    }
+  ]
+}

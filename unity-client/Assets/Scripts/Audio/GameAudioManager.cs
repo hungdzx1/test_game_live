@@ -21,6 +21,8 @@ namespace TuTienLive.Audio
         [InspectorName("sfx_SDokiep — Độ kiếp thành công")] public AudioClip breakthroughSuccess;
         [InspectorName("sfx_lv_up_TM — Tông môn tăng cấp")] public AudioClip sectLevelUp;
         [InspectorName("sfx_fly — Bay lên / xuống")] public AudioClip fly;
+        [Header("TB02 — Cảnh báo và đòn đánh boss")]
+        public AudioClip bossWarning,attackNormal,attackSkill1,attackSkill2;
         [Header("Âm lượng nhận từ Cài đặt → Âm thanh trên server")]
         public AudioSource musicSource;
         public AudioSource[] EffectSources => sources;
@@ -28,6 +30,7 @@ namespace TuTienLive.Audio
         public string LastEffect { get; private set; }
         public int VoiceLimit { get; private set; } = 8;
         private AudioSource[] sources;
+        private ThienDaoVoicePlayer voicePlayer;
         private readonly double[] ends = new double[16];
         private readonly int[] priorities = new int[16];
         private readonly HashSet<string> seen = new HashSet<string>(StringComparer.Ordinal);
@@ -40,12 +43,39 @@ namespace TuTienLive.Audio
         private string session;
         private bool primeFlight = true, enabledAudio, music, effects;
         private float masterVolume, musicVolume, effectsVolume;
+        private int warningSlot=-1,lastEffectSlot=-1;
+        private string warningKey;
+        private bool warningPaused;
+        public bool BossWarningPlaying=>warningSlot>=0&&sources!=null&&sources[warningSlot].isPlaying;
+
+        // Driven by the authoritative warning clock; seeks on reconnect and uses the existing voice budget.
+        public void PresentBossWarning(string key,float elapsedMs,bool active,bool paused)
+        {
+            if(!Application.isPlaying)return;
+            if(key!=warningKey){StopBossWarning();warningKey=key;}
+            if(!active||!CanPlay()||!effects||masterVolume<=0||effectsVolume<=0){StopBossWarning();return;}
+            if(warningSlot>=0)
+            {
+                var source=sources[warningSlot];
+                if(paused&&!warningPaused)source.Pause();else if(!paused&&warningPaused)source.UnPause();
+                warningPaused=paused;ends[warningSlot]=Time.realtimeSinceStartupAsDouble+Mathf.Max(.1f,3-elapsedMs/1000);
+                return;
+            }
+            if(paused||!bossWarning||elapsedMs>=bossWarning.length*1000)return;
+            if(PlayEffect("boss-warning",bossWarning,5,Mathf.Max(0,elapsedMs/1000)))warningSlot=lastEffectSlot;
+        }
+        public void StopBossWarning(){if(warningSlot>=0){int slot=warningSlot;warningSlot=-1;StopVoice(slot);}warningPaused=false;}
 
         private void Awake(){if(Application.isPlaying)EnsureSources();}
         private void OnEnable(){Refresh();}
         private void LateUpdate(){Refresh();}
         private void EnsureSources()
         {
+            if(isActiveAndEnabled)
+            {
+                if(!voicePlayer){voicePlayer=GetComponent<ThienDaoVoicePlayer>();if(!voicePlayer)voicePlayer=gameObject.AddComponent<ThienDaoVoicePlayer>();}
+                voicePlayer.network=network;if(!voicePlayer.enabled)voicePlayer.enabled=true;
+            }
             if(!musicSource)musicSource=gameObject.AddComponent<AudioSource>();
             if(sources!=null)return;
             ConfigureSource(musicSource);musicSource.loop=true;
@@ -104,7 +134,7 @@ namespace TuTienLive.Audio
         private void UpdateMusic()
         {
             if(!musicSource)return;
-            musicSource.volume=enabledAudio&&music?masterVolume*musicVolume:0;
+            musicSource.volume=enabledAudio&&music?masterVolume*musicVolume*(voicePlayer&&voicePlayer.IsSpeaking?.4f:1f):0;
             if(musicSource.clip!=bgm){musicSource.Stop();musicSource.clip=bgm;}
             if(!CanPlay()||!music||musicSource.volume<=0||!bgm){if(musicSource.isPlaying)musicSource.Stop();return;}
             musicSource.loop=true;if(!musicSource.isPlaying)musicSource.Play();
@@ -123,6 +153,11 @@ namespace TuTienLive.Audio
                     var from=value.CopyField("completedLevel");var to=value.CopyField("level");
                     if(from?.Type==JTokenType.Integer&&to?.Type==JTokenType.Integer&&(double)to>(double)from)PlayEffect("tongmon",sectLevelUp,4);
                     break;
+                case "battle:hit":
+                    if(snapshot.Phase!="battle"||snapshot.Battle?.SharedBoss!=true||snapshot.Battle.View?.ActiveBoss?.IsWarning==true)break;
+                    string skill=(string)value.CopyField("skill");
+                    PlayEffect(skill=="1"?"attack-1":skill=="2"?"attack-2":"attack",skill=="1"?attackSkill1:skill=="2"?attackSkill2:attackNormal,skill=="1"||skill=="2"?2:1);
+                    break;
             }
         }
         private void SampleFlight()
@@ -137,24 +172,24 @@ namespace TuTienLive.Audio
                     }
             flying.Clear();foreach(var id in nextFlying)flying.Add(id);primeFlight=false;
         }
-        private bool PlayEffect(string kind,AudioClip clip,int priority)
+        private bool PlayEffect(string kind,AudioClip clip,int priority,float offset=0)
         {
             if(!CanPlay()||!effects||masterVolume<=0||effectsVolume<=0||!clip)return false;
             double now=Time.realtimeSinceStartupAsDouble;
             if(lastPlayed.TryGetValue(kind,out var last)&&now-last<.15)return false;
             int slot=-1;
-            for(int i=0;i<VoiceLimit;i++)if(ends[i]<=now){slot=i;break;}
+            for(int i=0;i<VoiceLimit;i++)if(i!=warningSlot&&ends[i]<=now){slot=i;break;}
             if(slot<0)
             {
-                for(int i=0;i<VoiceLimit;i++)if(priorities[i]<priority&&(slot<0||priorities[i]<priorities[slot]||priorities[i]==priorities[slot]&&ends[i]<ends[slot]))slot=i;
+                for(int i=0;i<VoiceLimit;i++)if(i!=warningSlot&&priorities[i]<priority&&(slot<0||priorities[i]<priorities[slot]||priorities[i]==priorities[slot]&&ends[i]<ends[slot]))slot=i;
                 if(slot<0)return false;
             }
-            StopVoice(slot);var source=sources[slot];source.clip=clip;source.volume=masterVolume*effectsVolume;source.Play();
-            ends[slot]=now+clip.length;priorities[slot]=priority;lastPlayed[kind]=now;PlayedEffects++;LastEffect=kind;return true;
+            StopVoice(slot);var source=sources[slot];source.clip=clip;source.volume=masterVolume*effectsVolume;source.time=Mathf.Clamp(offset,0,Mathf.Max(0,clip.length-.001f));source.Play();
+            ends[slot]=now+clip.length-offset;priorities[slot]=priority;lastPlayed[kind]=now;PlayedEffects++;LastEffect=kind;lastEffectSlot=slot;return true;
         }
-        private void StopVoice(int index){if(sources==null)return;sources[index].Stop();sources[index].clip=null;ends[index]=0;priorities[index]=0;}
+        private void StopVoice(int index){if(index==warningSlot){warningSlot=-1;warningPaused=false;}if(sources==null)return;sources[index].Stop();sources[index].clip=null;ends[index]=0;priorities[index]=0;}
         private void StopAll(){if(musicSource)musicSource.Stop();if(sources!=null)for(int i=0;i<sources.Length;i++)StopVoice(i);}
         private void Unbind(){if(bound!=null){bound.Events.Received-=HandleEvent;bound.State.Changed-=StateChanged;}bound=null;}
-        private void OnDisable(){Unbind();snapshot=null;enabledAudio=false;StopAll();flying.Clear();primeFlight=true;}
+        private void OnDisable(){Unbind();snapshot=null;enabledAudio=false;StopAll();if(voicePlayer)voicePlayer.enabled=false;flying.Clear();primeFlight=true;}
     }
 }

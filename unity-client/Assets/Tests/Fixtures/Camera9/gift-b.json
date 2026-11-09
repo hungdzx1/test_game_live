@@ -1,0 +1,18 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "da6affa4-dd57-4dd2-92e3-2bded4b8cc62",
+  "seq": 6,
+  "serverTime": 1794171754084,
+  "payload": {
+    "eventId": "camera9-item:received-6",
+    "kind": "item:received",
+    "userId": "cam:13",
+    "timestamp": 1794171754084,
+    "item": "pill",
+    "itemName": "Độ kiếp đan",
+    "count": 1,
+    "source": "viewer_gift",
+    "scope": "personal"
+  }
+}

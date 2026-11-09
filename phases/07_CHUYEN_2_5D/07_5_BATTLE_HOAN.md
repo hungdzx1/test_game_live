@@ -1,5 +1,9 @@
 # 07.5 — Battle 2D: HOÃN đến khi có asset
 
+> **Bổ sung09/11/2026:** Khung.md mục2 đã chọn TB02/warning-TB02. Mỗi boss có intro3 giây do Node giữ clock/gate sát thương; Unity chỉ hiện cảnh báo, SFX/rung rồi hiện boss sau snapshot xác nhận. Tài nguyên tự tạo nằm trong `Assets/Musics/SFX/Boss/`, không tải ngoài. Chi tiết: `docs/Tailieu_output/boss-notice-designs/implemented/README.md`.
+
+> **Cập nhật08/11/2026:** người dùng đã cung cấp sprite boss/khung HP trong `unity-client/Assets/Art/Boss` và yêu cầu triển khai cơ chế mới theo `docs/Tailieu/BOSS.md`. Phần hoãn/11 chiến trường bên dưới là lịch sử; yêu cầu mới và ba xác nhận được ghi ở đầu `GAME_DESIGN.md` thay thế phạm vi đó. Không mở rộng sang quái thường hoặc tải asset ngoài.
+
 **Chưa triển khai renderer 2D battle trong lần này.** Tiếp tục dùng `public/js/battleScene.js` và `battleOverlay.js` đang chạy.
 
 ## Asset cần chuẩn bị sau

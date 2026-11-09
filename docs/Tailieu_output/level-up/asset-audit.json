@@ -1,0 +1,337 @@
+{
+  "assets": [
+    {
+      "file": "levelup_arrows.png",
+      "sha256": "563e443726c71788a6445e9584284b4bc60e16cdfc910f23178ad633f43f9a53",
+      "width": 1536,
+      "height": 1024,
+      "counts": {
+        "transparent": 1472671,
+        "semi": 100193,
+        "opaque": 0,
+        "darkVisible": 9619,
+        "darkSemi": 9619,
+        "edgePixels": 55561,
+        "darkEdge": 11452,
+        "brightEdge": 0,
+        "redEdge": 0,
+        "blueEdge": 0,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 47987,
+        "a16_63": 12499,
+        "a64_127": 5254,
+        "a128_239": 8794,
+        "a240_254": 25659
+      },
+      "meanVisibleAlpha": 91.47760821614284,
+      "bboxAlpha": [
+        27,
+        36,
+        1533,
+        998
+      ],
+      "bbox32": [
+        262,
+        246,
+        1240,
+        536
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "file": "levelup_energy_ribbons.png",
+      "sha256": "c7f4de5d54fe74f92670f56de5d3ac93b15cae678b3cb335d67097e84a03a8d8",
+      "width": 1254,
+      "height": 1254,
+      "counts": {
+        "transparent": 1251460,
+        "semi": 321056,
+        "opaque": 0,
+        "darkVisible": 38797,
+        "darkSemi": 38797,
+        "edgePixels": 206430,
+        "darkEdge": 38797,
+        "brightEdge": 187,
+        "redEdge": 16093,
+        "blueEdge": 2,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 181525,
+        "a16_63": 41590,
+        "a64_127": 21898,
+        "a128_239": 29708,
+        "a240_254": 46335
+      },
+      "meanVisibleAlpha": 65.94843578690322,
+      "bboxAlpha": [
+        0,
+        17,
+        1254,
+        1254
+      ],
+      "bbox32": [
+        6,
+        254,
+        1222,
+        935
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "file": "levelup_golden_aura.png",
+      "sha256": "102b93c4cd4a30816b4bce2ea94be4956a42616a765e147e11a01cb59e229886",
+      "width": 1254,
+      "height": 1254,
+      "counts": {
+        "transparent": 130131,
+        "semi": 1442385,
+        "opaque": 0,
+        "darkVisible": 329456,
+        "darkSemi": 329456,
+        "edgePixels": 667709,
+        "darkEdge": 329456,
+        "brightEdge": 534,
+        "redEdge": 42582,
+        "blueEdge": 60,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 603429,
+        "a16_63": 135957,
+        "a64_127": 116599,
+        "a128_239": 265450,
+        "a240_254": 320950
+      },
+      "meanVisibleAlpha": 103.09052506785636,
+      "bboxAlpha": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bbox32": [
+        130,
+        62,
+        1076,
+        1200
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "file": "levelup_lotus.png",
+      "sha256": "607eff3b670d21aa521357ec21bc95567e7887490e44365b3e333d9ab99fa9a6",
+      "width": 1254,
+      "height": 1254,
+      "counts": {
+        "transparent": 1461476,
+        "semi": 111040,
+        "opaque": 0,
+        "darkVisible": 17927,
+        "darkSemi": 17927,
+        "edgePixels": 51773,
+        "darkEdge": 17927,
+        "brightEdge": 120,
+        "redEdge": 3360,
+        "blueEdge": 2,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 44103,
+        "a16_63": 12333,
+        "a64_127": 6559,
+        "a128_239": 8680,
+        "a240_254": 39365
+      },
+      "meanVisibleAlpha": 114.19561419308357,
+      "bboxAlpha": [
+        0,
+        21,
+        1242,
+        1254
+      ],
+      "bbox32": [
+        77,
+        846,
+        1176,
+        1074
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "file": "levelup_magic_circle.png",
+      "sha256": "f994bfbf559ce851a7dbb0ed7a82bae6cb7883311c13746daece72229c4ea9c9",
+      "width": 1536,
+      "height": 1024,
+      "counts": {
+        "transparent": 911667,
+        "semi": 661197,
+        "opaque": 0,
+        "darkVisible": 88661,
+        "darkSemi": 88661,
+        "edgePixels": 430939,
+        "darkEdge": 118164,
+        "brightEdge": 0,
+        "redEdge": 0,
+        "blueEdge": 0,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 418360,
+        "a16_63": 18656,
+        "a64_127": 8301,
+        "a128_239": 12717,
+        "a240_254": 203163
+      },
+      "meanVisibleAlpha": 85.10554343108029,
+      "bboxAlpha": [
+        0,
+        35,
+        1536,
+        1024
+      ],
+      "bbox32": [
+        141,
+        739,
+        1390,
+        973
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "file": "levelup_sparkles.png",
+      "sha256": "aff1773bec6bd570ab1ed532b588b7f395dda703c58cd0550b235e631f7421c6",
+      "width": 1254,
+      "height": 1254,
+      "counts": {
+        "transparent": 503917,
+        "semi": 1068599,
+        "opaque": 0,
+        "darkVisible": 788961,
+        "darkSemi": 788961,
+        "edgePixels": 1051750,
+        "darkEdge": 788961,
+        "brightEdge": 0,
+        "redEdge": 60271,
+        "blueEdge": 60,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 1039778,
+        "a16_63": 16331,
+        "a64_127": 4953,
+        "a128_239": 5396,
+        "a240_254": 2141
+      },
+      "meanVisibleAlpha": 3.9896397058204247,
+      "bboxAlpha": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bbox32": [
+        128,
+        138,
+        1129,
+        1195
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "file": "levelup_title.png",
+      "sha256": "a178c419299547cc0073ec37f60bb1a2da46890e626e1f4c88bf0662f8da365f",
+      "width": 2172,
+      "height": 724,
+      "counts": {
+        "transparent": 861468,
+        "semi": 711060,
+        "opaque": 0,
+        "darkVisible": 76401,
+        "darkSemi": 76401,
+        "edgePixels": 201845,
+        "darkEdge": 76401,
+        "brightEdge": 13,
+        "redEdge": 29980,
+        "blueEdge": 0,
+        "significantDark": 0,
+        "significantRedEdge": 0,
+        "significantBlueEdge": 0
+      },
+      "alphaBins": {
+        "a1_15": 180441,
+        "a16_63": 35357,
+        "a64_127": 26169,
+        "a128_239": 83221,
+        "a240_254": 385872
+      },
+      "meanVisibleAlpha": 165.30652265631593,
+      "bboxAlpha": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "bbox32": [
+        195,
+        71,
+        1974,
+        605
+      ],
+      "touchingSides": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  ],
+  "missing": [
+    "levelup_light_beams.png"
+  ],
+  "concept": "reference only"
+}

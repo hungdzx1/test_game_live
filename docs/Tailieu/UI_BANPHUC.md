@@ -1,3 +1,5 @@
+*đã xong*
+
 Thư mục chứa các asset: C:\Users\admin\Documents\CODE\TuTien\public\assets\02\UI\UI_BANPHUC
 
 Concept sẽ là ảnh BanPhuc trong thư mục trên

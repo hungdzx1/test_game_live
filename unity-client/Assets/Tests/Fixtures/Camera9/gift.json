@@ -1,0 +1,18 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "da6affa4-dd57-4dd2-92e3-2bded4b8cc62",
+  "seq": 5,
+  "serverTime": 1794171754083,
+  "payload": {
+    "eventId": "camera9-item:received-5",
+    "kind": "item:received",
+    "userId": "cam:12",
+    "timestamp": 1794171754083,
+    "item": "tea",
+    "itemName": "Trà ngộ đạo",
+    "count": 2,
+    "source": "viewer_gift",
+    "scope": "personal"
+  }
+}

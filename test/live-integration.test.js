@@ -25,10 +25,10 @@ test('04-12/17 demo HTTP pipeline, mapping restart, combo replay disk persistenc
   await post(base,'demo',10);await post(base,'phase','battle');
   const rule={...giftRulesFor()[0],id:'override',giftId:'5655',item:'root',quantity:2};assert.equal((await post(base,'giftRules',[rule])).status,200);
   const event={eventId:'http-gift',userId:'demo-1',ten:'Demo',loai:'qua',giftId:'5655',qua:'Demo',soKimCuong:1,soLuong:5,rawMeta:{giftType:1,repeatEnd:true,comboId:'http-combo'}};
-  assert.equal((await post(base,'demoLiveEvent',event)).status,200);assert.equal(app.engine.getPlayer('demo-1').inventory.root,10);const oldId=app.engine.battle.current.id;
+  assert.equal((await post(base,'demoLiveEvent',event)).status,200);assert.equal(app.engine.getPlayer('demo-1').inventory.root,9);assert.equal(app.engine.getPlayer('demo-1').spiritualRootMultiplier,3);const oldId=app.engine.battle.current.id;
   await post(base,'phase','paused');const disk=JSON.parse(await readFile(file,'utf8'));assert.equal(disk.runtime.interactions.version,1);assert.ok(disk.runtime.interactions.seen.length>0);
   await app.close();app=await createApplication({dataRoot:root,port:0});port=await app.listen();base=`http://127.0.0.1:${port}`;
-  assert.equal(app.engine.config.giftRules[0].item,'root');assert.equal(app.engine.battle.current.id,oldId);await post(base,'demoLiveEvent',{...event,eventId:'after-restart'});assert.equal(app.engine.getPlayer('demo-1').inventory.root,10);
+  assert.equal(app.engine.config.giftRules[0].item,'root');assert.equal(app.engine.battle.current.id,oldId);await post(base,'demoLiveEvent',{...event,eventId:'after-restart'});assert.equal(app.engine.getPlayer('demo-1').inventory.root,9);
   assert.equal(await readFile(real,'utf8'),'{"sentinel":"never-touch"}');assert.equal((await post(base,'giftRules',[rule,{...rule,id:'duplicate'}])).status,400);
 });
 test('04-16 real adapter→bus→engine→disk→WS, separate sessions, disconnect keeps game running, no signing secret leaks',async t=>{
@@ -37,10 +37,10 @@ test('04-16 real adapter→bus→engine→disk→WS, separate sessions, disconne
   assert.equal((await post(base,'liveConnect',{username:'tester'})).status,400);assert.equal((await post(base,'mode','live')).status,200);assert.equal(app.engine.players.size,0);
   assert.equal((await post(base,'liveConnect',{username:'@tester',signApiKey:'PRIVATE_MEMORY_ONLY'})).status,200);await until(()=>app.adapter.snapshot().state==='connected');
   all[0].emit('chat',native(1,{comment:'nhập môn'}));await until(()=>app.engine.players.has('tt:123'));assert.equal(app.engine.mode,'live');
-  await post(base,'phase','battle');const p=app.engine.getPlayer('tt:123'),exp=p.cultivation;
+  await post(base,'phase','battle');for(let i=0;i<12;i++)app.engine.tick(250);const p=app.engine.getPlayer('tt:123'),exp=p.cultivation;
   all[0].emit('chat',native(2,{comment:'1'}));all[0].emit('gift',native(3,{giftId:'5655',gift:{type:1,diamondCount:1,name:'Hồng'},repeatCount:3,repeatEnd:1,groupId:'777'}));
-  await until(()=>p.inventory.tea===3);assert.ok(app.engine.battle.current.fields[0].participants['tt:123'].damage>=20);assert.equal(p.cultivation,exp);
-  await until(async()=>JSON.parse(await readFile(realFile,'utf8')).players[0]?.inventory.tea===3);
+  await until(()=>p.buffs.length===3);assert.equal(p.inventory.tea,0);assert.ok(app.engine.battle.current.fields[0].participants['tt:123'].damage>=20);assert.equal(p.cultivation,exp);
+  await until(async()=>JSON.parse(await readFile(realFile,'utf8')).players[0]?.buffs.length===3);
   const state=await wsSnapshot(port);assert.equal(state.mode,'live');assert.equal(state.players[0].userId,'tt:123');assert.equal(state.interactions.giftBanner.item,'tea');assert.equal(JSON.stringify(state).includes('PRIVATE_MEMORY_ONLY'),false);
   assert.equal((await post(base,'demoLiveEvent',{eventId:'fake',userId:'fake',loai:'tim',soLuong:1000})).status,400);assert.equal((await post(base,'clearDemo')).status,400);assert.equal((await post(base,'prepareBreakthrough',undefined,'tt:123')).status,400);
   await post(base,'liveDisconnect');const elapsed=app.engine.elapsedMs;await until(()=>app.engine.elapsedMs>elapsed);assert.equal(app.adapter.snapshot().state,'disconnected');assert.ok(app.engine.players.has('tt:123'));

@@ -3,6 +3,16 @@ import {cleanName} from './playerStore.js';
 export const eventDigest=value=>createHash('sha256').update(value).digest('hex');
 const integer=(value,min,max,label)=>{if(!Number.isSafeInteger(value)||value<min||value>max)throw new Error(`${label} không hợp lệ.`);return value;};
 function numericString(value,label){if(typeof value!=='string'||!/^\d{1,30}$/.test(value)||/^0+$/.test(value))throw new Error(`Thiếu ${label} đáng tin cậy.`);return value;}
+// Cosmetic donor data only. No arbitrary URL fetching or profile data on player saves.
+export function safeAvatar(value){
+  if(typeof value!=='string'||value.length>2048)return null;
+  try{const u=new URL(value),hosts=['tiktokcdn.com','tiktokcdn-us.com','tiktokcdn-eu.com','tiktokcdn-in.com','tiktokv.com','byteoversea.com','ibytedtos.com','muscdn.com'];return u.protocol==='https:'&&!u.username&&!u.password&&!u.port&&hosts.some(h=>u.hostname===h||u.hostname.endsWith('.'+h))?u.href:null;}catch{return null;}
+}
+export const isAvatarTestCommand=value=>typeof value==='string'&&value.trim().replace(/\s+/g,' ').toLowerCase()==='test avt';
+export function avatarForUser(user){
+  for(const key of ['avatarThumb','avatarMedium','avatarLarge'])for(const url of (Array.isArray(user?.[key]?.urlList)?user[key].urlList.slice(0,3):[])){const safe=safeAvatar(url);if(safe)return safe;}
+  return null;
+}
 // API contract verified against tiktok-live-connector 2.5.0 and tiktok-live-proto/v3.
 // README's v2 examples use giftDetails/userId/likeCount; native v3 uses gift/id/count.
 export function fromTikTok(kind,data,roomId,words=[]){
@@ -15,8 +25,10 @@ export function fromTikTok(kind,data,roomId,words=[]){
   if(kind==='chat'){
     result.noiDung=data.content??data.comment;
     if(typeof result.noiDung!=='string')throw new Error('Thiếu nội dung bình luận hợp lệ.');
+    if(isAvatarTestCommand(result.noiDung))result.avatar=avatarForUser(data.user);
   }
   if(kind==='gift'){
+    result.avatar=avatarForUser(data.user);
     result.giftId=numericString(String(data.giftId??''),'gift ID');
     if(!data.gift||!Number.isInteger(data.gift.type))throw new Error('Thiếu loại/đơn giá quà; không đoán từ tên.');
     result.qua=cleanName(data.gift.name??`Quà ${result.giftId}`,words,60);result.soKimCuong=data.gift.diamondCount;result.soLuong=data.repeatCount;
@@ -35,9 +47,11 @@ export function validateEvent(raw,words=[]){
   const event={eventId:raw.eventId,source:raw.source,loai:raw.loai,userId:raw.userId,ten:cleanName(raw.ten??'Đạo hữu',words),avatar:null,qua:cleanName(raw.qua??'',words,60),giftId:raw.giftId??'',soKimCuong:raw.soKimCuong??0,soLuong:raw.soLuong??1,noiDung:raw.noiDung??'',timestamp:raw.timestamp??Date.now(),rawMeta:{}};
   integer(event.timestamp,0,Number.MAX_SAFE_INTEGER,'Thời gian');
   if(typeof event.noiDung!=='string'||event.noiDung.length>200)throw new Error('Bình luận tối đa 200 ký tự.');
+  if(event.source==='tiktok'&&event.loai==='binhluan'&&isAvatarTestCommand(event.noiDung))event.avatar=safeAvatar(raw.avatar);
   const meta=raw.rawMeta??{};
   if(typeof meta.streamId!=='string'||!/^[\w:-]{1,100}$/.test(meta.streamId))throw new Error('Thiếu định danh phiên sự kiện.');event.rawMeta.streamId=meta.streamId;
   if(event.loai==='qua'){
+    event.avatar=safeAvatar(raw.avatar);
     if(typeof event.giftId!=='string'||!/^\d{1,30}$/.test(event.giftId))throw new Error('Gift ID không hợp lệ.');
     integer(event.soKimCuong,1,1000000,'Đơn giá quà');integer(event.soLuong,1,10000,'Số lượng quà');integer(meta.giftType,0,100,'Loại quà');
     event.rawMeta.giftType=meta.giftType;event.rawMeta.repeatEnd=meta.repeatEnd===true;

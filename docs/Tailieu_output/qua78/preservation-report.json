@@ -1,0 +1,69 @@
+{
+  "result": "PASS",
+  "protectedFiles": 957,
+  "originalSceneDocuments": 424,
+  "addedSceneDocuments": 18,
+  "changedParentChildLists": [
+    "946330345",
+    "1015234907"
+  ],
+  "allOtherOriginalDocuments": "byte-identical",
+  "pngAndPrefabs": "unchanged",
+  "cameraPoseViewport": "preserved",
+  "code": [
+    "Assets/Scripts/Scenes/CameraRig.cs",
+    "Assets/Scripts/Effects/ItemReceiptPresenter.cs",
+    "Assets/Scripts/Effects/IdleCameraPresenter.cs",
+    "Assets/Scripts/Effects/GroupReceiptPresenter.cs",
+    "Assets/Editor/Qua78Setup.cs",
+    "Assets/Tests/Editor/Qua78Tests.cs",
+    "Assets/Tests/Editor/ItemReceiptTests.cs"
+  ],
+  "backend": [
+    "itemService.js",
+    "cultivationConfig.js",
+    "breakthroughService.js",
+    "bossService.js",
+    "questService.js",
+    "server.js",
+    "gameEventBus.js",
+    "gameEngine.js"
+  ],
+  "sourceHashes": {
+    "unity-client/Assets/Scripts/Scenes/CameraRig.cs": "b26126b036a2448dfe166a084fcbe72ef7f3a76104b9795bd8ccf909ff295a37",
+    "unity-client/Assets/Scripts/Effects/ItemReceiptPresenter.cs": "7bf467ceddd519f67f43d4bcba97d81306b7093ac1091caaa0815916e6ffae4a",
+    "unity-client/Assets/Scripts/Effects/IdleCameraPresenter.cs": "900c867c072b7b55769ff2b246deeb65f5d47bd18a2b9c8fab8bac61f93532bd",
+    "unity-client/Assets/Scripts/Effects/GroupReceiptPresenter.cs": "4e88431329505035fe888c419c82547fe47cda05216af1cc0adb6e487229e2db",
+    "unity-client/Assets/Editor/Qua78Setup.cs": "a769366d8b3753b39ba34cca1e84319dba796e5375b0371cd6cf0ee720b92010",
+    "unity-client/Assets/Tests/Editor/Qua78Tests.cs": "4bfa072434e2c6e542a91a0e50ad71d404b77ee618883f1dce7217efcda78b2b",
+    "unity-client/Assets/Tests/Editor/ItemReceiptTests.cs": "2969a91fdff7ad5321b068e3bddb816e0904f1fcb63b3f1190fd32ec3d88467b",
+    "itemService.js": "3e53c541fca948d5bb3a29b310a0d56faaa44ff85fc75537511d33085ead79df",
+    "cultivationConfig.js": "1720ecfe1b95523ec849fde6d2cfbf6a38f655c9d9e61fca7378fe6b1de9bac1",
+    "breakthroughService.js": "af0f3635de33d22d627d4286714ceb235455133d0999c7b659eed970a0185fca",
+    "bossService.js": "da29334d4dde1af091e1f746db3c7cf0e5483ccb39704b574d04db9fdf54cfe8",
+    "questService.js": "b5185b29faf709eed40a826ad361f76eaeec84e55eb165e9fadc769b5c559925",
+    "server.js": "1dfbf4e2a964a8c7056ef1bda3810deaa3bfc7c64fcf1b0fa3e92b9e5f504f7a",
+    "gameEventBus.js": "569fb1b255cb82667af74a4bab596ef9ca77030c4bab5d1cc72a4736b7057198",
+    "gameEngine.js": "dd7f4276c77b3b060d0e36820b362cf407b3a425a9bcd5230bef65587f9a2f1b",
+    "unity-client/Assets/Scenes/SectScene_Concept02.unity": "ae0f2239ee7451a9fb49f525f13d531c3285a9ec286b8fd82451a2e7ea845a87"
+  },
+  "unity": {
+    "passed": 47,
+    "failed": 0,
+    "skipped": 0
+  },
+  "node": {
+    "passed": 126,
+    "failed": 0,
+    "skipped": 1
+  },
+  "unverified": [
+    "Windows build",
+    "OBS",
+    "real LIVE"
+  ],
+  "concurrentFiles": {
+    "unity-client/Assets/SceneAuthoring/Nameplate SDF.asset": "732c4eca0b05baae0bb16204178a135b68d6fd914e6f776e225b00e3814ca857"
+  },
+  "concurrentFileNote": "Source TMP font feature records changed after baseline; retained without overwriting. This font change was not part of the isolated test."
+}

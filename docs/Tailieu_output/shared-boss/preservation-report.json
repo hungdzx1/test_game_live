@@ -1,0 +1,55 @@
+{
+  "result": "PASS",
+  "protectedFiles": 860,
+  "existingSceneDocuments": 399,
+  "addedSceneDocuments": 22,
+  "parentChildListsAppended": [
+    "946330345",
+    "1015234907",
+    "1405307425"
+  ],
+  "allOtherOriginalDocuments": "byte-identical",
+  "sourceCameraViewport": "preserved",
+  "pngBytes": "unchanged",
+  "frameSliceRectsPivotsIDs": "preserved",
+  "validatedCode": [
+    "Assets/Scripts/Models/GameModels.cs",
+    "Assets/Scripts/Network/StateMapper.cs",
+    "Assets/Scripts/Characters/CharacterManager.cs",
+    "Assets/Scripts/UI/Concept02Hud.cs",
+    "Assets/Scripts/Effects/BossBattlePresenter.cs",
+    "Assets/Editor/BossBattleSetup.cs",
+    "Assets/Tests/Editor/BossBattleTests.cs"
+  ],
+  "sceneSha256": "99fe202cf873e2785803e9668ef6a271549c62c55f7846ada1d7eacc4088a929",
+  "bossImportMetadata": [
+    {
+      "path": "Assets/Art/Boss/Boss_1.png.meta",
+      "pngSha256": "b9c661daaca19197988a2e25092eb78bb9e0e4eec19849249d8feeb03ce7b0fa"
+    },
+    {
+      "path": "Assets/Art/Boss/Boss_2.png.meta",
+      "pngSha256": "c86f718855409e2449cb719488046cc4e2551cf838483ad743fd4927e500cec3"
+    },
+    {
+      "path": "Assets/Art/Boss/Boss_3.png.meta",
+      "pngSha256": "639deed54fdb753f60df7abedad6f81a45903aea552ff103727860f02727ba49"
+    },
+    {
+      "path": "Assets/Art/Boss/in4_boss_1.png.meta",
+      "pngSha256": "e728b45b8ed24681e95620f24894c50b6c3171a73fa89ef4c478b9b9a6ec6f2b"
+    },
+    {
+      "path": "Assets/Art/Boss/in4_boss_2.png.meta",
+      "pngSha256": "799adef073601ec9aebbf648d393e380915f1d82ef7e6ae67fecc5cb87e5842d"
+    },
+    {
+      "path": "Assets/Art/Boss/in4_boss_3.png.meta",
+      "pngSha256": "778bd0c4d646d88f8384a986d3826be14fba2116f9a1f12494191e69c14e9c38"
+    },
+    {
+      "path": "Assets/Art/Boss/fill_hp.png.meta",
+      "pngSha256": "9ac78001152e27390f9c096a5901daba8269e4886e654db88e99a8f7c7e26fa6"
+    }
+  ]
+}

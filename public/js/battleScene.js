@@ -67,7 +67,7 @@ export class BattleScene{
         const mobs=f.mobs.filter(m=>m.type===type).slice(0,this.low?8:20),pool=this.pools[type];const used=new Set();
         for(const m of mobs){let view=pool.find(v=>v.id===m.id&&!used.has(v));if(!view)view=pool.find(v=>!used.has(v)&&!mobs.some(m=>m.id===v.id));if(!view)continue;used.add(view);view.low=this.low;view.update(m,t,dt);}
       }
-      if(f.activeBoss&&['alive','dead'].includes(f.activeBoss.status)){const boss=this.bosses[f.activeBoss.type];boss.low=this.low;boss.update(f.activeBoss,t,dt);}
+      if(f.activeBoss&&['alive','dead'].includes(f.activeBoss.status)&&(f.activeBoss.warningElapsedMs??0)>=(f.activeBoss.warningDurationMs??0)){const boss=this.bosses[f.activeBoss.type];boss.low=this.low;boss.update(f.activeBoss,t,dt);}
     }
     this.portal.rotation.z=t*.15;this.rune.rotation.z=t*.02;
     for(const fx of this.fx){if(now>=fx.until){fx.group.visible=false;continue;}if(!fx.group.visible)continue;const age=(now-fx.start)/900;fx.ring.scale.setScalar((fx.area?2:1)+age*(fx.area?6:2));fx.slash.rotation.y=Math.atan2(fx.fromX,fx.fromZ);fx.slash.position.x=fx.fromX*(1-age);fx.slash.position.z=fx.fromZ*(1-age);fx.meteor.position.y=7-age*7;fx.text.position.y=2+age*2;}

@@ -45,14 +45,14 @@ namespace TuTienLive.Editor
             CaptureCamera(camera,1080,1920,Path.Combine(Evidence,"concept02-character-preview.png"));
             Debug.Log("CONCEPT02_GPU_CAPTURE_PASS "+SystemInfo.graphicsDeviceName);
         }
-        public static void CaptureCamera(Camera camera,int width,int height,string destination)
+        public static void CaptureCamera(Camera camera,int width,int height,string destination,Action beforeRender=null)
         {
             camera.rect=new Rect(0,0,1,1);camera.aspect=9f/16;
             var target=new RenderTexture(width,height,24,RenderTextureFormat.ARGB32,RenderTextureReadWrite.sRGB);
             target.Create();var previous=RenderTexture.active;Texture2D image=null;
             try
             {
-                camera.targetTexture=target;Canvas.ForceUpdateCanvases();
+                camera.targetTexture=target;Canvas.ForceUpdateCanvases();beforeRender?.Invoke();Canvas.ForceUpdateCanvases();
                 var request=new UniversalRenderPipeline.SingleCameraRequest{destination=target};
                 RenderPipeline.SubmitRenderRequest(camera,request);Canvas.ForceUpdateCanvases();RenderPipeline.SubmitRenderRequest(camera,request);
                 RenderTexture.active=target;image=new Texture2D(width,height,TextureFormat.RGB24,false);

@@ -20,7 +20,52 @@ namespace TuTienLive.Scenes
         private Camera view;
         private readonly TransformOffset pose = new TransformOffset();
         private float authoredHalfHeight;
-        private void OnEnable() { view = GetComponent<Camera>();pose.Capture(transform);authoredHalfHeight=view.orthographicSize;ConfigureViewport(Screen.width, Screen.height); }
+        private bool receiptFocus;
+        private Vector2 blessingShake;
+        public Vector2 BlessingShake => blessingShake;
+        private Vector2 bossWarningShake;
+        public Vector2 BossWarningShake=>bossWarningShake;
+        public void SetBossWarningShake(Vector2 offset){bossWarningShake=Vector2.ClampMagnitude(offset,.04f);Sample(sampledTime);}
+        public void SetBlessingShake(Vector2 offset)
+        { blessingShake=Vector2.ClampMagnitude(offset,.04f);Sample(sampledTime); }
+        private Vector3 receiptTarget;
+        private Vector3 receiptStartPosition;
+        private float receiptStartHalfHeight;
+        private bool receiptReturning;
+        private float receiptWeight, receiptHalfHeight, receiptBaseHalfHeight, sampledTime;
+        public bool HasReceiptFocus => receiptFocus;
+        public float ReceiptBaseHalfHeight=>receiptBaseHalfHeight;
+        public float OverviewHalfHeight=>receiptFocus?receiptBaseHalfHeight:ambientFocus?ambientBaseHalfHeight:GetComponent<Camera>().orthographicSize;
+        public Vector3 OverviewPosition=>overviewPosition;
+        private Vector3 overviewPosition;
+        private bool ambientFocus;
+        private Vector3 ambientTarget;
+        private float ambientWeight,ambientHalfHeight,ambientBaseHalfHeight;
+        public bool HasAmbientFocus=>ambientFocus;
+        public bool AmbientReturnRequested { get; private set; }
+        public bool RequestAmbientReturn(){if(!ambientFocus){AmbientReturnRequested=false;return true;}AmbientReturnRequested=true;return false;}
+        public void SetAmbientFocus(Vector3 target,float halfHeight,float weight)
+        {
+            if(!view)view=GetComponent<Camera>();if(receiptFocus)return;
+            if(!ambientFocus)ambientBaseHalfHeight=view.orthographicSize;
+            ambientFocus=true;ambientTarget=target;ambientHalfHeight=Mathf.Max(.1f,halfHeight);ambientWeight=Mathf.Clamp01(weight);Sample(sampledTime);
+        }
+        public void ClearAmbientFocus(){AmbientReturnRequested=false;if(!ambientFocus)return;ambientFocus=false;if(view&&!receiptFocus)view.orthographicSize=ambientBaseHalfHeight;Sample(sampledTime);}
+        public void SetReceiptFocus(Vector3 target, float halfHeight, float weight,bool returning=false)
+        {
+            if(!view)view=GetComponent<Camera>();
+            if(!receiptFocus){receiptBaseHalfHeight=ambientFocus?ambientBaseHalfHeight:view.orthographicSize;receiptStartPosition=transform.position;receiptStartHalfHeight=view.orthographicSize;ambientFocus=false;AmbientReturnRequested=false;}
+            receiptReturning=returning;
+            receiptFocus=true;receiptTarget=target;receiptHalfHeight=Mathf.Max(.1f,halfHeight);receiptWeight=Mathf.Clamp01(weight);
+            Sample(sampledTime);
+        }
+        public void ClearReceiptFocus()
+        {
+            if(!receiptFocus)return;
+            receiptFocus=false;if(view)view.orthographicSize=receiptBaseHalfHeight;
+            Sample(sampledTime);
+        }
+        private void OnEnable() { view = GetComponent<Camera>();pose.Capture(transform);overviewPosition=transform.position;authoredHalfHeight=view.orthographicSize;ConfigureViewport(Screen.width, Screen.height); }
         public void ConfigureViewport(int width, int height)
         {
             if (!view) view = GetComponent<Camera>();
@@ -37,7 +82,7 @@ namespace TuTienLive.Scenes
         {
             if (!view) view = GetComponent<Camera>();
             float half = sceneAuthored ? Mathf.Max(.01f,authoredHalfHeight) : 9.6f;
-            if(!autoFitBounds){RequiredHalfHeight=view.orthographicSize;return;}
+            if(!autoFitBounds){RequiredHalfHeight=receiptFocus?receiptBaseHalfHeight:ambientFocus?ambientBaseHalfHeight:view.orthographicSize;return;}
             var cameraPosition=transform.position;
             if (protectedLayers != null) foreach (var layer in protectedLayers)
             {
@@ -51,12 +96,39 @@ namespace TuTienLive.Scenes
         }
         public void Sample(float time)
         {
+            sampledTime=time;
             CurrentDrift = driftEnabled ? new Vector2(Mathf.Sin(time * .075f) * driftAmplitude.x, Mathf.Sin(time * .054f) * driftAmplitude.y) : Vector2.zero;
+            var translation=new Vector3(CurrentDrift.x,CurrentDrift.y);
             if(sceneAuthored)pose.Apply(transform,new Vector3(CurrentDrift.x,CurrentDrift.y),Quaternion.identity);
             else {transform.localPosition=new Vector3(CurrentDrift.x,CurrentDrift.y,-20);transform.localRotation=Quaternion.identity;}
+            overviewPosition=transform.position;
+            if(ambientFocus&&!receiptFocus)
+            {
+                float half=Mathf.Lerp(ambientBaseHalfHeight,Mathf.Min(ambientBaseHalfHeight,ambientHalfHeight),ambientWeight);
+                var target=ClampFocus(Vector3.Lerp(transform.position,new Vector3(ambientTarget.x,ambientTarget.y,transform.position.z),ambientWeight),half,ambientBaseHalfHeight);var offset=target-transform.position;
+                if(sceneAuthored)translation+=transform.parent?transform.parent.InverseTransformVector(offset):offset;else transform.position=target;
+                view.orthographicSize=half;
+            }
+            if(receiptFocus)
+            {
+                float half=Mathf.Lerp(receiptReturning?receiptBaseHalfHeight:receiptStartHalfHeight,Mathf.Min(receiptBaseHalfHeight,receiptHalfHeight),receiptWeight);
+                var target=ClampFocus(Vector3.Lerp(receiptReturning?transform.position:receiptStartPosition,new Vector3(receiptTarget.x,receiptTarget.y,transform.position.z),receiptWeight),half,receiptBaseHalfHeight);
+                var offset=target-transform.position;
+                if(sceneAuthored)translation+=transform.parent?transform.parent.InverseTransformVector(offset):offset;
+                else transform.position=target;
+                view.orthographicSize=half;
+            }
+            var shake=blessingShake+bossWarningShake;
+            if(sceneAuthored)pose.Apply(transform,translation+new Vector3(shake.x,shake.y),Quaternion.identity);
+            else transform.localPosition+=new Vector3(shake.x,shake.y);
+        }
+        private Vector3 ClampFocus(Vector3 target,float half,float baseline)
+        {
+            float y=Mathf.Max(0,baseline-half),x=y*PortraitAspect;
+            target.x=Mathf.Clamp(target.x,overviewPosition.x-x,overviewPosition.x+x);target.y=Mathf.Clamp(target.y,overviewPosition.y-y,overviewPosition.y+y);return target;
         }
         public void MarkSceneAuthored(){sceneAuthored=true;pose.Capture(transform);authoredHalfHeight=GetComponent<Camera>().orthographicSize;}
-        private void OnDisable(){if(sceneAuthored)pose.Restore();}
+        private void OnDisable(){if(view){if(receiptFocus)view.orthographicSize=receiptBaseHalfHeight;else if(ambientFocus)view.orthographicSize=ambientBaseHalfHeight;}receiptFocus=ambientFocus=false;AmbientReturnRequested=false;blessingShake=bossWarningShake=Vector2.zero;if(sceneAuthored)pose.Restore();}
         private void OnDrawGizmosSelected()
         { Gizmos.color = Color.yellow; Gizmos.DrawWireCube(Vector3.zero, new Vector3(10.8f, 19.2f, .01f)); }
     }

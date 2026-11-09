@@ -1,0 +1,89 @@
+{
+  "gpu": "NVIDIA Quadro M1000M",
+  "timeline": [
+    {
+      "scenario": "stage",
+      "time": 0.12,
+      "active": 1,
+      "pooled": 8,
+      "characters": 25
+    },
+    {
+      "scenario": "stage",
+      "time": 0.5,
+      "active": 1,
+      "pooled": 8,
+      "characters": 25
+    },
+    {
+      "scenario": "stage",
+      "time": 1.5,
+      "active": 1,
+      "pooled": 8,
+      "characters": 25
+    },
+    {
+      "scenario": "stage",
+      "time": 2.1,
+      "active": 0,
+      "pooled": 8,
+      "characters": 25
+    },
+    {
+      "scenario": "realm",
+      "time": 0.12,
+      "active": 1,
+      "pooled": 8,
+      "characters": 25
+    },
+    {
+      "scenario": "realm",
+      "time": 0.5,
+      "active": 1,
+      "pooled": 8,
+      "characters": 25
+    },
+    {
+      "scenario": "realm",
+      "time": 1.5,
+      "active": 1,
+      "pooled": 8,
+      "characters": 25
+    },
+    {
+      "scenario": "realm",
+      "time": 2.1,
+      "active": 0,
+      "pooled": 8,
+      "characters": 25
+    },
+    {
+      "scenario": "low",
+      "time": 0.12,
+      "active": 1,
+      "pooled": 8,
+      "characters": 6
+    },
+    {
+      "scenario": "low",
+      "time": 0.5,
+      "active": 1,
+      "pooled": 8,
+      "characters": 6
+    },
+    {
+      "scenario": "low",
+      "time": 1.5,
+      "active": 1,
+      "pooled": 8,
+      "characters": 6
+    },
+    {
+      "scenario": "low",
+      "time": 2.1,
+      "active": 0,
+      "pooled": 8,
+      "characters": 6
+    }
+  ]
+}

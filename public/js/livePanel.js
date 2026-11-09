@@ -2,7 +2,7 @@ import {mountBlocks} from './ui/dom.js';
 import {syncField,syncFields,saveFields,changed,ackFields,valueOf,setDisabled} from './ui/forms.js';
 import {control} from './network.js';
 import {createGiftPicker} from './ui/giftPicker.js';
-import {presetForRule} from './ui/giftPresets.js';
+import {GIFT_PRESETS,presetForRule} from './ui/giftPresets.js';
 import {createSectLevelsPanel} from './ui/sectLevelsPanel.js';
 const items={tea:'Trà Ngộ Đạo',pill:'Độ Kiếp Đan',blessing:'Ban Phúc',root:'Biến Dị Linh Căn',camera:'Quay Cam'};
 const make=(tag,text)=>{const e=document.createElement(tag);if(text)e.textContent=text;return e;};
@@ -10,6 +10,7 @@ export function createLivePanel(log){
   const section=make('section');section.id='live-panel';section.innerHTML=`<section class="panel" data-mount="home-connection"><div class="panel-heading"><span class="heading-icon tiktok-mark">♪</span><div><h2>Kết nối TikTok LIVE</h2><p>Kết nối tài khoản TikTok để nhận sự kiện LIVE và điều khiển trò chơi theo thời gian thực.</p></div></div>
   <div class="connection-toolbar"><label>Bộ dữ liệu<select id="game-mode"><option value="demo">Dữ liệu mô phỏng</option><option value="live">Dữ liệu người chơi LIVE</option></select></label><span>Demo và LIVE lưu riêng · Chỉ nhận sự kiện khi bạn đã lên LIVE</span></div>
   <div class="connection-inputs"><label>Tên tài khoản TikTok<input id="live-username" maxlength="25" placeholder="@ten_tai_khoan" autocomplete="off"></label><label><span>Khóa ký Euler Stream <small>(tùy chọn)</small></span><input id="live-sign-key" type="password" maxlength="512" placeholder="••••••••••••" autocomplete="off"></label><div id="live-state-box" class="live-state-box"><span class="status-dot"></span><p id="live-status" role="status">Chưa kết nối</p></div><button id="live-disconnect">Ngắt kết nối</button><button id="live-connect" class="primary">Kết nối</button></div>
+  <div class="row"><label><input id="live-avatar-test" type="checkbox"> Thử avatar LIVE</label></div><p>Bật để người xem bình luận <strong>test avt</strong>: hiện ảnh, tên và trạng thái tải trong game Unity 10 giây. Dùng được cả khi chưa nhập môn. Tắt để ẩn ngay.</p>
   <details class="connection-details"><summary>Thông tin và lịch sử kết nối</summary><p>Công cụ không tự lên LIVE. Connector không chính thức 2.5.0 dùng TikTok/dịch vụ ký Euler Stream. Khóa chỉ giữ trong RAM; không cần mật khẩu/cookie TikTok.</p><ol id="live-history"></ol><div class="row"><label>Chờ nối lại (s)<input id="reconnect-seconds" type="number" min="1" max="60"></label><label>Lần thử tối đa<input id="reconnect-attempts" type="number" min="0" max="30"></label><button id="save-live-settings">Lưu kết nối</button></div></details><details class="connection-details"><summary>Nhật ký bình luận &amp; follow</summary><p>20 bản ghi gần nhất trong phiên, gồm nội dung bình luận, kết quả lệnh và lý do bị từ chối.</p><ol id="live-event-log" class="live-event-log"></ol></details></section><section id="sect-level-panel" class="panel" data-mount="settings-gifts"><h2>Cấp tông môn</h2>
     <p>Mỗi dòng là số tim cần để hoàn tất cấp đó. Đủ tim thì nhận quà một lần và chuyển cấp tiếp theo; dòng cuối đầy sẽ giữ MAX. Tim dư chuyển tiếp.</p>
     <div class="gift-table-scroll"><table id="sect-level-table"><thead><tr><th>Cấp</th><th>Số lượng tim</th><th>Quà</th><th>Số lượng thưởng</th><th>Phạm vi</th></tr></thead><tbody></tbody></table></div>
@@ -21,8 +22,9 @@ export function createLivePanel(log){
     <div class="row"><button id="add-gift-rule">Thêm quy tắc</button><button id="save-gift-rules">Lưu bảng quà</button></div>
     <p id="live-log"></p></section><section class="panel" data-mount="demo-events" id="live-demo-tools"><h2>Sự kiện giả · cùng luồng xử lý</h2><p>Dùng đạo hữu đang chọn trên trang Demo. Nếu chưa có người, ID demo-khach được giữ quà chờ đến khi bình luận nhập môn trong công cụ bình luận.</p>
     <div class="row"><button data-like="1">1 tim</button><button data-like="10">10 tim</button><button data-like="100">100 tim</button><button data-like="1000">1.000 tim</button><button id="demo-follow">Theo dõi</button><button id="demo-enter">Vào phòng</button></div>
-    <label>Gift ID<input id="demo-gift-id" value="5655" maxlength="30"></label><label>Tên quà<input id="demo-gift-name" value="Quà demo" maxlength="60"></label>
-    <div class="row"><label>Đơn giá<select id="demo-diamonds"><option value="1">Nhỏ · 1</option><option value="10">Vừa · 10</option><option value="20">20 xu</option><option value="100">Lớn · 100</option></select></label><button id="demo-gift">Gửi quà đơn</button><button id="demo-combo">Combo 1 → 3 → 5 → chốt 5</button><button id="demo-replay">Gửi lại quà vừa chốt</button></div>
+    <label>Gift ID<input id="demo-gift-id" value="5655" maxlength="30"></label><label>Tên quà<input id="demo-gift-name" value="Rose" maxlength="60"></label>
+    <div class="row"><label>Quà / đơn giá<select id="demo-diamonds"><option value="1">Hoa hồng · 1 xu</option><option value="10">Cỏ bốn lá · 10 xu</option><option value="20">Má hồng nhỏ xinh · 20 xu</option><option value="100">Nhập thủ công · 100 xu</option></select></label><button id="demo-gift">Gửi quà đơn</button><button id="demo-combo">Combo 1 → 3 → 5 → chốt 5</button><button id="demo-replay">Gửi lại quà vừa chốt</button></div>
+    <p>Chọn 1, 10 hoặc 20 xu để điền đúng ID và tên quà có sẵn. Vật phẩm nhận theo bảng Quà → vật phẩm đã lưu; vẫn có thể sửa ID/tên để thử quà thủ công.</p>
     <div class="row"><button data-connection="connect">Nối mô phỏng</button><button data-connection="drop">Rớt mạng / nối lại</button><button data-connection="offline">Kênh chưa LIVE</button><button data-connection="end">LIVE kết thúc</button><button data-connection="disconnect">Ngắt mô phỏng</button></div></section>
     `;
   mountBlocks(section);
@@ -42,10 +44,12 @@ export function createLivePanel(log){
   const safely=fn=>()=>Promise.resolve().then(fn).catch(e=>log(e.message,'error'));
   function event(loai,data={}){const p=selected();return {eventId:crypto.randomUUID(),loai,userId:p.userId,ten:p.name,...data};}
   function gift(meta={}){return event('qua',{qua:$('demo-gift-name').value,giftId:$('demo-gift-id').value,soKimCuong:Number($('demo-diamonds').value),soLuong:1,rawMeta:{giftType:0,...meta}});}
+  $('demo-diamonds').onchange=()=>{const preset=GIFT_PRESETS.find(g=>g.diamonds===Number($('demo-diamonds').value));if(preset){$('demo-gift-id').value=preset.id;$('demo-gift-name').value=preset.name;}};
   $('game-mode').onchange=safely(()=>send('mode',$('game-mode').value));
   $('live-connect').onclick=safely(async()=>{const key=$('live-sign-key').value;$('live-sign-key').value='';await send('liveConnect',{username:$('live-username').value,signApiKey:key});});
   $('live-disconnect').onclick=safely(()=>send('liveDisconnect'));
   $('save-live-settings').onclick=safely(()=>saveFields('liveSettings',{reconnectSeconds:'reconnect-seconds',maxReconnectAttempts:'reconnect-attempts'},send));
+  $('live-avatar-test').onchange=safely(async()=>{const input=$('live-avatar-test'),enabled=input.checked;input.disabled=true;try{await send('liveSettings',{avatarTestEnabled:enabled});ackFields([[input,enabled]]);}catch(error){delete input.dataset.dirty;syncField('live-avatar-test',state?.config.live.avatarTestEnabled??false);throw error;}finally{input.disabled=false;}});
   document.querySelectorAll('[data-like]').forEach(b=>b.onclick=safely(()=>send('demoLiveEvent',event('tim',{soLuong:Number(b.dataset.like)}))));
   $('demo-follow').onclick=safely(()=>send('demoLiveEvent',event('theodoi')));$('demo-enter').onclick=safely(()=>send('demoLiveEvent',event('vao')));
   $('demo-gift').onclick=safely(()=>{lastGift=gift();return send('demoLiveEvent',lastGift);});
@@ -80,6 +84,7 @@ export function createLivePanel(log){
   }
   return {updateLog(d){if(d.mode===state?.mode)renderLog(d.interactionLog??[]);},update(s){state=s;if(logMode!==s.mode){logMode=s.mode;renderLog([]);}const r=s.config.live;if(!r)return;
     syncFields({username:'live-username',reconnectSeconds:'reconnect-seconds',maxReconnectAttempts:'reconnect-attempts'},r);sectLevels.update(s);
+    syncField('live-avatar-test',r.avatarTestEnabled??false);
     if(!rulesLoaded){rulesLoaded=true;for(const rule of s.config.giftRules??[])addRule(rule);}
     $('game-mode').value=s.mode;$('live-demo-tools').hidden=s.mode!=='demo';setDisabled($('live-connect'),s.mode!=='live'||['connected','connecting','reconnecting','disconnecting'].includes(s.tiktok?.state));setDisabled($('live-disconnect'),s.mode!=='live'||s.tiktok?.state==='disconnected');
     for(const id of ['demo','count','clear','grant-item','prepare-breakthrough','quest-cultivate','quest-checkin','send-command','demo-speed','animation-preview','battle-demo','skill-1','skill-2']){const element=$(id);if(element)setDisabled(element,s.mode!=='demo');}

@@ -1,0 +1,17 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "15298355-93bd-4f07-ba3b-043890e4394c",
+  "seq": 3,
+  "serverTime": 1794085126008,
+  "payload": {
+    "eventId": "e589a8ce-b1e3-444c-8428-9a9a62d798be",
+    "kind": "item:received",
+    "userId": "receipt:29",
+    "timestamp": 1794085126008,
+    "item": "pill",
+    "itemName": "Độ Kiếp Đan",
+    "count": 2,
+    "source": "admin_demo"
+  }
+}

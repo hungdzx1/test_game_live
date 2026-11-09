@@ -37,25 +37,45 @@ namespace TuTienLive.Tests
             var legacy=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resources/TribulationPrefab.prefab").GetComponent<TribulationController>();
             Assert.That(legacy.stormCloud,Is.Null);Assert.That(legacy.lightningFrames,Is.Empty);
         }
-        [Test] public void EachStrikePlaysAllFourFramesOnceAndKeepsStormBetweenStrikes()
+        [Test] public void FourFramesLoopWithoutGapsThroughoutCeremonyAndResampleAfterReconnect()
         {
-            var snapshot=Read("Characters/ritual-start");fx.Sample(snapshot,0);Assert.That(fx.stormCloud.enabled,Is.True);
+            var snapshot=Read("Characters/ritual-start");
+            foreach(float time in new[]{0,299,300,1000,1499})
+            {
+                fx.Sample(snapshot,time);Assert.That(fx.stormCloud.enabled||fx.LightningVisible,Is.False,"FX before arrival at "+time);
+                Assert.That(fx.lightningFrames.Any(f=>f.enabled),Is.False);
+                if(time<=1000)Assert.That(Vector3.Distance(fx.Position(Vector3.zero),fx.Platform),Is.GreaterThan(.00001f));
+            }
+            foreach(float time in new[]{1500,1600,1799})
+            {
+                fx.Sample(snapshot,time);Assert.That(fx.stormCloud.enabled,Is.True);Assert.That(fx.LightningVisible,Is.False);
+                Assert.That(Vector3.Distance(fx.Position(Vector3.zero),fx.Platform),Is.LessThan(.00001f));
+            }
             for(int i=0;i<4;i++)
             {
-                fx.Sample(snapshot,1800+i*45);Assert.That(fx.LightningFrameIndex,Is.EqualTo(i));Assert.That(fx.LightningIndex,Is.Zero);
+                fx.Sample(snapshot,1800+i*(1000f/6)+.01f);Assert.That(fx.LightningFrameIndex,Is.EqualTo(i));Assert.That(fx.LightningIndex,Is.Zero);
                 Assert.That(fx.lightningFrames.Count(f=>f.enabled),Is.EqualTo(1));Assert.That(fx.lightningFrames[i].enabled,Is.True);
                 Assert.That(fx.lightning.enabled,Is.False);Assert.That(fx.clouds.Any(c=>c.enabled),Is.False);
             }
-            fx.Sample(snapshot,1980);Assert.That(fx.lightningFrames.Any(f=>f.enabled),Is.False);Assert.That(fx.stormCloud.enabled,Is.True);
-            fx.Sample(snapshot,1935);Assert.That(fx.LightningFrameIndex,Is.EqualTo(3),"Reconnect samples the authoritative position, without replaying from frame 01.");
-            var json=JObject.Parse(File.ReadAllText("Assets/Tests/Fixtures/Characters/ritual-start.json"));json["payload"]["breakthrough"]["lightningCount"]=3;
-            Assert.That(StateMapper.TryParse(json.ToString(),out var several,out _),Is.True);
-            fx.Sample(several.Snapshot,1800+(12000-2500)/3f+100);Assert.That(fx.LightningIndex,Is.EqualTo(1));Assert.That(fx.LightningFrameIndex,Is.EqualTo(2));
+            fx.Sample(snapshot,1800+1000f*40/60+.01f);Assert.That(fx.LightningFrameIndex,Is.Zero);Assert.That(fx.LightningIndex,Is.EqualTo(1));
+            foreach(float time in new[]{1980f,2200f,5000f,9000f,11999f}){fx.Sample(snapshot,time);Assert.That(fx.lightningFrames.Count(f=>f.enabled),Is.EqualTo(1),"Missing loop at "+time);Assert.That(fx.stormCloud.enabled,Is.True);}
+            fx.Sample(snapshot,2301);Assert.That(fx.LightningFrameIndex,Is.EqualTo(3),"Reconnect samples the authoritative position, without replaying from frame 01.");
+            var before=snapshot.CopyJson().ToString();fx.Sample(snapshot,12000);Assert.That(fx.LightningVisible||fx.stormCloud.enabled,Is.False);Assert.That(fx.lightningFrames.Any(f=>f.enabled),Is.False);Assert.That(snapshot.CopyJson().ToString(),Is.EqualTo(before));
+        }
+        [Test] public void ContinuousVisualLoopUsesEntireServerDurationForEveryStrikeCount()
+        {
+            foreach(int duration in new[]{8000,10000,12000,20000})foreach(int count in new[]{1,3,10})
+            {
+                var json=JObject.Parse(File.ReadAllText("Assets/Tests/Fixtures/Characters/ritual-start.json"));json["payload"]["breakthrough"]["durationMs"]=duration;json["payload"]["breakthrough"]["lightningCount"]=count;
+                Assert.That(StateMapper.TryParse(json.ToString(),out var state,out _),Is.True);
+                for(int time=0;time<duration;time+=37){fx.Sample(state.Snapshot,time);bool expected=time>=1800;Assert.That(fx.LightningVisible,Is.EqualTo(expected),$"duration={duration} count={count} time={time}");Assert.That(fx.lightningFrames.Count(f=>f.enabled),Is.EqualTo(expected?1:0));Assert.That(fx.stormCloud.enabled,Is.EqualTo(time>=1500));}
+                fx.Sample(state.Snapshot,duration);Assert.That(fx.LightningVisible,Is.False);
+            }
         }
         [Test] public void PauseFreezesFrameAndResultBattleDisconnectClearEverySprite()
         {
             var json=JObject.Parse(File.ReadAllText("Assets/Tests/Fixtures/Characters/ritual-start.json"));
-            json["payload"]["phase"]="paused";json["payload"]["breakthrough"]["elapsedMs"]=1890;
+            json["payload"]["phase"]="paused";json["payload"]["breakthrough"]["elapsedMs"]=2134;
             Assert.That(StateMapper.TryParse(json.ToString(),out var paused,out _),Is.True);
             fx.Sample(paused.Snapshot,0);fx.Sample(paused.Snapshot,9999);Assert.That(fx.LightningFrameIndex,Is.EqualTo(2));
             foreach(string file in new[]{"Characters/ritual-success","Characters/ritual-failure","battle"})
@@ -75,7 +95,8 @@ namespace TuTienLive.Tests
             try
             {
                 var legacy=instance.GetComponent<TribulationController>();var snapshot=Read("Characters/ritual-start");
-                legacy.Sample(snapshot,0);Assert.That(legacy.clouds.All(c=>c.enabled),Is.True);Assert.That(legacy.lightning.enabled,Is.False);
+                legacy.Sample(snapshot,0);Assert.That(legacy.clouds.Any(c=>c.enabled),Is.False);Assert.That(legacy.lightning.enabled,Is.False);
+                legacy.Sample(snapshot,1500);Assert.That(legacy.clouds.All(c=>c.enabled),Is.True);Assert.That(legacy.lightning.enabled,Is.False);
                 legacy.Sample(snapshot,1800);Assert.That(legacy.lightning.enabled,Is.True);Assert.That(legacy.LightningVisible,Is.True);Assert.That(legacy.LightningFrameIndex,Is.EqualTo(-1));
                 legacy.Sample(snapshot,1980);Assert.That(legacy.lightning.enabled,Is.False);legacy.Sample(null,0);Assert.That(legacy.clouds.Any(c=>c.enabled),Is.False);
             }
@@ -95,7 +116,7 @@ namespace TuTienLive.Tests
         {
             yield return new EnterPlayMode();bindings=Object.FindAnyObjectByType<SectSceneBindings>();bindings.network.enabled=false;
             var raw=JObject.Parse(File.ReadAllText("Assets/Tests/Fixtures/Characters/ritual-start.json"));
-            raw["payload"]["phase"]="paused";raw["payload"]["breakthrough"]["elapsedMs"]=1890;
+            raw["payload"]["phase"]="paused";raw["payload"]["breakthrough"]["elapsedMs"]=2134;
             bindings.network.Protocol.Open(9101);Assert.That(bindings.network.Protocol.Accept(raw.ToString(),9101,0),Is.True);
             double deadline=EditorApplication.timeSinceStartup+4;
             while(fx.LightningFrameIndex!=2&&EditorApplication.timeSinceStartup<deadline)yield return null;
@@ -107,6 +128,17 @@ namespace TuTienLive.Tests
             bindings.network.Protocol.Disconnect(9102);yield return null;yield return null;
             bool disconnected=!fx.stormCloud.enabled&&!fx.lightningFrames.Any(f=>f.enabled);
             yield return new ExitPlayMode();Assert.That(visible&&result&&disconnected,Is.True,$"strike={visible} result={result} disconnect={disconnected}");
+        }
+        [UnityTest] public IEnumerator PlayLoopsBetweenOldStrikesWithoutEditingSnapshot()
+        {
+            yield return new EnterPlayMode();bindings=Object.FindAnyObjectByType<SectSceneBindings>();bindings.network.enabled=false;
+            var raw=JObject.Parse(File.ReadAllText("Assets/Tests/Fixtures/Characters/ritual-start.json"));raw["payload"]["breakthrough"]["elapsedMs"]=2200;
+            bindings.network.Protocol.Open(9110);Assert.That(bindings.network.Protocol.Accept(raw.ToString(),9110,0),Is.True);
+            double ready=EditorApplication.timeSinceStartup+3;while(!fx.LightningVisible&&EditorApplication.timeSinceStartup<ready)yield return null;
+            var before=bindings.network.State.Snapshot.CopyJson().ToString();var frames=new System.Collections.Generic.HashSet<int>();bool visible=true;double end=EditorApplication.timeSinceStartup+.45;
+            while(EditorApplication.timeSinceStartup<end){visible&=fx.LightningVisible&&fx.lightningFrames.Count(f=>f.enabled)==1;frames.Add(fx.LightningFrameIndex);yield return null;}
+            bool unchanged=bindings.network.State.Snapshot.CopyJson().ToString()==before;bindings.network.Protocol.Disconnect(9110);yield return null;
+            yield return new ExitPlayMode();Assert.That(visible&&frames.Count>=2&&unchanged,Is.True,$"visible={visible} distinctFrames={frames.Count} snapshot={unchanged}");
         }
     }
 }

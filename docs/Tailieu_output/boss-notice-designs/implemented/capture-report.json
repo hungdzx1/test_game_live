@@ -1,0 +1,47 @@
+{
+  "gpu": "NVIDIA Quadro M1000M",
+  "samples": [
+    {
+      "fixture": "warning1",
+      "warning": true,
+      "seconds": 3,
+      "boss": false,
+      "shake": 0.0
+    },
+    {
+      "fixture": "warning2",
+      "warning": true,
+      "seconds": 3,
+      "boss": false,
+      "shake": 0.0
+    },
+    {
+      "fixture": "warning3",
+      "warning": true,
+      "seconds": 3,
+      "boss": false,
+      "shake": 0.0
+    },
+    {
+      "fixture": "paused",
+      "warning": true,
+      "seconds": 2,
+      "boss": false,
+      "shake": 0.0
+    },
+    {
+      "fixture": "revealed",
+      "warning": false,
+      "seconds": 0,
+      "boss": true,
+      "shake": 0.0
+    },
+    {
+      "fixture": "cultivation",
+      "warning": false,
+      "seconds": 0,
+      "boss": false,
+      "shake": 0.0
+    }
+  ]
+}

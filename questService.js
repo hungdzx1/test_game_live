@@ -12,5 +12,5 @@ export class QuestService {
     }else throw new Error('Nhiệm vụ không hợp lệ.');
     e.event('quest:completed',p.userId,{kind});e.important=true;
   }
-  redeem(p,item){const e=this.engine;if(e.phase!=='cultivation')throw new Error('Chỉ đổi vật phẩm khi tu luyện.');if(!Object.hasOwn(ITEM_NAMES,item))throw new Error('Vật phẩm không hợp lệ.');const cost=e.rules.quests.costs[item];if(p.questState.points<cost)throw new Error('Chưa đủ điểm nhiệm vụ.');e.items.grantItem(p,item,1,'quest');p.questState.points-=cost;e.event('quest:redeemed',p.userId,{item});}
+  redeem(p,item){const e=this.engine;if(e.phase!=='cultivation')throw new Error('Chỉ đổi vật phẩm khi tu luyện.');if(!Object.hasOwn(ITEM_NAMES,item))throw new Error('Vật phẩm không hợp lệ.');const cost=e.rules.quests.costs[item];if(p.questState.points<cost)throw new Error('Chưa đủ điểm nhiệm vụ.');e.items.receiveItem(p,item,1,'quest');p.questState.points-=cost;e.event('quest:redeemed',p.userId,{item});}
 }

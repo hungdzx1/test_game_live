@@ -9,8 +9,11 @@ namespace TuTienLive.Characters
         public SpriteRenderer[] clouds;
         [Tooltip("Optional Concept02 storm art. Legacy scenes keep their procedural clouds.")]
         public SpriteRenderer stormCloud;
-        [Tooltip("Four authored PNG frames, in order 01 to 04. Timing follows each server-scheduled strike.")]
+        [Tooltip("Four existing PNGs per 40-frame cycle at 60 FPS (2/3 second). Starts 0.3 seconds after platform arrival; sampled from server time.")]
         public SpriteRenderer[] lightningFrames = System.Array.Empty<SpriteRenderer>();
+        public const float PlatformArrivalMs=1500;
+        public const float LightningStartMs=PlatformArrivalMs+300;
+        public const float LightningCycleMs=1000f*40/60;
         public Transform platformSeat;
         public string ActiveId { get; private set; }
         public bool LightningVisible { get; private set; }
@@ -30,17 +33,26 @@ namespace TuTienLive.Characters
             ActiveId = active?.Id ?? result?.Id; UserId = active?.UserId ?? result?.UserId;
             IsActive = active != null; Outcome = result?.Outcome; LightningVisible = false; LightningIndex = -1; LightningFrameIndex = -1;
             if(snapshot?.Phase=="paused"||snapshot?.Phase=="stopped")offsetMs=0;
-            ElapsedMs = Mathf.Min((float)(active?.DurationMs ?? 0), (float)(active?.ElapsedMs ?? 0) + offsetMs);
-            if(clouds!=null)foreach (var cloud in clouds) if(cloud)cloud.enabled = active != null && !stormCloud;
-            if(stormCloud)stormCloud.enabled=active!=null;
+            ElapsedMs = Mathf.Clamp((float)(active?.ElapsedMs ?? 0) + offsetMs,0,(float)(active?.DurationMs ?? 0));
+            bool onPlatform=active!=null&&ElapsedMs>=PlatformArrivalMs&&ElapsedMs<(float)(active.DurationMs??0);
+            if(clouds!=null)foreach (var cloud in clouds) if(cloud)cloud.enabled = onPlatform && !stormCloud;
+            if(stormCloud)stormCloud.enabled=onPlatform;
             bool useFrames=lightningFrames!=null&&lightningFrames.Length==4;
             if(lightningFrames!=null)foreach(var frame in lightningFrames)
             { if(frame)frame.enabled=false;else useFrames=false; }
             if (active != null)
             {
                 float duration = (float)(active.DurationMs ?? 0); int count = active.LightningCount ?? 0;
-                // Matches breakthroughScene.js scheduling, using server duration/count only.
-                if (count > 0 && duration > 2500 && ElapsedMs >= 1800)
+                // PNGs are a continuous cosmetic loop, sampled directly from server time.
+                // LightningIndex is the visual loop number here; it never adds gameplay strikes.
+                if(useFrames&&ElapsedMs>=LightningStartMs&&ElapsedMs<duration)
+                {
+                    float age=ElapsedMs-LightningStartMs;
+                    LightningVisible=true;LightningIndex=Mathf.FloorToInt(age/LightningCycleMs);
+                    LightningFrameIndex=Mathf.FloorToInt(age/(LightningCycleMs/4))%4;
+                }
+                // Preserve the procedural fallback/legacy renderer's strike scheduling.
+                else if (!useFrames&&count > 0 && duration > 2500 && ElapsedMs >= 1800)
                 {
                     float interval = (duration - 2500) / count;
                     int index = Mathf.FloorToInt((ElapsedMs - 1800) / interval);
@@ -48,7 +60,6 @@ namespace TuTienLive.Characters
                     if (LightningVisible)
                     {
                         LightningIndex = index;
-                        if(useFrames)LightningFrameIndex=Mathf.Clamp(Mathf.FloorToInt(((ElapsedMs-1800)%interval)/45),0,3);
                     }
                 }
             }

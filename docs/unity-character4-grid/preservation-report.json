@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "preserved": [
+    "Assets/Scenes/SectScene_Main.unity",
+    "Assets/SectConcept02/Prefabs/Character_1.prefab",
+    "Assets/SectConcept02/Prefabs/Character_2.prefab",
+    "Assets/SectConcept02/Prefabs/Character_3.prefab"
+  ],
+  "assets": [
+    {
+      "source": "public/assets/02/Characters/Character_4/meditation.png",
+      "imported": "unity-client/Assets/Art/SectConcept02/Characters/Character_4/meditation.png",
+      "sha256": "2ccbac5dffdc97f988aeb49f7c024c40d0e01bdfb9b491d1fecff694b7ae2001"
+    },
+    {
+      "source": "public/assets/02/Characters/Character_4/fly.png",
+      "imported": "unity-client/Assets/Art/SectConcept02/Characters/Character_4/fly.png",
+      "sha256": "16b31971cbe5edb7536bc87fbc5e6e628114c1a6c36ff035b1d9e45d30918dba"
+    },
+    {
+      "source": "public/assets/02/Characters/Character_4/attack.png",
+      "imported": "unity-client/Assets/Art/SectConcept02/Characters/Character_4/attack.png",
+      "sha256": "72758a8654a5d92cbc5db0b353a8ba75797c9cfda856b91850db611e196881ff"
+    },
+    {
+      "source": "public/assets/02/Characters/Character_4/celebrate.png",
+      "imported": "unity-client/Assets/Art/SectConcept02/Characters/Character_4/celebrate.png",
+      "sha256": "f9ecc2dc306c7a46e974c66194bd48cfb6dccb429f4f85a46fe6d2f7799a2d4e"
+    }
+  ],
+  "sceneMerge": "Only manager, seat transforms/names, SpawnPoints child list and 13 new seats; retained original camera viewport and other scene documents."
+}

@@ -1,0 +1,61 @@
+{
+  "result": "PASS",
+  "protectedFiles": 1172,
+  "concurrentDataChanges": [
+    {
+      "path": "data/demo/players.json",
+      "baselineSha256": "54f4d0cafe0ecd059510e8b848b10b123411991b55f37b6711d38226ffc3cf76",
+      "observedSha256": "9661f3c607149f37881f8cf0e88035ab7708503bb118f0859dfabd5b586b2d5a",
+      "modifiedAt": "2026-11-08T22:51:02.098Z",
+      "handling": "Preserved current bytes; this publisher never writes player data. Concurrent change origin unverified."
+    }
+  ],
+  "originalSceneDocuments": 791,
+  "addedSceneDocuments": 27,
+  "changedSceneDocuments": [
+    "1015234907"
+  ],
+  "cameraPoseAndViewport": "unchanged",
+  "playerDataAndOlderAssetsPackages": "Older assets/packages and other protected files unchanged; current player data left untouched; concurrent DEMO change listed separately",
+  "config": "Only live.avatarTestEnabled=false added; duration stays8000",
+  "unity": {
+    "passed": 92,
+    "failed": 0,
+    "skipped": 1,
+    "skipReason": "Supplemental HTTP blessing test needs disposable receipt test server; all previous 87 cases and 5 new avatar cases passed"
+  },
+  "node": {
+    "passed": 144,
+    "failed": 0,
+    "skipped": 1
+  },
+  "browser": {
+    "checks": 3,
+    "errors": 0
+  },
+  "sourceHashes": {
+    "unity-client/Assets/Scenes/SectScene_Concept02.unity": "1aa660de3b31afb7f1c23814dfc421a53b6eb3fcfe84663c28589da7b4159690",
+    "liveConfig.js": "d11362e3b60fcb8220a6d8d6bcbbd64d170c867339fd54f47b58b8b3a887baf7",
+    "normalizeEvent.js": "84705fd1740a13360f294e64e00afb5b7b30231c4c6a8685190db39bf944c12e",
+    "gameEventBus.js": "b5087d9305187645016043a499d11abfa344ce0744c2a44c8f5c1919527d8bea",
+    "public/js/livePanel.js": "02f6cbd5889740468c767dff4632eb01e434960e87a05d7f1a6af7716571171f",
+    "caidat.json": "5e043895a719271a334f70ff9d502bd589811d3da89539f6318aa3155372f0fd",
+    "unity-client/Assets/Scripts/Effects/DonorAvatarView.cs": "9bdc87ffa769043bbb29ecccaa6b95639ea0417af176512ec6af5b02e218e1f9",
+    "unity-client/Assets/Scripts/Effects/DonorAvatarView.cs.meta": "e54964b9d1c86091bd6ff2e6c6ef07c17b186cd880d576b9f522588be27b2d10",
+    "unity-client/Assets/Scripts/Network/StateMapper.cs": "05b4f816d37fafe9f8bb625f65edd3c54def06ab872d6979a1501ce7eb720702",
+    "unity-client/Assets/Scripts/Network/StateMapper.cs.meta": "f57016a5a389eca7898d9d0fcfabd8fc5e3e29730838d299cf527bc92456f737",
+    "unity-client/Assets/Scripts/Effects/LiveAvatarTestPresenter.cs": "b2e4c2bdb4f0fcfcd4e1386044cd744e2cba8244e1f5562f1aeee4001cd3faea",
+    "unity-client/Assets/Scripts/Effects/LiveAvatarTestPresenter.cs.meta": "3c3d650e1729c75b8a40703aa8cc6828abf6103952491b813fb302d4bc847329",
+    "unity-client/Assets/Editor/LiveAvatarTestSetup.cs": "312876fd710dd6568a8ee76f68c342a504d6a1577c840f094cabfd7d88c15930",
+    "unity-client/Assets/Editor/LiveAvatarTestSetup.cs.meta": "91965859bfa1ff3e1ecec662a0b1f7308417b2a27dc8ae44853359065bbc4df4",
+    "unity-client/Assets/Tests/Editor/LiveAvatarTestTests.cs": "8086f4a5e38a10ef56fcdf58f2afb5aadd690313795c5e6f7ba14e36f96ad0bc",
+    "unity-client/Assets/Tests/Editor/LiveAvatarTestTests.cs.meta": "3be573ebf3037ebcb7a3c90c3868e0e308c281b49113aa31c179b5ee60dbe4ce"
+  },
+  "unverified": [
+    "Real TikTok LIVE avatar CDN/download",
+    "new Windows build",
+    "OBS",
+    "stream FPS"
+  ],
+  "finalAudit": "PASS; every original object/camera/viewport retained; only Canvas child list expanded for tested avatar card"
+}

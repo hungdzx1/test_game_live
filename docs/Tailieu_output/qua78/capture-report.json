@@ -1,0 +1,33 @@
+{
+  "gpu": "NVIDIA Quadro M1000M",
+  "samples": [
+    {
+      "sample": "whole-sect",
+      "visible": 25,
+      "zoom": 9.6
+    },
+    {
+      "sample": "idle",
+      "mode": "pan",
+      "zoom": 9.192707
+    },
+    {
+      "sample": "personal",
+      "recipient": "qua:12",
+      "zoom": 2.4,
+      "sprite": "Assets/Art/SectConcept02/Characters/Character_2/meditation.png",
+      "spriteBounds": "Center: (0.00, 5.77, 0.00), Extents: (6.27, 6.27, 0.10)",
+      "bodyBounds": "Center: (0.00, -4.46, 8.00), Extents: (0.70, 0.70, 0.01)",
+      "viewport": "(0.50, 0.50, 28.00)",
+      "camera": "(0.00, -4.46, -20.00)",
+      "bodyPosition": "(0.00, -5.11, 8.00)",
+      "namePosition": "(0.00, -3.49, 8.00)",
+      "nameCanvas": "Nameplate Canvas"
+    },
+    {
+      "sample": "ritual",
+      "mode": "follow",
+      "zoom": 4.5
+    }
+  ]
+}

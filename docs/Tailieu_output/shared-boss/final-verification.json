@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "protectedFiles": 860,
+  "existingSceneDocuments": 399,
+  "addedSceneDocuments": 22,
+  "node": {
+    "pass": 121,
+    "fail": 0,
+    "skip": 1
+  },
+  "unity": {
+    "pass": 65,
+    "fail": 0,
+    "skip": 0
+  },
+  "allNewSceneObjects": "match tested scene",
+  "limitations": [
+    "Windows build",
+    "OBS",
+    "real LIVE",
+    "subjective audio"
+  ]
+}

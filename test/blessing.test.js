@@ -9,7 +9,7 @@ test('Ban Phuc refresh extends time by 30s and stays x2; tea/root remain additiv
   advance(e,10000);assert.equal(p.cultivation,40);e.items.useItem(p,'blessing');assert.deepEqual(e.items.blessingSnapshot(),{remainingMs:50000,durationMs:60000,multiplier:2});assert.equal(e.globalBuffs.length,1);assert.equal(e.items.getEffectiveStats(p).cultivationPerSecond,4);
   e.join(createPlayer('new','Mới'));assert.equal(e.items.getEffectiveStats(e.getPlayer('new')).cultivationPerSecond,4);
   e.items.grantItem(p,'tea');e.items.useItem(p,'tea');assert.equal(e.items.getEffectiveStats(p).cultivationPerSecond,8);
-  e.items.grantItem(p,'root');e.items.useItem(p,'root');assert.equal(e.items.getEffectiveStats(p).cultivationPerSecond,12);
+  e.items.grantItem(p,'root');e.items.useItem(p,'root');assert.equal(e.items.getEffectiveStats(p).cultivationPerSecond,14);
 });
 test('Sect promotion gives 30s per actual level, reconciled likes and MAX do not repeat blessing',()=>{
   const e=setup(),raw=likes(1000);e.liveEvents.accept(raw);e.liveEvents.accept(raw);assert.equal(e.items.blessingSnapshot().remainingMs,30000);
@@ -21,7 +21,7 @@ test('Mapped gift combos extend once at final count; before-join and battle gift
   const e=setup(),meta={streamId:'blessing',giftType:1,comboId:'batch',repeatEnd:false};
   e.liveEvents.accept(gift({soLuong:1,rawMeta:meta}));e.liveEvents.accept(gift({soLuong:3,rawMeta:meta}));assert.equal(e.globalBuffs.length,0);
   const final=gift({soLuong:3,rawMeta:{...meta,repeatEnd:true}});e.liveEvents.accept(final);e.liveEvents.accept(final);e.liveEvents.accept(gift({soLuong:3,rawMeta:{...meta,repeatEnd:true}}));assert.equal(e.items.blessingSnapshot().remainingMs,90000);assert.equal(e.globalBuffs.length,1);
-  e.setPhase('battle');e.liveEvents.accept(gift());assert.equal(e.getPlayer('blessed').inventory.blessing,1);assert.equal(e.items.blessingSnapshot().remainingMs,90000);e.setPhase('cultivation');assert.equal(e.items.blessingSnapshot().remainingMs,120000);
+  e.setPhase('battle');e.liveEvents.accept(gift());assert.equal(e.getPlayer('blessed').inventory.blessing,0);assert.equal(e.items.blessingSnapshot().remainingMs,120000);e.setPhase('cultivation');assert.equal(e.items.blessingSnapshot().remainingMs,120000);
   const guest=gift({userId:'not-joined'});e.liveEvents.accept(guest);assert.equal(e.items.blessingSnapshot().remainingMs,120000);e.join(createPlayer('not-joined','Khách'));e.liveEvents.deliver('not-joined');e.liveEvents.flush();assert.equal(e.items.blessingSnapshot().remainingMs,150000);
 });
 test('Countdown freezes in battle/pause/stopped, expires exactly, and restart has no offline gain',()=>{

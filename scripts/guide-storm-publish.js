@@ -1,0 +1,24 @@
+import fs from 'node:fs/promises';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
+const root='unity-client/',validation='test-results/unity-concept02/project/',out='test-results/guide-storm/',evidence='docs/Tailieu_output/guide-storm/',scene='Assets/Scenes/SectScene_Concept02.unity';
+const code=['Assets/Editor/K01GuideSetup.cs','Assets/Scripts/Effects/TribulationController.cs','Assets/Tests/Editor/K01GuideTests.cs','Assets/Tests/Editor/Concept02StormTests.cs','Assets/Editor/GuideStormAdjustment.cs'];
+const hash=b=>createHash('sha256').update(b).digest('hex'),baseline=JSON.parse(await fs.readFile(out+'baseline.json','utf8')),parse=s=>new Map(s.split(/(?=^--- !u!)/m).slice(1).map(b=>[b.match(/^--- !u!\d+ &(\d+)/)[1],b]));
+let protectedFiles=0;for(const[file,h]of Object.entries(baseline)){if(file===root+scene||code.some(p=>file===root+p))continue;assert.equal(hash(await fs.readFile(file)),h,'Protected/concurrent change: '+file);protectedFiles++;}
+for(const p of code)for(const suffix of ['','.meta'])assert.equal(hash(await fs.readFile(root+p+suffix)),hash(await fs.readFile(validation+p+suffix)),'Untested source: '+p+suffix);
+const xml=await fs.readFile(out+'tests.xml','utf8');assert.match(xml,/<test-run[^>]*result="Passed"[^>]*total="58"[^>]*passed="58"[^>]*failed="0"[^>]*skipped="0"/);
+const codeTime=Math.max(...await Promise.all(code.map(async p=>(await fs.stat(root+p)).mtimeMs)));assert.ok((await fs.stat(out+'tests.xml')).mtimeMs>=codeTime,'Stale tests');assert.ok((await fs.stat(evidence+'capture-report.json')).mtimeMs>=codeTime,'Stale capture');
+const capture=JSON.parse(await fs.readFile(evidence+'capture-report.json','utf8'));assert.ok(capture.gpu&&!/null/i.test(capture.gpu));assert.ok(Math.abs(capture.guideRight-404.4)<.01);assert.ok(capture.timeline.every(t=>t.elapsedMs<12000?t.visible&&t.frame>=0&&t.frame<4:!t.visible&&t.frame===-1));assert.deepEqual(capture.timeline.slice(0,5).map(t=>t.frame),[0,1,2,3,0]);
+const original=await fs.readFile(out+'original-scene.unity','utf8'),a=parse(original),b=parse(await fs.readFile(validation+scene,'utf8'));
+const object=[...a].find(([,s])=>s.includes('  m_Name: K01_PlayGuide\n'));assert.ok(object);const guide=[...a].find(([,s])=>s.startsWith('--- !u!224 ')&&s.includes('  m_GameObject: {fileID: '+object[0]+'}'));assert.ok(guide);
+const noViewport=s=>s.replace(/(  m_NormalizedViewPortRect:\n)[\s\S]*?(?=  near clip plane:)/,'$1'),noLayout=s=>s.replace(/^  m_(LocalPosition|LocalScale|AnchoredPosition): .*\n/gm,'');
+assert.equal(a.size,b.size,'Scene objects added or removed');
+for(const[id,s]of a){assert.ok(b.has(id));const now=b.get(id);if(s===now)continue;if(id===guide[0]){assert.equal(noLayout(s),noLayout(now));assert.match(now,/  m_LocalScale: \{x: 0.9, y: 0.9, z: 1\}/);assert.match(now,/  m_AnchoredPosition: \{x: 12, y: -322\}/);continue;}if(s.startsWith('--- !u!20 ')&&noViewport(s)===noViewport(now))continue;throw Error('Unexpected original document change '+id);}
+if(process.argv.includes('--verify')){
+ const report=JSON.parse(await fs.readFile(evidence+'preservation-report.json','utf8')),source=parse(await fs.readFile(root+scene,'utf8'));
+ for(const[p,h]of Object.entries(report.sourceHashes))assert.equal(hash(await fs.readFile(p)),h,p);
+ for(const[id,s]of a)assert.equal(source.get(id),id===guide[0]?b.get(id):s,'Unexpected source document '+id);
+ await fs.writeFile(evidence+'final-verification.json',JSON.stringify({...report,result:'PASS',finalAudit:'All original documents retained; only K01 root layout updated'},null,2)+'\n');console.log(`PASS final: ${protectedFiles} protected files; ${a.size} scene documents; only K01 layout changed.`);process.exit(0);
+}
+assert.equal(await fs.readFile(root+scene,'utf8'),original,'Source scene concurrently changed');
+const merged=original.split(/(?=^--- !u!)/m).map(s=>s.match(/^--- !u!\d+ &(\d+)/)?.[1]===guide[0]?b.get(guide[0]):s).join('');await fs.writeFile(root+scene,merged);
+const tracked=[root+scene,...code.flatMap(p=>[root+p,root+p+'.meta'])],report={result:'PASS',protectedFiles,sceneDocuments:a.size,changedSceneDocument:guide[0],originalObjects:'all preserved; only K01 root position/scale changed',cameraViewportAndPoses:'unchanged',guide:{left:12,scale:.9,width:392.4,right:404.4},lightning:'four 45ms frames loop until server duration; pause freezes; result/battle/disconnect clear; legacy fallback preserved',sourceHashes:Object.fromEntries(await Promise.all(tracked.map(async p=>[p,hash(await fs.readFile(p))]))),unity:{passed:58,failed:0,skipped:0},backend:'unchanged',unverified:['Windows build','OBS','real LIVE']};
+await fs.writeFile(evidence+'preservation-report.json',JSON.stringify(report,null,2)+'\n');await fs.copyFile(out+'tests.xml',evidence+'unity-tests.xml');console.log(`PASS publish: ${protectedFiles} protected files; ${a.size} original documents; one K01 layout change.`);

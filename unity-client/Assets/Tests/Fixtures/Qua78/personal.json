@@ -1,0 +1,18 @@
+{
+  "type": "game:event",
+  "version": 1,
+  "sessionId": "4aa5f9c9-40d8-447a-90ae-589add29e111",
+  "seq": 2,
+  "serverTime": 1794135246486,
+  "payload": {
+    "eventId": "4f708f90-6af7-4bdc-90f3-a306be69eaf5",
+    "kind": "item:received",
+    "userId": "qua:12",
+    "timestamp": 1794135246486,
+    "item": "tea",
+    "itemName": "Trà Ngộ Đạo",
+    "count": 1,
+    "source": "admin_demo",
+    "scope": "personal"
+  }
+}

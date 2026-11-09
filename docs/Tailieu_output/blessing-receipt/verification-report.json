@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "scope": "Qua_Tbao.md section 6, Unity Concept02",
+  "unity": "6000.5.9f1",
+  "node": {
+    "pass": 118,
+    "fail": 0,
+    "skip": 1,
+    "reason": "Real TikTok LIVE unavailable"
+  },
+  "unityTests": {
+    "pass": 58,
+    "fail": 0,
+    "skip": 0,
+    "includes": "Editor, Play Mode, HTTP/WebSocket, one SFX, item camera regression"
+  },
+  "gpu": "NVIDIA Quadro M1000M",
+  "resolutions": [
+    "1080x1920",
+    "720x1280"
+  ],
+  "protectedFiles": 865,
+  "unverified": [
+    "Windows build",
+    "OBS capture",
+    "Real TikTok LIVE",
+    "Subjective speaker/headphone listening"
+  ]
+}

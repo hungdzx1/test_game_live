@@ -1,5 +1,11 @@
 # Unity 2.5D — Giai đoạn 02: WebSocket client
 
+**Mục9,09/11/2026:** envelope v1 giữ nguyên. `blessing:activated` có thể thêm `donor:{userId,name,avatar}` cho Ban Phúc do viewer donate. Tên là chuỗi đã làm sạch, avatar là URL HTTPS CDN TikTok được kiểm tra hoặc null; StateMapper kiểm tra shape/độ dài, Unity có cache ảnh bộ nhớ và fallback chữ đầu. Boss/cấp tông không có donor. Metadata chỉ nằm trên event và quà chưa giao trong inbox tùy chọn, không thêm profile/avatar vào player schema; backend không tải ảnh. Reconnect không phát lại hoạt cảnh cũ. `player:joined` hiện hữu kích hoạt bay nhập môn; `player:returned` không bay. Camera/đường bay là trình diễn Unity, không phát sinh lệnh hoặc tọa độ ghi ngược về server. Xem `Tailieu_output/camera9/README.md`.
+
+**Cập nhật Qua_Tbao phần7–8,08/11/2026:** `item:received` thêm `scope:'personal'|'all'` để phân biệt hoạt cảnh; không đổi envelope v1. Boss/thưởng tông môn giữ all qua hàng chờ và restart; receipt cũ không có scope dùng source để tương thích. Save nghi thức có thể thêm `usedPills/preparedPills`; save cũ thiếu vẫn đọc được. Tự dùng quà và chọn số Đan nằm ở Node, Unity chỉ trình diễn và không gửi lệnh tiêu vật phẩm. Kết quả/hướng dẫn: [quà tự dùng và camera](Tailieu_output/qua78/README.md).
+
+**Cập nhật BOSS 08/11/2026:** envelope/session/sequence giữ nguyên. Battle mới có `format: shared-boss-v1`, `bossIndex`0–2, đúng một field, `view.activeBoss` chứa `assetId`Boss_1/2/3, `type`, `hp/maxHp`, `elapsedMs/durationMs`; `bossRemainingMs` là hạn riêng boss hiện tại. Mapper kiểm tra miền số và giữ model bất biến. Client chỉ vẽ HP/animation, không tính damage hoặc thưởng và không gửi lệnh gameplay. Payload legacy vẫn đọc được cho fixture/migration. Xem [hướng dẫn boss chung](Tailieu_output/shared-boss/README.md) và mục BOSS mới nhất của `../PROGRESS.md`; mô tả phạm vi giai đoạn02 bên dưới là lịch sử.
+
 Giai đoạn này chỉ thêm client đọc trạng thái và scene debug. Node.js vẫn quyết định gameplay. Không sửa backend, protocol, config game, dữ liệu DEMO/LIVE, /song hoặc project Unity cũ. Không triển khai đồ họa/bước 03, commit hay push.
 
 ## Môi trường và lựa chọn
@@ -31,6 +37,7 @@ EventDispatcher chỉ phát event đã lọc trên main thread. Event là thông
 | battleService.snapshot() | BattleState, FieldSummary, BattleField | fields là 11 summary; chỉ view có participants/mobs/boss chi tiết; view/manualView nullable |
 | Field participants / monsters | BattleParticipant, MonsterState | participants dictionary theo userId, cooldowns key 1/2; không tự tính damage/HP |
 | GameEngine.event() và server commit | GameEvent | eventId/kind/userId nullable/timestamp + dữ liệu mở rộng theo kind, không sáng tác payload chung cho mọi event |
+| ItemService.grantItem — cập nhật mục5 Qua_Tbao.md | `item:received` | Sau khi cấp thành công: userId, item, itemName, count, source; additive event v1, không đổi schema lưu. Unity chỉ trình diễn, không cấp lại đồ. |
 | config/interactions/battleResult/tiktok, trường chưa có typed getter | immutable JSON data | CopyField/CopyJson giữ dictionary động và unknown fields, không chuyển thành logic Unity |
 
 Fixtures trong Assets/Tests/Fixtures được tạo bằng scripts/unity-network-fixtures.js: engine thật trong bộ nhớ, hai người chơi giả (Unicode và ID __proto__), RNG cố định cho fixture. Có stopped/cultivation/active ritual/completed/battle/paused battle/battle result và 12 event engine phát. provenance.json ghi nguồn/SHA-256; giữ ID/time như lần chạy thật, không đọc save người dùng. Tái xuất fixture sẽ thay ID/time.
@@ -107,4 +114,20 @@ Theo `docs/UI_BANPHUC.md`, snapshot bổ sung `interactions.blessing` tùy chọ
 Quà đã ánh xạ thành vật phẩm Ban Phúc dùng cùng luồng inventory/activation/chống trùng hiện hữu. Lên cấp tông môn1→2 hoặc2→3 kích hoạt30 giây mỗi cấp; tim làm đầy MAX không thưởng thêm. Ban Phúc từ lên cấp trong battle/pause/stopped giữ thời gian chờ tu luyện; quà/vật phẩm trong battle vẫn chờ theo luật cũ. Điểm nhiệm vụ/cooldown `wish` không đổi. Event mới `blessing:activated` dùng envelope `game:event` hiện hữu, chứa source/count/remainingMs/durationMs/multiplier; client không dùng event để tự tính buff.
 
 Save vẫn schemaVersion2; `runtime.globalBuffs` giữ mảng tương thích, chỉ còn tối đa một Ban Phúc khi tạo/khôi phục, thêm `durationMs` tùy chọn. Save cũ được gộp tổng remaining thành một x2, không bỏ thời gian và không cộng lại thưởng cấp đã đạt. Lưu riêng DEMO/LIVE, restart không giảm thời gian offline. Trà/linh căn/giới hạn tổng multiplier giữ luật cộng nguồn khác nhau. Kiểm thử riêng tại `test/blessing*.test.js`, Unity và ảnh tại `docs/unity-blessing/`.
+
+# Bổ sung TB02 — 09/11/2026
+
+Envelope v1 và schema save giữ nguyên. Boss shared-boss mới thêm hai trường tùy chọn `warningDurationMs:3000`, `warningElapsedMs:0..3000` trên `battle.view.activeBoss` và history. Thiếu cả hai trường nghĩa là save/snapshot cũ, không có cảnh báo. Cặp trường phải đầy đủ, elapsed trong giới hạn; khi cảnh báo chưa hết, combat `elapsedMs` phải bằng0. DTO/StateMapper kiểm tra các điều kiện này.
+
+`battle.bossWarningRemainingMs` là phần cảnh báo còn lại; `battle.bossRemainingMs` giữ toàn bộ thời gian đánh khi intro, sau đó giảm theo combat. Snapshot `remainingMs` chuyển từ cảnh báo sang combat khi intro kết thúc. Node phát `boss:spawned` lúc tạo boss/cảnh báo và `boss:appeared` khi đủ3 giây; `battle:hit` chỉ có sau intro, `skill:null/'1'/'2'` chọn SFX. Client không tính HP/damage, không gửi xác nhận để quyết định thời gian trận. Pause/stopped đóng băng cả intro, reconnect dùng snapshot mới nhất, không dựa vào nhận đủ sự kiện.
+
+Unity đợi snapshot xác nhận `warningElapsedMs>=warningDurationMs` trước khi hiện boss. Nội suy chỉ dùng cho số đếm/rung/seek âm thanh; không kết thúc intro gameplay tại client. Tài nguyên và kết quả kiểm chứng: `docs/Tailieu_output/boss-notice-designs/implemented/README.md`.
+
+---
+
+# Thử avatar LIVE — bổ sung09/11/2026
+
+**Sửa định dạng avatar09/11:** event v1 vẫn chứa URL CDN gốc. `DonorAvatarView` chuyển request sang cùng host/port Node từ endpoint WebSocket: `GET /api/avatar?url=<URL gốc đã encode>`. Backend trả `image/png` tối đa256×256, không thay URL có chữ ký. Header `X-Avatar-Source-Format` dùng định dạng đã đọc từ bytes; lỗi dùng HTTP400/413/415/429/502/504 và mã ngắn `X-Avatar-Error`. Client phân biệt lỗi giải mã/kích thước, HTTP404 nhắc restart Node. Chỉ request loopback/cùng nguồn theo guard server hiện hữu, HTTPS CDN allowlist, không redirect, cache8 ảnh RAM/60 giây. Không có thao tác ghi gameplay. Hướng dẫn/giới hạn: `Tailieu_output/avatar-format-fix/README.md`.
+
+Envelope v1 thêm loại sự kiện tùy chọn `avatar:test`, có `userId` TikTok ổn định, `name`, `avatar` (URL HTTPS đã kiểm tra hoặc null), `source:'tiktok'`, `durationMs:10000`. Chỉ phát khi nguồn TikTok/LIVE, bật `config.live.avatarTestEnabled` và bình luận đúng `test avt`. Không giả sự kiện quà/Ban Phúc hoặc thêm avatar vào player DTO. Unity kiểm tra kiểu/độ dài/source/duration; cấu hình cũ thiếu flag tương đươngfalse. Presenter chỉ hiện thẻ chẩn đoán, không ghi ngược gameplay. Hướng dẫn: `docs/Tailieu_output/live-avatar-test/README.md`.
 

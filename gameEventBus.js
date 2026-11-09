@@ -1,7 +1,7 @@
 import {CommandRouter,parseCommand} from './commandRouter.js';
 import {cleanName} from './playerStore.js';
 import {liveRulesFor,giftRulesFor,matchGift} from './liveConfig.js';
-import {validateEvent,eventDigest} from './normalizeEvent.js';
+import {validateEvent,eventDigest,safeAvatar,isAvatarTestCommand} from './normalizeEvent.js';
 import {ITEM_NAMES} from './cultivationConfig.js';
 import {SectEnergy} from './sectEnergy.js';
 import {BLESSING_DURATION_MS} from './itemService.js';
@@ -38,8 +38,11 @@ export class GameEventBus{
     if(this.seen.size>=MAX_RECEIPTS-1){this.diagnostic('Bộ chống trùng đã đầy; giữ an toàn, chờ bản ghi hết hạn trước khi nhận thêm.');return {accepted:false,reason:'dedup_full'};}
     try{
       if(event.loai==='binhluan'){
+        const avatarCommand=isAvatarTestCommand(event.noiDung),avatarAllowed=e.mode==='live'&&event.source==='tiktok'&&this.rules.avatarTestEnabled;
+        if(avatarAllowed&&avatarCommand)
+          e.event('avatar:test',event.userId,{name:event.ten,source:'tiktok',avatar:safeAvatar(event.avatar),durationMs:10000});
         const command=parseCommand(event.noiDung,{admin});
-        this.diagnostic(`[Bình luận] ${event.ten}: ${cleanName(event.noiDung,this.words,200)}${command?'': ' → không phải lệnh game'}`);
+        this.diagnostic(`[Bình luận] ${event.ten}: ${cleanName(event.noiDung,this.words,200)}${command?'':avatarCommand?avatarAllowed?' → đã gửi thử avatar':' → thử avatar chưa bật trong LIVE':' → không phải lệnh game'}`);
         if(command){
           if(command==='nhap mon'&&e.players.has(event.userId)){const p=e.getPlayer(event.userId);p.lastSeenAt=this.now();this.notice(event,'player:returned');}
           else this.commands.handle({eventId:event.eventId,source:event.source,userId:event.userId,name:event.ten,text:event.noiDung},{admin});
@@ -70,20 +73,23 @@ export class GameEventBus{
     if(!mapping){this.diagnostic('Quà chưa có ánh xạ; không cấp vật phẩm. Thêm quy tắc trước khi thử lại.');throw new Error('Chưa có quy tắc cho quà này.');}
     let inbox=this.inbox.get(event.userId);if(!inbox){if(this.inbox.size>=MAX_INBOX)throw new Error('Danh sách quà chờ đã đầy; sự kiện chưa được chốt.');inbox={name:event.ten,items:emptyItems()};}
     const amount=event.soLuong*mapping.quantity;if(inbox.items[mapping.item]+amount>1e9)throw new Error('Quà chờ vượt giới hạn; sự kiện chưa được chốt.');
+    if(mapping.item==='blessing')inbox.donor={userId:event.userId,name:event.ten,avatar:safeAvatar(event.avatar)};
     inbox.items[mapping.item]+=amount;this.inbox.set(event.userId,inbox);this.deliver(event.userId);
     const total=event.soKimCuong*event.soLuong;
     if(this.notice(event,'live:gift',{giftName:event.qua,diamonds:total,quantity:event.soLuong,item:mapping.item,itemName:ITEM_NAMES[mapping.item],itemCount:amount,effect:mapping.effect,waiting:!this.engine.players.has(event.userId)}))this.banner={name:event.ten,userId:event.userId,giftName:event.qua,diamonds:total,itemName:ITEM_NAMES[mapping.item],item:mapping.item,count:amount,expiresAt:this.now()+4000};
   }
   deliver(userId){
     const p=this.engine.players.get(userId),inbox=this.inbox.get(userId);if(!p||!inbox)return;
-    let activate=this.activations.get(userId);if(!activate)activate=emptyItems();
     for(const item of Object.keys(ITEM_NAMES)){
       const count=Math.min(inbox.items[item],Math.max(0,100000-p.inventory[item]));if(!count)continue;
       // grantItem is the common inventory mutation entry point (bounded batches).
-      let left=count;while(left>0){const step=Math.min(100,left);this.engine.items.grantItem(p,item,step,'viewer_gift');left-=step;}
-      inbox.items[item]-=count;activate[item]+=count;
+      let all=Math.min(count,inbox.allItems?.[item]??0),personal=count-all;
+      for(const [amount,scope]of [[all,'all'],[personal,'personal']]){
+        let left=amount;while(left>0){const step=Math.min(100,left);this.engine.items.receiveItem(p,item,step,scope==='all'?'sect_reward':'viewer_gift',{scope,...(scope==='personal'&&item==='blessing'?{donor:{userId:p.userId,name:inbox.donor?.name??inbox.name,avatar:safeAvatar(inbox.donor?.avatar)}}:{})});left-=step;}
+      }
+      if(inbox.allItems)inbox.allItems[item]-=all;inbox.items[item]-=count;
+      if(item==='camera'&&personal){const activate=this.activations.get(userId)??emptyItems();activate.camera+=personal;this.activations.set(userId,activate);}
     }
-    if(Object.values(activate).some(n=>n>0))this.activations.set(userId,activate);
     if(!Object.values(inbox.items).some(n=>n>0))this.inbox.delete(userId);
   }
   like(event){
@@ -118,23 +124,26 @@ export class GameEventBus{
       else{
         const ids=reward.recipients.filter(id=>e.players.has(id));
         if(this.inbox.size+ids.filter(id=>!this.inbox.has(id)).length>MAX_INBOX||ids.some(id=>(this.inbox.get(id)?.items[reward.item]??0)+reward.quantity>1e9)){this.diagnostic('Quà cấp tông môn giữ chờ vì túi chờ đầy.');return;}
-        for(const id of ids){const inbox=this.inbox.get(id)??{name:e.players.get(id).name,items:emptyItems()};inbox.items[reward.item]+=reward.quantity;this.inbox.set(id,inbox);this.deliver(id);}
+        for(const id of ids){const inbox=this.inbox.get(id)??{name:e.players.get(id).name,items:emptyItems()};inbox.allItems??=emptyItems();inbox.items[reward.item]+=reward.quantity;inbox.allItems[reward.item]+=reward.quantity;this.inbox.set(id,inbox);this.deliver(id);}
       }
       this.levelRewards.shift();e.important=true;
     }
   }
   flush(){
     this.deliverLevelRewards();
-    const e=this.engine;if(e.phase!=='cultivation')return;
+    const e=this.engine;
     if(this.wish.pendingBlessings){e.items.activateBlessing(this.wish.pendingBlessings,'community_likes');this.wish.pendingBlessings=0;}
-    if(this.wish.pendingPoints.length){for(const reward of this.wish.pendingPoints.splice(0))for(const id of reward.ids){const p=e.players.get(id);if(p)p.questState.points=Math.min(Number.MAX_SAFE_INTEGER,p.questState.points+reward.points);}e.important=true;}
-    for(const id of this.inbox.keys())this.deliver(id);
+    if(e.phase==='cultivation'&&this.wish.pendingPoints.length){for(const reward of this.wish.pendingPoints.splice(0))for(const id of reward.ids){const p=e.players.get(id);if(p)p.questState.points=Math.min(Number.MAX_SAFE_INTEGER,p.questState.points+reward.points);}e.important=true;}
+    if(e.phase==='cultivation')for(const id of this.inbox.keys())this.deliver(id);
     let budget=50;
     for(const [id,items]of this.activations){const p=e.players.get(id);if(!p)continue;
       for(const item of Object.keys(ITEM_NAMES))while(items[item]>0&&budget>0){
+        if(item==='pill'){items[item]=0;break;} // Old activation saves must not pre-consume pills.
+        if(item==='camera'&&e.phase!=='cultivation')break;
         if(p.inventory[item]<=0){items[item]=0;break;}
-        try{e.items.useItem(p,item);items[item]--;budget--;}
-        catch{items[item]=0;break;} // Permanent root, Pmax/prepared-pill/camera limits: keep extras in inventory.
+        if(item==='tea'&&p.buffs.length>=100)break;
+        try{e.items.useItem(p,item,{received:true});items[item]--;budget--;}
+        catch{items[item]=0;break;} // An already permanent root/camera cooldown keeps surplus in inventory.
       }
       if(!Object.values(items).some(n=>n>0))this.activations.delete(id);if(!budget)break;
     }
@@ -147,6 +156,8 @@ export class GameEventBus{
     const finite=n=>Number.isSafeInteger(n)&&n>=0&&n<=Number.MAX_SAFE_INTEGER;
     if(raw.version!==1||!Array.isArray(raw.seen)||raw.seen.length>MAX_RECEIPTS||raw.seen.some(pair=>!Array.isArray(pair)||pair.length!==2||typeof pair[0]!=='string'||pair[0].length>100||!finite(pair[1]))||!Array.isArray(raw.combos)||raw.combos.length>5000||!Array.isArray(raw.inbox)||raw.inbox.length>MAX_INBOX||!Array.isArray(raw.activations)||raw.activations.length>500||!Array.isArray(raw.likeTotals)||raw.likeTotals.length>5000||!raw.wish||!finite(raw.wish.power)||!finite(raw.wish.cooldownUntil)||!finite(raw.wish.awards)||!Array.isArray(raw.wish.pendingPoints)||raw.wish.pendingPoints.length>1000)invalid();
     for(const [id,entry]of raw.inbox)if(typeof id!=='string'||!/^[\w:-]{1,100}$/.test(id)||!entry||typeof entry.name!=='string'||!entry.items||Object.keys(ITEM_NAMES).some(k=>!finite(entry.items[k])||entry.items[k]>1e9))invalid();
+    for(const [,entry]of raw.inbox)if(entry.allItems!==undefined&&(!entry.allItems||typeof entry.allItems!=='object'||Array.isArray(entry.allItems)||Object.keys(ITEM_NAMES).some(k=>!finite(entry.allItems[k])||entry.allItems[k]>entry.items[k])))invalid();
+    for(const [id,entry]of raw.inbox)if(entry.donor!==undefined&&(!entry.donor||entry.donor.userId!==id||typeof entry.donor.name!=='string'||entry.donor.name.length>100||entry.donor.avatar!==null&&safeAvatar(entry.donor.avatar)!==entry.donor.avatar))invalid();
     for(const [id,items]of raw.activations)if(!this.engine.players.has(id)||!items||Object.keys(ITEM_NAMES).some(k=>!finite(items[k])||items[k]>1e9))invalid();
     for(const [key,c]of raw.combos)if(typeof key!=='string'||!c||!finite(c.count)||!finite(c.price)||!finite(c.expires))invalid();
     if(raw.likeDeltas&&(!Array.isArray(raw.likeDeltas)||raw.likeDeltas.length>5000))invalid();

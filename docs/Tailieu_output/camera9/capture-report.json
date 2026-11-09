@@ -1,0 +1,65 @@
+{
+  "gpu": "NVIDIA Quadro M1000M",
+  "samples": [
+    {
+      "sample": "pan",
+      "cameraMode": "pan",
+      "subject": null,
+      "arrivalCount": 0,
+      "receipt": null,
+      "donor": null,
+      "halfHeight": 9.024
+    },
+    {
+      "sample": "zoom",
+      "cameraMode": "zoom",
+      "subject": "cam:1",
+      "arrivalCount": 0,
+      "receipt": null,
+      "donor": null,
+      "halfHeight": 4.2
+    },
+    {
+      "sample": "follow",
+      "cameraMode": "follow",
+      "subject": "cam:12",
+      "arrivalCount": 0,
+      "receipt": null,
+      "donor": null,
+      "halfHeight": 4.5
+    },
+    {
+      "sample": "arrival",
+      "cameraMode": "arrival",
+      "subject": "cam:26",
+      "arrivalCount": 1,
+      "receipt": null,
+      "donor": null,
+      "halfHeight": 5.124528
+    },
+    {
+      "sample": "gift",
+      "cameraMode": "gift",
+      "subject": null,
+      "arrivalCount": 1,
+      "receipt": "cam:12",
+      "donor": null,
+      "halfHeight": 2.4,
+      "cameraPosition": "(0.0000, -4.4647, -20.0000)",
+      "bodyPosition": "(0.0000, -5.1075, 8.0000)",
+      "localBounds": "Center: (0.0000, 5.7684, 0.0000), Extents: (6.2700, 6.2700, 0.1000)",
+      "worldBounds": "Center: (0.0000, -4.4647, 8.0000), Extents: (0.6987, 0.6987, 0.0111)",
+      "spriteBounds": "Center: (0.0000, 5.7684, 0.0000), Extents: (6.2700, 6.2700, 0.1000)",
+      "subjectViewport": "(0.5000, 0.5000, 28.0000)"
+    },
+    {
+      "sample": "donor",
+      "cameraMode": "overview",
+      "subject": null,
+      "arrivalCount": 0,
+      "receipt": null,
+      "donor": "Đạo hữu ban phúc",
+      "halfHeight": 9.6
+    }
+  ]
+}

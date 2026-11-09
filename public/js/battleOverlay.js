@@ -1,7 +1,7 @@
 export class BattleOverlay{
   constructor(){
     this.panel=document.createElement('aside');this.panel.className='battle-hud';this.panel.hidden=true;
-    this.panel.innerHTML='<h2></h2><p class="boss-title"></p><progress max="1" value="0"></progress><p class="boss-hp"></p><ol></ol><small>Tổng sát thương thực vào quái + boss · 1: Kiếm khí / 2: Thiên lôi</small>';
+    this.panel.innerHTML='<h2></h2><p class="boss-title"></p><progress max="1" value="0"></progress><p class="boss-hp"></p><ol></ol><small>Sát thương vào boss · 1: Kiếm khí / 2: Thiên lôi · Thưởng chung khi hạ boss</small>';
     document.getElementById('stage').append(this.panel);this.results=document.createElement('aside');this.results.className='battle-results';this.results.hidden=true;document.getElementById('stage').append(this.results);
   }
   state(s){
@@ -14,11 +14,11 @@ export class BattleOverlay{
     }
     const result=s.battleResult;this.results.hidden=!result||active;
     if(result&&this.resultId!==result.resultId){this.resultId=result.resultId;const title=document.createElement('h2');title.textContent='THIÊN ĐẠO THÔNG CÁO · KHẢI HOÀN';
-      this.results.replaceChildren(title,...result.fields.map(f=>{const row=document.createElement('p');row.textContent=`${f.name}: ${f.results.slice(0,3).map(p=>`${p.rank}. ${p.name} +${p.stages}`).join(' · ')||'Chưa có đóng góp'}${f.bosses.filter(b=>b.status==='dead').map(b=>` | ${b.name}: đòn cuối ${s.players.find(p=>p.userId===b.lastHit)?.name??b.lastHit}`).join('')}`;return row;}));
+      this.results.replaceChildren(title,...result.fields.map(f=>{const row=document.createElement('p');row.textContent=result.format==='shared-boss-v1'?f.bosses.map(b=>`${b.name}: ${b.status==='dead'?'ĐÃ HẠ':'HẾT GIỜ'}${b.rewarded?` · Ban Phúc ×${b.reward.blessings}, Đan ×${b.reward.pills}/tu sĩ`:''}`).join(' | '):`${f.name}: ${f.results.slice(0,3).map(p=>`${p.rank}. ${p.name} +${p.stages}`).join(' · ')}`;return row;}));
     }
   }
   message(e,state){
     const name=state?.players.find(p=>p.userId===e.userId)?.name??'Đạo hữu';
-    return {'battle:prepare':'MA GIỚI XÂM LƯỢC · ĐẠO HỮU XUẤT CHIẾN','battle:return':'KHẢI HOÀN · TRỞ VỀ TÔNG MÔN','battle:result':'Thiên Đạo chốt TOP từng chiến trường','boss:spawned':`${e.name} xuất hiện!`,'boss:killed':`${e.name} ĐÃ TIÊU DIỆT · đòn cuối: ${name}`,'boss:timeout':`${e.name} đã rút lui`,'boss:enraged':`${e.name} CUỒNG NỘ!`,'battle:down':`${name} bị hạ · đang chờ hồi sinh`,'battle:revived':`${name} trở lại chiến trường`,'battle:hit':e.skill?`${name} · ${e.skill==='1'?'Kiếm Khí Trảm':'Thiên Lôi Quyết'} · ${e.damage} sát thương`:null}[e.kind];
+    return {'battle:prepare':'BOSS XUẤT HIỆN · ĐẠO HỮU XUẤT CHIẾN','battle:return':'TRỞ VỀ TÔNG MÔN','battle:result':'Đã hạ boss · Trở về tu luyện','boss:spawned':`${e.name} xuất hiện!`,'boss:killed':`${e.name} ĐÃ TIÊU DIỆT · đòn cuối: ${name}`,'boss:timeout':`${e.name} đã rút lui`,'boss:enraged':`${e.name} CUỒNG NỘ!`,'battle:down':`${name} bị hạ · đang chờ hồi sinh`,'battle:revived':`${name} trở lại chiến trường`,'battle:hit':e.skill?`${name} · ${e.skill==='1'?'Kiếm Khí Trảm':'Thiên Lôi Quyết'} · ${e.damage} sát thương`:null}[e.kind];
   }
 }

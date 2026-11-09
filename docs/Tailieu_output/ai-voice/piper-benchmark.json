@@ -1,0 +1,33 @@
+{
+  "modelLoadMs": 10617.6067,
+  "runs": [
+    {
+      "text": "Thanh Vân",
+      "wasCached": false,
+      "ms": 135.3837999999996,
+      "seconds": 0.6834467120181406,
+      "cacheHitMs": 0.12260000000060245
+    },
+    {
+      "text": "Nguyễn Minh",
+      "wasCached": false,
+      "ms": 116.09169999999904,
+      "seconds": 0.653015873015873,
+      "cacheHitMs": 0.12150000000110595
+    },
+    {
+      "text": "Đạo Hữu Mới",
+      "wasCached": false,
+      "ms": 105.71419999999853,
+      "seconds": 0.9102494331065759,
+      "cacheHitMs": 0.12659999999959837
+    }
+  ],
+  "groupSample": {
+    "text": "Chào mừng đạo hữu Thanh Vân cùng mười người khác gia nhập tông môn!",
+    "seconds": 4.262086167800454,
+    "file": "tools/tts/piper/output/ai-voice-nhap-mon.wav"
+  },
+  "listening": "CHƯA KIỂM CHỨNG",
+  "liveLatency": "CHƯA KIỂM CHỨNG: synthesis/cache benchmark does not measure Unity playback or TikTok LIVE"
+}
